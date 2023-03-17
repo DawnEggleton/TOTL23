@@ -1,3 +1,5 @@
+@import '../global/sizes.scss';
+
 .nav {
     background: var(--bg-content);
     position: fixed;
@@ -142,6 +144,36 @@
         }
     }
 
+    &--profile-icon {
+        padding: 0;
+        background: none;
+        border: none;
+        font-size: var(--sBody);
+        line-height: 200%;
+        color: var(--text-content);
+
+        i {
+            transform: rotate(0deg);
+            transition-duration: 0.5s;
+
+            &.fa-user-xmark {
+                display: none;
+            }
+        }
+
+        &.is-open {
+            i {
+                &.fa-user-xmark {
+                    display: initial;
+                }
+
+                &.fa-user {
+                    display: none;
+                }
+            }
+        }
+    }
+
     &--settings-toggle {
         position: fixed;
         top: var(--menuSize);
@@ -238,6 +270,7 @@
             font-weight: 500;
             background: var(--bg-content);
             transition-duration: 0.3s;
+            border-radius: 2px;
 
             &:hover {
                 background: var(--ltaccent-40);
@@ -245,6 +278,69 @@
 
             &:last-child {
                 margin-bottom: 0;
+            }
+        }
+    }
+
+    &--profile-toggle {
+        position: fixed;
+        top: var(--menuSize);
+        left: var(--menuSize);
+        max-height: calc(100vh - (var(--menuSize) * 2));
+        max-width: calc(100% - (var(--menuSize) * 2));
+        background: var(--bg-alt);
+        width: 325px;
+        padding: 15px;
+        z-index: 50;
+        transform: translateX(-100%);
+        transition-duration: 0.5s;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        &.is-open {
+            transform: translateX(0%);
+        }
+
+        .popout {
+            &--name {
+                font-family: var(--font-head);
+                font-size: 26px;
+                font-weight: bold;
+                line-height: 120%;
+            }
+            &--switch {
+                display: flex;
+                gap: 5px;
+                height: 40px;
+
+                img {
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 2px;
+                }
+
+                #subaccounts_menu {
+                    flex-grow: 1;
+
+                    select {
+                        width: 100%;
+                        height: 40px;
+                        background: var(--bg-content);
+                        border: 1px solid var(--border-main);
+                        padding: 0 10px;
+                        font-size: var(--xsBody);
+                        text-transform: uppercase;
+                        letter-spacing: 0.1em;
+                        font-weight: 600;
+                        border-radius: 2px;
+
+                        option {
+                            font-size: var(--mBody);
+                            letter-spacing: 0;
+                        }
+                    }
+                }
             }
         }
     }

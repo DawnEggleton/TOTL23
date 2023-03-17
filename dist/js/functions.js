@@ -3,10 +3,22 @@ function toggleMenu() {
     document.querySelector('.nav--main-toggle').classList.toggle('is-open');
     document.querySelector('.nav--settings-icon').classList.remove('is-open');
     document.querySelector('.nav--settings-toggle').classList.remove('is-open');
+    document.querySelector('.nav--profile-icon').classList.remove('is-open');
+    document.querySelector('.nav--profile-toggle').classList.remove('is-open');
 }
 function toggleSettings() {
     document.querySelector('.nav--settings-icon').classList.toggle('is-open');
     document.querySelector('.nav--settings-toggle').classList.toggle('is-open');
+    document.querySelector('.nav--menu-icon').classList.remove('is-open');
+    document.querySelector('.nav--main-toggle').classList.remove('is-open');
+    document.querySelector('.nav--profile-icon').classList.remove('is-open');
+    document.querySelector('.nav--profile-toggle').classList.remove('is-open');
+}
+function toggleProfile() {
+    document.querySelector('.nav--profile-icon').classList.toggle('is-open');
+    document.querySelector('.nav--profile-toggle').classList.toggle('is-open');
+    document.querySelector('.nav--settings-icon').classList.remove('is-open');
+    document.querySelector('.nav--settings-toggle').classList.remove('is-open');
     document.querySelector('.nav--menu-icon').classList.remove('is-open');
     document.querySelector('.nav--main-toggle').classList.remove('is-open');
 }

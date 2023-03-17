@@ -32,11 +32,16 @@ header {
   display: flex;
   width: 100%;
   max-width: 500px;
-  background: rgba(235, 235, 235, 0.1);
+  background: var(--bg-transparent);
   border-radius: 2px;
   padding: 15px 20px 20px 20px;
   margin: 15px auto 0;
   gap: 20px; }
+  @media only screen and (max-width: 768px) {
+    .header--info {
+      flex-direction: column;
+      align-items: center;
+      width: max-content; } }
 
 .header--calendar {
   display: grid;
@@ -75,6 +80,10 @@ header {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 5px; }
+  @media only screen and (max-width: 768px) {
+    .header--staff {
+      grid-template-columns: repeat(2, 1fr);
+      width: 100%; } }
   .header--staff a {
     background: var(--ltaccent-40);
     display: flex;
@@ -84,4 +93,8 @@ header {
     font-family: var(--font-head);
     font-size: 20px;
     color: var(--text-body);
-    border-radius: 2px; }
+    border-radius: 2px;
+    min-height: 50px;
+    transition-duration: 0.3s; }
+    .header--staff a:hover {
+      background: var(--ltaccent-55); }

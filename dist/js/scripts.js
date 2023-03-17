@@ -24,3 +24,8 @@ $("table[id='CODE-WRAP']").each(function() {
         "</code></pre></div></div>"
     );
 });
+
+//profile popout linebreaks
+document.querySelectorAll('.popout--name').forEach(breakTitle => {
+    breakTitle.innerHTML = breakTitle.innerText.replace(` `, `<br>`);
+})

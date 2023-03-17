@@ -9,3 +9,32 @@
         background-image: url(https://files.jcink.net/uploads2/legends/lux/noisy_texture_300x300_o14_000000000000002_d10_c_212121_t1.png);
     }
 }
+
+.btn {
+    &--arrow {
+        display: flex;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-style: italic;
+        border-bottom: 1px solid var(--border-main);
+        padding: 0 5px 5px;
+        gap: 20px;
+
+        &::after {
+            content: '\f178';
+            font-family: 'Font Awesome 6 Pro';
+            font-weight: 100;
+            align-self: center;
+            font-style: normal;
+            text-align: right;
+            transform: translateX(0);
+            transition-duration: 0.3s;
+        }
+
+        &:hover {
+            &::after {
+                transform: translateX(10px);
+            }
+        }
+    }
+}

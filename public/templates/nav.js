@@ -8,7 +8,7 @@ const navHTML = `<nav class="nav nav--top">
     <nav class="nav nav--side-left">
         <button class="nav--menu-icon" title="Toggle Menu" onClick="toggleMenu()"><span></span></button>
         <button class="nav--settings-icon" title="Change Settings" onClick="toggleSettings()"><i class="fa-solid fa-gear"></i></button>
-        <a href="profile.html" title="View Profile" class="memOnly"><i class="fa-solid fa-user"></i></a>
+        <button class="nav--profile-icon memOnly is-open" title="User Options" onClick="toggleProfile()"><i class="fa-solid fa-user"></i><i class="fa-solid fa-user-xmark"></i></button>
         <a href="usercp/user-edit.html" title="Edit Profile" class="memOnly"><i class="fa-solid fa-pencil"></i></a>
         <a href="usercp/user-inbox.html" title="Inbox (0)" data-new="0" class="memOnly"><i class="fa-solid fa-envelope"></i></a>
         <a href="#" title="Alerts (0)" data-new="0" class="memOnly"><i class="fa-solid fa-bell"></i></a>
