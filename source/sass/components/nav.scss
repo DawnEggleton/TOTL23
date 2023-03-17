@@ -1,0 +1,251 @@
+.nav {
+    background: var(--bg-content);
+    position: fixed;
+    z-index: 100;
+    color: var(--text-content);
+        
+    a {
+        color: var(--text-content);
+    }
+
+    &--top {
+        top: 0;
+        left: var(--menuSize);
+        width: calc(100% - (var(--menuSize) * 2));
+        height: var(--menuSize);
+        font-size: var(--xsBody);
+        text-transform: uppercase;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        letter-spacing: 0.1em;
+
+        #navstrip {
+            display: flex;
+            gap: var(--sBody);
+            align-items: center;
+            line-height: 100%;
+            text-align: center;
+        }
+    }
+
+    &--side {
+        &-left,
+        &-right {
+            top: 0;
+            width: var(--menuSize);
+            height: 100vh;
+        }
+        &-left {
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: var(--sBody);
+            gap: calc(var(--sBody) / 2);
+        }
+        &-right {
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: var(--sBody);
+        }
+    }
+
+    &--menu-icon {
+        border: 0;
+        background: none;
+        display: block;
+        width: 100%;
+        height: var(--menuSize);
+        padding: 6px;
+
+        span {
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: var(--text-content);
+            margin: -1px 0 10px;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                height: 1px;
+                background: var(--text-content);
+                transition-duration: 0.3s;
+            }
+
+            &::before {
+                top: 5px;
+                width: 75%;
+            }
+
+            &::after {
+                top: 10px;
+                width: 50%;
+            }
+        }
+
+        &:hover {
+            span {
+                &::before,
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+
+        &.is-open {
+            span {
+                background: transparent;
+
+                &::before,
+                &::after {
+                    width: 100%;
+                }
+
+                &::before {
+                    transform: rotate(45deg);
+                }
+
+                &::after {
+                    top: 5px;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+
+    &--settings-icon {
+        padding: 0;
+        background: none;
+        border: none;
+        font-size: var(--sBody);
+        line-height: 200%;
+        color: var(--text-content);
+
+        i {
+            transform: rotate(0deg);
+            transition-duration: 0.5s;
+        }
+
+        &.is-open {
+            i {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    &--settings-toggle {
+        position: fixed;
+        top: var(--menuSize);
+        left: var(--menuSize);
+        max-width: calc(100% - (var(--menuSize) * 2));
+        background: var(--bg-alt);
+        padding: 15px;
+        z-index: 50;
+        transform: translateX(-100%);
+        transition-duration: 0.5s;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        &.is-open {
+            transform: translateX(0%);
+        }
+
+        button {
+            border: none;
+            background: none;
+            display: flex;
+            gap: 15px;
+            font-size: var(--xsBody);
+            text-transform: uppercase;
+            align-items: center;
+            justify-content: space-between;
+            letter-spacing: 0.1em;
+            color: var(--text-content);
+
+            & > div {
+                height: 20px;
+                width: 50px;
+                background: var(--bg-content);
+                border-radius: 2px;
+                padding: 2px;
+                display: flex;
+
+                & > span {
+                    display: block;
+                    width: 16px;
+                    height: 16px;
+                    background: var(--bg-body-alt);
+                    border-radius: 2px;
+                }
+            }
+            .dark &.toggle--theme {
+                & > div {
+                    justify-content: flex-end;
+                    background: var(--ltaccent-55);
+                }
+            }
+            .lgFont &.toggle--size {
+                & > div {
+                    justify-content: flex-end;
+                    background: var(--ltaccent-55);
+                }
+            }
+        }
+    }
+
+    &--main-toggle {
+        position: fixed;
+        top: var(--menuSize);
+        left: var(--menuSize);
+        height: calc(100vh - (var(--menuSize) * 2));
+        max-width: calc(100% - (var(--menuSize) * 2));
+        background: var(--bg-alt);
+        width: 325px;
+        padding: 15px 7.5px 15px 15px;
+        z-index: 50;
+        transform: translateX(-100%);
+        transition-duration: 0.5s;
+
+        &.is-open {
+            transform: translateX(0%);
+        }
+
+        & > .scroll {
+            height: calc(100vh - (var(--menuSize) * 2) - 30px);
+            padding-right: 7.5px;
+        }
+
+        a {
+            display: block;
+            border: 1px solid var(--border-main);
+            margin-bottom: 10px;
+            text-align: center;
+            padding: 15px 10px;
+            line-height: 100%;
+            font-size: var(--sBody);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 500;
+            background: var(--bg-content);
+            transition-duration: 0.3s;
+
+            &:hover {
+                background: var(--ltaccent-40);
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

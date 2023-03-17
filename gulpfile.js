@@ -14,16 +14,12 @@
     const gulpSass = require('gulp-sass'),
           postcss = require('gulp-postcss'),
           autoprefixer = require('autoprefixer'),
-          pxtorem = require('postcss-pxtorem'),
           concat = require('gulp-concat');
 
     // PostCSS settings
     var processors = [
         autoprefixer({
             grid: true
-        }),
-        pxtorem({
-            replace: true
         })
     ];
 
