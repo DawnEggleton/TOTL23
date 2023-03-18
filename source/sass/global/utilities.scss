@@ -1,3 +1,5 @@
+@import 'sizes';
+
 .noise {
     &::after {
         content: '';
@@ -21,7 +23,6 @@
         gap: 20px;
 
         &::after {
-            content: '\f178';
             font-family: 'Font Awesome 6 Pro';
             font-weight: 100;
             align-self: center;
@@ -36,5 +37,78 @@
                 transform: translateX(10px);
             }
         }
+    }
+}
+
+[data-grid="true"] {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+[data-columns="2"] {
+    grid-template-columns: repeat(1, 1fr);
+
+    @media only screen and (min-width: $md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+[data-columns="3"] {
+    grid-template-columns: repeat(1, 1fr);
+
+    @media only screen and (min-width: $md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media only screen and (min-width: $lg) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+[data-columns="4"] {
+    grid-template-columns: repeat(1, 1fr);
+
+    @media only screen and (min-width: $md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media only screen and (min-width: $lg) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media only screen and (min-width: $xl) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+[data-align="left"] {
+    text-align: left;
+}
+[data-align="right"] {
+    text-align: right;
+}
+[data-align="center"] {
+    text-align: center;
+}
+[data-align="justify"] {
+    text-align: justify;
+}
+
+luxblock {
+    display: block;
+    max-width: 700px;
+    margin: 0;
+
+    @media only screen and (min-width: $sm) {
+        margin: 0 30px;
+    }
+
+    @media only screen and (min-width: $md) {
+        margin: 0 60px;
+    }
+
+    @media only screen and (min-width: $lg) {
+        margin: 0 auto;
     }
 }

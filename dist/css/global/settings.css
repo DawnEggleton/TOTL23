@@ -1,0 +1,3 @@
+.btn--arrow::after,
+#Profile main .profile--item ul li::marker {
+  content: '\f178'; }

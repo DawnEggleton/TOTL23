@@ -33,6 +33,7 @@
   --bg-body-alt: var(--mdGrey);
   --bg-transparent: var(--white-10);
   --text-content: var(--black);
+  --text-content-hover: var(--ltGrey);
   --text-body: var(--white);
   --border-main: var(--xltGrey); }
   :root .g-1,
@@ -173,6 +174,7 @@
   --bg-body-alt: var(--mdGrey);
   --bg-transparent: var(--white-10);
   --text-content: var(--black);
+  --text-content-hover: var(--ltGrey);
   --text-body: var(--white);
   --border-main: var(--xltGrey); }
 
@@ -184,5 +186,6 @@
   --bg-body-alt: var(--mdGrey);
   --bg-transparent: var(--black-30);
   --text-content: var(--xltGrey);
+  --text-content-hover: var(--white);
   --text-body: var(--offWhite);
   --border-main: var(--dkGrey); }

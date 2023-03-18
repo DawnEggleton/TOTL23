@@ -33,6 +33,7 @@
   --bg-body-alt: var(--mdGrey);
   --bg-transparent: var(--white-10);
   --text-content: var(--black);
+  --text-content-hover: var(--ltGrey);
   --text-body: var(--white);
   --border-main: var(--xltGrey); }
   :root .g-1,
@@ -173,6 +174,7 @@
   --bg-body-alt: var(--mdGrey);
   --bg-transparent: var(--white-10);
   --text-content: var(--black);
+  --text-content-hover: var(--ltGrey);
   --text-body: var(--white);
   --border-main: var(--xltGrey); }
 
@@ -184,6 +186,7 @@
   --bg-body-alt: var(--mdGrey);
   --bg-transparent: var(--black-30);
   --text-content: var(--xltGrey);
+  --text-content-hover: var(--white);
   --text-body: var(--offWhite);
   --border-main: var(--dkGrey); }
 
@@ -222,6 +225,23 @@ body {
 a {
   text-decoration: none;
   color: var(--accent); }
+
+.profile u,
+.post u,
+.webpage u,
+.postcolor u {
+  background: var(--ltaccent-40);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+  padding: 2px 10px; }
+
+.profile a,
+.post a,
+.webpage a,
+.postcolor a {
+  font-weight: 600;
+  font-family: var(--font-head);
+  letter-spacing: 0.05em; }
 
 button {
   cursor: pointer; }
@@ -352,7 +372,6 @@ tag-code {
   padding: 0 5px 5px;
   gap: 20px; }
   .btn--arrow::after {
-    content: '\f178';
     font-family: 'Font Awesome 6 Pro';
     font-weight: 100;
     -webkit-align-self: center;
@@ -371,6 +390,75 @@ tag-code {
     -webkit-transform: translateX(10px);
         -ms-transform: translateX(10px);
             transform: translateX(10px); }
+
+[data-grid="true"] {
+  display: -ms-grid;
+  display: grid;
+  gap: 30px;
+  -ms-grid-columns: (1fr)[1];
+  grid-template-columns: repeat(1, 1fr); }
+
+[data-columns="2"] {
+  -ms-grid-columns: (1fr)[1];
+  grid-template-columns: repeat(1, 1fr); }
+  @media only screen and (min-width: 768px) {
+    [data-columns="2"] {
+      -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr); } }
+
+[data-columns="3"] {
+  -ms-grid-columns: (1fr)[1];
+  grid-template-columns: repeat(1, 1fr); }
+  @media only screen and (min-width: 768px) {
+    [data-columns="3"] {
+      -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr); } }
+  @media only screen and (min-width: 1024px) {
+    [data-columns="3"] {
+      -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr); } }
+
+[data-columns="4"] {
+  -ms-grid-columns: (1fr)[1];
+  grid-template-columns: repeat(1, 1fr); }
+  @media only screen and (min-width: 768px) {
+    [data-columns="4"] {
+      -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr); } }
+  @media only screen and (min-width: 1024px) {
+    [data-columns="4"] {
+      -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr); } }
+  @media only screen and (min-width: 1280px) {
+    [data-columns="4"] {
+      -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr); } }
+
+[data-align="left"] {
+  text-align: left; }
+
+[data-align="right"] {
+  text-align: right; }
+
+[data-align="center"] {
+  text-align: center; }
+
+[data-align="justify"] {
+  text-align: justify; }
+
+luxblock {
+  display: block;
+  max-width: 700px;
+  margin: 0; }
+  @media only screen and (min-width: 600px) {
+    luxblock {
+      margin: 0 30px; } }
+  @media only screen and (min-width: 768px) {
+    luxblock {
+      margin: 0 60px; } }
+  @media only screen and (min-width: 1024px) {
+    luxblock {
+      margin: 0 auto; } }
 
 .nav {
   background: var(--bg-content);
@@ -738,9 +826,23 @@ header {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center; }
-  body#idx header,
+  body:not(#idx) > header {
+    padding-bottom: 40px; }
+    body:not(#idx) > header h1 {
+      margin-top: 40px;
+      margin-bottom: 5px; }
+    body:not(#idx) > header p,
+    body:not(#idx) > header .header--staff {
+      display: none; }
+    body:not(#idx) > header .header--info {
+      width: -webkit-max-content;
+      width: -moz-max-content;
+      width: max-content; }
+  body#idx > header,
   main header {
     min-height: calc(100vh - (var(--menuSize) * 2)); }
+  body#Profile > header {
+    display: none; }
   header h1 {
     font-family: var(--font-head);
     font-size: clamp(24px, 6vw, 60px);
@@ -874,3 +976,226 @@ header {
             transition-duration: 0.3s; }
     .header--staff a:hover {
       background: var(--ltaccent-55); }
+
+#Profile main header {
+  height: calc(100vh - (var(--menuSize) * 2)); }
+  #Profile main header .profile--links {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    gap: 15px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 0 15px;
+    text-transform: uppercase;
+    font-size: var(--xsBody);
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    margin: 15px auto 0; }
+    #Profile main header .profile--links a {
+      color: var(--text-body); }
+
+#Profile main .profile {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: calc(100vh - (var(--menuSize) * 2));
+  margin-bottom: 9px; }
+  #Profile main .profile--labels {
+    background: var(--bg-alt);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 44px; }
+    #Profile main .profile--labels button {
+      border: none;
+      background: var(--bg-alt);
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 45px;
+          -ms-flex: 0 0 45px;
+              flex: 0 0 45px;
+      width: 45px;
+      padding: 0;
+      margin: 0;
+      height: 44px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      text-align: center;
+      color: var(--text-content); }
+      #Profile main .profile--labels button.scroll--left {
+        border-right: 1px solid var(--border-main); }
+      #Profile main .profile--labels button.scroll--right {
+        border-left: 1px solid var(--border-main); }
+      #Profile main .profile--labels button:hover {
+        color: var(--text-content-hover); }
+    #Profile main .profile--labels tag-labels {
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 calc(100% - 90px);
+          -ms-flex: 0 0 calc(100% - 90px);
+              flex: 0 0 calc(100% - 90px);
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      overflow: hidden;
+      overflow: auto;
+      scrollbar-width: none; }
+      #Profile main .profile--labels tag-labels::-webkit-scrollbar {
+        display: none; }
+    #Profile main .profile--labels tag-label {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      border: none;
+      background: transparent;
+      padding: 0 20px;
+      font-size: var(--xsBody);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-content);
+      font-weight: 600;
+      cursor: pointer; }
+      #Profile main .profile--labels tag-label:hover {
+        background: var(--ltaccent-40); }
+      #Profile main .profile--labels tag-label.is-active {
+        background: var(--ltaccent-55); }
+  #Profile main .profile--tabs {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden; }
+    #Profile main .profile--tabs tag-tab {
+      width: 100%;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 100%;
+          -ms-flex: 0 0 100%;
+              flex: 0 0 100%;
+      height: 100%;
+      left: 0;
+      -webkit-transition-duration: 0.5s;
+           -o-transition-duration: 0.5s;
+              transition-duration: 0.5s; }
+  #Profile main .profile--tab-inner {
+    background: var(--bg-content);
+    color: var(--text-content);
+    margin: 30px;
+    padding: 30px 15px 30px 30px;
+    max-height: calc(100vh - (var(--menuSize) * 2) - 104px); }
+    #Profile main .profile--tab-inner > .scroll {
+      max-height: calc(100vh - (var(--menuSize) * 2) - 164px);
+      padding-right: 15px; }
+      @media only screen and (min-width: 768px) {
+        #Profile main .profile--tab-inner > .scroll[data-grid="true"][data-columns="2"] .profile--item:last-child:nth-child(2n + 1) {
+          grid-column: 1 / -1; } }
+      @media only screen and (min-width: 768px) {
+        #Profile main .profile--tab-inner > .scroll[data-grid="true"][data-columns="3"] .profile--item:last-child:nth-child(2n + 1) {
+          grid-column: 1 / -1; } }
+      @media only screen and (min-width: 1024px) {
+        #Profile main .profile--tab-inner > .scroll[data-grid="true"][data-columns="3"] .profile--item:last-child:nth-child(3n + 1) {
+          -ms-grid-column-span: 3;
+          grid-column: span 3; }
+        #Profile main .profile--tab-inner > .scroll[data-grid="true"][data-columns="3"] .profile--item:last-child:nth-child(3n + 2) {
+          -ms-grid-column-span: 2;
+          grid-column: span 2; } }
+    #Profile main .profile--tab-inner.no-scroll {
+      padding: 0;
+      max-height: calc(100vh - (var(--menuSize) * 2) - 44px); }
+    #Profile main .profile--tab-inner > .auto-height {
+      height: calc(100vh - (var(--menuSize) * 2) - 104px); }
+  #Profile main .profile--item {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    border-bottom: 1px solid var(--border-main);
+    padding: 0 5px 10px; }
+    #Profile main .profile--item strong {
+      font-family: var(--font-head);
+      font-size: var(--mBody);
+      text-transform: capitalize;
+      letter-spacing: 0.05em; }
+    #Profile main .profile--item span {
+      font-size: var(--xlBody);
+      font-weight: 300; }
+      #Profile main .profile--item span.scroll {
+        max-height: 200px;
+        margin-right: 10px;
+        padding-right: 10px; }
+        #Profile main .profile--item span.scroll.short {
+          max-height: 80px; }
+        #Profile main .profile--item span.scroll.awards {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-flex-wrap: wrap;
+              -ms-flex-wrap: wrap;
+                  flex-wrap: wrap;
+          gap: 10px; }
+          #Profile main .profile--item span.scroll.awards img {
+            width: 16px;
+            height: 16px; }
+    #Profile main .profile--item ul {
+      margin: 0;
+      padding: 0 0 0 17px;
+      line-height: 200%; }
+      #Profile main .profile--item ul br {
+        display: none; }
+      #Profile main .profile--item ul li {
+        padding-left: 10px; }
+        #Profile main .profile--item ul li::marker {
+          font-family: 'Font Awesome 6 Pro';
+          font-weight: 100;
+          font-style: normal; }
+    #Profile main .profile--item.field--distinguishing-features {
+      grid-column: 1 / -1; }
+  #Profile main .profile--long {
+    font-size: var(--lBody);
+    line-height: 200%; }
+  #Profile main .profile--inner-tabs tag-tabs {
+    height: calc(100% - 44px); }
+    #Profile main .profile--inner-tabs tag-tabs .profile--tab-inner {
+      margin: 0;
+      max-height: calc(100vh - (var(--menuSize) * 2) - 148px); }
+      #Profile main .profile--inner-tabs tag-tabs .profile--tab-inner > .scroll {
+        max-height: calc(100vh - (var(--menuSize) * 2) - 208px); }

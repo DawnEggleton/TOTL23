@@ -6,9 +6,9 @@ const navHTML = `<nav class="nav nav--top">
         <div id="navstrip" align="left"><a href="index.html">turn on the light</a><i class="fa-regular fa-ellipsis-h"></i><a href="topiclist.html">A Test Category</a><i class="fa-regular fa-ellipsis-h"></i>A Test Forum</div>
     </nav>
     <nav class="nav nav--side-left">
-        <button class="nav--menu-icon" title="Toggle Menu" onClick="toggleMenu()"><span></span></button>
-        <button class="nav--settings-icon" title="Change Settings" onClick="toggleSettings()"><i class="fa-solid fa-gear"></i></button>
-        <button class="nav--profile-icon memOnly" title="User Options" onClick="toggleProfile()"><i class="fa-solid fa-user"></i><i class="fa-solid fa-user-xmark"></i></button>
+        <button class="nav--menu-icon popout--toggle" title="Toggle Menu" onClick="toggleMenu()"><span></span></button>
+        <button class="nav--settings-icon popout--toggle" title="Change Settings" onClick="toggleSettings()"><i class="fa-solid fa-gear"></i></button>
+        <button class="nav--profile-icon popout--toggle memOnly" title="User Options" onClick="toggleProfile()"><i class="fa-solid fa-user"></i><i class="fa-solid fa-user-xmark"></i></button>
         <a href="usercp/user-edit.html" title="Edit Profile" class="memOnly"><i class="fa-solid fa-pencil"></i></a>
         <a href="usercp/user-inbox.html" title="Inbox (0)" data-new="0" class="memOnly"><i class="fa-solid fa-envelope"></i></a>
         <a href="#" title="Alerts (0)" data-new="0" class="memOnly"><i class="fa-solid fa-bell"></i></a>
@@ -27,7 +27,7 @@ const navHTML = `<nav class="nav nav--top">
         <a href="index.html"><i class="fa-solid fa-home"></i></a>
         <a href="#to-bottom"><i class="fa-solid fa-angle-down"></i></a>
     </nav>
-    <nav class="nav nav--main-toggle">
+    <nav class="nav popout nav--main-toggle">
         <div class="scroll">
             <tag-code>
                 <button onclick="highlightCode()" class="copyQuick">copy</button>
@@ -42,7 +42,7 @@ const navHTML = `<nav class="nav nav--top">
             <a href="">Custom Link</a>
         </div>
     </nav>
-    <nav class="nav nav--settings-toggle">
+    <nav class="nav popout nav--settings-toggle">
         <button class="toggle--theme" onClick="toggleTheme()">
             <b>Dark Mode</b>
             <div><span></span></div>
@@ -52,7 +52,7 @@ const navHTML = `<nav class="nav nav--top">
             <div><span></span></div>
         </button>
     </nav>
-    <nav class="nav nav--profile-toggle">
+    <nav class="nav popout nav--profile-toggle">
         <a href="profile.html" class="popout--name">Duncan O'Donnelly-Taggart</a>
         <div class="popout--switch">
             <a href="profile.html"><img src="https://files.jcink.net/uploads/lovetheadrenaline/ezgif_1_de0876af5db2.jpg" /></a>

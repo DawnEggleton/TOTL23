@@ -5,6 +5,12 @@ function toggleMenu() {
     document.querySelector('.nav--settings-toggle').classList.remove('is-open');
     document.querySelector('.nav--profile-icon').classList.remove('is-open');
     document.querySelector('.nav--profile-toggle').classList.remove('is-open');
+
+    if(document.querySelector('.nav--menu-icon').classList.contains('is-open')) {
+        window.addEventListener('click', toggleClose);
+    } else {
+        window.removeEventListener('click', toggleClose);
+    }
 }
 function toggleSettings() {
     document.querySelector('.nav--settings-icon').classList.toggle('is-open');
@@ -13,6 +19,12 @@ function toggleSettings() {
     document.querySelector('.nav--main-toggle').classList.remove('is-open');
     document.querySelector('.nav--profile-icon').classList.remove('is-open');
     document.querySelector('.nav--profile-toggle').classList.remove('is-open');
+
+    if(document.querySelector('.nav--settings-icon').classList.contains('is-open')) {
+        window.addEventListener('click', toggleClose);
+    } else {
+        window.removeEventListener('click', toggleClose);
+    }
 }
 function toggleProfile() {
     document.querySelector('.nav--profile-icon').classList.toggle('is-open');
@@ -21,6 +33,18 @@ function toggleProfile() {
     document.querySelector('.nav--settings-toggle').classList.remove('is-open');
     document.querySelector('.nav--menu-icon').classList.remove('is-open');
     document.querySelector('.nav--main-toggle').classList.remove('is-open');
+
+    if(document.querySelector('.nav--profile-icon').classList.contains('is-open')) {
+        window.addEventListener('click', toggleClose);
+    } else {
+        window.removeEventListener('click', toggleClose);
+    }
+}
+function toggleClose(e) {
+    if(e.target.matches('body > header, body > header *, main, main *')) {
+        document.querySelectorAll('.popout.is-open, .popout--toggle.is-open').forEach(el => el.classList.remove('is-open'));
+        window.removeEventListener('click', toggleClose);
+    }
 }
 function setTheme() {
     if(localStorage.getItem('theme') !== null) {
@@ -95,4 +119,11 @@ function highlightCode() {
             }
         }
     });
+}
+
+function moveLeft(e) {
+    e.parentNode.querySelector('tag-labels').scrollLeft -= 150;
+}
+function moveRight(e) {
+    e.parentNode.querySelector('tag-labels').scrollLeft += 150;
 }

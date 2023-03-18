@@ -1,0 +1,155 @@
+#Profile main header {
+  height: calc(100vh - (var(--menuSize) * 2)); }
+  #Profile main header .profile--links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 0 15px;
+    text-transform: uppercase;
+    font-size: var(--xsBody);
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    margin: 15px auto 0; }
+    #Profile main header .profile--links a {
+      color: var(--text-body); }
+
+#Profile main .profile {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - (var(--menuSize) * 2));
+  margin-bottom: 9px; }
+  #Profile main .profile--labels {
+    background: var(--bg-alt);
+    display: flex;
+    height: 44px; }
+    #Profile main .profile--labels button {
+      border: none;
+      background: var(--bg-alt);
+      flex: 0 0 45px;
+      width: 45px;
+      padding: 0;
+      margin: 0;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--text-content); }
+      #Profile main .profile--labels button.scroll--left {
+        border-right: 1px solid var(--border-main); }
+      #Profile main .profile--labels button.scroll--right {
+        border-left: 1px solid var(--border-main); }
+      #Profile main .profile--labels button:hover {
+        color: var(--text-content-hover); }
+    #Profile main .profile--labels tag-labels {
+      flex: 0 0 calc(100% - 90px);
+      display: flex;
+      overflow: hidden;
+      overflow: auto;
+      scrollbar-width: none; }
+      #Profile main .profile--labels tag-labels::-webkit-scrollbar {
+        display: none; }
+    #Profile main .profile--labels tag-label {
+      display: flex;
+      align-items: center;
+      border: none;
+      background: transparent;
+      padding: 0 20px;
+      font-size: var(--xsBody);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-content);
+      font-weight: 600;
+      cursor: pointer; }
+      #Profile main .profile--labels tag-label:hover {
+        background: var(--ltaccent-40); }
+      #Profile main .profile--labels tag-label.is-active {
+        background: var(--ltaccent-55); }
+  #Profile main .profile--tabs {
+    flex-grow: 1;
+    display: flex;
+    overflow: hidden; }
+    #Profile main .profile--tabs tag-tab {
+      width: 100%;
+      flex: 0 0 100%;
+      height: 100%;
+      left: 0;
+      transition-duration: 0.5s; }
+  #Profile main .profile--tab-inner {
+    background: var(--bg-content);
+    color: var(--text-content);
+    margin: 30px;
+    padding: 30px 15px 30px 30px;
+    max-height: calc(100vh - (var(--menuSize) * 2) - 104px); }
+    #Profile main .profile--tab-inner > .scroll {
+      max-height: calc(100vh - (var(--menuSize) * 2) - 164px);
+      padding-right: 15px; }
+      @media only screen and (min-width: 768px) {
+        #Profile main .profile--tab-inner > .scroll[data-grid="true"][data-columns="2"] .profile--item:last-child:nth-child(2n + 1) {
+          grid-column: 1 / -1; } }
+      @media only screen and (min-width: 768px) {
+        #Profile main .profile--tab-inner > .scroll[data-grid="true"][data-columns="3"] .profile--item:last-child:nth-child(2n + 1) {
+          grid-column: 1 / -1; } }
+      @media only screen and (min-width: 1024px) {
+        #Profile main .profile--tab-inner > .scroll[data-grid="true"][data-columns="3"] .profile--item:last-child:nth-child(3n + 1) {
+          grid-column: span 3; }
+        #Profile main .profile--tab-inner > .scroll[data-grid="true"][data-columns="3"] .profile--item:last-child:nth-child(3n + 2) {
+          grid-column: span 2; } }
+    #Profile main .profile--tab-inner.no-scroll {
+      padding: 0;
+      max-height: calc(100vh - (var(--menuSize) * 2) - 44px); }
+    #Profile main .profile--tab-inner > .auto-height {
+      height: calc(100vh - (var(--menuSize) * 2) - 104px); }
+  #Profile main .profile--item {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--border-main);
+    padding: 0 5px 10px; }
+    #Profile main .profile--item strong {
+      font-family: var(--font-head);
+      font-size: var(--mBody);
+      text-transform: capitalize;
+      letter-spacing: 0.05em; }
+    #Profile main .profile--item span {
+      font-size: var(--xlBody);
+      font-weight: 300; }
+      #Profile main .profile--item span.scroll {
+        max-height: 200px;
+        margin-right: 10px;
+        padding-right: 10px; }
+        #Profile main .profile--item span.scroll.short {
+          max-height: 80px; }
+        #Profile main .profile--item span.scroll.awards {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px; }
+          #Profile main .profile--item span.scroll.awards img {
+            width: 16px;
+            height: 16px; }
+    #Profile main .profile--item ul {
+      margin: 0;
+      padding: 0 0 0 17px;
+      line-height: 200%; }
+      #Profile main .profile--item ul br {
+        display: none; }
+      #Profile main .profile--item ul li {
+        padding-left: 10px; }
+        #Profile main .profile--item ul li::marker {
+          font-family: 'Font Awesome 6 Pro';
+          font-weight: 100;
+          font-style: normal; }
+    #Profile main .profile--item.field--distinguishing-features {
+      grid-column: 1 / -1; }
+  #Profile main .profile--long {
+    font-size: var(--lBody);
+    line-height: 200%; }
+  #Profile main .profile--inner-tabs tag-tabs {
+    height: calc(100% - 44px); }
+    #Profile main .profile--inner-tabs tag-tabs .profile--tab-inner {
+      margin: 0;
+      max-height: calc(100vh - (var(--menuSize) * 2) - 148px); }
+      #Profile main .profile--inner-tabs tag-tabs .profile--tab-inner > .scroll {
+        max-height: calc(100vh - (var(--menuSize) * 2) - 208px); }

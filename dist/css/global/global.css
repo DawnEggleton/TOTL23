@@ -33,6 +33,23 @@ a {
   text-decoration: none;
   color: var(--accent); }
 
+.profile u,
+.post u,
+.webpage u,
+.postcolor u {
+  background: var(--ltaccent-40);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+  padding: 2px 10px; }
+
+.profile a,
+.post a,
+.webpage a,
+.postcolor a {
+  font-weight: 600;
+  font-family: var(--font-head);
+  letter-spacing: 0.05em; }
+
 button {
   cursor: pointer; }
 
