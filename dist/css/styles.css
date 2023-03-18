@@ -246,7 +246,6 @@ a {
 button {
   cursor: pointer; }
 
-.profile--warnings,
 .scroll {
   overflow: auto;
   scrollbar-width: thin;
@@ -850,7 +849,8 @@ header {
     margin: 0 auto;
     line-height: 100%;
     padding-bottom: 15px;
-    color: var(--text-body); }
+    color: var(--text-body);
+    text-align: center; }
     header h1::after {
       content: '';
       height: 1px;
@@ -1017,32 +1017,6 @@ header {
   height: calc(100vh - (var(--menuSize) * 2));
   margin-bottom: 9px; }
 
-#Profile main .profile--warnings {
-  position: absolute;
-  top: 15px;
-  font-family: var(--font-head);
-  font-size: var(--lBody);
-  width: calc(100% - 30px);
-  max-width: 500px;
-  background: var(--bg-transparent);
-  padding: 15px;
-  text-align: justify;
-  max-height: 100px;
-  overflow: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--ltaccent) transparent; }
-  #Profile main .profile--warnings:empty {
-    display: none; }
-  #Profile main .profile--warnings:not(:empty) + h1::before {
-    content: '\f071';
-    font-family: 'Font Awesome 6 Pro';
-    font-weight: 300;
-    font-size: 40px;
-    display: block;
-    line-height: 100%;
-    margin-bottom: 10px;
-    text-align: center; }
-
 #Profile main .profile--labels {
   background: var(--bg-alt);
   display: -webkit-box;
@@ -1143,12 +1117,21 @@ header {
 #Profile main .profile--tab-inner {
   background: var(--bg-content);
   color: var(--text-content);
-  margin: 30px;
-  padding: 30px 15px 30px 30px;
-  max-height: calc(100vh - (var(--menuSize) * 2) - 104px); }
+  margin: 15px;
+  padding: 15px 7.5px 15px 15px;
+  max-height: calc(100vh - (var(--menuSize) * 2) - 44px); }
+  @media only screen and (min-width: 480px) {
+    #Profile main .profile--tab-inner {
+      margin: 30px;
+      padding: 30px 15px 30px 30px;
+      max-height: calc(100vh - (var(--menuSize) * 2) - 104px); } }
   #Profile main .profile--tab-inner > .scroll {
-    max-height: calc(100vh - (var(--menuSize) * 2) - 164px);
-    padding-right: 15px; }
+    max-height: calc(100vh - (var(--menuSize) * 2) - 104px);
+    padding-right: 7.5px; }
+    @media only screen and (min-width: 480px) {
+      #Profile main .profile--tab-inner > .scroll {
+        max-height: calc(100vh - (var(--menuSize) * 2) - 164px);
+        padding-right: 15px; } }
     @media only screen and (min-width: 768px) {
       #Profile main .profile--tab-inner > .scroll[data-grid="true"][data-columns="2"] .profile--item:last-child:nth-child(2n + 1) {
         grid-column: 1 / -1; } }
@@ -1167,6 +1150,38 @@ header {
     max-height: calc(100vh - (var(--menuSize) * 2) - 44px); }
   #Profile main .profile--tab-inner > .auto-height {
     height: calc(100vh - (var(--menuSize) * 2) - 104px); }
+
+#Profile main .profile--warning {
+  grid-column: 1 / -1;
+  background: var(--bg-alt);
+  margin: 0 auto;
+  max-width: 500px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 2px;
+  font-size: var(--lBody);
+  text-align: center;
+  padding: 10px;
+  gap: 5px; }
+  @media only screen and (min-width: 480px) {
+    #Profile main .profile--warning {
+      padding: 20px;
+      gap: 15px; } }
+  #Profile main .profile--warning i.fa-triangle-exclamation {
+    font-size: 30px; }
+  #Profile main .profile--warning:empty {
+    display: none; }
 
 #Profile main .profile--item {
   display: -webkit-box;

@@ -24,7 +24,8 @@ header {
     margin: 0 auto;
     line-height: 100%;
     padding-bottom: 15px;
-    color: var(--text-body); }
+    color: var(--text-body);
+    text-align: center; }
     header h1::after {
       content: '';
       height: 1px;
