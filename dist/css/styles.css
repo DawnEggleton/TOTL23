@@ -226,7 +226,7 @@ a {
   text-decoration: none;
   color: var(--accent); }
 
-.profile u,
+.profil--wrap u,
 .post u,
 .webpage u,
 .postcolor u {
@@ -235,7 +235,7 @@ a {
   border-bottom: 1px solid var(--accent);
   padding: 2px 10px; }
 
-.profile a,
+.profil--wrap a,
 .post a,
 .webpage a,
 .postcolor a {
@@ -246,6 +246,7 @@ a {
 button {
   cursor: pointer; }
 
+.profile--warnings,
 .scroll {
   overflow: auto;
   scrollbar-width: thin;
@@ -1003,7 +1004,7 @@ header {
     #Profile main header .profile--links a {
       color: var(--text-body); }
 
-#Profile main .profile {
+#Profile main .profile--wrap {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1015,187 +1016,219 @@ header {
           flex-direction: column;
   height: calc(100vh - (var(--menuSize) * 2));
   margin-bottom: 9px; }
-  #Profile main .profile--labels {
+
+#Profile main .profile--warnings {
+  position: absolute;
+  top: 15px;
+  font-family: var(--font-head);
+  font-size: var(--lBody);
+  width: calc(100% - 30px);
+  max-width: 500px;
+  background: var(--bg-transparent);
+  padding: 15px;
+  text-align: justify;
+  max-height: 100px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ltaccent) transparent; }
+  #Profile main .profile--warnings:empty {
+    display: none; }
+  #Profile main .profile--warnings:not(:empty) + h1::before {
+    content: '\f071';
+    font-family: 'Font Awesome 6 Pro';
+    font-weight: 300;
+    font-size: 40px;
+    display: block;
+    line-height: 100%;
+    margin-bottom: 10px;
+    text-align: center; }
+
+#Profile main .profile--labels {
+  background: var(--bg-alt);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 44px; }
+  #Profile main .profile--labels button {
+    border: none;
     background: var(--bg-alt);
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 45px;
+        -ms-flex: 0 0 45px;
+            flex: 0 0 45px;
+    width: 45px;
+    padding: 0;
+    margin: 0;
+    height: 44px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    height: 44px; }
-    #Profile main .profile--labels button {
-      border: none;
-      background: var(--bg-alt);
-      -webkit-box-flex: 0;
-      -webkit-flex: 0 0 45px;
-          -ms-flex: 0 0 45px;
-              flex: 0 0 45px;
-      width: 45px;
-      padding: 0;
-      margin: 0;
-      height: 44px;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-      text-align: center;
-      color: var(--text-content); }
-      #Profile main .profile--labels button.scroll--left {
-        border-right: 1px solid var(--border-main); }
-      #Profile main .profile--labels button.scroll--right {
-        border-left: 1px solid var(--border-main); }
-      #Profile main .profile--labels button:hover {
-        color: var(--text-content-hover); }
-    #Profile main .profile--labels tag-labels {
-      -webkit-box-flex: 0;
-      -webkit-flex: 0 0 calc(100% - 90px);
-          -ms-flex: 0 0 calc(100% - 90px);
-              flex: 0 0 calc(100% - 90px);
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      overflow: hidden;
-      overflow: auto;
-      scrollbar-width: none; }
-      #Profile main .profile--labels tag-labels::-webkit-scrollbar {
-        display: none; }
-    #Profile main .profile--labels tag-label {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-          -ms-flex-align: center;
-              align-items: center;
-      border: none;
-      background: transparent;
-      padding: 0 20px;
-      font-size: var(--xsBody);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-content);
-      font-weight: 600;
-      cursor: pointer; }
-      #Profile main .profile--labels tag-label:hover {
-        background: var(--ltaccent-40); }
-      #Profile main .profile--labels tag-label.is-active {
-        background: var(--ltaccent-55); }
-  #Profile main .profile--tabs {
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+    color: var(--text-content); }
+    #Profile main .profile--labels button.scroll--left {
+      border-right: 1px solid var(--border-main); }
+    #Profile main .profile--labels button.scroll--right {
+      border-left: 1px solid var(--border-main); }
+    #Profile main .profile--labels button:hover {
+      color: var(--text-content-hover); }
+  #Profile main .profile--labels tag-labels {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 calc(100% - 90px);
+        -ms-flex: 0 0 calc(100% - 90px);
+            flex: 0 0 calc(100% - 90px);
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    overflow: hidden; }
-    #Profile main .profile--tabs tag-tab {
-      width: 100%;
-      -webkit-box-flex: 0;
-      -webkit-flex: 0 0 100%;
-          -ms-flex: 0 0 100%;
-              flex: 0 0 100%;
-      height: 100%;
-      left: 0;
-      -webkit-transition-duration: 0.5s;
-           -o-transition-duration: 0.5s;
-              transition-duration: 0.5s; }
-  #Profile main .profile--tab-inner {
-    background: var(--bg-content);
+    overflow: hidden;
+    overflow: auto;
+    scrollbar-width: none; }
+    #Profile main .profile--labels tag-labels::-webkit-scrollbar {
+      display: none; }
+  #Profile main .profile--labels tag-label {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border: none;
+    background: transparent;
+    padding: 0 20px;
+    font-size: var(--xsBody);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     color: var(--text-content);
-    margin: 30px;
-    padding: 30px 15px 30px 30px;
-    max-height: calc(100vh - (var(--menuSize) * 2) - 104px); }
-    #Profile main .profile--tab-inner > .scroll {
-      max-height: calc(100vh - (var(--menuSize) * 2) - 164px);
-      padding-right: 15px; }
-      @media only screen and (min-width: 768px) {
-        #Profile main .profile--tab-inner > .scroll[data-grid="true"][data-columns="2"] .profile--item:last-child:nth-child(2n + 1) {
-          grid-column: 1 / -1; } }
-      @media only screen and (min-width: 768px) {
-        #Profile main .profile--tab-inner > .scroll[data-grid="true"][data-columns="3"] .profile--item:last-child:nth-child(2n + 1) {
-          grid-column: 1 / -1; } }
-      @media only screen and (min-width: 1024px) {
-        #Profile main .profile--tab-inner > .scroll[data-grid="true"][data-columns="3"] .profile--item:last-child:nth-child(3n + 1) {
-          -ms-grid-column-span: 3;
-          grid-column: span 3; }
-        #Profile main .profile--tab-inner > .scroll[data-grid="true"][data-columns="3"] .profile--item:last-child:nth-child(3n + 2) {
-          -ms-grid-column-span: 2;
-          grid-column: span 2; } }
-    #Profile main .profile--tab-inner.no-scroll {
-      padding: 0;
-      max-height: calc(100vh - (var(--menuSize) * 2) - 44px); }
-    #Profile main .profile--tab-inner > .auto-height {
-      height: calc(100vh - (var(--menuSize) * 2) - 104px); }
-  #Profile main .profile--item {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    border-bottom: 1px solid var(--border-main);
-    padding: 0 5px 10px; }
-    #Profile main .profile--item strong {
-      font-family: var(--font-head);
-      font-size: var(--mBody);
-      text-transform: capitalize;
-      letter-spacing: 0.05em; }
-    #Profile main .profile--item span {
-      font-size: var(--xlBody);
-      font-weight: 300; }
-      #Profile main .profile--item span.scroll {
-        max-height: 200px;
-        margin-right: 10px;
-        padding-right: 10px; }
-        #Profile main .profile--item span.scroll.short {
-          max-height: 80px; }
-        #Profile main .profile--item span.scroll.awards {
-          display: -webkit-box;
-          display: -webkit-flex;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-flex-wrap: wrap;
-              -ms-flex-wrap: wrap;
-                  flex-wrap: wrap;
-          gap: 10px; }
-          #Profile main .profile--item span.scroll.awards img {
-            width: 16px;
-            height: 16px; }
-    #Profile main .profile--item ul {
-      margin: 0;
-      padding: 0 0 0 17px;
-      line-height: 200%; }
-      #Profile main .profile--item ul br {
-        display: none; }
-      #Profile main .profile--item ul li {
-        padding-left: 10px; }
-        #Profile main .profile--item ul li::marker {
-          font-family: 'Font Awesome 6 Pro';
-          font-weight: 100;
-          font-style: normal; }
-    #Profile main .profile--item.field--distinguishing-features {
-      grid-column: 1 / -1; }
-  #Profile main .profile--long {
-    font-size: var(--lBody);
+    font-weight: 600;
+    cursor: pointer; }
+    #Profile main .profile--labels tag-label:hover {
+      background: var(--ltaccent-40); }
+    #Profile main .profile--labels tag-label.is-active {
+      background: var(--ltaccent-55); }
+
+#Profile main .profile--tabs {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden; }
+  #Profile main .profile--tabs tag-tab {
+    width: 100%;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    height: 100%;
+    left: 0;
+    -webkit-transition-duration: 0.5s;
+         -o-transition-duration: 0.5s;
+            transition-duration: 0.5s; }
+
+#Profile main .profile--tab-inner {
+  background: var(--bg-content);
+  color: var(--text-content);
+  margin: 30px;
+  padding: 30px 15px 30px 30px;
+  max-height: calc(100vh - (var(--menuSize) * 2) - 104px); }
+  #Profile main .profile--tab-inner > .scroll {
+    max-height: calc(100vh - (var(--menuSize) * 2) - 164px);
+    padding-right: 15px; }
+    @media only screen and (min-width: 768px) {
+      #Profile main .profile--tab-inner > .scroll[data-grid="true"][data-columns="2"] .profile--item:last-child:nth-child(2n + 1) {
+        grid-column: 1 / -1; } }
+    @media only screen and (min-width: 768px) {
+      #Profile main .profile--tab-inner > .scroll[data-grid="true"][data-columns="3"] .profile--item:last-child:nth-child(2n + 1) {
+        grid-column: 1 / -1; } }
+    @media only screen and (min-width: 1024px) {
+      #Profile main .profile--tab-inner > .scroll[data-grid="true"][data-columns="3"] .profile--item:last-child:nth-child(3n + 1) {
+        -ms-grid-column-span: 3;
+        grid-column: span 3; }
+      #Profile main .profile--tab-inner > .scroll[data-grid="true"][data-columns="3"] .profile--item:last-child:nth-child(3n + 2) {
+        -ms-grid-column-span: 2;
+        grid-column: span 2; } }
+  #Profile main .profile--tab-inner.no-scroll {
+    padding: 0;
+    max-height: calc(100vh - (var(--menuSize) * 2) - 44px); }
+  #Profile main .profile--tab-inner > .auto-height {
+    height: calc(100vh - (var(--menuSize) * 2) - 104px); }
+
+#Profile main .profile--item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-bottom: 1px solid var(--border-main);
+  padding: 0 5px 10px; }
+  #Profile main .profile--item strong {
+    font-family: var(--font-head);
+    font-size: var(--mBody);
+    text-transform: capitalize;
+    letter-spacing: 0.05em; }
+  #Profile main .profile--item span {
+    font-size: var(--xlBody);
+    font-weight: 300; }
+    #Profile main .profile--item span.scroll {
+      max-height: 200px;
+      margin-right: 10px;
+      padding-right: 10px; }
+      #Profile main .profile--item span.scroll.short {
+        max-height: 80px; }
+      #Profile main .profile--item span.scroll.awards {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+        gap: 10px; }
+        #Profile main .profile--item span.scroll.awards img {
+          width: 16px;
+          height: 16px; }
+  #Profile main .profile--item ul {
+    margin: 0;
+    padding: 0 0 0 17px;
     line-height: 200%; }
-  #Profile main .profile--inner-tabs tag-tabs {
-    height: calc(100% - 44px); }
-    #Profile main .profile--inner-tabs tag-tabs .profile--tab-inner {
-      margin: 0;
-      max-height: calc(100vh - (var(--menuSize) * 2) - 148px); }
-      #Profile main .profile--inner-tabs tag-tabs .profile--tab-inner > .scroll {
-        max-height: calc(100vh - (var(--menuSize) * 2) - 208px); }
+    #Profile main .profile--item ul br {
+      display: none; }
+    #Profile main .profile--item ul li {
+      padding-left: 10px; }
+      #Profile main .profile--item ul li::marker {
+        font-family: 'Font Awesome 6 Pro';
+        font-weight: 100;
+        font-style: normal; }
+  #Profile main .profile--item.field--distinguishing-features {
+    grid-column: 1 / -1; }
+
+#Profile main .profile--long {
+  font-size: var(--lBody);
+  line-height: 200%; }
+
+#Profile main .profile--inner-tabs tag-tabs {
+  height: calc(100% - 44px); }
+  #Profile main .profile--inner-tabs tag-tabs .profile--tab-inner {
+    margin: 0;
+    max-height: calc(100vh - (var(--menuSize) * 2) - 148px); }
+    #Profile main .profile--inner-tabs tag-tabs .profile--tab-inner > .scroll {
+      max-height: calc(100vh - (var(--menuSize) * 2) - 208px); }
