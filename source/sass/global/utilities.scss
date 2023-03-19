@@ -40,13 +40,13 @@
     }
 }
 
-[data-grid="true"] {
+[data-type="grid"] {
     display: grid;
     gap: 30px;
     grid-template-columns: repeat(1, 1fr);
 }
 
-[data-columns="2"] {
+[data-type="grid"][data-columns="2"] {
     grid-template-columns: repeat(1, 1fr);
 
     @media only screen and (min-width: $md) {
@@ -54,7 +54,7 @@
     }
 }
 
-[data-columns="3"] {
+[data-type="grid"][data-columns="3"] {
     grid-template-columns: repeat(1, 1fr);
 
     @media only screen and (min-width: $md) {
@@ -66,7 +66,7 @@
     }
 }
 
-[data-columns="4"] {
+[data-type="grid"][data-columns="4"] {
     grid-template-columns: repeat(1, 1fr);
 
     @media only screen and (min-width: $md) {

@@ -89,6 +89,7 @@
                     color: var(--text-content);
                     font-weight: 600;
                     cursor: pointer;
+                    white-space: nowrap;
 
                     &:hover {
                         background: var(--ltaccent-40);
@@ -136,7 +137,7 @@
                         padding-right: 15px;
                     }
 
-                    &[data-grid="true"] {
+                    &[data-type="grid"] {
                         &[data-columns="2"] {
                             @media only screen and (min-width: $md) {
                                 .profile--item:last-child:nth-child(2n + 1) {
@@ -281,6 +282,62 @@
                         & > .scroll {
                             max-height: calc(100vh - (var(--menuSize) * 2) - 208px);
                         }
+                    }
+                }
+            }
+        }
+
+        .tracker {
+            &--message {
+                grid-column: 1 / -1;
+                text-align: center;
+                font-family: var(--font-head);
+                font-size: 20px;
+            }
+
+            &--item {
+                display: flex;
+                flex-direction: column;
+                font-size: var(--xsBody);
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                line-height: 200%;
+                border: 1px solid var(--border-main);
+                padding: 15px;
+                border-radius: 2px;
+
+                &.owing {
+                    border: 2px solid var(--ltaccent);
+                }
+
+                &.closed {
+                    opacity: 0.75;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+
+                a {
+                    font-weight: 600;
+                }
+            }
+
+            &--title {
+                font-family: var(--font-head);
+                text-transform: capitalize;
+                font-size: var(--xlBody);
+                font-weight: 600;
+                line-height: 160%;
+
+                & + .tracker--info {
+                    border-bottom: 1px solid var(--border-main);
+                    padding-bottom: 10px;
+                    margin-bottom: 12px;
+                    line-height: 160%;
+
+                    &:empty {
+                        padding-bottom: 7px;
                     }
                 }
             }

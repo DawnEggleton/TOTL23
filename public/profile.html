@@ -78,7 +78,7 @@
                     <tag-tabs class="profile--tabs">
                         <tag-tab class="is-active" data-tab="basics">
                             <div class="profile--tab-inner">
-                                <div class="scroll" data-grid="true" data-columns="3">
+                                <div class="scroll" data-type="grid" data-columns="3">
                                     <div id="clip-warning" class="profile--warning"></div>
                                     <div class="profile--item">
                                         <strong>Full Name</strong>
@@ -158,7 +158,7 @@
                         </tag-tab>
                         <tag-tab data-tab="health">
                             <div class="profile--tab-inner">
-                                <div class="scroll" data-grid="true" data-columns="2">
+                                <div class="scroll" data-type="grid" data-columns="2">
                                     <div class="profile--item">
                                         <strong>Ailments</strong>
                                         <span class="scroll">
@@ -182,7 +182,7 @@
                         </tag-tab>
                         <tag-tab data-tab="magic">
                             <div class="profile--tab-inner">
-                                <div class="scroll" data-grid="true" data-columns="2">
+                                <div class="scroll" data-type="grid" data-columns="2">
                                     <div class="profile--item">
                                         <strong>Education</strong>
                                         <span class="scroll">
@@ -243,7 +243,7 @@
                         </tag-tab>
                         <tag-tab data-tab="personality">
                             <div class="profile--tab-inner">
-                                <div class="scroll" data-grid="true" data-columns="2">
+                                <div class="scroll" data-type="grid" data-columns="2">
                                     <div class="profile--item">
                                         <strong>Likes</strong>
                                         <span class="scroll">
@@ -330,7 +330,7 @@
                         </tag-tab>
                         <tag-tab data-tab="relationships">
                             <div class="profile--tab-inner">
-                                <div class="scroll" data-grid="true" data-columns="3">
+                                <div class="scroll" data-type="grid" data-columns="3">
                                     <div class="profile--item">
                                         <strong>Family</strong>
                                         <span class="scroll">
@@ -468,24 +468,72 @@
                                     <div class="profile--labels">
                                         <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
                                         <tag-labels>
-                                            <tag-label tabindex="0" class="is-active">One</tag-label>
-                                            <tag-label tabindex="0">Two</tag-label>
+                                            <tag-label tabindex="0" class="is-active">Active</tag-label>
+                                            <tag-label tabindex="0">Archived</tag-label>
+                                            <tag-label tabindex="0">Texts & Calls</tag-label>
+                                            <tag-label tabindex="0">Social Media</tag-label>
+                                            <tag-label tabindex="0">Alternate Universes</tag-label>
+                                            <tag-label tabindex="0">Requests</tag-label>
+                                            <tag-label tabindex="0">Development</tag-label>
                                         </tag-labels>
                                         <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
                                     </div>
                                     <tag-tabs class="profile--tabs">
                                         <tag-tab class="is-active">
                                             <div class="profile--tab-inner">
-                                                <div class="scroll profile--long">
-                                                    One
+                                                <div class="scroll profile--long" id="clip-tracker" data-type="grid" data-columns="3">
+                                                    <div class="tracker--item caughtup">
+                                                        <a href="post.html" class="tracker--title">Thread Title</a>
+                                                        <span class="tracker--info">topic description</span>
+                                                        <span class="tracker--info">posted in <a href="topiclist.html">location</a></span>
+                                                        <span class="tracker--info">last post by <a href="profile.html">first last</a></span>
+                                                        <span class="tracker--info">posted date here</span>
+                                                    </div>
+                                                    <div class="tracker--item owing">
+                                                        <a href="post.html" class="tracker--title">Thread Title</a>
+                                                        <span class="tracker--info">topic description</span>
+                                                        <span class="tracker--info">posted in <a href="topiclist.html">location</a></span>
+                                                        <span class="tracker--info">last post by <a href="profile.html">first last</a></span>
+                                                        <span class="tracker--info">posted date here</span>
+                                                    </div>
+                                                    <div class="tracker--item closed">
+                                                        <a href="post.html" class="tracker--title">Thread Title</a>
+                                                        <span class="tracker--info"></span>
+                                                        <span class="tracker--info">posted in <a href="topiclist.html">location</a></span>
+                                                        <span class="tracker--info">last post by <a href="profile.html">first last</a></span>
+                                                        <span class="tracker--info">posted date here</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </tag-tab>
                                         <tag-tab>
                                             <div class="profile--tab-inner">
-                                                <div class="scroll profile--long">
-                                                    Two
-                                                </div>
+                                                <div class="scroll profile--long" id="clip-history" data-type="grid" data-columns="3"></div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab>
+                                            <div class="profile--tab-inner">
+                                                <div class="scroll profile--long" id="clip-comm" data-type="grid" data-columns="3"></div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab>
+                                            <div class="profile--tab-inner">
+                                                <div class="scroll profile--long" id="clip-social" data-type="grid" data-columns="3"></div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab>
+                                            <div class="profile--tab-inner">
+                                                <div class="scroll profile--long" id="clip-au" data-type="grid" data-columns="3"></div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab>
+                                            <div class="profile--tab-inner">
+                                                <div class="scroll profile--long" id="clip-req" data-type="grid" data-columns="3"></div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab>
+                                            <div class="profile--tab-inner">
+                                                <div class="scroll profile--long" id="clip-dev" data-type="grid" data-columns="3"></div>
                                             </div>
                                         </tag-tab>
                                     </tag-tabs>
@@ -494,7 +542,7 @@
                         </tag-tab>
                         <tag-tab data-tab="player">
                             <div class="profile--tab-inner">
-                                <div class="scroll" data-grid="true" data-columns="2">
+                                <div class="scroll" data-type="grid" data-columns="2">
                                     <div class="profile--item">
                                         <strong>Played By</strong>
                                         <span>Lux</span>
@@ -550,12 +598,34 @@
                 </div>
             </section>
 
-            <!--In-Template Styles-->
+            <!--In-Template Styles & Scripts-->
             <style>
                 :root {
                     --bg-image: url(https://64.media.tumblr.com/99cd129465b5a06df39a59a9c709513d/tumblr_pyljwrJ4no1vz2ghao4_1280.jpg);
                 }
             </style>
+            <script src="../dist/js/tracker.js"></script>
+            <script>
+                trackerParams = {
+                    //include
+                    includeCategoryIds: ['4', '5', '6', '7', '10', '8', '9'],
+                    includeForumIds: [],
+                    ignoreForumIds: ['26', '45', '46', '140', '24', '50', '83', '114', '179', '115', '116', '7', '112', '233', '146', '113', '6', '5', '128', '104', '105', '106', '141', '1', '53', '2', '3', '47', '8', '30', '86', '36', '31', '32', '33', '34', '35', '42', '27', '9'],
+
+                    //define au, comm, dev, archive forums
+                    historyForumIds: ['49', '127'], //history
+                    commForumIds: ['12', '257', '263', '264', '265', '13', '182'], //comm
+                    commHistoryForumIds: ['290'], //comm history
+                    auForumIds: ['135', '232'], //au
+                    auHistoryForumIds: ['258'], //au history
+                    devForumIds: ['11', '75', '277', '154', '270', '177', '43', '256', '77', '78', '79', '80', '155', '156', '157', '158', '159', '74', '132', '188', '261', '81', '271', '272', '273', '274', '139', '285', '48', '162', '147', '89', '148', '87', '170', '118', '119', '165', '136', '171', '176', '85', '123', '88'], //dev
+                    reqForumIds: ['161', '10', '37', '39', '38', '40', '82', '41'], //requests
+
+                    //set indicators
+                    indicators: ['fa-solid fa-circle-check', 'fa-solid fa-circle-xmark'], 
+                }
+                FillTracker(`duncan taggart`, trackerParams);
+            </script>
         </main>
 
         <!-- Copyright Information -->
