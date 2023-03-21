@@ -1,4 +1,38 @@
+@import '../global/sizes.scss';
+
 .btn--arrow::after,
 #Profile main .profile--item ul li::marker {
     content: '\f178';
+}
+
+//Full width forums
+.f-1 {
+    grid-column: 1 / -1 !important;
+
+    .forum--border {
+        display: grid;
+
+        @media only screen and (min-width: $md) {
+            grid-template-columns: #{"min(50%, 400px)"} auto;
+        }
+    }
+
+    .forum--links {
+        @media only screen and (min-width: $md) {
+            grid-column: 2 / 3;
+            grid-row: 1 / 4;
+            border-top: none;
+            margin: 0 0 0 10px;
+            padding: 10px;
+            border-left: 1px solid var(--border-main);
+            height: 100%;
+        }
+    }
+}
+//Two-wide on desktop forums
+@media only screen and (min-width: $lg) {
+    .f-2,
+    .f-3 {
+        grid-column: span 3 !important;
+    }
 }

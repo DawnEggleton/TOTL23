@@ -16,11 +16,13 @@
     #Profile main header .profile--links a {
       color: var(--text-body); }
 
+#Profile main .profile ~ div {
+  display: none; }
+
 #Profile main .profile--wrap {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - (var(--menuSize) * 2));
-  margin-bottom: 9px; }
+  height: calc(100vh - (var(--menuSize) * 2)); }
 
 #Profile main .profile--labels {
   background: var(--bg-alt);

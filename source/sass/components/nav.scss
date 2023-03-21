@@ -109,7 +109,9 @@
 
                 &::before,
                 &::after {
-                    width: 100%;
+                    width: 75%;
+                    left: 4px;
+                    top: 7px;
                 }
 
                 &::before {
@@ -117,7 +119,6 @@
                 }
 
                 &::after {
-                    top: 5px;
                     transform: rotate(-45deg);
                 }
             }

@@ -58,6 +58,17 @@
     [data-type="grid"][data-columns="4"] {
       grid-template-columns: repeat(4, 1fr); } }
 
+[data-type="grid"][data-columns="6"] {
+  grid-template-columns: repeat(1, 1fr); }
+  @media only screen and (min-width: 768px) {
+    [data-type="grid"][data-columns="6"] {
+      grid-template-columns: repeat(2, 1fr); } }
+  @media only screen and (min-width: 1024px) {
+    [data-type="grid"][data-columns="6"] {
+      grid-template-columns: repeat(6, 1fr); }
+      [data-type="grid"][data-columns="6"] > * {
+        grid-column: span 2; } }
+
 [data-align="left"] {
   text-align: left; }
 

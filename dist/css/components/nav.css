@@ -73,11 +73,12 @@
     .nav--menu-icon.is-open span {
       background: transparent; }
       .nav--menu-icon.is-open span::before, .nav--menu-icon.is-open span::after {
-        width: 100%; }
+        width: 75%;
+        left: 4px;
+        top: 7px; }
       .nav--menu-icon.is-open span::before {
         transform: rotate(45deg); }
       .nav--menu-icon.is-open span::after {
-        top: 5px;
         transform: rotate(-45deg); }
   .nav--settings-icon {
     padding: 0;

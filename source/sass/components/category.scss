@@ -1,0 +1,97 @@
+.category {
+    margin: 30px;
+
+    & > h2 {
+        text-align: center;
+        grid-column: 1 / -1 !important;
+        font-family: var(--font-head);
+        font-size: 30px;
+        margin: 0;
+        padding-bottom: 25px;
+
+        &::after {
+            content: '';
+            height: 1px;
+            width: 50px;
+            background: var(--text-body);
+            position: absolute;
+            bottom: 0;
+            left: calc(50% - 25px);
+        }
+    }
+}
+
+.forum {
+    background: var(--bg-content);
+    padding: 15px;
+    color: var(--text-content);
+    text-transform: uppercase;
+    font-size: var(--xsBody);
+    letter-spacing: 0.1em;
+    line-height: 200%;
+
+    &--border {
+        border: 1px solid var(--border-main);
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        & > a {
+            text-transform: capitalize;
+            font-family: var(--font-head);
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-content);
+            line-height: 140%;
+            margin-bottom: 5px;
+        }
+    }
+
+    &--info {
+        border-bottom: 1px solid var(--border-main);
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        gap: 10px;
+    }
+
+    &--latest {
+        display: flex;
+        flex-direction: column;
+
+        a {
+            font-weight: 600;
+        }
+    }
+
+    &--links {
+        border-top: 1px solid var(--border-main);
+        padding-top: 15px;
+        margin-top: 10px;
+
+        .subforums {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        &:empty,
+        .subforums-macro {
+            display: none;
+        }
+
+        a {
+            border: 1px solid var(--border-main);
+            padding: 2px 8px;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            color: var(--text-content);
+            transition-duration: 0.3s;
+
+            &:hover {
+                background: var(--ltaccent-40);
+            }
+        }
+    }
+}

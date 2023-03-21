@@ -26,11 +26,14 @@
         }
         .profile {
 
+            & ~ div {
+                display: none;
+            }
+
             &--wrap {
                 display: flex;
                 flex-direction: column;
                 height: calc(100vh - (var(--menuSize) * 2));
-                margin-bottom: 9px;
             }
 
             &--labels {
