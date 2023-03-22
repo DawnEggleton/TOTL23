@@ -1,3 +1,7 @@
+.hide,
+.hideEl {
+  display: none !important; }
+
 .noise::after {
   content: '';
   position: absolute;

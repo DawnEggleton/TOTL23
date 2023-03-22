@@ -29,6 +29,7 @@
     font-size: var(--xsBody);
     letter-spacing: 0.1em;
     line-height: 200%;
+    border-radius: 1px;
 
     &--border {
         border: 1px solid var(--border-main);
@@ -36,6 +37,7 @@
         display: flex;
         flex-direction: column;
         height: 100%;
+        border-radius: 1px;
 
         & > a {
             text-transform: capitalize;
@@ -45,6 +47,11 @@
             color: var(--text-content);
             line-height: 140%;
             margin-bottom: 5px;
+        }
+
+        .forum-new-post & {
+            border-color: var(--ltaccent);
+            border-width: 2px;
         }
     }
 
@@ -62,6 +69,12 @@
 
         a {
             font-weight: 600;
+        }
+
+        & > a {
+            color: var(--text-content);
+            font-size: var(--sBody);
+            letter-spacing: 0.05em;
         }
     }
 

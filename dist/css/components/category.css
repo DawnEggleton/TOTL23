@@ -23,13 +23,15 @@
   text-transform: uppercase;
   font-size: var(--xsBody);
   letter-spacing: 0.1em;
-  line-height: 200%; }
+  line-height: 200%;
+  border-radius: 1px; }
   .forum--border {
     border: 1px solid var(--border-main);
     padding: 15px;
     display: flex;
     flex-direction: column;
-    height: 100%; }
+    height: 100%;
+    border-radius: 1px; }
     .forum--border > a {
       text-transform: capitalize;
       font-family: var(--font-head);
@@ -38,6 +40,9 @@
       color: var(--text-content);
       line-height: 140%;
       margin-bottom: 5px; }
+    .forum-new-post .forum--border {
+      border-color: var(--ltaccent);
+      border-width: 2px; }
   .forum--info {
     border-bottom: 1px solid var(--border-main);
     padding-bottom: 10px;
@@ -49,6 +54,10 @@
     flex-direction: column; }
     .forum--latest a {
       font-weight: 600; }
+    .forum--latest > a {
+      color: var(--text-content);
+      font-size: var(--sBody);
+      letter-spacing: 0.05em; }
   .forum--links {
     border-top: 1px solid var(--border-main);
     padding-top: 15px;

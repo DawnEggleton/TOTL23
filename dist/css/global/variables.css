@@ -35,18 +35,21 @@
   --text-content: var(--black);
   --text-content-hover: var(--ltGrey);
   --text-body: var(--white);
-  --border-main: var(--xltGrey); }
+  --border-main: var(--xltGrey);
+  --opacity-colorover: 0.6; }
   :root .g-1,
   :root .g-2, :root.g-1, :root.g-2 {
     --accent: rgba(196, 177, 125, 1);
     --ltaccent: rgba(225, 210, 166, 1);
     --ltaccent-40: rgba(225, 210, 166, 0.4);
-    --ltaccent-55: rgba(225, 210, 166, 0.55); }
+    --ltaccent-55: rgba(225, 210, 166, 0.55);
+    --opacity-colorover: 0.35; }
   :root .g-3, :root.g-3 {
     --accent: rgba(189, 133, 92, 1);
     --ltaccent: rgba(215, 159, 118, 1);
     --ltaccent-40: rgba(215, 159, 118, 0.4);
-    --ltaccent-55: rgba(215, 159, 118, 0.55); }
+    --ltaccent-55: rgba(215, 159, 118, 0.55);
+    --opacity-colorover: 0.35; }
   :root .g-4, :root.g-4 {
     --accent: rgba(110, 130, 155, 1);
     --ltaccent: rgba(142, 161, 185, 1);
@@ -56,23 +59,25 @@
   :root .g-10,
   :root .g-19, :root.g-5, :root.g-10, :root.g-19 {
     --accent: rgba(196, 196, 196, 1);
-    --ltaccent: rgba(220, 220, 220, 1);
-    --ltaccent-40: rgba(220, 220, 220, 0.4);
-    --ltaccent-55: rgba(220, 220, 220, 0.55); }
+    --ltaccent: rgba(155, 155, 155, 1);
+    --ltaccent-40: rgba(155, 155, 155, 0.4);
+    --ltaccent-55: rgba(155, 155, 155, 0.55); }
   :root adults,
   :root .adults,
   :root .g-6, :root.g-6 {
     --accent: rgba(179, 73, 85, 1);
     --ltaccent: rgba(200, 107, 118, 1);
     --ltaccent-40: rgba(200, 107, 118, 0.4);
-    --ltaccent-55: rgba(200, 107, 118, 0.55); }
+    --ltaccent-55: rgba(200, 107, 118, 0.55);
+    --opacity-colorover: 0.35; }
   :root gryffindor,
   :root .gryffindor,
   :root .g-7, :root.g-7 {
     --accent: rgba(147, 42, 47, 1);
     --ltaccent: rgba(176, 58, 63, 1);
     --ltaccent-40: rgba(176, 58, 63, 0.4);
-    --ltaccent-55: rgba(176, 58, 63, 0.55); }
+    --ltaccent-55: rgba(176, 58, 63, 0.55);
+    --opacity-colorover: 0.3; }
   :root hogwarts,
   :root .hogwarts,
   :root .g-8, :root.g-8 {
@@ -86,21 +91,24 @@
     --accent: rgba(183, 148, 117, 1);
     --ltaccent: rgba(213, 177, 146, 1);
     --ltaccent-40: rgba(213, 177, 146, 0.4);
-    --ltaccent-55: rgba(213, 177, 146, 0.55); }
+    --ltaccent-55: rgba(213, 177, 146, 0.55);
+    --opacity-colorover: 0.5; }
   :root press,
   :root .press,
   :root .g-11, :root.g-11 {
     --accent: rgba(176, 134, 84, 1);
     --ltaccent: rgba(200, 160, 112, 1);
     --ltaccent-40: rgba(200, 160, 112, 0.4);
-    --ltaccent-55: rgba(200, 160, 112, 0.55); }
+    --ltaccent-55: rgba(200, 160, 112, 0.55);
+    --opacity-colorover: 0.35; }
   :root ministry,
   :root .ministry,
   :root .g-12, :root.g-12 {
     --accent: rgba(78, 134, 126, 1);
     --ltaccent: rgba(101, 157, 149, 1);
     --ltaccent-40: rgba(101, 157, 149, 0.4);
-    --ltaccent-55: rgba(101, 157, 149, 0.55); }
+    --ltaccent-55: rgba(101, 157, 149, 0.55);
+    --opacity-colorover: 0.5; }
   :root quidditch,
   :root .quidditch,
   :root .g-13, :root.g-13 {
@@ -114,14 +122,16 @@
     --accent: rgba(65, 91, 142, 1);
     --ltaccent: rgba(86, 113, 166, 1);
     --ltaccent-40: rgba(86, 113, 166, 0.4);
-    --ltaccent-55: rgba(86, 113, 166, 0.55); }
+    --ltaccent-55: rgba(86, 113, 166, 0.55);
+    --opacity-colorover: 0.5; }
   :root healers,
   :root .healers,
   :root .g-15, :root.g-15 {
     --accent: rgba(88, 123, 83, 1);
     --ltaccent: rgba(102, 142, 96, 1);
     --ltaccent-40: rgba(102, 142, 96, 0.4);
-    --ltaccent-55: rgba(102, 142, 96, 0.55); }
+    --ltaccent-55: rgba(102, 142, 96, 0.55);
+    --opacity-colorover: 0.4; }
   :root slytherin,
   :root .slytherin,
   :root .g-16, :root.g-16 {
@@ -129,7 +139,8 @@
     --ltaccent: rgba(60, 113, 78, 1);
     --ltaccent-40: rgba(60, 113, 78, 0.4);
     --ltaccent-55: rgba(60, 113, 78, 0.55);
-    --bg-image: url(../images/bg-slytherin.jpg); }
+    --bg-image: url(../images/bg-slytherin.jpg);
+    --opacity-colorover: 0.5; }
   :root returners,
   :root .returners,
   :root .g-17, :root.g-17 {
@@ -188,4 +199,4 @@
   --text-content: var(--xltGrey);
   --text-content-hover: var(--white);
   --text-body: var(--offWhite);
-  --border-main: var(--dkGrey); }
+  --border-main: var(--mdGrey); }

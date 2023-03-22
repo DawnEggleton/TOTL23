@@ -47,13 +47,13 @@
             <!--Profile-->
             <section class="profile g-8 acc-Member app-Traditional gay">
                 <header>
-                    <h1>Duncan O'Donnelly-Taggart</h1>
+                    <h1>Salazar Slytherin</h1>
                     <div class="profile--links">
-                        <a href="profile-member.html">Directory</a>
-                        <a href="post.html">Development</a>
+                        <a href="profile-member.html" class="charOnly">Directory</a>
+                        <a href="">Development</a>
                         <a href="">Tracker</a>
-                        <a href="post.html">Wanted</a>
-                        <a href="#">Custom</a>
+                        <a href="">Wanted</a>
+                        <a href="">Custom</a>
                         <a href="defaults/usertopics.html">Topics</a>
                         <a href="defaults/userposts.html">Posts</a>
                         <a href="usercp/user-sendmessage.html">Message</a>
@@ -761,10 +761,10 @@
                 }
                 
                 //Global
-                setProfileTab('', '');
+                setProfileTab('Member', '');
 
                 //Member Specific
-                if('<!-- |g_id| -->' == '4' || '<!-- |g_id| -->' == '20' || 'Character'.toLowerCase() == 'member') {
+                if('4' == '4' || '4' == '20' || 'Member'.toLowerCase() == 'member') {
                     // SUBACCOUNTS PROFILE DISPLAY SCRIPT (ABC ORDER) by tonya aka wildflower
                     $('select[name=showuser] option').each(function () {
                         if ($(this).val() != `-------------------`) {

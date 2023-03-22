@@ -209,7 +209,7 @@
                 height: 20px;
                 width: 50px;
                 background: var(--bg-content);
-                border-radius: 2px;
+                border-radius: 1px;
                 padding: 2px;
                 display: flex;
 
@@ -218,7 +218,7 @@
                     width: 16px;
                     height: 16px;
                     background: var(--bg-body-alt);
-                    border-radius: 2px;
+                    border-radius: 1px;
                 }
             }
             .dark &.toggle--theme {
@@ -271,7 +271,7 @@
             font-weight: 500;
             background: var(--bg-content);
             transition-duration: 0.3s;
-            border-radius: 2px;
+            border-radius: 1px;
 
             &:hover {
                 background: var(--ltaccent-40);
@@ -318,7 +318,7 @@
                 img {
                     height: 40px;
                     width: 40px;
-                    border-radius: 2px;
+                    border-radius: 1px;
                 }
 
                 #subaccounts_menu {
@@ -334,7 +334,7 @@
                         text-transform: uppercase;
                         letter-spacing: 0.1em;
                         font-weight: 600;
-                        border-radius: 2px;
+                        border-radius: 1px;
 
                         option {
                             font-size: var(--mBody);

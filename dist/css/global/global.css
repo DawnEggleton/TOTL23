@@ -33,7 +33,128 @@ a {
   text-decoration: none;
   color: var(--accent); }
 
-.profil--wrap u,
+.profile--wrap h2,
+.profile--wrap tag-xl,
+.post h2,
+.post tag-xl,
+.webpage h2,
+.webpage tag-xl,
+.postcolor h2,
+.postcolor tag-xl {
+  font-family: var(--font-head);
+  text-align: center;
+  line-height: 200%;
+  padding-bottom: 15px;
+  font-size: calc(var(--xlBody) + 16px); }
+  .profile--wrap h2::after,
+  .profile--wrap tag-xl::after,
+  .post h2::after,
+  .post tag-xl::after,
+  .webpage h2::after,
+  .webpage tag-xl::after,
+  .postcolor h2::after,
+  .postcolor tag-xl::after {
+    content: '';
+    height: 1px;
+    width: 50px;
+    background: var(--text-content);
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 25px); }
+
+.profile--wrap h3,
+.profile--wrap tag-lg,
+.post h3,
+.post tag-lg,
+.webpage h3,
+.webpage tag-lg,
+.postcolor h3,
+.postcolor tag-lg {
+  font-family: var(--font-head);
+  text-align: center;
+  line-height: 200%;
+  padding-bottom: 13px;
+  font-size: calc(var(--xlBody) + 8px); }
+  .profile--wrap h3::after,
+  .profile--wrap tag-lg::after,
+  .post h3::after,
+  .post tag-lg::after,
+  .webpage h3::after,
+  .webpage tag-lg::after,
+  .postcolor h3::after,
+  .postcolor tag-lg::after {
+    content: '';
+    height: 1px;
+    width: 50px;
+    background: var(--text-content);
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 25px); }
+
+.profile--wrap h4,
+.profile--wrap tag-md,
+.post h4,
+.post tag-md,
+.webpage h4,
+.webpage tag-md,
+.postcolor h4,
+.postcolor tag-md {
+  font-family: var(--font-head);
+  line-height: 200%;
+  font-size: calc(var(--xlBody) + 4px);
+  margin-bottom: 0; }
+
+.profile--wrap h5,
+.profile--wrap tag-sm,
+.post h5,
+.post tag-sm,
+.webpage h5,
+.webpage tag-sm,
+.postcolor h5,
+.postcolor tag-sm {
+  font-family: var(--font-head);
+  line-height: 200%;
+  font-size: var(--xlBody);
+  margin-bottom: 0; }
+
+.profile--wrap h6,
+.profile--wrap tag-xs,
+.post h6,
+.post tag-xs,
+.webpage h6,
+.webpage tag-xs,
+.postcolor h6,
+.postcolor tag-xs {
+  line-height: 160%;
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0; }
+
+.profile--wrap b,
+.post b,
+.webpage b,
+.postcolor b {
+  font-family: var(--font-head);
+  color: var(--accent);
+  font-size: 1.15em; }
+
+.profile--wrap i,
+.post i,
+.webpage i,
+.postcolor i {
+  color: var(--accent);
+  font-weight: 500; }
+
+.profile--wrap s,
+.post s,
+.webpage s,
+.postcolor s {
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  font-weight: 500; }
+
+.profile--wrap u,
 .post u,
 .webpage u,
 .postcolor u {
@@ -42,16 +163,47 @@ a {
   border-bottom: 1px solid var(--accent);
   padding: 2px 10px; }
 
-.profil--wrap a,
+.profile--wrap a,
 .post a,
 .webpage a,
 .postcolor a {
   font-weight: 600;
   font-family: var(--font-head);
-  letter-spacing: 0.05em; }
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.9em; }
+
+.profile--wrap ul,
+.post ul,
+.webpage ul,
+.postcolor ul {
+  margin: 0;
+  padding: 0 0 0 17px;
+  line-height: 200%; }
+  .profile--wrap ul br,
+  .post ul br,
+  .webpage ul br,
+  .postcolor ul br {
+    display: none; }
+  .profile--wrap ul li,
+  .post ul li,
+  .webpage ul li,
+  .postcolor ul li {
+    padding-left: 10px; }
+    .profile--wrap ul li::marker,
+    .post ul li::marker,
+    .webpage ul li::marker,
+    .postcolor ul li::marker {
+      font-family: 'Font Awesome 6 Pro';
+      font-weight: 100;
+      font-style: normal; }
 
 button {
   cursor: pointer; }
+
+img {
+  max-width: 100%;
+  object-fit: cover; }
 
 .scroll {
   overflow: auto;
@@ -107,7 +259,7 @@ tag-code {
   letter-spacing: 0.1em;
   font-weight: 600;
   padding: 5px 10px;
-  border-radius: 2px; }
+  border-radius: 1px; }
 
 .fa-solid,
 .fa-regular,

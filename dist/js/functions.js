@@ -202,12 +202,3 @@ function moveLeft(e) {
 function moveRight(e) {
     e.parentNode.querySelector('tag-labels').scrollLeft += 150;
 }
-
-//Profile Scripts
-function clipWarnings() {
-    let warnings = `verbal and physical abuse, depression, suicidal attempt/ideation, severe injury`;
-    if(warnings !== `<i>No Information</i>`) {
-        document.querySelector('#clip-warning').innerHTML = `<i class="fa-regular fa-triangle-exclamation"></i>
-        <span>${warnings}</span>`;
-    }
-}

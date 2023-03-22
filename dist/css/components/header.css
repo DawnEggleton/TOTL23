@@ -46,7 +46,7 @@ header {
   width: 100%;
   max-width: 500px;
   background: var(--bg-transparent);
-  border-radius: 2px;
+  border-radius: 1px;
   padding: 15px 20px 20px 20px;
   margin: 15px auto 0;
   gap: 20px; }
@@ -106,7 +106,7 @@ header {
     font-family: var(--font-head);
     font-size: 20px;
     color: var(--text-body);
-    border-radius: 2px;
+    border-radius: 1px;
     min-height: 50px;
     transition-duration: 0.3s; }
     .header--staff a:hover {

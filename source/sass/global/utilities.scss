@@ -1,5 +1,9 @@
 @import 'sizes';
 
+.hide,
+.hideEl {
+    display: none !important;
+}
 .noise {
     &::after {
         content: '';

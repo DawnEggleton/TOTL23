@@ -37,9 +37,10 @@ const navHTML = `<nav class="nav nav--top">
                 <button onclick="highlightCode()" class="copyQuick">copy</button>
                 <pre><textarea class="scroll">second code</textarea></pre>
             </tag-code>
-            <a href="">Custom Link</a>
-            <a href="">Custom Link</a>
-            <a href="">Custom Link</a>
+            <a href="profile.html">Traditional Profile</a>
+            <a href="profile-simplified.html">Simplified Profile</a>
+            <a href="profile-basic.html">Basic Profile</a>
+            <a href="profile-member.html">Member Profile</a>
         </div>
     </nav>
     <nav class="nav popout nav--settings-toggle">

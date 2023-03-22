@@ -26,8 +26,3 @@ if(tabInstances.length > 0) {
         initHashTabs();
     }
 }
-
-//init profile
-if(pageID === 'Profile') {
-    clipWarnings();
-}

@@ -36,10 +36,82 @@ a {
     text-decoration: none;
     color: var(--accent);
 }
-.profil--wrap,
+.profile--wrap,
 .post,
 .webpage,
 .postcolor {
+    h2,
+    tag-xl {
+        font-family: var(--font-head);
+        text-align: center;
+        line-height: 200%;
+        padding-bottom: 15px;
+        font-size: calc(var(--xlBody) + 16px);
+
+        &::after {
+            content: '';
+            height: 1px;
+            width: 50px;
+            background: var(--text-content);
+            position: absolute;
+            bottom: 0;
+            left: calc(50% - 25px);
+        }
+    }
+    h3,
+    tag-lg {
+        font-family: var(--font-head);
+        text-align: center;
+        line-height: 200%;
+        padding-bottom: 13px;
+        font-size: calc(var(--xlBody) + 8px);
+
+        &::after {
+            content: '';
+            height: 1px;
+            width: 50px;
+            background: var(--text-content);
+            position: absolute;
+            bottom: 0;
+            left: calc(50% - 25px);
+        }
+    }
+    h4,
+    tag-md {
+        font-family: var(--font-head);
+        line-height: 200%;
+        font-size: calc(var(--xlBody) + 4px);
+        margin-bottom: 0;
+    }
+    h5,
+    tag-sm {
+        font-family: var(--font-head);
+        line-height: 200%;
+        font-size: var(--xlBody);
+        margin-bottom: 0;
+    }
+    h6,
+    tag-xs {
+        line-height: 160%;
+        font-size: var(--xsBody);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 0;
+    }
+    b {
+        font-family: var(--font-head);
+        color: var(--accent);
+        font-size: 1.15em;
+    }
+    i {
+        color: var(--accent);
+        font-weight: 500;
+    }
+    s {
+        text-decoration-color: var(--accent);
+        text-decoration-thickness: 2px;
+        font-weight: 500;
+    }
     u {
         background: var(--ltaccent-40);
         text-decoration: none;
@@ -50,10 +122,36 @@ a {
         font-weight: 600;
         font-family: var(--font-head);
         letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-size: 0.9em;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0 0 0 17px;
+        line-height: 200%;
+
+        br {
+            display: none;
+        }
+
+        li {
+            padding-left: 10px;
+            
+            &::marker {
+                font-family: 'Font Awesome 6 Pro';
+                font-weight: 100;
+                font-style: normal;
+            }
+        }
     }
 }
 button {
     cursor: pointer;
+}
+img {
+    max-width: 100%;
+    object-fit: cover;
 }
 .scroll {
     overflow: auto;
@@ -115,7 +213,7 @@ tag-code {
     letter-spacing: 0.1em;
     font-weight: 600;
     padding: 5px 10px;
-    border-radius: 2px;
+    border-radius: 1px;
 }
 .fa-solid,
 .fa-regular,
