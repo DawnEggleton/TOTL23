@@ -344,7 +344,8 @@
                     padding: 0;
                     display: grid;
                     grid-template-columns: 60px auto;
-                    grid-template-rows: 1fr 1fr;
+                    grid-template-rows: max-content auto;
+                    height: 105px;
 
                     .profile--sub-image {
                         grid-row: span 2;

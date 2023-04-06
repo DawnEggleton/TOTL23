@@ -1,5 +1,10 @@
 .category {
-  margin: 30px; }
+  margin: 15px 15px 45px 15px;
+  gap: 15px; }
+  @media only screen and (min-width: 600px) {
+    .category {
+      margin: 30px 30px 90px 30px;
+      gap: 30px; } }
   .category > h2 {
     text-align: center;
     grid-column: 1 / -1 !important;
@@ -18,13 +23,16 @@
 
 .forum {
   background: var(--bg-content);
-  padding: 15px;
+  padding: 8px;
   color: var(--text-content);
   text-transform: uppercase;
   font-size: var(--xsBody);
   letter-spacing: 0.1em;
   line-height: 200%;
   border-radius: 1px; }
+  @media only screen and (min-width: 600px) {
+    .forum {
+      padding: 15px; } }
   .forum--border {
     border: 1px solid var(--border-main);
     padding: 15px;

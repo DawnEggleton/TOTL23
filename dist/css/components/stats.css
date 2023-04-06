@@ -1,0 +1,136 @@
+.stats {
+  gap: 15px; }
+  @media only screen and (min-width: 768px) {
+    .stats {
+      gap: 30px; } }
+  .stats--links {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: var(--xsBody);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    flex-wrap: wrap; }
+    .stats--links a {
+      color: var(--text-body); }
+  .stats--current, .stats--today {
+    background: var(--bg-content);
+    color: var(--text-content);
+    padding: 8px; }
+    @media only screen and (min-width: 600px) {
+      .stats--current, .stats--today {
+        padding: 15px; } }
+  .stats--current {
+    grid-column: 1 / -1;
+    font-family: var(--font-head);
+    font-size: var(--xlBody);
+    text-transform: capitalize;
+    line-height: 200%; }
+    .stats--current .scroll {
+      height: 150px; }
+      @media only screen and (min-width: 1024px) {
+        .stats--current .scroll {
+          height: calc(247px + (10 * var(--sizeBoost))); } }
+    @media only screen and (min-width: 1024px) {
+      .stats--current {
+        grid-column: span 1; } }
+    @media only screen and (min-width: 1280px) {
+      .stats--current {
+        grid-column: span 2; } }
+  .stats--today, .stats--info {
+    grid-column: span 1; }
+  .stats--today {
+    font-size: var(--xsBody);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    line-height: 200%;
+    text-align: justify; }
+    .stats--today .scroll {
+      height: 70px; }
+      @media only screen and (min-width: 768px) {
+        .stats--today .scroll {
+          height: calc(247px + (10 * var(--sizeBoost))); } }
+  .stats--info {
+    display: grid;
+    gap: 15px; }
+    @media only screen and (min-width: 480px) {
+      .stats--info {
+        grid-template-columns: repeat(2, 1fr); } }
+    @media only screen and (min-width: 768px) {
+      .stats--info {
+        display: flex;
+        flex-direction: column; } }
+  .stats--stat {
+    background: var(--bg-content);
+    color: var(--text-content);
+    padding: 7px;
+    text-transform: uppercase;
+    font-size: var(--xsBody);
+    letter-spacing: 0.1em;
+    text-align: center;
+    font-weight: 600;
+    line-height: 200%; }
+    .stats--stat .stats--border {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column; }
+    .stats--stat b {
+      color: var(--accent); }
+    .stats--stat a {
+      display: block;
+      color: var(--text-content); }
+  .stats--recent {
+    gap: 15px; }
+    .stats--recent h2 {
+      margin-bottom: 10px; }
+    .stats--recent tr {
+      background: var(--bg-content);
+      color: var(--text-content);
+      display: flex;
+      flex-direction: column;
+      padding: 8px; }
+      @media only screen and (min-width: 600px) {
+        .stats--recent tr {
+          padding: 15px; } }
+      .stats--recent tr > td {
+        border: 1px solid var(--border-main);
+        width: 100%;
+        padding: 15px; }
+        .stats--recent tr > td:first-child {
+          border-bottom: 0;
+          padding-bottom: 0;
+          font-size: 0; }
+          .stats--recent tr > td:first-child a:first-child {
+            text-transform: capitalize;
+            font-family: var(--font-head);
+            display: block;
+            font-size: var(--xlBody);
+            letter-spacing: 0;
+            color: var(--text-content); }
+          .stats--recent tr > td:first-child a:nth-child(2) {
+            font-size: var(--xsBody);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            line-height: 100%; }
+            .stats--recent tr > td:first-child a:nth-child(2)::before {
+              content: 'Written by ';
+              color: var(--text-content);
+              font-weight: 400; }
+          .stats--recent tr > td:first-child a:last-child {
+            display: none; }
+        .stats--recent tr > td:last-child {
+          border-top: 0;
+          padding-top: 0;
+          text-transform: uppercase;
+          font-size: var(--xsBody);
+          line-height: 100%; }
+  .stats--border {
+    border: 1px solid var(--border-main);
+    padding: 15px;
+    height: 100%; }
