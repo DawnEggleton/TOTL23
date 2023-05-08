@@ -119,6 +119,7 @@
     }
     &--recent {
         gap: 15px;
+        margin-bottom: 10px;
 
         h2 {
             margin-bottom: 10px;
@@ -179,6 +180,7 @@
                     text-transform: uppercase;
                     font-size: var(--xsBody);
                     line-height: 100%;
+                    letter-spacing: 0.1em;
                 }
             }
         }

@@ -149,6 +149,35 @@ a {
 button {
     cursor: pointer;
 }
+select,
+input,
+textarea {
+    background: var(--bg-content);
+    border: 1px solid var(--border-main);
+    color: var(--text-content);
+    border-radius: 1px;
+}
+select,
+input {
+    text-transform: uppercase;
+    font-size: var(--xsBody);
+    line-height: 100%;
+    letter-spacing: 1px;
+    margin: 0 3px;
+    cursor: pointer;
+}
+select {
+    padding: 7px 8px 2px;
+}
+option {
+    font-size: var(--mBody);
+}
+input {
+    padding: 8px;
+}
+textarea {
+    padding: 10px;
+}
 img {
     max-width: 100%;
     object-fit: cover;

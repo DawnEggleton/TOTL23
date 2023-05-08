@@ -1,0 +1,26 @@
+#delcookiesrow,
+#mark-as-read-subto,
+#delcookiesrow ~ .tableborder .row4,
+main > div[align="center"] ~ .tableborder .row4 {
+  text-transform: uppercase;
+  color: var(--white);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  font-size: var(--xsBody) !important;
+  text-align: center;
+  line-height: 200% !important; }
+  #delcookiesrow a,
+  #mark-as-read-subto a,
+  #delcookiesrow ~ .tableborder .row4 a,
+  main > div[align="center"] ~ .tableborder .row4 a {
+    color: var(--white); }
+
+#delcookiesrow ~ .tableborder,
+main > div[align="center"] ~ .tableborder {
+  margin-bottom: 30px; }
+
+.pagination_pagetxt {
+  display: none; }
+
+.wrapmini {
+  display: none; }

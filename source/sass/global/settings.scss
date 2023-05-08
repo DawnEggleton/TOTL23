@@ -33,9 +33,9 @@
     }
 }
 //Two-wide on desktop forums
-@media only screen and (min-width: $lg) {
-    .f-2,
-    .f-3 {
+.f-2,
+.f-3 {
+    @media only screen and (min-width: $lg) {
         grid-column: span 3 !important;
     }
 }

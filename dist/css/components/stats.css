@@ -85,7 +85,8 @@
       display: block;
       color: var(--text-content); }
   .stats--recent {
-    gap: 15px; }
+    gap: 15px;
+    margin-bottom: 10px; }
     .stats--recent h2 {
       margin-bottom: 10px; }
     .stats--recent tr {
@@ -129,7 +130,8 @@
           padding-top: 0;
           text-transform: uppercase;
           font-size: var(--xsBody);
-          line-height: 100%; }
+          line-height: 100%;
+          letter-spacing: 0.1em; }
   .stats--border {
     border: 1px solid var(--border-main);
     padding: 15px;

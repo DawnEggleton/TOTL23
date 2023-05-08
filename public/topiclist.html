@@ -89,119 +89,221 @@
                 <input type="hidden" id="tact" name="tact" value="close">	
                 
                 <!--Topic List-->
-                <section class="category">
-                </section>
+                <section class="category" data-type="grid">
 
-                <br>
-                <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                    <tbody>
-                        <tr>
-                            <td width="20%" nowrap="nowrap" align="left">
-                                <span class="pagination">
-                                    <span class="pagination_pagetxt">
-                                        <a title="Jump to page..." href="javascript:multi_page_jump('?showtopic=1556',69,15);" class="">
-                                            Pages:
-                                        </a> 
-                                        (5)
-                                    </span>
-                                    &nbsp;
-                                    <span class="pagination_current">
-                                        <b>1</b>
-                                    </span>
-                                    &nbsp;
-                                    <a href="?showtopic=1556&amp;st=15" class="pagination_page">2</a>
-                                    &nbsp;
-                                    <a href="?showtopic=1556&amp;st=30" class="pagination_page">3</a>
-                                    &nbsp;...&nbsp;
-                                    <a href="?showtopic=1556&amp;st=60" title="Page: 5" class="pagination_last">Last »</a>
+                    <div class="topic">
+                        <div class="topic--border">
+                            <div class="topic--left">
+                                <h3><a href="post.html">this is a thread title that is also very long</a></h3>
+                                <p>an optional topic description goes in here</p>
+                                <div class="topic--info">
+                                    <div class="topic--stat"><b>00</b> views</div>
+                                    <div class="topic--stat"><b><a>00</a></b> replies</div>
+                                </div>
+                                <span class="small">(Pages <a href="https://totl.jcink.net/index.php?showtopic=184&amp;st=0">1 </a><a href="https://totl.jcink.net/index.php?showtopic=184&amp;st=15">2 </a>)</span>
+                            </div>
+                            <div class="topic--right">
+                                <div class="topic--latest">
+                                    <span>last post written by <a href="profile.html">Duncan O'Donnelly-Taggart</a></span>
+                                    <span>November 15 2023, 10:26 am</span>
+                                </div>
+                                <div class="topic--starter">
+                                    <span>started by <a href="profile.html">Duncan O'Donnelly-Taggart</a></span>
+                                    <span>November 15 2023, 10:26 am</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic">
+                        <div class="topic--border">
+                            <div class="topic--left">
+                                <h3><a href="post.html">this is a thread title that is also very long</a></h3>
+                                <p></p>
+                                <div class="topic--info">
+                                    <div class="topic--stat"><b>00</b> views</div>
+                                    <div class="topic--stat"><b><a>00</a></b> replies</div>
+                                </div>
+                                <span class="small">(Pages <a href="https://totl.jcink.net/index.php?showtopic=184&amp;st=0">1 </a><a href="https://totl.jcink.net/index.php?showtopic=184&amp;st=15">2 </a>)</span>
+                            </div>
+                            <div class="topic--right">
+                                <div class="topic--latest">
+                                    <span>last post written by <a href="profile.html">Duncan O'Donnelly-Taggart</a></span>
+                                    <span>November 15 2023, 10:26 am</span>
+                                </div>
+                                <div class="topic--starter">
+                                    <span>started by <a href="profile.html">Duncan O'Donnelly-Taggart</a></span>
+                                    <span>November 15 2023, 10:26 am</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="topic new">
+                        <div class="topic--border">
+                            <div class="topic--left">
+                                <h3><a href="post.html">this is a thread title that is also very long</a></h3>
+                                <p></p>
+                                <div class="topic--info">
+                                    <div class="topic--stat"><b>00</b> views</div>
+                                    <div class="topic--stat"><b><a>00</a></b> replies</div>
+                                </div>
+                            </div>
+                            <div class="topic--right">
+                                <div class="topic--latest">
+                                    <span>last post written by <a href="profile.html">Duncan O'Donnelly-Taggart</a></span>
+                                    <span>November 15 2023, 10:26 am</span>
+                                </div>
+                                <div class="topic--starter">
+                                    <span>started by <a href="profile.html">Duncan O'Donnelly-Taggart</a></span>
+                                    <span>November 15 2023, 10:26 am</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </form>
+
+            <div class="topic--list-info">
+                <form action="http://rtn.b1.jcink.com/index.php?act=SF&amp;f=39&amp;st=" method="post">      
+                    <div class="darkrow2" style="padding:4px" align="center">Showing 30 of 376 topics sorted by <select name="sort_key" class="forminput">
+                        <option value="last_post" selected="selected">last post date</option>
+                        <option value="title">topic title</option>
+                        <option value="starter_name">topic starter</option>
+                        <option value="posts">number of replies</option>
+                        <option value="views">number of views</option>
+                        <option value="start_date">topic start date</option>
+                        <option value="last_poster_name">last poster</option>
+                        </select> in <select name="sort_by" class="forminput">
+                        <option value="Z-A" selected="selected">descending order</option>
+                        <option value="A-Z">ascending order</option>
+                        </select> from <select name="prune_day" class="forminput">
+                        <option value="1">today</option>
+                        <option value="5">the last 5 days</option>
+                        <option value="7">the last week</option>
+                        <option value="10">the last 10 days</option>
+                        <option value="15">the last 15 days</option>
+                        <option value="20">the last 20 days</option>
+                        <option value="25">the last 25 days</option>
+                        <option value="30">the last 30 days</option>
+                        <option value="60">the last 60 days</option>
+                        <option value="90">the last 90 days</option>
+                        <option value="100" selected="selected">the beginning</option>
+                    </select>&nbsp;<input type="submit" value="Go!" class="forminput"></div>
+                </form>
+                <!-- |forum_active| -->
+                <span id="forumName" class="hide">Mini AUs</span>
+            </div>
+            <br>
+            <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tbody>
+                    <tr>
+                        <td width="20%" nowrap="nowrap" align="left">
+                            <span class="pagination">
+                                <span class="pagination_pagetxt">
+                                    <a title="Jump to page..." href="javascript:multi_page_jump('?showtopic=1556',69,15);" class="">
+                                        Pages:
+                                    </a> 
+                                    (5)
                                 </span>
                                 &nbsp;
-                                <span class="goto-firstunread">( 
-                                    <a href="?act=ST&amp;f=154&amp;t=1556&amp;view=getnewpost">Go to first unread post</a> 
-                                )</span>
-                            </td>
-                            <td width="80%" align="right">
-                                <a href="?act=Post&amp;CODE=00&amp;f=1"><span class="macro--button">New Topic</span></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                <span class="pagination_current">
+                                    <b>1</b>
+                                </span>
+                                &nbsp;
+                                <a href="?showtopic=1556&amp;st=15" class="pagination_page">2</a>
+                                &nbsp;
+                                <a href="?showtopic=1556&amp;st=30" class="pagination_page">3</a>
+                                &nbsp;...&nbsp;
+                                <a href="?showtopic=1556&amp;st=60" title="Page: 5" class="pagination_last">Last »</a>
+                            </span>
+                            &nbsp;
+                            <span class="goto-firstunread">( 
+                                <a href="?act=ST&amp;f=154&amp;t=1556&amp;view=getnewpost">Go to first unread post</a> 
+                            )</span>
+                        </td>
+                        <td width="80%" align="right">
+                            <a href="?act=Post&amp;CODE=00&amp;f=1"><span class="macro--button">New Topic</span></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br>
+
+            <div class="wrapmini" align="left">
+                New Marker&nbsp;&nbsp;Open Topic (new replies)
+                <br>No New Marker&nbsp;&nbsp;Open Topic (no new replies)
+                <br>New Marker&nbsp;&nbsp;Hot Topic (new replies)
+                <br>No New Marker&nbsp;&nbsp;Hot Topic (no new replies)
+            </div>
+
+            <div class="wrapmini" align="left">
+                New Marker&nbsp;&nbsp;Poll (new votes)
+                <br>No New Marker&nbsp;&nbsp;Poll (no new votes)
+                <br>Closed Marker&nbsp;&nbsp;Locked Topic
+                <br>Moved Marker&nbsp;&nbsp;Moved Topic
+            </div>
+
+            <div align="right">
+                
+                <input type="hidden" name="forums[]" value="1">
+                <input type="hidden" name="cat_forum" value="forum">
+                <input type="hidden" name="act" value="Search">
+                <input type="hidden" name="joinname" value="1">
+                <input type="hidden" name="CODE" value="01">
+                Search this forum:&nbsp;
+                <input type="text" size="30" name="keywords" class="forminput" value="Enter Keywords"><input type="submit" value="Go" class="forminput">
 
                 <br>
+                <br>
 
-                <div class="wrapmini" align="left">
-                    New Marker&nbsp;&nbsp;Open Topic (new replies)
-                    <br>No New Marker&nbsp;&nbsp;Open Topic (no new replies)
-                    <br>New Marker&nbsp;&nbsp;Hot Topic (new replies)
-                    <br>No New Marker&nbsp;&nbsp;Hot Topic (no new replies)
-                </div>
+                <select class="forminput" name="mod_options" id="mod_options" onchange="document.getElementById('tact').value=this.value;">
+                    <option value="-1">---------------------------------</option>
+                    <option value="-1" selected="selected">» Topic Moderation Options «</option>
+                    <option value="-1">---------------------------------</option>
+                    <option value="close">Close Topics</option>
+                    <option value="open">Open Topics</option>
+                    <option value="pin">Pin Topics</option>
+                    <option value="unpin">Unpin Topics</option>
+                    <option value="move">Move Topics</option>
+                    <option value="delete">Delete Topics</option> 
+                </select>
+                <input name="submit_modaction" type="button" id="mod_topics_submit" class="forminput" value="With Selected (0)">
+                <input name="select_all_submit" type="button" class="forminput" onclick="select_all()" value="Select All">
 
-                <div class="wrapmini" align="left">
-                    New Marker&nbsp;&nbsp;Poll (new votes)
-                    <br>No New Marker&nbsp;&nbsp;Poll (no new votes)
-                    <br>Closed Marker&nbsp;&nbsp;Locked Topic
-                    <br>Moved Marker&nbsp;&nbsp;Moved Topic
-                </div>
+                <br>
+                <br>
 
-                <div align="right">
-                    
-                    <input type="hidden" name="forums[]" value="1">
-                    <input type="hidden" name="cat_forum" value="forum">
-                    <input type="hidden" name="act" value="Search">
-                    <input type="hidden" name="joinname" value="1">
-                    <input type="hidden" name="CODE" value="01">
-                    Search this forum:&nbsp;
-                    <input type="text" size="30" name="keywords" class="forminput" value="Enter Keywords"><input type="submit" value="Go" class="forminput">
-
-                    <br>
-                    <br>
-
-                    <select class="forminput" name="mod_options" id="mod_options" onchange="document.getElementById('tact').value=this.value;">
-                        <option value="-1">---------------------------------</option>
-                        <option value="-1" selected="selected">» Topic Moderation Options «</option>
-                        <option value="-1">---------------------------------</option>
-                        <option value="close">Close Topics</option>
-                        <option value="open">Open Topics</option>
-                        <option value="pin">Pin Topics</option>
-                        <option value="unpin">Unpin Topics</option>
-                        <option value="move">Move Topics</option>
-                        <option value="delete">Delete Topics</option> 
+                <form onsubmit="if(document.jumpmenu.f.value == -1){return false;}" action="?act=SF" method="get" name="jumpmenu">
+                    <input type="hidden" name="act" value="SF">
+                    <input type="hidden" name="s" value="">
+                    <select name="f" onchange="if(this.options[this.selectedIndex].value != -1){ document.jumpmenu.submit() }" class="forminput">
+                        <optgroup label="Site Jump">
+                            <option value="sj_home">Forum Home</option>
+                            <option value="sj_search">Search</option>
+                            <option value="sj_help">Help</option>
+                        </optgroup>
+                        <optgroup label="Forum Jump">
+                            <option value="-1">Three In a Row</option>
+                            <option value="1" selected="selected">&nbsp;&nbsp;- Features: All </option><!--fx:1-->
+                            <option value="7">  ---- Features: Image, Manual Links</option>
+                            <option value="8">  ---- Features: Nothing</option>
+                            <option value="2">&nbsp;&nbsp;- Features: Image, Description </option><!--fx:2-->
+                            <option value="3">&nbsp;&nbsp;- Features: Image Only </option><!--fx:3-->
+                            <option value="-1">Two in a Row</option>
+                            <option value="4">&nbsp;&nbsp;- Features: Description, Manual Links </option><!--fx:4-->
+                            <option value="5">&nbsp;&nbsp;- Features: Description Only </option><!--fx:5-->
+                            <option value="-1">One in a Row</option>
+                            <option value="6">&nbsp;&nbsp;- Features: Manual Links Only </option><!--fx:6-->
+                        </optgroup>
                     </select>
-                    <input name="submit_modaction" type="button" id="mod_topics_submit" class="forminput" value="With Selected (0)">
-                    <input name="select_all_submit" type="button" class="forminput" onclick="select_all()" value="Select All">
+                    &nbsp;
+                    <input type="submit" value="Go" class="forminput">
+                </form>
 
-                    <br>
-                    <br>
-
-                    <form onsubmit="if(document.jumpmenu.f.value == -1){return false;}" action="?act=SF" method="get" name="jumpmenu">
-                        <input type="hidden" name="act" value="SF">
-                        <input type="hidden" name="s" value="">
-                        <select name="f" onchange="if(this.options[this.selectedIndex].value != -1){ document.jumpmenu.submit() }" class="forminput">
-                            <optgroup label="Site Jump">
-                                <option value="sj_home">Forum Home</option>
-                                <option value="sj_search">Search</option>
-                                <option value="sj_help">Help</option>
-                            </optgroup>
-                            <optgroup label="Forum Jump">
-                                <option value="-1">Three In a Row</option>
-                                <option value="1" selected="selected">&nbsp;&nbsp;- Features: All </option><!--fx:1-->
-                                <option value="7">  ---- Features: Image, Manual Links</option>
-                                <option value="8">  ---- Features: Nothing</option>
-                                <option value="2">&nbsp;&nbsp;- Features: Image, Description </option><!--fx:2-->
-                                <option value="3">&nbsp;&nbsp;- Features: Image Only </option><!--fx:3-->
-                                <option value="-1">Two in a Row</option>
-                                <option value="4">&nbsp;&nbsp;- Features: Description, Manual Links </option><!--fx:4-->
-                                <option value="5">&nbsp;&nbsp;- Features: Description Only </option><!--fx:5-->
-                                <option value="-1">One in a Row</option>
-                                <option value="6">&nbsp;&nbsp;- Features: Manual Links Only </option><!--fx:6-->
-                            </optgroup>
-                        </select>
-                        &nbsp;
-                        <input type="submit" value="Go" class="forminput">
-                    </form>
-
-                </div>
-            </form>
+            </div>
 
             <br>
             <br>
@@ -212,29 +314,28 @@
                     <a href="?act=Track&amp;f=1&amp;type=forum">Subscribe to this forum</a>
                 </div>
             </div>
-            <br clear="all">
 
-		<a name="to-bottom"></a></main>
+            <br clear=""all">
 
-        <!-- Copyright Information -->
-        <div class="tableborder" align="center">
-            <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
-                <div class="copyright" align="center">
-                    Powered by 
-                    <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a> 
-                    (<a href="http://jcink.com" target="_blank">Jcink.com </a> 
-                    <a href="https://jcink.com" target="_blank">Forum Hosting</a>) 
-                    © 2020 &nbsp;
-                    <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a> 
-                    <br>
-                    Page creation time: 0.7542 <!-- http://luxtradition.b1.jcink.com -->  · 
-                    <a href="index.php?act=Mobile">Mobile Version</a> · 
-                    <a href="index.php?act=privacy">Privacy Policy</a>
+            <!-- Copyright Information -->
+            <div class="tableborder" align="center">
+                <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
+                    <div class="copyright" align="center">
+                        Powered by 
+                        <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a> 
+                        (<a href="http://jcink.com" target="_blank">Jcink.com </a> 
+                        <a href="https://jcink.com" target="_blank">Forum Hosting</a>) 
+                        © 2020 &nbsp;
+                        <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a> 
+                        <br>
+                        Page creation time: 0.7542 <!-- http://luxtradition.b1.jcink.com -->  · 
+                        <a href="index.php?act=Mobile">Mobile Version</a> · 
+                        <a href="index.php?act=privacy">Privacy Policy</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <br>
+		<a name="to-bottom"></a></main>
 
         <!--Templates-->
         <script src="templates/header.js"></script>

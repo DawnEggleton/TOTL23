@@ -1,0 +1,147 @@
+#SF main > table {
+  background: var(--bg-alt);
+  padding: 10px 15px;
+  color: var(--text-content);
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600; }
+  #SF main > table a {
+    color: var(--text-content); }
+  #SF main > table:first-of-type {
+    position: sticky;
+    top: var(--menuSize);
+    z-index: 1; }
+    #SF main > table:first-of-type ~ br {
+      display: none; }
+    #SF main > table:first-of-type ~ div[align="right"] {
+      font-size: 0;
+      padding: 15px 15px 29px; }
+      @media only screen and (min-width: 600px) {
+        #SF main > table:first-of-type ~ div[align="right"] {
+          padding: 30px 30px 29px; } }
+      #SF main > table:first-of-type ~ div[align="right"] > input,
+      #SF main > table:first-of-type ~ div[align="right"] > select {
+        margin-bottom: 6px; }
+      #SF main > table:first-of-type ~ div[align="right"] > br + br {
+        display: none; }
+  #SF main > table tbody tr {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 5px 30px; }
+    #SF main > table tbody tr td {
+      width: auto; }
+
+#SF main .category {
+  margin-bottom: 15px; }
+  @media only screen and (min-width: 600px) {
+    #SF main .category {
+      margin-bottom: 30px; } }
+
+.topic {
+  background: var(--bg-content);
+  padding: 8px;
+  color: var(--text-content);
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 0.1em;
+  line-height: 200%;
+  border-radius: 1px; }
+  @media only screen and (min-width: 600px) {
+    .topic {
+      padding: 15px; } }
+  .topic--border {
+    border: 1px solid var(--border-main);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 1px; }
+    @media only screen and (min-width: 600px) {
+      .topic--border {
+        flex-direction: row; } }
+    .topic--border h3 {
+      margin: 0; }
+      .topic--border h3 a {
+        text-transform: capitalize;
+        font-family: var(--font-head);
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--text-content);
+        line-height: 140%;
+        margin-bottom: 5px; }
+    .topic--border p {
+      margin: 0; }
+    .new .topic--border {
+      border-color: var(--ltaccent);
+      border-width: 2px; }
+  .topic--left {
+    border-bottom: 1px solid var(--border-main);
+    padding-bottom: 10px;
+    margin-bottom: 10px; }
+    @media only screen and (min-width: 600px) {
+      .topic--left {
+        flex: 0 0 calc(60% - 11px);
+        border-bottom: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-right: 1px solid var(--border-main);
+        padding-right: 10px;
+        margin-right: 10px; } }
+    .topic--left p:empty {
+      display: none; }
+    .topic--left .small {
+      display: block;
+      font-size: 0;
+      margin: 10px 0 0 -6px; }
+      .topic--left .small a {
+        font-size: var(--xsBody);
+        border: 1px solid var(--border-main);
+        padding: 2px 8px;
+        letter-spacing: 0.1em;
+        font-weight: 600;
+        color: var(--text-content);
+        transition-duration: 0.3s;
+        display: inline-block;
+        margin-right: 5px; }
+        .topic--left .small a:hover {
+          background: var(--ltaccent-40); }
+  .topic--right {
+    flex: 0 0 40%;
+    display: grid; }
+    @media only screen and (min-width: 600px) {
+      .topic--right {
+        grid-template-rows: 1fr calc(50% - 10.5px);
+        flex: 0 0 40%; } }
+  .topic--info {
+    display: flex;
+    gap: 10px; }
+    .topic--info a {
+      color: var(--text-content); }
+  .topic--latest, .topic--starter {
+    display: flex;
+    flex-direction: column; }
+    .topic--latest a, .topic--starter a {
+      font-weight: 600; }
+    .topic--latest > a, .topic--starter > a {
+      color: var(--text-content);
+      font-size: var(--sBody);
+      letter-spacing: 0.05em; }
+  .topic--latest {
+    border-bottom: 1px solid var(--border-main);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    justify-content: end; }
+  .topic--list-info {
+    color: var(--text-content);
+    font-size: var(--xsBody);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: var(--bg-alt);
+    padding: 10px 15px 5px;
+    border-bottom: 1px solid var(--border-main); }
+    .topic--list-info + br {
+      display: none; }
+    .topic--list-info select {
+      margin-bottom: 5px; }
