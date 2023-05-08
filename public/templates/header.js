@@ -60,7 +60,7 @@ const headerHTML = `<a href="index.html"><h1>Turn on the Light</h1></a>
         <a href="?showuser=1" class="hufflepuff">H</a>
         <a href="?showuser=305" class="ravenclaw">R</a>
         <a href="?showuser=309" class="slytherin">S</a>
-        <a href="profile.html" class="gryffindor">G</a>
+        <a href="profil-member.html" class="gryffindor">G</a>
     </div>
 </div>`;
 
