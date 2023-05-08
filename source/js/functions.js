@@ -183,6 +183,80 @@ function initHashTabs() {
 
     window.location.hash = label.dataset.tab;
 }
+function initMiniTabs() {
+    //for bullets
+    document.querySelectorAll('.post--bullets').forEach(bulletset => {
+        bulletset.querySelectorAll('button').forEach((bullet, i) => {
+            bullet.addEventListener('click', e => {
+                let bullets = bullet.parentNode.querySelectorAll('button');
+                let slides = bullet.parentNode.parentNode.parentNode.querySelectorAll(':scope > .post--mini > .post--mini-slide');
+                bullets.forEach(sibling => sibling.classList.remove('is-active'));
+                slides.forEach(slide => {
+                    slide.classList.remove('is-active');
+                    slide.style.left = `${-100 * i}%`;
+                });
+                bullet.classList.add('is-active');
+                slides[i].classList.add('is-active');
+
+                if(i !== 0) {
+                    bullet.parentNode.parentNode.parentNode.querySelector('.post--avatar-image').classList.add('noise');
+                } else {
+                    bullet.parentNode.parentNode.parentNode.querySelector('.post--avatar-image').classList.remove('noise');
+                }
+            });
+        });
+    });
+
+    document.querySelectorAll('.post--mini-nav').forEach(miniNav => {
+        let arrows = miniNav.querySelectorAll('.post--arrow');
+        arrows.forEach(arrow => {
+            arrow.addEventListener('click', e => {
+                let bullets = miniNav.querySelectorAll('.post--bullets button');
+                let slides = miniNav.parentNode.querySelectorAll('.post--mini-slide');
+                let activeIndex = 0;
+                bullets.forEach((bullet, i) => {
+                    if(bullet.classList.contains('is-active')) {
+                        activeIndex = i;
+                    }
+                });
+                if(e.currentTarget.classList.contains('arrow-left')) {
+                    if(activeIndex === 0) {
+                        activeIndex = bullets.length - 1;
+                    } else {
+                        activeIndex--;
+                    }
+                } else {
+                    if(activeIndex === bullets.length - 1) {
+                        activeIndex = 0;
+                    } else {
+                        activeIndex++;
+                    }
+                }
+                bullets.forEach(bullet => bullet.classList.remove('is-active'));
+                slides.forEach(slide => {
+                    slide.classList.remove('is-active');
+                    slide.style.left = `${-100 * activeIndex}%`;
+                });
+                bullets[activeIndex].classList.add('is-active');
+                slides[activeIndex].classList.add('is-active');
+
+                if(activeIndex !== 0) {
+                    e.currentTarget.parentNode.parentNode.parentNode.querySelector('.post--avatar-image').classList.add('noise');
+                } else {
+                    e.currentTarget.parentNode.parentNode.parentNode.querySelector('.post--avatar-image').classList.remove('noise');
+                }
+            });
+        });
+    });
+}
+function initAvatarPopout() {
+    document.querySelectorAll('.post--popout button').forEach(toggle => {
+        toggle.addEventListener('click', e => {
+            e.currentTarget.classList.toggle('is-open');
+            e.currentTarget.nextElementSibling.classList.toggle('is-open');
+        });
+    });
+}
 
 //Global
 function highlightCode() {
@@ -206,4 +280,9 @@ function capitalize(str, separators) {
     separators = separators || [ ' ' ];
     var regex = new RegExp('(^|[' + separators.join('') + '])(\\w)', 'g');
     return str.replace(regex, function(x) { return x.toUpperCase(); });
+}
+function capitalizeMultiple(selector) {
+    document.querySelectorAll(selector).forEach(character => {
+        character.innerText = capitalize(character.innerText, [` `, `'`, `-`]);
+    });
 }

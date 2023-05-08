@@ -52,6 +52,10 @@
 
                     td {
                         width: auto;
+
+                        &:last-child a {
+                            margin-left: 15px;
+                        }
                     }
                 }
             }

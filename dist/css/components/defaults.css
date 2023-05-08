@@ -1,7 +1,8 @@
 #delcookiesrow,
 #mark-as-read-subto,
 #delcookiesrow ~ .tableborder .row4,
-main > div[align="center"] ~ .tableborder .row4 {
+main > div[align="center"] ~ .tableborder .row4,
+main > .tableborder > .row4 {
   text-transform: uppercase;
   color: var(--white);
   font-weight: 600;
@@ -12,11 +13,13 @@ main > div[align="center"] ~ .tableborder .row4 {
   #delcookiesrow a,
   #mark-as-read-subto a,
   #delcookiesrow ~ .tableborder .row4 a,
-  main > div[align="center"] ~ .tableborder .row4 a {
+  main > div[align="center"] ~ .tableborder .row4 a,
+  main > .tableborder > .row4 a {
     color: var(--white); }
 
 #delcookiesrow ~ .tableborder,
-main > div[align="center"] ~ .tableborder {
+main > div[align="center"] ~ .tableborder,
+main > .tableborder > .row4 {
   margin-bottom: 30px; }
 
 .pagination_pagetxt {

@@ -32,6 +32,8 @@
     gap: 5px 30px; }
     #SF main > table tbody tr td {
       width: auto; }
+      #SF main > table tbody tr td:last-child a {
+        margin-left: 15px; }
 
 #SF main .category {
   margin-bottom: 15px; }

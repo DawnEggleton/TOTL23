@@ -31,7 +31,12 @@ if(tabInstances.length > 0) {
 if(pageID === 'idx' || pageID === 'SC') {
     $('.stats--recent').append($('#recent-topics tbody').html());
     $('#recent-topics').remove();
-    document.querySelectorAll('.stats--current .scroll a span').forEach(character => {
-        character.innerText = capitalize(character.innerText, [` `, `'`, `-`]);
-    });
+    capitalizeMultiple('.stats--current .scroll a span');
+}
+
+//init post
+if(pageID === 'ST') {
+    capitalizeMultiple('.post--name a');
+    initMiniTabs();
+    initAvatarPopout();
 }
