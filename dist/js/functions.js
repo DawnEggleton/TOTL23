@@ -207,13 +207,14 @@ function initMiniTabs() {
         });
     });
 
+    //for arrows
     document.querySelectorAll('.post--mini-nav').forEach(miniNav => {
         let arrows = miniNav.querySelectorAll('.post--arrow');
+        let activeIndex = 0;
         arrows.forEach(arrow => {
             arrow.addEventListener('click', e => {
                 let bullets = miniNav.querySelectorAll('.post--bullets button');
                 let slides = miniNav.parentNode.querySelectorAll('.post--mini-slide');
-                let activeIndex = 0;
                 bullets.forEach((bullet, i) => {
                     if(bullet.classList.contains('is-active')) {
                         activeIndex = i;
@@ -241,9 +242,9 @@ function initMiniTabs() {
                 slides[activeIndex].classList.add('is-active');
 
                 if(activeIndex !== 0) {
-                    e.currentTarget.parentNode.parentNode.parentNode.querySelector('.post--avatar-image').classList.add('noise');
+                    e.currentTarget.parentNode.parentNode.querySelector('.post--avatar-image').classList.add('noise');
                 } else {
-                    e.currentTarget.parentNode.parentNode.parentNode.querySelector('.post--avatar-image').classList.remove('noise');
+                    e.currentTarget.parentNode.parentNode.querySelector('.post--avatar-image').classList.remove('noise');
                 }
             });
         });
