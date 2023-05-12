@@ -183,6 +183,11 @@
         margin: 30px;
     }
 
+    @media only screen and (min-width: $xxl) {
+        margin: 45px auto;
+        max-width: 1300px;
+    }
+
     &--topper {
         display: flex;
         flex-wrap: wrap;
@@ -255,16 +260,16 @@
             top: calc(var(--menuSize) + 58px);
         }
 
-        @media only screen and (min-width: $md) {
-            display: none;
-        }
-
         & > button {
             border: none;
             background: none;
             width: 12px;
             padding: 0;
             margin: 0;
+
+            @media only screen and (min-width: $md) {
+                display: none;
+            }
 
             .fa-angles-left {
                 display: none;
@@ -294,6 +299,13 @@
 
             @media only screen and (min-width: $xs) {
                 padding: 15px;
+            }
+            @media only screen and (min-width: $md) {
+                transform: scaleX(1);
+                left: 0;
+                top: 0;
+                padding: 0;
+                border: none;
             }
 
             &.is-open {
@@ -576,12 +588,6 @@
         }
 
         &:empty {
-            display: none;
-        }
-    }
-
-    &--popout-avatar {
-        @media only screen and (min-width: $md) {
             display: none;
         }
     }

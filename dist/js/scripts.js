@@ -41,3 +41,9 @@ if(pageID === 'ST') {
     initAvatarPopout();
     document.querySelectorAll('.post.g-4 .charOnly, .post.g-6 .charOnly, .post.g-3.acc-Member .charOnly').forEach(el => el.remove());
 }
+
+//init post
+if(pageID === 'Members') {
+    initFilterPopout();
+    initFilterDropdowns();
+}

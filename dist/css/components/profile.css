@@ -108,6 +108,10 @@
       margin: 30px;
       padding: 30px 15px 30px 30px;
       max-height: calc(100vh - (var(--menuSize) * 2) - 104px); } }
+  @media only screen and (min-width: 1440px) {
+    #Profile main .profile--tab-inner {
+      margin: 30px auto;
+      max-width: 1300px; } }
   #Profile main .profile--tab-inner > .scroll {
     max-height: calc(100vh - (var(--menuSize) * 2) - 104px);
     padding-right: 7.5px; }

@@ -125,6 +125,10 @@
   @media only screen and (min-width: 600px) {
     .post {
       margin: 30px; } }
+  @media only screen and (min-width: 1440px) {
+    .post {
+      margin: 45px auto;
+      max-width: 1300px; } }
   .post--topper {
     display: flex;
     flex-wrap: wrap;
@@ -177,15 +181,15 @@
     @media only screen and (min-width: 500px) {
       .post--popout {
         top: calc(var(--menuSize) + 58px); } }
-    @media only screen and (min-width: 768px) {
-      .post--popout {
-        display: none; } }
     .post--popout > button {
       border: none;
       background: none;
       width: 12px;
       padding: 0;
       margin: 0; }
+      @media only screen and (min-width: 768px) {
+        .post--popout > button {
+          display: none; } }
       .post--popout > button .fa-angles-left {
         display: none; }
       .post--popout > button.is-open .fa-angles-left {
@@ -206,6 +210,13 @@
       @media only screen and (min-width: 480px) {
         .post--popout-avatar {
           padding: 15px; } }
+      @media only screen and (min-width: 768px) {
+        .post--popout-avatar {
+          transform: scaleX(1);
+          left: 0;
+          top: 0;
+          padding: 0;
+          border: none; } }
       .post--popout-avatar.is-open {
         transform: scaleX(100%); }
       .post--popout-avatar .post--avatar {
@@ -409,6 +420,3 @@
       font-size: 30px; }
     .post--warning:empty {
       display: none; }
-  @media only screen and (min-width: 768px) {
-    .post--popout-avatar {
-      display: none; } }

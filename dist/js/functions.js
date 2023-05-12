@@ -258,6 +258,22 @@ function initAvatarPopout() {
         });
     });
 }
+function initFilterPopout() {
+    document.querySelectorAll('.ml--filters > button').forEach(toggle => {
+        toggle.addEventListener('click', e => {
+            e.currentTarget.classList.toggle('is-open');
+            e.currentTarget.parentNode.classList.toggle('is-open');
+            e.currentTarget.nextElementSibling.classList.toggle('is-open');
+        });
+    });
+}
+function initFilterDropdowns() {
+    document.querySelectorAll('.ml--filter > a').forEach(toggle => {
+        toggle.addEventListener('click', e => {
+            e.currentTarget.classList.toggle('is-open');
+        });
+    });
+}
 
 //Global
 function highlightCode() {

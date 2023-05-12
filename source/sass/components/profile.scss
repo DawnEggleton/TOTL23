@@ -146,6 +146,11 @@
                     max-height: calc(100vh - (var(--menuSize) * 2) - 104px);
                 }
 
+                @media only screen and (min-width: $xxl) {
+                    margin: 30px auto;
+                    max-width: 1300px;
+                }
+
                 & > .scroll {
                     max-height: calc(100vh - (var(--menuSize) * 2) - 104px);
                     padding-right: 7.5px;

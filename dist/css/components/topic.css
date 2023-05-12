@@ -40,6 +40,9 @@
   @media only screen and (min-width: 600px) {
     #SF main .category {
       margin-bottom: 30px; } }
+  @media only screen and (min-width: 1440px) {
+    #SF main .category {
+      margin-bottom: 45px; } }
 
 .topic {
   background: var(--bg-content);

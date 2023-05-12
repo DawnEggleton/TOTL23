@@ -9,6 +9,11 @@
         gap: 30px;
     }
 
+    @media only screen and (min-width: $xxl) {
+        margin: 45px auto 90px;
+        max-width: 1300px;
+    }
+
     & > h2 {
         text-align: center;
         grid-column: 1 / -1 !important;

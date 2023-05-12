@@ -5,6 +5,10 @@
     .category {
       margin: 30px 30px 90px 30px;
       gap: 30px; } }
+  @media only screen and (min-width: 1440px) {
+    .category {
+      margin: 45px auto 90px;
+      max-width: 1300px; } }
   .category > h2 {
     text-align: center;
     grid-column: 1 / -1 !important;
