@@ -50,7 +50,7 @@ accounts.push({
 });
 
 accounts.push({
-        name: capitalize(`duncan o'donnelly-taggart`, [`-`, `'`, ` `]).replace(` `, `<br><span>`) + `</span>`,
+        name: capitalize(`jean-sebastian o'donnelly-taggart`, [`-`, `'`, ` `]).replace(` `, `<br><span>`) + `</span>`,
         id: parseInt(`2`),
         groupID: parseInt(`8`),
         groupName: `hogwarts staff`,

@@ -255,9 +255,18 @@
         position: sticky;
         top: calc(var(--menuSize) + 87px);
         z-index: 1;
+        height: 346px;
 
         @media only screen and (min-width: 500px) {
             top: calc(var(--menuSize) + 58px);
+        }
+
+        @media only screen and (min-width: $xs) {
+            height: 526px;
+        }
+
+        @media only screen and (min-width: $md) {
+            height: 494px;
         }
 
         & > button {
