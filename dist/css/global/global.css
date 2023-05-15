@@ -39,7 +39,17 @@ blockquote {
   background: var(--bg-alt);
   padding: 15px;
   border-left: 3px solid var(--border-main);
-  margin: 0 30px 30px; }
+  margin: 0 0 15px; }
+  @media only screen and (min-width: 480px) {
+    blockquote {
+      margin: 0 15px 15px; } }
+  @media only screen and (min-width: 600px) {
+    blockquote {
+      margin: 0 30px 30px; } }
+  @media only screen and (min-width: 1024px) {
+    blockquote {
+      margin: 0 auto 30px;
+      max-width: 650px; } }
 
 hr {
   background: none;
@@ -48,12 +58,16 @@ hr {
   margin: 20px auto 15px; }
 
 .profile--wrap h2,
+.profile--wrap .h2,
 .profile--wrap tag-xl,
 .post h2,
+.post .h2,
 .post tag-xl,
 .webpage h2,
+.webpage .h2,
 .webpage tag-xl,
 .postcolor h2,
+.postcolor .h2,
 .postcolor tag-xl {
   font-family: var(--font-head);
   text-align: center;
@@ -61,12 +75,16 @@ hr {
   padding-bottom: 15px;
   font-size: calc(var(--xlBody) + 16px); }
   .profile--wrap h2::after,
+  .profile--wrap .h2::after,
   .profile--wrap tag-xl::after,
   .post h2::after,
+  .post .h2::after,
   .post tag-xl::after,
   .webpage h2::after,
+  .webpage .h2::after,
   .webpage tag-xl::after,
   .postcolor h2::after,
+  .postcolor .h2::after,
   .postcolor tag-xl::after {
     content: '';
     height: 1px;
@@ -77,12 +95,16 @@ hr {
     left: calc(50% - 25px); }
 
 .profile--wrap h3,
+.profile--wrap .h3,
 .profile--wrap tag-lg,
 .post h3,
+.post .h3,
 .post tag-lg,
 .webpage h3,
+.webpage .h3,
 .webpage tag-lg,
 .postcolor h3,
+.postcolor .h3,
 .postcolor tag-lg {
   font-family: var(--font-head);
   text-align: center;
@@ -90,12 +112,16 @@ hr {
   padding-bottom: 13px;
   font-size: calc(var(--xlBody) + 8px); }
   .profile--wrap h3::after,
+  .profile--wrap .h3::after,
   .profile--wrap tag-lg::after,
   .post h3::after,
+  .post .h3::after,
   .post tag-lg::after,
   .webpage h3::after,
+  .webpage .h3::after,
   .webpage tag-lg::after,
   .postcolor h3::after,
+  .postcolor .h3::after,
   .postcolor tag-lg::after {
     content: '';
     height: 1px;
@@ -106,44 +132,102 @@ hr {
     left: calc(50% - 25px); }
 
 .profile--wrap h4,
+.profile--wrap .h4,
 .profile--wrap tag-md,
 .post h4,
+.post .h4,
 .post tag-md,
 .webpage h4,
+.webpage .h4,
 .webpage tag-md,
 .postcolor h4,
+.postcolor .h4,
 .postcolor tag-md {
   font-family: var(--font-head);
   line-height: 200%;
   font-size: calc(var(--xlBody) + 4px);
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  text-align: left;
+  padding-bottom: 0; }
+  .profile--wrap h4::after,
+  .profile--wrap .h4::after,
+  .profile--wrap tag-md::after,
+  .post h4::after,
+  .post .h4::after,
+  .post tag-md::after,
+  .webpage h4::after,
+  .webpage .h4::after,
+  .webpage tag-md::after,
+  .postcolor h4::after,
+  .postcolor .h4::after,
+  .postcolor tag-md::after {
+    display: none; }
 
 .profile--wrap h5,
+.profile--wrap .h5,
 .profile--wrap tag-sm,
 .post h5,
+.post .h5,
 .post tag-sm,
 .webpage h5,
+.webpage .h5,
 .webpage tag-sm,
 .postcolor h5,
+.postcolor .h5,
 .postcolor tag-sm {
   font-family: var(--font-head);
   line-height: 200%;
   font-size: var(--xlBody);
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  text-align: left;
+  padding-bottom: 0; }
+  .profile--wrap h5::after,
+  .profile--wrap .h5::after,
+  .profile--wrap tag-sm::after,
+  .post h5::after,
+  .post .h5::after,
+  .post tag-sm::after,
+  .webpage h5::after,
+  .webpage .h5::after,
+  .webpage tag-sm::after,
+  .postcolor h5::after,
+  .postcolor .h5::after,
+  .postcolor tag-sm::after {
+    display: none; }
 
 .profile--wrap h6,
+.profile--wrap .h6,
 .profile--wrap tag-xs,
 .post h6,
+.post .h6,
 .post tag-xs,
 .webpage h6,
+.webpage .h6,
 .webpage tag-xs,
 .postcolor h6,
+.postcolor .h6,
 .postcolor tag-xs {
+  font-family: var(--font-body);
   line-height: 160%;
   font-size: var(--xsBody);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  text-align: left;
+  padding-bottom: 0; }
+  .profile--wrap h6::after,
+  .profile--wrap .h6::after,
+  .profile--wrap tag-xs::after,
+  .post h6::after,
+  .post .h6::after,
+  .post tag-xs::after,
+  .webpage h6::after,
+  .webpage .h6::after,
+  .webpage tag-xs::after,
+  .postcolor h6::after,
+  .postcolor .h6::after,
+  .postcolor tag-xs::after {
+    display: none; }
 
 .profile--wrap b,
 .post b,
@@ -217,14 +301,16 @@ button {
 
 select,
 input,
-textarea {
+textarea,
+button {
   background: var(--bg-content);
   border: 1px solid var(--border-main);
   color: var(--text-content);
   border-radius: 1px; }
 
 select,
-input {
+input,
+button {
   text-transform: uppercase;
   font-size: var(--xsBody);
   line-height: 100%;
@@ -238,8 +324,12 @@ select {
 option {
   font-size: var(--mBody); }
 
-input {
+input,
+button {
   padding: 8px; }
+
+button {
+  font-weight: 600; }
 
 textarea {
   padding: 10px; }

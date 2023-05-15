@@ -446,6 +446,7 @@ function checkFaces() {
                 }
             });
             let container = document.querySelector('.clip-reserve-check');
+            overlap.sort();
             let html = ``;
             if(overlap.length > 0) {
                 html = `<h3 class="h4">Remove the following reserves:</h3><ul>`;
