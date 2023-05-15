@@ -85,7 +85,7 @@
 
             .topic-desc {
                 text-transform: uppercase;
-                letter-spacing: 1px;
+                letter-spacing: 0.1em;
                 font-size: var(--xsBody);
                 font-weight: 600;
                 padding-top: 15px;
@@ -132,7 +132,7 @@
                     font-size: var(--xsBody);
                     display: inline;
                     text-transform: uppercase;
-                    letter-spacing: 1px;
+                    letter-spacing: 0.1em;
                     color: var(--text-content);
                     font-weight: 600;
                 }
@@ -145,7 +145,7 @@
             border-bottom: 1px solid var(--border-main);
             font-size: var(--xsBody);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.1em;
             color: var(--text-content);
             padding: 10px 15px !important;
             font-weight: 600;
@@ -203,7 +203,7 @@
             color: var(--text-content);
             font-family: var(--font-body);
             font-size: var(--xsBody);
-            letter-spacing: 1px;
+            letter-spacing: 0.1em;
             font-weight: 600;
         }
     }
@@ -563,7 +563,7 @@
             color: var(--text-content);
             font-family: var(--font-body);
             font-size: var(--xsBody);
-            letter-spacing: 1px;
+            letter-spacing: 0.1em;
             font-weight: 600;
             text-transform: uppercase;
         }

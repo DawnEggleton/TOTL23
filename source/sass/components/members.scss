@@ -43,7 +43,7 @@
             border: none;
             font-size: var(--xsBody);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.1em;
             font-weight: 600;
             color: var(--text-content);
             padding: 15px 15px;
@@ -67,7 +67,7 @@
                 content: 'Pages: ';
                 text-transform: uppercase;
                 font-weight: 600;
-                letter-spacing: 1px;
+                letter-spacing: 0.1em;
                 margin-left: 15px;
             }
 
@@ -226,7 +226,7 @@
         label {
             font-size: var(--xsBody);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.1em;
             border: 1px solid var(--border-main);
             padding: 0 10px;
             cursor: pointer;
@@ -323,7 +323,7 @@
             text-transform: uppercase;
             font-size: var(--xsBody);
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 0.1em;
             line-height: 160%;
         }
     }

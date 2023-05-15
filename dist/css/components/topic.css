@@ -142,7 +142,7 @@
     color: var(--text-content);
     font-size: var(--xsBody);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.1em;
     background: var(--bg-alt);
     padding: 10px 15px 5px;
     border-bottom: 1px solid var(--border-main); }

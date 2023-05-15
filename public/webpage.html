@@ -45,25 +45,702 @@
             
             
             <!--Webpage-->
-        <a name="to-bottom"></a></main>
+            <div class="webpage">
+                <header>
+                    <h1>Handbook</h1>
+                </header>
+                <div class="webpage--wrap">
+                    <div class="webpage--labels">
+                        <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                        <tag-labels>
+                            <tag-label tabindex="0" data-tab="basics" data-first-tab="rules">Basics</tag-label>
+                            <tag-label tabindex="0" data-tab="forms" data-first-tab="sorting">Forms</tag-label>
+                            <tag-label tabindex="0" data-tab="guides" data-first-tab="goblins">Guides</tag-label>
+                            <tag-label tabindex="0" data-tab="schools" data-first-tab="africa">Schools</tag-label>
+                            <tag-label tabindex="0" data-tab="canons" data-first-tab="canons-overview">Canons</tag-label>
+                            <tag-label tabindex="0" data-tab="claims" data-first-tab="faces">Claims</tag-label>
+                            <tag-label tabindex="0" data-tab="jobs" data-first-tab="thedailyprophet">Jobs</tag-label>
+                            <tag-label tabindex="0" data-tab="students" data-first-tab="thirdyear">Students</tag-label>
+                            <tag-label tabindex="0" data-tab="tools" data-first-tab="reserve-check">Staff Tools</tag-label>
+                        </tag-labels>
+                        <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                    </div>
+                    <tag-tabs class="webpage--tabs">
+                        <!-- Basics -->
+                        <tag-tab data-tab="basics">
+                            <div class="webpage--tab-inner no-scroll">
+                                <div class="webpage--inner-tabs auto-height">
+                                    <div class="webpage--labels">
+                                        <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                                        <tag-labels>
+                                            <tag-label data-category="basics" data-inner-tab="rules" tabindex="0">Rules</tag-label>
+                                            <tag-label data-category="basics" data-inner-tab="plot" tabindex="0">Plot</tag-label>
+                                            <tag-label data-category="basics" data-inner-tab="groups" tabindex="0">Groups</tag-label>
+                                            <tag-label data-category="basics" data-inner-tab="appguide" tabindex="0">App Guide</tag-label>
+                                            <tag-label data-category="basics" data-inner-tab="credits" tabindex="0">Credits</tag-label>
+                                        </tag-labels>
+                                        <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                                    </div>
+                                    <tag-tabs class="webpage--tabs">
+                                        <tag-tab data-inner-tab="rules">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll"><% m-rules %></div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab data-inner-tab="plot">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll"><% m-plots %></div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab data-inner-tab="groups">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll"><% m-groups %></div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab data-inner-tab="appguide">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll"><% m-apps %></div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab data-inner-tab="credits">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll"><% m-credits %></div>
+                                            </div>
+                                        </tag-tab>
+                                    </tag-tabs>
+                                </div>
+                            </div>
+                        </tag-tab>
 
-        <!-- Copyright Information -->
-        <div class="tableborder" align="center">
-            <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
-                <div class="copyright" align="center">
-                    Powered by 
-                    <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
-                    (<a href="http://jcink.com" target="_blank">Jcink.com </a>
-                    <a href="https://jcink.com" target="_blank">Forum Hosting</a>
-                    ) © 2020 &nbsp;
-                    <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
-                    <br>
-                    Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
-                    <a href="index.php?act=Mobile">Mobile Version</a> · 
-                    <a href="index.php?act=privacy">Privacy Policy</a>
+                        <!-- Forms -->
+                        <tag-tab data-tab="forms">
+                            <div class="webpage--tab-inner no-scroll">
+                                <div class="webpage--inner-tabs auto-height">
+                                    <div class="webpage--labels">
+                                        <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                                        <tag-labels>
+                                            <tag-label data-category="forms" data-inner-tab="sorting" tabindex="0">Get Sorted</tag-label>
+                                            <tag-label data-category="forms" data-inner-tab="wipclaim" tabindex="0">Add to Upcoming Faces</tag-label>
+                                            <tag-label data-category="forms" data-inner-tab="updateclaim" tabindex="0">Update Claims</tag-label>
+                                        </tag-labels>
+                                        <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                                    </div>
+                                    <tag-tabs class="webpage--tabs">
+                                        <tag-tab data-inner-tab="sorting">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll"><% form-sort %></div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab data-inner-tab="wipclaim">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll"><% form-wip %></div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab data-inner-tab="updateclaim">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll"><% form-update %></div>
+                                            </div>
+                                        </tag-tab>
+                                    </tag-tabs>
+                                </div>
+                            </div>
+                        </tag-tab>
+                        
+                        <!-- Guides -->
+                        <tag-tab data-tab="guides">
+                            <div class="webpage--tab-inner no-scroll">
+                                <div class="webpage--inner-tabs auto-height">
+                                    <div class="webpage--labels">
+                                        <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                                        <tag-labels>
+                                            <tag-label data-category="guides" data-subcategory="abilities-species" data-tab="abilities-species" data-trigger-tab="goblins" tabindex="0">abilities & species</tag-label>
+                                            <tag-label data-category="guides" data-subcategory="hogwarts" data-tab="hogwarts" data-trigger-tab="summary" tabindex="0">hogwarts</tag-label>
+                                            <tag-label data-category="guides" data-subcategory="locations" data-tab="locations" data-trigger-tab="diagon-alley" tabindex="0">locations</tag-label>
+                                            <tag-label data-category="guides" data-subcategory="society-culture" data-tab="society-culture" data-trigger-tab="scouts" tabindex="0">society & culture</tag-label>
+                                        </tag-labels>
+                                        <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                                    </div>
+                                    <tag-tabs class="webpage--tabs">
+                                        <!-- Abilities & Species -->
+                                        <tag-tab data-subcategory="abilities-species">
+                                            <div class="webpage--tab-inner no-scroll">
+                                                <div class="webpage--inner-tabs auto-height">
+                                                    <div class="webpage--labels">
+                                                        <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                                                        <tag-labels>
+                                                            <tag-label data-category="guides" data-subcategory="abilities-species" data-inner-tab="goblins" tabindex="0">goblins</tag-label>
+                                                            <tag-label data-category="guides" data-subcategory="abilities-species" data-inner-tab="houseelves" tabindex="0">house elves</tag-label>
+                                                            <tag-label data-category="guides" data-subcategory="abilities-species" data-inner-tab="seers" tabindex="0">seers</tag-label>
+                                                            <tag-label data-category="guides" data-subcategory="abilities-species" data-inner-tab="vampires" tabindex="0">vampires</tag-label>
+                                                            <tag-label data-category="guides" data-subcategory="abilities-species" data-inner-tab="werewolves" tabindex="0">werewolves</tag-label>
+                                                        </tag-labels>
+                                                        <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                                                    </div>
+                                                    <tag-tabs class="webpage--tabs">
+                                                        <tag-tab data-subcategory="abilities-species" data-inner-tab="goblins">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% h-goblins %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                        <tag-tab data-subcategory="abilities-species" data-inner-tab="houseelves">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% h-houseelves %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                        <tag-tab data-subcategory="abilities-species" data-inner-tab="seers">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% g-seer %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                        <tag-tab data-subcategory="abilities-species" data-inner-tab="vampires">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% h-vamps %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                        <tag-tab data-subcategory="abilities-species" data-inner-tab="werewolves">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% g-were %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                    </tag-tabs>
+                                                </div>
+                                            </div>
+                                        </tag-tab>
+
+                                        <!-- Hogwarts -->
+                                        <tag-tab data-subcategory="hogwarts">
+                                            <div class="webpage--tab-inner no-scroll">
+                                                <div class="webpage--inner-tabs auto-height">
+                                                    <div class="webpage--labels">
+                                                        <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                                                        <tag-labels>
+                                                            <tag-label data-category="guides" data-subcategory="hogwarts" data-inner-tab="summary" tabindex="0">Summary</tag-label>
+                                                            <tag-label data-category="guides" data-subcategory="hogwarts" data-inner-tab="curriculum" tabindex="0">Curriculum elves</tag-label>
+                                                            <tag-label data-category="guides" data-subcategory="hogwarts" data-inner-tab="healthcare" tabindex="0">Healthcare</tag-label>
+                                                            <tag-label data-category="guides" data-subcategory="hogwarts" data-inner-tab="quidditch" tabindex="0">Quidditch</tag-label>
+                                                            <tag-label data-category="guides" data-subcategory="hogwarts" data-inner-tab="religion" tabindex="0">Religion</tag-label>
+                                                            <tag-label data-category="guides" data-subcategory="hogwarts" data-inner-tab="scheduling" tabindex="0">Scheduling</tag-label>
+                                                            <tag-label data-category="guides" data-subcategory="hogwarts" data-inner-tab="staffing" tabindex="0">Staffing</tag-label>
+                                                            <tag-label data-category="guides" data-subcategory="hogwarts" data-inner-tab="leads-prefects" tabindex="0">Student Leads & Prefects</tag-label>
+                                                        </tag-labels>
+                                                        <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                                                    </div>
+                                                    <tag-tabs class="webpage--tabs">
+                                                        <tag-tab data-subcategory="hogwarts" data-inner-tab="summary">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% h-summ %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                        <tag-tab data-subcategory="hogwarts" data-inner-tab="curriculum">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% h-classes %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                        <tag-tab data-subcategory="hogwarts" data-inner-tab="healthcare">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% h-health %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                        <tag-tab data-subcategory="hogwarts" data-inner-tab="quidditch">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% h-quid %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                        <tag-tab data-subcategory="hogwarts" data-inner-tab="religion">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% h-rel %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                        <tag-tab data-subcategory="hogwarts" data-inner-tab="scheduling">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% h-sched %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                        <tag-tab data-subcategory="hogwarts" data-inner-tab="staffing">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% h-staff %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                        <tag-tab data-subcategory="hogwarts" data-inner-tab="leads-prefects">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% h-prefect %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                    </tag-tabs>
+                                                </div>
+                                            </div>
+                                        </tag-tab>
+
+                                        <!-- Locations -->
+                                        <tag-tab data-subcategory="locations">
+                                            <div class="webpage--tab-inner no-scroll">
+                                                <div class="webpage--inner-tabs auto-height">
+                                                    <div class="webpage--labels">
+                                                        <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                                                        <tag-labels>
+                                                            <tag-label data-category="guides" data-subcategory="locations" data-inner-tab="diagon-alley" tabindex="0">Diagon Alley & Offshoots</tag-label>
+                                                            <tag-label data-category="guides" data-subcategory="locations" data-inner-tab="hogsmeade" tabindex="0">Hogsmeade</tag-label>
+                                                            <tag-label data-category="guides" data-subcategory="abilities-species" data-inner-tab="ilkley" tabindex="0">Ilkley</tag-label>
+                                                        </tag-labels>
+                                                        <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                                                    </div>
+                                                    <tag-tabs class="webpage--tabs">
+                                                        <tag-tab data-subcategory="locations" data-inner-tab="diagon-alley">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% h-diagon %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                        <tag-tab data-subcategory="locations" data-inner-tab="hogsmeade">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% h-hogsmeade %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                        <tag-tab data-subcategory="locations" data-inner-tab="ilkley">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% h-ilkley %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                    </tag-tabs>
+                                                </div>
+                                            </div>
+                                        </tag-tab>
+
+                                        <!-- Society & Culture -->
+                                        <tag-tab data-subcategory="society-culture">
+                                            <div class="webpage--tab-inner no-scroll">
+                                                <div class="webpage--inner-tabs auto-height">
+                                                    <div class="webpage--labels">
+                                                        <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                                                        <tag-labels>
+                                                            <tag-label data-category="guides" data-subcategory="society-culture" data-inner-tab="scouts" tabindex="0">Guides & Scouts</tag-label>
+                                                            <tag-label data-category="guides" data-subcategory="society-culture" data-inner-tab="magic" tabindex="0">Magic</tag-label>
+                                                            <tag-label data-category="guides" data-subcategory="society-culture" data-inner-tab="politics" tabindex="0">Politics</tag-label>
+                                                            <tag-label data-category="guides" data-subcategory="society-culture" data-inner-tab="purebloods" tabindex="0">Purebloods</tag-label>
+                                                            <tag-label data-category="guides" data-subcategory="society-culture" data-inner-tab="returners" tabindex="0">Returners</tag-label>
+                                                        </tag-labels>
+                                                        <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                                                    </div>
+                                                    <tag-tabs class="webpage--tabs">
+                                                        <tag-tab data-subcategory="society-culture" data-inner-tab="scouts">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% h-scouts %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                        <tag-tab data-subcategory="society-culture" data-inner-tab="magic">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% g-magic %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                        <tag-tab data-subcategory="society-culture" data-inner-tab="politics">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% h-politics %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                        <tag-tab data-subcategory="society-culture" data-inner-tab="purebloods">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% h-pblood %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                        <tag-tab data-subcategory="society-culture" data-inner-tab="returners">
+                                                            <div class="webpage--tab-inner">
+                                                                <div class="scroll"><% h-returns %></div>
+                                                            </div>
+                                                        </tag-tab>
+                                                    </tag-tabs>
+                                                </div>
+                                            </div>
+                                        </tag-tab>
+                                    </tag-tabs>
+                                </div>
+                            </div>
+                        </tag-tab>
+                        
+                        <!-- Schools -->
+                        <tag-tab data-tab="schools">
+                            <div class="webpage--tab-inner no-scroll">
+                                <div class="webpage--inner-tabs auto-height">
+                                    <div class="webpage--labels">
+                                        <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                                        <tag-labels>
+                                            <tag-label data-category="schools" data-inner-tab="africa" tabindex="0">Africa</tag-label>
+                                            <tag-label data-category="schools" data-inner-tab="asia" tabindex="0">Asia</tag-label>
+                                            <tag-label data-category="schools" data-inner-tab="australia" tabindex="0">Australia</tag-label>
+                                            <tag-label data-category="schools" data-inner-tab="europe" tabindex="0">Europe</tag-label>
+                                            <tag-label data-category="schools" data-inner-tab="north-america" tabindex="0">North America</tag-label>
+                                            <tag-label data-category="schools" data-inner-tab="south-america" tabindex="0">South America</tag-label>
+                                            <tag-label data-category="schools" data-inner-tab="post-secondary" tabindex="0">Post-Secondary</tag-label>
+                                        </tag-labels>
+                                        <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                                    </div>
+                                    <tag-tabs class="webpage--tabs">
+                                        <tag-tab data-inner-tab="africa">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll">africa schools</div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab data-inner-tab="asia">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll">asia schools</div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab data-inner-tab="australia">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll">aus schools</div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab data-inner-tab="europe">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll">europe schools</div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab data-inner-tab="north-america">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll">na schools</div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab data-inner-tab="south-america">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll">sa schools</div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab data-inner-tab="post-secondary">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll">unis and colleges</div>
+                                            </div>
+                                        </tag-tab>
+                                    </tag-tabs>
+                                </div>
+                            </div>
+                        </tag-tab>
+                        
+                        <!-- Canons -->
+                        <tag-tab data-tab="canons">
+                            <div class="webpage--tab-inner no-scroll">
+                                <div class="webpage--inner-tabs auto-height">
+                                    <div class="webpage--labels">
+                                        <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                                        <tag-labels>
+                                            <tag-label data-category="canons" data-inner-tab="canons-overview" tabindex="0">Overview</tag-label>
+                                            <tag-label data-category="canons" data-inner-tab="test" tabindex="0">Test Family</tag-label>
+                                        </tag-labels>
+                                        <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                                    </div>
+                                    <tag-tabs class="webpage--tabs">
+                                        <tag-tab data-inner-tab="canons-overview">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll">canons overview</div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab data-inner-tab="test">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll">
+                                                    <blockquote>Pureblood. Welsh. Louise Abbott was killed by Death Eaters in October 1996. The family is distantly related to the Orpingtons through Gwendolyn.</blockquote>
+
+                                                    <button class="webpage--canon-collapse-all" onClick="collapseAllCanons(this)">
+                                                        Collapse All Branches <i class="fa-solid fa-minus"></i>
+                                                    </button>
+                                                    <button class="webpage--canon-expand-all" onClick="expandAllCanons(this)">
+                                                        Expand All Branches <i class="fa-solid fa-plus"></i>
+                                                    </button>
+
+                                                    <hr>
+
+                                                    <b>ABBOTT, anuerin.</b> occupation. b. 1930.<br>
+                                                    m. <b>ORPINGTON, gwendolyn.</b> occupation. b. 1932.<br>
+                                                    <button class="webpage--canon-expansion" onClick="expandCanons(this)">
+                                                        <span class="webpage--canon-collapse">Collapse Branch <i class="fa-solid fa-minus"></i></span>
+                                                        <span class="webpage--canon-expand">Expand Branch <i class="fa-solid fa-plus"></i></span>
+                                                    </button>
+                                                    <canonBranch>
+                                                        <b>ABBOTT, cian.</b> occupation. b. 1952.<br>
+                                                        m. <b><s>SAMUELS, louise.</s></b> b. 1952. d. 1996.<br>
+                                                        <button class="webpage--canon-expansion" onClick="expandCanons(this)">
+                                                            <span class="webpage--canon-collapse">Collapse Branch <i class="fa-solid fa-minus"></i></span>
+                                                            <span class="webpage--canon-expand">Expand Branch <i class="fa-solid fa-plus"></i></span>
+                                                        </button>
+                                                        <canonBranch>
+                                                        <a href="?showuser=9" class="g-6"><b>ABBOTT, hannah.</b></a> owner of the green thumb. b. 1979. bea.<br>
+                                                        </canonBranch>
+
+                                                        <b>ABBOTT-LLYWARCH, rhys.</b> occupation. b. 1953.<br>
+                                                        m. <b>ABBOTT-LLYWARCH, dafydd.</b> occupation. b. 1950.<br>
+                                                        <button class="webpage--canon-expansion" onClick="expandCanons(this)">
+                                                            <span class="webpage--canon-collapse">Collapse Branch <i class="fa-solid fa-minus"></i></span>
+                                                            <span class="webpage--canon-expand">Expand Branch <i class="fa-solid fa-plus"></i></span>
+                                                        </button>
+                                                        <canonbranch>
+                                                        <a href="?showuser=522" class="g-6"><b>ABBOTT-LLYWARCH, gawain.</b></a> cursebreaker. b. 1978. roe.<br>
+                                                        <a href="?showuser=530" class="g-6"><b>ABBOTT-LLYWARCH, angharad.</b></a> cursebreaker. b. 1980. amy.<br>
+                                                        <b>ABBOTT-LLYWARCH, tristan.</b> occupation. b. 1982.<br>
+                                                        </canonbranch>
+
+                                                        <b><s>ABBOTT, aderyn.</s></b> b. 1955. d. 2004. <br>
+                                                        m. <b><s>AUSTEN, madoc.</s></b> b. 1954. d. 2004. <br>
+                                                        <button class="webpage--canon-expansion" onClick="expandCanons(this)">
+                                                            <span class="webpage--canon-collapse">Collapse Branch <i class="fa-solid fa-minus"></i></span>
+                                                            <span class="webpage--canon-expand">Expand Branch <i class="fa-solid fa-plus"></i></span>
+                                                        </button>
+                                                        <canonbranch>
+                                                            <a href="?showuser=1355" class="g-6"><b>AUSTEN, lance.</b></a> lawyer. b. 1977. lux. <br>
+                                                            <b>AUSTEN, saffir.</b> occupation. b. 1978.<br>
+                                                            <b>AUSTEN, rhian.</b> occupation. b. 1979.<br>
+                                                            <b>AUSTEN, bowen.</b> occupation. b. 1981.<br>
+                                                            <a href="?showuser=617" class="g-6"><b>AUSTEN, iona.</b></a> unemployed. b. 1984. bea.<br>
+                                                        </canonbranch>
+
+                                                        <b>ABBOTT, glyn.</b> occupation. b. 1956.<br>
+                                                        m. <b>MORTIMER, arwen.</b> occupation. b. 1958.<br>
+                                                        <button class="webpage--canon-expansion" onClick="expandCanons(this)">
+                                                            <span class="webpage--canon-collapse">Collapse Branch <i class="fa-solid fa-minus"></i></span>
+                                                            <span class="webpage--canon-expand">Expand Branch <i class="fa-solid fa-plus"></i></span>
+                                                        </button>
+                                                        <canonbranch>
+                                                            <b>ABBOTT, rhys.</b> occupation. b. 1981.<br>
+                                                            <b>ABBOTT, mairwen.</b> occupation. b. 1982.<br>
+                                                            <a href="?showuser=213" class="g-6"><b>ABBOTT, owen.</b></a> archivist. student. b. 1984. bea.<br>
+                                                    w/ <a href="?showuser=639" class="g-6"><b>ROOKWOOD, bridget.</b></a> assistant archivist. b. 1985. amy.<br>
+                                                    <button class="webpage--canon-expansion" onClick="expandCanons(this)">
+                                                        <span class="webpage--canon-collapse">Collapse Branch <i class="fa-solid fa-minus"></i></span>
+                                                        <span class="webpage--canon-expand">Expand Branch <i class="fa-solid fa-plus"></i></span>
+                                                    </button>
+                                                    <canonbranch>
+                                                        <b>ABBOTT, arthur.</b> b. 2006. <br>
+                                                        <b>ABBOTT, charlotte.</b> b. 2006. <br>
+                                                    </canonbranch>
+                                                            <b>ABBOTT, celyn.</b> student. b. 1987.<br>
+                                                            <a href="?showuser=660" class="g-6"><b>ABBOTT, eilonwy.</b></a> student. b. 1988. roe.<br>
+                                                            <b>ABBOTT, llywellyn.</b> student. b. 1990.<br>
+                                                            <a href="?showuser=1158" class="g-9"><b>ABBOTT, ffion.</b></a> unemployed. b. 1991. bea.<br>
+                                                        </canonbranch>
+
+                                                        <a href="?showuser=336" class="g-12"><b>ABBOTT, morwenna</b></a> intelligence specialist. b. 1959. bells.<br>
+                                                        m. <b>ELLIS, lloyd.</b> occupation. b. 1957.<br>
+                                                        <button class="webpage--canon-expansion" onClick="expandCanons(this)">
+                                                            <span class="webpage--canon-collapse">Collapse Branch <i class="fa-solid fa-minus"></i></span>
+                                                            <span class="webpage--canon-expand">Expand Branch <i class="fa-solid fa-plus"></i></span>
+                                                        </button>
+                                                        <canonbranch>
+                                                            <b>ELLIS, bronwyn.</b> occupation. b. 1982.<br>
+                                                            <a href="?showuser=9" class="g-13"><b>ELLIS, bryn.</b></a> montrose magpies chaser. b. 1985. bea. <br>
+                                                        w/ <a href="?showuser=130" class="g-12"><b>MACDOUGALL, mairead.</b></a> ministry intern. b. 1986. bells.<br>
+                                                        <button class="webpage--canon-expansion" onClick="expandCanons(this)">
+                                                                <span class="webpage--canon-collapse">Collapse Branch <i class="fa-solid fa-minus"></i></span>
+                                                                <span class="webpage--canon-expand">Expand Branch <i class="fa-solid fa-plus"></i></span>
+                                                        </button>
+                                                            <canonbranch>
+                                                            <b>ELLIS-MACDOUGALL, elspeth.</b> b. 2005. <br>
+                                                        </canonbranch>
+                                                        </canonbranch>
+
+                                                        <b>ABBOTT, iwan.</b> occupation. b. 1960.<br>
+                                                        m. <b>BEVAN, una.</b> occupation. b. 1960.<br>
+                                                        <button class="webpage--canon-expansion" onClick="expandCanons(this)">
+                                                            <span class="webpage--canon-collapse">Collapse Branch <i class="fa-solid fa-minus"></i></span>
+                                                            <span class="webpage--canon-expand">Expand Branch <i class="fa-solid fa-plus"></i></span>
+                                                        </button>
+                                                        <canonbranch>
+                                                        <a href="?showuser=1567" class="g-9"><b>ABBOTT, art.</b></a> . b. 1980. d. 1995. r. 2005. lux.<br>
+                                                            <b>ABBOTT, taffy.</b> occupation. b. 1984.<br>
+                                                            <b>ABBOTT, mab.</b> occupation. b. 1986.<br>
+                                                            <b>ABBOTT, delia.</b> student. b. 1988.<br>
+                                                            <b>ABBOTT, gethin.</b> student. b. 1991. <br>
+                                                        </canonbranch>
+                                                    </canonBranch>
+                                                </div>
+                                            </div>
+                                        </tag-tab>
+                                    </tag-tabs>
+                                </div>
+                            </div>
+                        </tag-tab>
+                        
+                        <!-- Claims -->
+                        <tag-tab data-tab="claims">
+                            <div class="webpage--tab-inner no-scroll">
+                                <div class="webpage--inner-tabs auto-height">
+                                    <div class="webpage--labels">
+                                        <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                                        <tag-labels>
+                                            <tag-label data-category="claims" data-inner-tab="faces" tabindex="0">Claimed Faces</tag-label>
+                                            <tag-label data-category="claims" data-inner-tab="upcoming" tabindex="0">Upcoming Faces</tag-label>
+                                            <tag-label data-category="claims" data-inner-tab="university" tabindex="0">University Claims</tag-label>
+                                            <tag-label data-category="claims" data-subcategory="abilities-species-claim" data-tab="abilities-species-claim" data-trigger-tab="animagus" tabindex="0">Abilities & Species</tag-label>
+                                        </tag-labels>
+                                        <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                                    </div>
+                                    <tag-tabs class="webpage--tabs">
+                                        <tag-tab data-inner-tab="faces">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll" id="clip-faces"></div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab data-inner-tab="upcoming">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll" id="clip-wip"></div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab data-inner-tab="university">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll" id="clip-university"></div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab data-subcategory="abilities-species-claim">
+                                            <div class="webpage--tab-inner no-scroll">
+                                                <div class="webpage--inner-tabs auto-height">
+                                                    <div class="webpage--labels">
+                                                        <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                                                        <tag-labels id="clip-absp-labels"></tag-labels>
+                                                        <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                                                    </div>
+                                                    <tag-tabs class="webpage--tabs" id="clip-absp-tabs"></tag-tabs>
+                                                </div>
+                                            </div>
+                                        </tag-tab>
+                                    </tag-tabs>
+                                </div>
+                            </div>
+                        </tag-tab>
+                        
+                        <!-- Jobs -->
+                        <tag-tab data-tab="jobs" id="clip-jobs"></tag-tab>
+                        
+                        <!-- Students -->
+                        <tag-tab data-tab="students">
+                            <div class="webpage--tab-inner no-scroll">
+                                <div class="webpage--inner-tabs auto-height">
+                                    <div class="webpage--labels">
+                                        <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                                        <tag-labels>
+                                            <tag-label data-category="students" data-subcategory="class-lists" data-tab="class-lists" data-trigger-tab="third-year-classes" tabindex="0">Class Lists</tag-label>
+                                            <tag-label data-category="students" data-subcategory="dorms" data-tab="dorms" data-trigger-tab="gryffindor-dorms" tabindex="0">Dormitories</tag-label>
+                                            <tag-label data-category="students" data-inner-tab="hogwarts-quidditch" tabindex="0">Quidditch</tag-label>
+                                            <tag-label data-category="students" data-inner-tab="leadership" tabindex="0">Leadership</tag-label>
+                                        </tag-labels>
+                                        <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                                    </div>
+                                    <tag-tabs class="webpage--tabs">
+                                        <tag-tab data-subcategory="class-lists">
+                                            <div class="webpage--tab-inner no-scroll">
+                                                <div class="webpage--inner-tabs auto-height">
+                                                    <div class="webpage--labels">
+                                                        <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                                                        <tag-labels id="clip-classes-labels"></tag-labels>
+                                                        <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                                                    </div>
+                                                    <tag-tabs class="webpage--tabs" id="clip-classes-tabs"></tag-tabs>
+                                                </div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab data-subcategory="dorms">
+                                            <div class="webpage--tab-inner no-scroll">
+                                                <div class="webpage--inner-tabs auto-height">
+                                                    <div class="webpage--labels">
+                                                        <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                                                        <tag-labels id="clip-dorms-labels"></tag-labels>
+                                                        <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                                                    </div>
+                                                    <tag-tabs class="webpage--tabs" id="clip-dorms-tabs"></tag-tabs>
+                                                </div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab data-inner-tab="hogwarts-quidditch">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll" id="clip-hogwarts-quidditch"></div>
+                                            </div>
+                                        </tag-tab>
+                                        <tag-tab data-inner-tab="leadership">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll" id="clip-leadership"></div>
+                                            </div>
+                                        </tag-tab>
+                                    </tag-tabs>
+                                </div>
+                            </div>
+                        </tag-tab>
+                        
+                        <!-- Tools -->
+                        <tag-tab data-tab="tools">
+                            <div class="webpage--tab-inner no-scroll">
+                                <div class="webpage--inner-tabs auto-height">
+                                    <div class="webpage--labels">
+                                        <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                                        <tag-labels>
+                                            <tag-label data-category="tools" data-inner-tab="reserve-check" tabindex="0">Reserved Faces Check</tag-label>
+                                        </tag-labels>
+                                        <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                                    </div>
+                                    <tag-tabs class="webpage--tabs">
+                                        <tag-tab data-inner-tab="reserve-check">
+                                            <div class="webpage--tab-inner">
+                                                <div class="scroll">
+                                                    <h2>Reserved Faces Check</h2>
+                                                    <center><button onclick="checkFaces()">Compare Claims and Reserves</button></center>
+                                                    <div class="clip-reserve-check"></div>
+                                                </div>
+                                            </div>
+                                        </tag-tab>
+                                    </tag-tabs>
+                                </div>
+                            </div>
+                        </tag-tab>
+                    </div>
                 </div>
             </div>
-        </div> 
+            <script src="../dist/js/formatClaims.js"></script>
+            <script src="../dist/js/claimsFunctions.js"></script>
+            <script src="../dist/js/claimsScripts.js"></script>
+            <script>
+            const url = `https://opensheet.elk.sh/146rEeh3eiyftnC-9NXF29rgSPRLAhuG2gss_nWp_xxw/NewClaims`;
+            const upcomingurl = `https://opensheet.elk.sh/1W-Ffhi7pIe4X1X_tt1SoYaasEewx7Hk5IPd5EJZllOI/Sheet1`;
+            fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                formatFaces(data);
+                formatUniversities(data);
+                formatAbilitiesSpecies(data);
+                formatJobs(data);
+                formatClasses(data);
+                formatDorms(data);
+                formatQuidditch(data);
+                formatLeadership(data);
+            
+                fetch(upcomingurl)
+                .then((response) => response.json())
+                .then((data) => {
+                    formatUpcoming(data);
+                }).then(() => {
+                    initWebpageTabs();
+                    //if hash
+                    if(window.location.hash) {
+                        initWebpageHashTabs();
+                    } else {
+                        initFirstTab();
+                    }
+                    //document.querySelector('#loading').remove();
+                })
+            });
+            </script>
+
+<!-- Copyright Information -->
+<div class="tableborder" align="center">
+    <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
+        <div class="copyright" align="center">
+            Powered by 
+            <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
+            (<a href="http://jcink.com" target="_blank">Jcink.com </a>
+            <a href="https://jcink.com" target="_blank">Forum Hosting</a>
+            ) © 2020 &nbsp;
+            <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
+            <br>
+            Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
+            <a href="index.php?act=Mobile">Mobile Version</a> · 
+            <a href="index.php?act=privacy">Privacy Policy</a>
+        </div>
+    </div>
+</div> 
+
+        <a name="to-bottom"></a></main>
 
         <!--Templates-->
         <script src="templates/header.js"></script>

@@ -8,19 +8,13 @@
 .f-1 {
   grid-column: 1 / -1 !important; }
   .f-1 .forum--border {
-    display: -ms-grid;
     display: grid; }
     @media only screen and (min-width: 768px) {
       .f-1 .forum--border {
-        -ms-grid-columns: min(50%, 400px) auto;
         grid-template-columns: min(50%, 400px) auto; } }
   @media only screen and (min-width: 768px) {
     .f-1 .forum--links {
-      -ms-grid-column: 2;
-      -ms-grid-column-span: 1;
       grid-column: 2 / 3;
-      -ms-grid-row: 1;
-      -ms-grid-row-span: 3;
       grid-row: 1 / 4;
       border-top: none;
       margin: 0 0 0 10px;
@@ -31,5 +25,4 @@
 @media only screen and (min-width: 1024px) {
   .f-2,
   .f-3 {
-    -ms-grid-column-span: 3 !important;
     grid-column: span 3 !important; } }

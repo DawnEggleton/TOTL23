@@ -16,7 +16,8 @@ header {
   body#idx > header,
   main header {
     min-height: calc(100vh - (var(--menuSize) * 2)); }
-  body#Profile > header {
+  body#Profile > header,
+  body#Pages > header {
     display: none; }
   header h1 {
     font-family: var(--font-head);

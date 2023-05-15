@@ -27,7 +27,8 @@ header {
         min-height: calc(100vh - (var(--menuSize) * 2));
     }
 
-    body#Profile > & {
+    body#Profile > &,
+    body#Pages > & {
         display: none;
     }
 

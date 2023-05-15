@@ -18,7 +18,7 @@ if (codes.length > 0) {
 
 //init tabs
 let tabInstances = document.querySelectorAll('tag-labels');
-if(tabInstances.length > 0) {
+if(tabInstances.length > 0 && pageID !== 'Pages') {
     initTabs();
 
     //if hash

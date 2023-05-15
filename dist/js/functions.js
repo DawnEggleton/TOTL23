@@ -111,6 +111,26 @@ function toggleSize() {
         setSize();
     }
 }
+function expandCanons(e) {
+    e.classList.toggle('closed-branch');
+    e.nextElementSibling.classList.toggle('closed-branch');
+}
+function expandAllCanons(e) {
+    e.parentNode.querySelectorAll('.webpage--canon-expansion').forEach(button => {
+        button.classList.remove('closed-branch');
+    });
+    e.parentNode.querySelectorAll('canonbranch').forEach(button => {
+        button.classList.remove('closed-branch');
+    });
+}
+function collapseAllCanons(e) {
+    e.parentNode.querySelectorAll('.webpage--canon-expansion').forEach(button => {
+        button.classList.add('closed-branch');
+    });
+    e.parentNode.querySelectorAll('canonbranch').forEach(button => {
+        button.classList.add('closed-branch');
+    });
+}
 
 //Initialization
 function initClipboard() {
@@ -156,7 +176,7 @@ function initTabs() {
                 });
                 label.classList.add('is-active');
                 tabs[i].classList.add('is-active');
-        
+
                 if(label.dataset.tab) {
                     window.location.hash = label.dataset.tab;
                 }
@@ -274,6 +294,109 @@ function initFilterDropdowns() {
         });
     });
 }
+function initWebpageTabs() {
+    document.querySelectorAll('tag-labels').forEach(labelset => {
+        labelset.querySelectorAll('tag-label').forEach((label, i) => {
+            label.addEventListener('click', e => {
+                let labels = label.parentNode.querySelectorAll('tag-label');
+                let tabs = label.parentNode.parentNode.parentNode.querySelectorAll(':scope > tag-tabs > tag-tab');
+                labels.forEach(sibling => sibling.classList.remove('is-active'));
+                tabs.forEach(tab => {
+                    tab.classList.remove('is-active');
+                    tab.style.left = `${-100 * i}%`;
+                });
+                label.classList.add('is-active');
+                tabs[i].classList.add('is-active');
+
+                if(label.dataset.category) {
+                    document.querySelector(`tag-label[data-tab="${label.dataset.category}"]`).classList.add('is-active');
+                }
+                if(label.dataset.subcategory) {
+                    document.querySelector(`tag-label[data-tab="${label.dataset.subcategory}"]`).classList.add('is-active');
+                }
+                if(label.dataset.firstTab) {
+                    let activeTab = document.querySelector(`tag-label[data-inner-tab="${label.dataset.firstTab}"]`);
+                    activeTab.classList.add('is-active');
+                    let subcategory = document.querySelector(`tag-label[data-tab="${activeTab.dataset.subcategory}"]`);
+                    if(subcategory) {
+                        subcategory.classList.add('is-active');
+                    }
+                }
+                if(label.dataset.triggerTab) {
+                    let activeTab = document.querySelector(`tag-label[data-inner-tab="${label.dataset.triggerTab}"]`);
+                    activeTab.classList.add('is-active');
+                }
+        
+                if(label.dataset.firstTab) {
+                    window.location.hash = label.dataset.firstTab;
+                } else if(label.dataset.triggerTab) {
+                    window.location.hash = label.dataset.triggerTab;
+                } else if(label.dataset.innerTab) {
+                    window.location.hash = label.dataset.innerTab;
+                } else if(label.dataset.tab) {
+                    window.location.hash = label.dataset.tab;
+                }
+            });
+        });
+    });
+}
+function initWebpageHashTabs() {
+    let hash = window.location.hash.split('#')[1];
+
+    //reset
+    let allLabels = document.querySelectorAll('tag-label');
+    allLabels.forEach(label => label.classList.remove('is-active'));
+    let allTabs = document.querySelectorAll('tag-tab');
+    allTabs.forEach(tab => tab.classList.remove('is-active'));
+
+    //label level
+    let label = document.querySelector(`tag-label[data-inner-tab="${hash}"]`);
+    let tab = document.querySelector(`tag-tab[data-inner-tab="${hash}"]`);
+    let tabs = label.parentNode.parentNode.parentNode.querySelectorAll(':scope > tag-tabs > tag-tab');
+    let tabsArray = Array.prototype.slice.call(tabs);
+    let index = tabsArray.indexOf(tab);
+    tabs.forEach(tab => tab.style.left = `${-100 * index}%`);
+    label.classList.add('is-active');
+    tab.classList.add('is-active');
+
+    //category level
+    let categoryLabel = document.querySelector(`tag-label[data-tab="${label.dataset.category}"]`);
+    if(categoryLabel) {
+        let categoryTab = document.querySelector(`tag-tab[data-tab="${label.dataset.category}"]`);
+        let categoryTabs = categoryLabel.parentNode.parentNode.parentNode.querySelectorAll(':scope > tag-tabs > tag-tab');
+        let categoryArray = Array.prototype.slice.call(categoryTabs);
+        let categoryIndex = categoryArray.indexOf(categoryTab);
+        categoryTabs.forEach(tab => tab.style.left = `${-100 * categoryIndex}%`);
+        categoryLabel.classList.add('is-active');
+        categoryTab.classList.add('is-active');
+    } else {
+        let categoryTabs = document.querySelectorAll('.webpage--wrap > tag-tabs > tag-tab');
+        categoryTabs.forEach(tab => tab.style.left = `0%`);
+    }
+
+    //subcategory level
+    let subcategoryLabel = document.querySelector(`tag-label[data-subcategory="${label.dataset.subcategory}"]`);
+    if(subcategoryLabel) {
+        let subcategoryTab = document.querySelector(`tag-tab[data-subcategory="${label.dataset.subcategory}"]`);
+        let subcategoryTabs = subcategoryLabel.parentNode.parentNode.parentNode.querySelectorAll(':scope > tag-tabs > tag-tab');
+        let subcategoryArray = Array.prototype.slice.call(subcategoryTabs);
+        let subcategoryIndex = subcategoryArray.indexOf(subcategoryTab);
+        subcategoryTabs.forEach(tab => tab.style.left = `${-100 * subcategoryIndex}%`);
+        subcategoryLabel.classList.add('is-active');
+        subcategoryTab.classList.add('is-active');
+    } else {
+        let subcategoryTabs = document.querySelectorAll('.webpage--wrap > tag-tabs > tag-tabs > tag-tab');
+        subcategoryTabs.forEach(tab => tab.style.left = `0%`);
+    }
+
+    window.location.hash = label.dataset.innerTab;
+}
+function initFirstTab() {
+    let menus = document.querySelectorAll('tag-labels');
+    menus.forEach(menu => {
+        menu.querySelectorAll('tag-label')[0].classList.add('is-active');
+    });
+}
 
 //Global
 function highlightCode() {
@@ -301,5 +424,37 @@ function capitalize(str, separators) {
 function capitalizeMultiple(selector) {
     document.querySelectorAll(selector).forEach(character => {
         character.innerText = capitalize(character.innerText, [` `, `'`, `-`]);
+    });
+}
+
+//Specialized
+function checkFaces() {
+    let claimSheet = `https://opensheet.elk.sh/146rEeh3eiyftnC-9NXF29rgSPRLAhuG2gss_nWp_xxw/NewClaims`;
+    let wipSheet = `https://opensheet.elk.sh/1W-Ffhi7pIe4X1X_tt1SoYaasEewx7Hk5IPd5EJZllOI/Sheet1`;
+    fetch(claimSheet)
+    .then((response) => response.json())
+    .then((claimedData) => {
+        fetch(wipSheet)
+        .then((response) => response.json())
+        .then((reservedData) => {
+            let claimed = claimedData.map(item => item.Face.toLowerCase());
+            let reserved = reservedData.map(item => item.Face.toLowerCase());
+            let overlap = [];
+            reserved.forEach(face => {
+                if(claimed.includes(face)) {
+                    overlap.push(`<li>${capitalize(face, [` `, `'`, `-`])}</li>`);
+                }
+            });
+            let container = document.querySelector('.clip-reserve-check');
+            let html = ``;
+            if(overlap.length > 0) {
+                html = `<h3 class="h4">Remove the following reserves:</h3><ul>`;
+                overlap.forEach(face => html += face);
+                html += `</ul>`;
+            } else {
+                html = `<p>There are no reserved faces that are also on the claims list.</p>`;
+            }
+            container.insertAdjacentHTML('beforeend', html);
+        });
     });
 }

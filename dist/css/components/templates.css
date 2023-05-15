@@ -1,0 +1,20 @@
+canonbranch {
+  display: block;
+  margin: 0 0 15px 15px;
+  border-left: 1px solid var(--border-main);
+  padding: 15px 0 15px 15px; }
+  canonbranch.closed-branch {
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 15px 0 0 15px; }
+  canonbranch:not(.closed-branch) {
+    border-bottom: 1px solid var(--border-main); }
+  canonbranch .webpage--canon-expansion::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 0.5px);
+    left: -16px;
+    width: 15px;
+    height: 1px;
+    background: var(--border-main); }

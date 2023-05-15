@@ -20,6 +20,8 @@ body {
     top: var(--menuSize);
     left: var(--menuSize);
     width: calc(100% - (var(--menuSize) * 2));
+    font-size: var(--mBody);
+    line-height: 200%;
 
     &::after {
         content: '';
@@ -36,11 +38,37 @@ a {
     text-decoration: none;
     color: var(--accent);
 }
+blockquote {
+  background: var(--bg-alt);
+  padding: 15px;
+  border-left: 3px solid var(--border-main);
+  margin: 0 0 15px;
+
+  @media only screen and (min-width: $xs) {
+    margin: 0 15px 15px;
+  }
+
+  @media only screen and (min-width: $sm) {
+    margin: 0 30px 30px;
+  }
+
+  @media only screen and (min-width: $lg) {
+    margin: 0 auto 30px;
+    max-width: 650px;
+  }
+}
+hr {
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--border-main);
+    margin: 20px auto 15px;
+}
 .profile--wrap,
 .post,
 .webpage,
 .postcolor {
     h2,
+    .h2,
     tag-xl {
         font-family: var(--font-head);
         text-align: center;
@@ -59,6 +87,7 @@ a {
         }
     }
     h3,
+    .h3,
     tag-lg {
         font-family: var(--font-head);
         text-align: center;
@@ -77,26 +106,48 @@ a {
         }
     }
     h4,
+    .h4,
     tag-md {
         font-family: var(--font-head);
         line-height: 200%;
         font-size: calc(var(--xlBody) + 4px);
         margin-bottom: 0;
+        text-align: left;
+        padding-bottom: 0;
+
+        &::after {
+            display: none;
+        }
     }
     h5,
+    .h5,
     tag-sm {
         font-family: var(--font-head);
         line-height: 200%;
         font-size: var(--xlBody);
         margin-bottom: 0;
+        text-align: left;
+        padding-bottom: 0;
+
+        &::after {
+            display: none;
+        }
     }
     h6,
+    .h6,
     tag-xs {
+        font-family: var(--font-body);
         line-height: 160%;
         font-size: var(--xsBody);
         text-transform: uppercase;
         letter-spacing: 0.1em;
         margin-bottom: 0;
+        text-align: left;
+        padding-bottom: 0;
+
+        &::after {
+            display: none;
+        }
     }
     b {
         font-family: var(--font-head);
@@ -151,18 +202,20 @@ button {
 }
 select,
 input,
-textarea {
+textarea,
+button {
     background: var(--bg-content);
     border: 1px solid var(--border-main);
     color: var(--text-content);
     border-radius: 1px;
 }
 select,
-input {
+input,
+button {
     text-transform: uppercase;
     font-size: var(--xsBody);
     line-height: 100%;
-    letter-spacing: 1px;
+    letter-spacing: 0.1em;
     margin: 0 3px;
     cursor: pointer;
 }
@@ -172,8 +225,12 @@ select {
 option {
     font-size: var(--mBody);
 }
-input {
+input,
+button {
     padding: 8px;
+}
+button {
+    font-weight: 600;
 }
 textarea {
     padding: 10px;

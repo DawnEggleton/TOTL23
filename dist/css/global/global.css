@@ -18,7 +18,9 @@ body {
   color: var(--text-body);
   top: var(--menuSize);
   left: var(--menuSize);
-  width: calc(100% - (var(--menuSize) * 2)); }
+  width: calc(100% - (var(--menuSize) * 2));
+  font-size: var(--mBody);
+  line-height: 200%; }
   body::after {
     content: '';
     position: fixed;
@@ -32,6 +34,18 @@ body {
 a {
   text-decoration: none;
   color: var(--accent); }
+
+blockquote {
+  background: var(--bg-alt);
+  padding: 15px;
+  border-left: 3px solid var(--border-main);
+  margin: 0 30px 30px; }
+
+hr {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--border-main);
+  margin: 20px auto 15px; }
 
 .profile--wrap h2,
 .profile--wrap tag-xl,
@@ -214,7 +228,7 @@ input {
   text-transform: uppercase;
   font-size: var(--xsBody);
   line-height: 100%;
-  letter-spacing: 1px;
+  letter-spacing: 0.1em;
   margin: 0 3px;
   cursor: pointer; }
 
