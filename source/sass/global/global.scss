@@ -87,6 +87,24 @@ hr {
             bottom: 0;
             left: calc(50% - 25px);
         }
+
+        & + h2,
+        & + .h2,
+        & + tag-xl,
+        & + h3,
+        & + .h3,
+        & + tag-lg,
+        & + h4,
+        & + .h4,
+        & + tag-md,
+        & + h5,
+        & + .h5,
+        & + tag-sm,
+        & + h6,
+        & + .h6,
+        & + tag-xs {
+            margin-top: 0.5em;
+        }
     }
     h3,
     .h3,
@@ -106,6 +124,24 @@ hr {
             bottom: 0;
             left: calc(50% - 25px);
         }
+
+        & + h2,
+        & + .h2,
+        & + tag-xl,
+        & + h3,
+        & + .h3,
+        & + tag-lg,
+        & + h4,
+        & + .h4,
+        & + tag-md,
+        & + h5,
+        & + .h5,
+        & + tag-sm,
+        & + h6,
+        & + .h6,
+        & + tag-xs {
+            margin-top: 0.5em;
+        }
     }
     h4,
     .h4,
@@ -120,6 +156,24 @@ hr {
         &::after {
             display: none;
         }
+
+        & + h2,
+        & + .h2,
+        & + tag-xl,
+        & + h3,
+        & + .h3,
+        & + tag-lg,
+        & + h4,
+        & + .h4,
+        & + tag-md,
+        & + h5,
+        & + .h5,
+        & + tag-sm,
+        & + h6,
+        & + .h6,
+        & + tag-xs {
+            margin-top: 0.5em;
+        }
     }
     h5,
     .h5,
@@ -133,6 +187,24 @@ hr {
 
         &::after {
             display: none;
+        }
+
+        & + h2,
+        & + .h2,
+        & + tag-xl,
+        & + h3,
+        & + .h3,
+        & + tag-lg,
+        & + h4,
+        & + .h4,
+        & + tag-md,
+        & + h5,
+        & + .h5,
+        & + tag-sm,
+        & + h6,
+        & + .h6,
+        & + tag-xs {
+            margin-top: 0.5em;
         }
     }
     h6,
@@ -149,6 +221,24 @@ hr {
 
         &::after {
             display: none;
+        }
+
+        & + h2,
+        & + .h2,
+        & + tag-xl,
+        & + h3,
+        & + .h3,
+        & + tag-lg,
+        & + h4,
+        & + .h4,
+        & + tag-md,
+        & + h5,
+        & + .h5,
+        & + tag-sm,
+        & + h6,
+        & + .h6,
+        & + tag-xs {
+            margin-top: 0.5em;
         }
     }
     b {
@@ -210,6 +300,11 @@ button {
     border: 1px solid var(--border-main);
     color: var(--text-content);
     border-radius: 1px;
+
+    &:focus {
+        outline: none;
+        border-color: var(--ltaccent);
+    }
 }
 select,
 input,
@@ -230,6 +325,9 @@ option {
 input,
 button {
     padding: 8px;
+}
+input[type="text"] {
+    cursor: initial;
 }
 button {
     font-weight: 600;

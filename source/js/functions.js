@@ -416,15 +416,48 @@ function moveLeft(e) {
 function moveRight(e) {
     e.parentNode.querySelector('tag-labels').scrollLeft += 150;
 }
-function capitalize(str, separators) {
+function fixMc(str) {
+    return (""+str).replace(/Mc(.)/g, function(m, m1) {
+        return 'Mc' + m1.toUpperCase();
+    });
+}
+function fixMac(str) {
+    return (""+str).replace(/Mac(.)/g, function(m, m1) {
+        return 'Mac' + m1.toUpperCase();
+    });
+}
+function capitalize(str, separators = [` `, `'`, `-`]) {
     separators = separators || [ ' ' ];
     var regex = new RegExp('(^|[' + separators.join('') + '])(\\w)', 'g');
-    return str.replace(regex, function(x) { return x.toUpperCase(); });
+    return fixMac(fixMc(str.replace(regex, function(x) { return x.toUpperCase(); })));
 }
 function capitalizeMultiple(selector) {
     document.querySelectorAll(selector).forEach(character => {
-        character.innerText = capitalize(character.innerText, [` `, `'`, `-`]);
+        character.innerText = capitalize(character.innerText);
     });
+}
+
+//Filters
+function filterValue(e) {
+    let searchValue = e.value.toLowerCase().trim();
+    let names = document.querySelectorAll(`${e.dataset.filter} .claim ${e.dataset.objects}`);
+    let headers = document.querySelectorAll(`${e.dataset.filter} ${e.dataset.headers}`);
+    if(searchValue !== '') {
+        e.parentNode.classList.add('pb');
+        headers.forEach(header => header.classList.add('hide'));
+        names.forEach(name => {
+            let nameValue = name.innerText.toLowerCase().trim();
+            if (nameValue.indexOf(searchValue) > -1) {
+                name.parentElement.classList.remove('hide');
+            } else {
+                name.parentElement.classList.add('hide');
+            }
+        });
+    } else {
+        e.parentNode.classList.remove('pb');
+        headers.forEach(header => header.classList.remove('hide'));
+        names.forEach(name => name.parentElement.classList.remove('hide'))
+    }
 }
 
 //Specialized

@@ -149,3 +149,19 @@
 
 .webpage tag-tab[data-tab="canons"] b s {
   opacity: 0.65; }
+
+.webpage .claim {
+  border: 1px solid var(--border-main);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 200%;
+  font-weight: 600; }
+  .webpage .claim > a,
+  .webpage .claim > b {
+    font-size: var(--xlBody);
+    text-transform: none;
+    margin-bottom: 5px; }

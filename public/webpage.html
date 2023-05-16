@@ -571,12 +571,27 @@
                                     <tag-tabs class="webpage--tabs">
                                         <tag-tab data-inner-tab="faces">
                                             <div class="webpage--tab-inner">
-                                                <div class="scroll" id="clip-faces"></div>
+                                                <div class="scroll" id="clip-faces">
+                                                    <h2>Claimed Faces</h2>
+                                                    <b>Filter by...</b>
+                                                    <div class="claim--filters" data-type="grid" data-columns="3">
+                                                        <input type="text" data-filter="#clip-faces" data-objects="> a" data-headers="h3" onkeyup="filterValue(this)" placeholder="Face">
+                                                        <input type="text" data-filter="#clip-faces" data-objects="> a + span" data-headers="h3" onkeyup="filterValue(this)" placeholder="Character">
+                                                        <input type="text" data-filter="#clip-faces" data-objects="> a + span + span" data-headers="h3" onkeyup="filterValue(this)" placeholder="Member">
+                                                    </div>
+                                                </div>
                                             </div>
                                         </tag-tab>
                                         <tag-tab data-inner-tab="upcoming">
                                             <div class="webpage--tab-inner">
-                                                <div class="scroll" id="clip-wip"></div>
+                                                <div class="scroll" id="clip-wip">
+                                                    <h2>Upcoming Faces</h2>
+                                                    <b>Filter by...</b>
+                                                    <div class="claim--filters" data-type="grid" data-columns="2">
+                                                        <input type="text" data-filter="#clip-wip" data-objects="> b" data-headers="h3" onkeyup="filterValue(this)" placeholder="Face">
+                                                        <input type="text" data-filter="#clip-wip" data-objects="> b + span" data-headers="h3" onkeyup="filterValue(this)" placeholder="Member">
+                                                    </div>
+                                                </div>
                                             </div>
                                         </tag-tab>
                                         <tag-tab data-inner-tab="university">
@@ -602,7 +617,18 @@
                         </tag-tab>
                         
                         <!-- Jobs -->
-                        <tag-tab data-tab="jobs" id="clip-jobs"></tag-tab>
+                        <tag-tab data-tab="jobs" id="clip-jobs">
+                            <div class="webpage--tab-inner no-scroll">
+                                <div class="webpage--inner-tabs auto-height">
+                                    <div class="webpage--labels">
+                                        <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                                        <tag-labels></tag-labels>
+                                        <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                                    </div>
+                                    <tag-tabs class="webpage--tabs"></tag-tabs>
+                                </div>
+                            </div>
+                        </tag-tab>
                         
                         <!-- Students -->
                         <tag-tab data-tab="students">

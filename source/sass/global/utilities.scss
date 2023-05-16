@@ -46,8 +46,24 @@
 
 [data-type="grid"] {
     display: grid;
-    gap: 30px;
+    gap: 15px;
     grid-template-columns: repeat(1, 1fr);
+
+    @media only screen and (min-width: $xs) {
+        gap: 30px;
+    }
+
+    .fullWidth {
+        grid-column: 1 / -1;
+
+        & + .fullWidth {
+            margin-top: -15px;
+
+            @media only screen and (min-width: $xs) {
+                margin-top: -30px;
+            }
+        }
+    }
 }
 
 [data-type="grid"][data-columns="2"] {
@@ -130,5 +146,13 @@ luxblock {
 
     @media only screen and (min-width: $lg) {
         margin: 0 auto;
+    }
+}
+
+.pb {
+    margin-bottom: 15px;
+
+    @media only screen and (min-width: $xs) {
+        margin-bottom: 30px;
     }
 }

@@ -32,8 +32,18 @@
 
 [data-type="grid"] {
   display: grid;
-  gap: 30px;
+  gap: 15px;
   grid-template-columns: repeat(1, 1fr); }
+  @media only screen and (min-width: 480px) {
+    [data-type="grid"] {
+      gap: 30px; } }
+  [data-type="grid"] .fullWidth {
+    grid-column: 1 / -1; }
+    [data-type="grid"] .fullWidth + .fullWidth {
+      margin-top: -15px; }
+      @media only screen and (min-width: 480px) {
+        [data-type="grid"] .fullWidth + .fullWidth {
+          margin-top: -30px; } }
 
 [data-type="grid"][data-columns="2"] {
   grid-template-columns: repeat(1, 1fr); }
@@ -98,3 +108,9 @@ luxblock {
   @media only screen and (min-width: 1024px) {
     luxblock {
       margin: 0 auto; } }
+
+.pb {
+  margin-bottom: 15px; }
+  @media only screen and (min-width: 480px) {
+    .pb {
+      margin-bottom: 30px; } }
