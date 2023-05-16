@@ -443,9 +443,13 @@ tag-code {
     }
 }
 .staffOnly {
-    display: none;
+    display: none !important;
 
     .g-4 & {
         display: initial;
     }
+}
+
+.g-4 tag-label.staffOnly {
+    display: flex !important;
 }

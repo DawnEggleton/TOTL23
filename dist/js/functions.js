@@ -316,6 +316,8 @@ function initWebpageTabs() {
                 }
                 if(label.dataset.firstTab) {
                     let activeTab = document.querySelector(`tag-label[data-inner-tab="${label.dataset.firstTab}"]`);
+                    activeTab.parentNode.querySelectorAll('tag-label').forEach(label => label.classList.remove('is-active'));
+                    activeTab.parentNode.parentNode.parentNode.querySelectorAll('.webpage--tabs tag-label').forEach(label => label.classList.remove('is-active'));
                     activeTab.classList.add('is-active');
                     let subcategory = document.querySelector(`tag-label[data-tab="${activeTab.dataset.subcategory}"]`);
                     if(subcategory) {

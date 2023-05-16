@@ -1345,6 +1345,9 @@ tag-code {
     display: initial; }
 
 .staffOnly {
-  display: none; }
+  display: none !important; }
   .g-4 .staffOnly {
     display: initial; }
+
+.g-4 tag-label.staffOnly {
+  display: flex !important; }
