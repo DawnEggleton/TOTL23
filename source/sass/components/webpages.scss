@@ -103,6 +103,7 @@
     }
 
     &--tab-inner {
+        width: calc(100% - 30px);
         background: var(--bg-content);
         color: var(--text-content);
         margin: 15px;
@@ -110,12 +111,14 @@
         max-height: calc(100vh - (var(--menuSize) * 2) - 44px);
 
         @media only screen and (min-width: $xs) {
+            width: calc(100% - 60px);
             margin: 30px;
             padding: 30px 15px 30px 30px;
             max-height: calc(100vh - (var(--menuSize) * 2) - 104px);
         }
 
         @media only screen and (min-width: $xxl) {
+            width: 100%;
             margin: 30px auto;
             max-width: 1300px;
         }

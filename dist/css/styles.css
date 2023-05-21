@@ -1579,9 +1579,10 @@ tag-code {
 .staffOnly {
   display: none !important; }
   .g-4 .staffOnly {
-    display: initial; }
+    display: initial !important; }
 
-.g-4 tag-label.staffOnly {
+.g-4 tag-label.staffOnly,
+.g-4 tag-tab.staffOnly {
   display: -webkit-box !important;
   display: -webkit-flex !important;
   display: -ms-flexbox !important;
@@ -4180,6 +4181,7 @@ header {
             transition-duration: 0.5s; }
 
 .webpage--tab-inner {
+  width: calc(100% - 30px);
   background: var(--bg-content);
   color: var(--text-content);
   margin: 15px;
@@ -4187,11 +4189,13 @@ header {
   max-height: calc(100vh - (var(--menuSize) * 2) - 44px); }
   @media only screen and (min-width: 480px) {
     .webpage--tab-inner {
+      width: calc(100% - 60px);
       margin: 30px;
       padding: 30px 15px 30px 30px;
       max-height: calc(100vh - (var(--menuSize) * 2) - 104px); } }
   @media only screen and (min-width: 1440px) {
     .webpage--tab-inner {
+      width: 100%;
       margin: 30px auto;
       max-width: 1300px; } }
   .webpage--tab-inner > .scroll {
