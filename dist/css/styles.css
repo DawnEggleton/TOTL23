@@ -3832,10 +3832,6 @@ header {
   @media only screen and (min-width: 768px) {
     .ml--wrapper {
       height: calc(100vh - (var(--menuSize) * 2) - 110px); } }
-  @media only screen and (min-width: 1440px) {
-    .ml--wrapper {
-      margin: 30px auto;
-      max-width: 1300px; } }
   .lgFont .ml--wrapper {
     height: calc(100vh - (var(--menuSize) * 2) - 139.5px); }
     @media only screen and (min-width: 480px) {
@@ -4027,12 +4023,24 @@ header {
       -webkit-transition-duration: 0.3s;
            -o-transition-duration: 0.3s;
               transition-duration: 0.3s; }
+    .mem--image::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: var(--ltaccent-40);
+      opacity: var(--opacity-colorover);
+      -webkit-transition-duration: 0.3s;
+           -o-transition-duration: 0.3s;
+              transition-duration: 0.3s; }
     .mem--image::after {
       opacity: 1;
       -webkit-transition-duration: 0.3s;
            -o-transition-duration: 0.3s;
               transition-duration: 0.3s; }
-    .mem--image:hover::after {
+    .mem--image:hover::before, .mem--image:hover::after {
       opacity: 0; }
     .mem--image:hover img {
       opacity: 0.5;
@@ -4063,6 +4071,10 @@ header {
     .grid-sizer,
     .grid-item {
       width: calc(25% - 11.25px); } }
+  @media only screen and (min-width: 1440px) {
+    .grid-sizer,
+    .grid-item {
+      width: calc(20% - 12px); } }
 
 #Pages main header {
   height: calc(100vh - (var(--menuSize) * 2)); }

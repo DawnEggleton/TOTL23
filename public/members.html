@@ -127,6 +127,26 @@
                                     <label><input type="checkbox" value=".other">other</label>
                                 </div>
                             </div>
+                            <div class="ml--filter">
+                                <a href="javascript:;">
+                                    <i class="fa-light fa-plus"></i>
+                                    <i class="fa-light fa-minus"></i>
+                                    <span>Relationship Status</span>
+                                </a>
+                                <div class="ml--filter-group claim--labels ml-relationship" data-filter-group="relationship">
+                                    <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all statuses</label>
+                                </div>
+                            </div>
+                            <div class="ml--filter">
+                                <a href="javascript:;">
+                                    <i class="fa-light fa-plus"></i>
+                                    <i class="fa-light fa-minus"></i>
+                                    <span>Pronouns</span>
+                                </a>
+                                <div class="ml--filter-group claim--labels ml-pronouns" data-filter-group="pronouns">
+                                    <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all pronouns</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="ml--content">
@@ -154,21 +174,20 @@
                     let gridItem = `.grid-item`;
                     let defaultShow = `.character:not(.g-3)`;
 
-                    function formatMemberRow(accountType, classArray, image, id, accountName, first, second, third, fourth, long) {
+                    function formatMemberRow(accountType, classArray, image, id, accountName, lines, long) {
                         let classList = classArray.join(' ');
                         let html = `<div class="ml--member ${accountType} grid-item ${classList}">
                             <div class="mem">
                                 <div class="mem--top">
                                     <div class="mem--image noise"><img src="${image}" loading="lazy" /></div>
-                                    <a href="?showuser=${id}" class="name">${accountName}</a>
-                                    <span>${first}</span>
-                                    <span>${second}</span>
-                                    <span>${third}</span>`;
-                        if(accountType === 'member') {
-                            html += `<span>${fourth}</span>`;
-                        } else {
-                            html += `<span class="age">${fourth}</span>`;
-                        }
+                                    <a href="?showuser=${id}" class="name">${accountName}</a>`;
+                        lines.forEach(line => {
+                            if(Array.isArray(line)) {
+                                html += `<span class="${line[1]}">${line[0]}</span>`;
+                            } else {
+                                html += `<span>${line}</span>`;
+                            }
+                        });
                         html += `</div>
                                 <div class="mem--overview">
                                     <div class="scroll">${long}</div>
@@ -181,20 +200,31 @@
 
                     function populatePage(array) {
                         let html = ``;
-                        let members = [];
-                        let membersClean = [];
+                        let members = [], membersClean = [];
+                        let pronouns = [], pronounsClean = [];
+                        let rels = [], relsClean = [];
                         for (let i = 0; i < array.length; i++) {
                             //Make Member Array
                             let member = {raw: array[i].rawAlias, clean: array[i].alias};
+                            let pronoun = {raw: array[i].charPronouns, clean: array[i].charPronounsClass};
+                            let relationship = {raw: array[i].relationship, clean: array[i].relationshipClass};
                             if(jQuery.inArray(member.clean, membersClean) == -1 && member.clean != '') {
                                 membersClean.push(member.clean);
                                 members.push(member);
+                            }
+                            if(jQuery.inArray(pronoun.clean, pronounsClean) == -1 && pronoun.clean != '') {
+                                pronounsClean.push(pronoun.clean);
+                                pronouns.push(pronoun);
+                            }
+                            if(jQuery.inArray(relationship.clean, relsClean) == -1 && relationship.clean != '') {
+                                relsClean.push(relationship.clean);
+                                rels.push(relationship);
                             }
                             switch(array[i].groupID) {
                                 //member only
                                 case 4:
                                 case 20:
-                                    html += formatMemberRow('member', [`g-${array[i].groupID}`, array[i].alias], array[i].image, array[i].id, array[i].name, array[i].groupName, array[i].pronouns, array[i].timezone, array[i].contact, array[i].triggers);
+                                    html += formatMemberRow('member', [`g-${array[i].groupID}`, array[i].alias], array[i].image, array[i].id, array[i].name, [array[i].groupName, array[i].pronouns, array[i].timezone, array[i].contact], array[i].triggers);
                                     break;
                                 //depends on type
                                 case 1:
@@ -204,15 +234,15 @@
                                 case 19:
                                 case 21:
                                     if(array[i].type == `member`) {
-                                        html += formatMemberRow('member', [`g-${array[i].groupID}`, array[i].alias], array[i].image, array[i].id, array[i].name, array[i].groupName, array[i].pronouns, array[i].timezone, array[i].contact, array[i].triggers);
+                                        html += formatMemberRow('member', [`g-${array[i].groupID}`, array[i].alias], array[i].image, array[i].id, array[i].name, [array[i].groupName, array[i].pronouns, array[i].timezone, array[i].contact], array[i].triggers);
                                     } else {
                                         //character
-                                        html += formatMemberRow('character', [`g-${array[i].groupID}`, array[i].ageClass, array[i].bloodStatus, array[i].alias], array[i].image, array[i].id, array[i].name, `Played by ${array[i].rawAlias}`, array[i].groupName, array[i].bloodStatus, array[i].age, array[i].overview);
+                                        html += formatMemberRow('character', [`g-${array[i].groupID}`, array[i].ageClass, array[i].bloodStatus, array[i].alias, array[i].charPronounsClass, array[i].relationshipClass], array[i].image, array[i].id, array[i].name, [[`${array[i].age} years old`, 'age'], `${array[i].bloodStatus} — ${array[i].groupName}`, `${array[i].charPronouns} — ${array[i].relationship}`, `Played by ${array[i].rawAlias}`], array[i].overview);
                                     }
                                     break;
                                 //character only
                                 default: 
-                                    html += formatMemberRow('character', [`g-${array[i].groupID}`, array[i].ageClass, array[i].bloodStatus, array[i].alias], array[i].image, array[i].id, array[i].name, `Played by ${array[i].rawAlias}`, array[i].groupName, array[i].bloodStatus, array[i].age, array[i].overview);
+                                    html += formatMemberRow('character', [`g-${array[i].groupID}`, array[i].ageClass, array[i].bloodStatus, array[i].alias, array[i].charPronounsClass, array[i].relationshipClass], array[i].image, array[i].id, array[i].name, [[`${array[i].age} years old`, 'age'], `${array[i].bloodStatus} — ${array[i].groupName}`, `${array[i].charPronouns} — ${array[i].relationship}`, `Played by ${array[i].rawAlias}`], array[i].overview);
                                     break;
                             }
                         }
@@ -223,8 +253,16 @@
 
                         //Append Array
                         members.forEach(member => {
-                        document.querySelector('.ml-memberlist').insertAdjacentHTML('beforeend', `<label><input type="checkbox" value=".${member.clean}"/>${member.raw}</label>`);
+                            document.querySelector('.ml-memberlist').insertAdjacentHTML('beforeend', `<label><input type="checkbox" value=".${member.clean}"/>${member.raw}</label>`);
                         });
+                        pronouns.forEach(pronoun => {
+                            document.querySelector('.ml-pronouns').insertAdjacentHTML('beforeend', `<label><input type="checkbox" value=".${pronoun.clean}"/>${pronoun.raw}</label>`);
+                        });
+                        rels.forEach(rel => {
+                            document.querySelector('.ml-relationship').insertAdjacentHTML('beforeend', `<label><input type="checkbox" value=".${rel.clean}"/>${rel.raw}</label>`);
+                        });
+                        console.log(pronouns);
+                        console.log(rels);
                     }
 
                     function setCustomFilter() {
