@@ -64,6 +64,8 @@ hr {
     border: none;
     border-bottom: 1px solid var(--border-main);
     margin: 20px auto 15px;
+    grid-column: 1 / -1;
+    width: 100%;
 }
 .profile--wrap,
 .post,

@@ -175,7 +175,7 @@ function formatUniversities(data) {
                 [character.UniversityYear]);
         }
         //same school, different program
-        else if (i !== students.length - 1 && character.School === students[i - 1].School && character.Program !== students[i - 1].Program) {
+        else if (character.School === students[i - 1].School && character.Program !== students[i - 1].Program) {
             html += formatClaimHeader('h4', character.Program, `fullWidth`);
             html += formatClaimBox(character.GroupID,
                 character.AccountID,
@@ -183,7 +183,7 @@ function formatUniversities(data) {
                 [character.UniversityYear]);
         }
         //different school
-        else if (i !== students.length - 1 && character.School !== students[i - 1].School) {
+        else if (character.School !== students[i - 1].School) {
             html += formatClaimHeader('h3', character.School, `fullWidth`);
             html += formatClaimHeader('h4', character.Program, `fullWidth`);
             html += formatClaimBox(character.GroupID,
@@ -192,7 +192,7 @@ function formatUniversities(data) {
                 [character.UniversityYear]);
         }
         //same school, same program
-        else if (i !== students.length - 1 && character.School === students[i - 1].School && character.Program === students[i - 1].Program) {
+        else if (character.School === students[i - 1].School && character.Program === students[i - 1].Program) {
             html += formatClaimBox(character.GroupID,
                 character.AccountID,
                 character.Character,
@@ -471,26 +471,377 @@ function formatJobs(data) {
     document.querySelector('#clip-jobs tag-tabs').innerHTML = tabs;
 }
 function formatClasses(data) {
-    let labels = formatLabel('students', 'class-lists', 'class-tab-name', 'Tab Name');
-    let tabs = formatTab('class-lists', 'class-tab-name', 'Tab content');
-    let firstTab = `class-tab-name`;
+    //set variables
+    let labels = ``, tabs = ``, tabContent = ``, firstTab = ``, characters = [];
+
+    //filter data and set up characters array
+    let filtered = data.filter(item => item.HogwartsClasses);
+    filtered.forEach(character => {
+        let classes = character.HogwartsClasses.split(`+`).map(obj => JSON.parse(obj));
+        classes.forEach(obj => {
+            let yearNum = 0;
+            if (character.HogwartsYear === 'first year') {
+                yearNum = 1;
+            } else if (character.HogwartsYear === `second year`) {
+                yearNum = 2;
+            } else if (character.HogwartsYear === `third year`) {
+                yearNum = 3;
+            } else if (character.HogwartsYear === `fourth year`) {
+                yearNum = 4;
+            } else if (character.HogwartsYear === `fifth year`) {
+                yearNum = 5;
+            } else if (character.HogwartsYear === `sixth year`) {
+                yearNum = 6;
+            } else if (character.HogwartsYear === `seventh year`) {
+                yearNum = 7;
+            }
+            characters.push({
+                Character: character.Character,
+                AccountID: character.AccountID,
+                GroupID: character.GroupID,
+                Year: character.HogwartsYear,
+                YearNum: yearNum,
+                Class: obj.class,
+                Grade: obj.grade
+            });
+        });
+    });
+    characters.sort((a, b) => {
+        if (parseInt(a.YearNum) < parseInt(b.YearNum)) {
+            return -1;
+        } else if (parseInt(b.YearNum) < parseInt(a.YearNum)) {
+            return 1;
+        } else if (a.Class < b.Class) {
+            return -1;
+        } else if (b.Class < a.Class) {
+            return 1;
+        } else if (a.Character < b.Character) {
+            return -1;
+        } else if (b.Character < a.Character) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+
+    //format html print out
+    characters.forEach((character, i) => {
+        //first character
+        if (i === 0) {
+            firstTab = `year-${character.Year.replaceAll(' ', '-')}`;
+            tabContent += formatClaimGrid('3');
+            tabContent += formatClaimHeader('h3', character.Class, `fullWidth`);
+            tabContent += formatClaimBox(character.GroupID,
+                character.AccountID,
+                character.Character,
+                [character.Grade]);
+        }
+        //different year
+        else if (i !== characters.length - 1 && character.YearNum !== characters[i - 1].YearNum) {
+            tabContent += formatClaimGrid('3', true);
+            tabs += formatTab('class-lists', `year-${characters[i - 1].Year.replaceAll(' ', '-')}`, tabContent);
+            labels += formatLabel('students', 'class-lists', `year-${characters[i - 1].Year.replaceAll(' ', '-')}`, capitalize(characters[i - 1].Year));
+            tabContent = ``;
+            tabContent += formatClaimGrid('3');
+            tabContent += formatClaimHeader('h3', character.Class, `fullWidth`);
+            tabContent += formatClaimBox(character.GroupID,
+                character.AccountID,
+                character.Character,
+                [character.Grade]);
+        }
+        //same year, different class
+        else if (i !== characters.length - 1 && character.YearNum === characters[i - 1].YearNum && character.Class !== characters[i - 1].Class) {
+            tabContent += formatClaimHeader('h3', character.Class, `fullWidth`);
+            tabContent += formatClaimBox(character.GroupID,
+                character.AccountID,
+                character.Character,
+                [character.Grade]);
+        }
+        //same year, same class
+        else if (i !== characters.length - 1 && character.YearNum === characters[i - 1].YearNum && character.Class === characters[i - 1].Class) {
+            tabContent += formatClaimBox(character.GroupID,
+                character.AccountID,
+                character.Character,
+                [character.Grade]);
+        }
+        //close after last character
+        if(i === characters.length - 1) {
+            tabContent += formatClaimGrid('3', true);
+            tabs += formatTab('class-lists', `year-${character.Year.replaceAll(' ', '-')}`, tabContent);
+            labels += formatLabel('students', 'class-lists', `year-${character.Year.replaceAll(' ', '-')}`, capitalize(character.Year));
+        }
+    });
 
     document.querySelector(`tag-label[data-tab="class-lists"]`).dataset.triggerTab = firstTab;
     document.querySelector('#clip-classes-labels').innerHTML = labels;
     document.querySelector('#clip-classes-tabs').innerHTML = tabs;
 }
 function formatDorms(data) {
-    let labels = formatLabel('students', 'dorms', 'dorm-tab-name', 'Tab Name');
-    let tabs = formatTab('dorms', 'dorm-tab-name', 'Tab content');
-    let firstTab = `dorm-tab-name`;
+    //set variables
+    let labels = ``, tabs = ``, tabContent = ``, firstTab = ``, characters = [];
+
+    //filter data and set up characters array
+    let students = data.filter(item => item.Dorm);
+    students.forEach(character => {
+        let yearNum = 0;
+        if (character.HogwartsYear === 'first year') {
+            yearNum = 1;
+        } else if (character.HogwartsYear === `second year`) {
+            yearNum = 2;
+        } else if (character.HogwartsYear === `third year`) {
+            yearNum = 3;
+        } else if (character.HogwartsYear === `fourth year`) {
+            yearNum = 4;
+        } else if (character.HogwartsYear === `fifth year`) {
+            yearNum = 5;
+        } else if (character.HogwartsYear === `sixth year`) {
+            yearNum = 6;
+        } else if (character.HogwartsYear === `seventh year`) {
+            yearNum = 7;
+        }
+        characters.push({
+            Character: character.Character,
+            AccountID: character.AccountID,
+            GroupID: character.GroupID,
+            Group: character.GroupName,
+            Year: character.HogwartsYear,
+            YearNum: yearNum,
+            Dorm: character.Dorm
+        });
+    });
+    characters.sort((a, b) => {
+        if (a.Group < b.Group) {
+            return -1;
+        } else if (b.Group < a.Group) {
+            return 1;
+        } else if (a.YearNum < b.YearNum) {
+            return -1;
+        } else if (b.YearNum < a.YearNum) {
+            return 1;
+        } else if (a.Dorm < b.Dorm) {
+            return -1;
+        } else if (b.Dorm < a.Dorm) {
+            return 1;
+        } else if (a.Character < b.Character) {
+            return -1;
+        } else if (b.Character < a.Character) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+
+    //format html print out
+    characters.forEach((character, i) => {
+        //first character
+        if (i === 0) {
+            firstTab = `dorm-${character.Group.replaceAll(' ', '-')}`;
+            tabContent += formatClaimGrid('3');
+            tabContent += formatClaimHeader('h3', character.Year, `fullWidth`);
+            tabContent += formatClaimHeader('h4', character.Dorm, `fullWidth`);
+            tabContent += formatClaimBox(character.GroupID,
+                character.AccountID,
+                character.Character,
+                []);
+        }
+        //different group
+        else if (i !== characters.length - 1 && character.GroupID !== characters[i - 1].GroupID) {
+            tabContent += formatClaimGrid('3', true);
+            tabs += formatTab('dorms', `dorm-${characters[i - 1].Group.replaceAll(' ', '-')}`, tabContent);
+            labels += formatLabel('students', 'dorms', `dorm-${characters[i - 1].Group.replaceAll(' ', '-')}`, capitalize(characters[i - 1].Group));
+            tabContent = ``;
+            tabContent += formatClaimGrid('3');
+            tabContent += formatClaimHeader('h3', character.Year, `fullWidth`);
+            tabContent += formatClaimHeader('h4', character.Dorm, `fullWidth`);
+            tabContent += formatClaimBox(character.GroupID,
+                character.AccountID,
+                character.Character,
+                []);
+        }
+        //same group, different year
+        else if (i !== characters.length - 1 && character.GroupID === characters[i - 1].GroupID && character.YearNum !== characters[i - 1].YearNum) {
+            tabContent += formatClaimHeader('h3', character.Year, `fullWidth`);
+            tabContent += formatClaimHeader('h4', character.Dorm, `fullWidth`);
+            tabContent += formatClaimBox(character.GroupID,
+                character.AccountID,
+                character.Character,
+                []);
+        }
+        //same group/year, different room
+        else if (i !== characters.length - 1 && character.GroupID === characters[i - 1].GroupID && character.YearNum === characters[i - 1].YearNum && character.Dorm !== characters[i - 1].Dorm) {
+            tabContent += formatClaimHeader('h4', character.Dorm, `fullWidth`);
+            tabContent += formatClaimBox(character.GroupID,
+                character.AccountID,
+                character.Character,
+                []);
+        }
+        //same group/year/room
+        else if (i !== characters.length - 1 && character.YearNum === characters[i - 1].YearNum && character.Class === characters[i - 1].Class) {
+            tabContent += formatClaimBox(character.GroupID,
+                character.AccountID,
+                character.Character,
+                []);
+        }
+        //close after last character
+        if(i === characters.length - 1) {
+            tabContent += formatClaimGrid('3', true);
+            tabs += formatTab('dorms', `dorm-${character.Group.replaceAll(' ', '-')}`, tabContent);
+            labels += formatLabel('students', 'dorms', `dorm-${character.Group.replaceAll(' ', '-')}`, capitalize(character.Group));
+        }
+    });
 
     document.querySelector(`tag-label[data-tab="dorms"]`).dataset.triggerTab = firstTab;
     document.querySelector('#clip-dorms-labels').innerHTML = labels;
     document.querySelector('#clip-dorms-tabs').innerHTML = tabs;
 }
 function formatQuidditch(data) {
-    document.querySelector('#clip-hogwarts-quidditch').innerHTML = `Hogwarts quidditch`;
+    let html = ``, students = [], captains = {};
+    let filtered = data.filter(item => item.QuidditchPosition);
+    filtered.forEach(character => {
+        let roles = character.QuidditchPosition.split(', ');
+        let position = roles.filter(item => item !== 'captain').join(', ');
+        students.push({
+            Character: character.Character,
+            AccountID: character.AccountID,
+            GroupID: character.GroupID,
+            Group: character.GroupName,
+            Position: position
+        });
+        if(roles.includes('captain')) {
+            captains[character.GroupName] = {
+                Character: character.Character,
+                AccountID: character.AccountID,
+                GroupID: character.GroupID,
+                Group: character.GroupName,
+                Position: 'captain'
+            }
+        }
+    })
+    students.sort((a, b) => {
+        if (a.Group < b.Group) {
+            return -1;
+        } else if (b.Group < a.Group) {
+            return 1;
+        } else if (a.Character < b.Character) {
+            return -1;
+        } else if (b.Character < a.Character) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    students.forEach((character, i) => {
+        //first character
+        if (i === 0) {
+            html += formatClaimGrid('3');
+            html += formatClaimHeader('h3', character.Group, `fullWidth`);
+            if(captains[character.Group]) {
+                html += formatClaimBox(captains[character.Group].GroupID,
+                    captains[character.Group].AccountID,
+                    captains[character.Group].Character,
+                    [captains[character.Group].Position]);
+                html += `<hr>`;
+            }
+            html += formatClaimBox(character.GroupID,
+                character.AccountID,
+                character.Character,
+                [character.Position]);
+        }
+        //different group
+        else if (character.GroupID !== students[i - 1].GroupID) {
+            html += formatClaimHeader('h3', character.Group, `fullWidth`);
+            if(captains[character.Group]) {
+                html += formatClaimBox(captains[character.Group].GroupID,
+                    captains[character.Group].AccountID,
+                    captains[character.Group].Character,
+                    [captains[character.Group].Position]);
+                html += `<hr>`;
+            }
+            html += formatClaimBox(character.GroupID,
+                character.AccountID,
+                character.Character,
+                [character.Position]);
+        }
+        //same group
+        else if (character.GroupID === students[i - 1].GroupID) {
+            html += formatClaimBox(character.GroupID,
+                character.AccountID,
+                character.Character,
+                [character.Position]);
+        }
+        //close after last character
+        if(i === students.length - 1) {
+            html += formatClaimGrid('3', true);
+        }
+    });
+
+    document.querySelector('#clip-hogwarts-quidditch').innerHTML = html;
 }
 function formatLeadership(data) {
-    document.querySelector('#clip-leadership').innerHTML = `Hogwarts leadership`;
+    let html = ``;
+    let students = data.filter(item => item.LeadershipPosition);
+    students.sort((a, b) => {
+        if (a.LeadershipPosition === 'head boy/girl' && a.LeadershipPosition !== b.LeadershipPosition) {
+            return -1;
+        } else if (b.LeadershipPosition === 'head boy/girl' && a.LeadershipPosition !== b.LeadershipPosition) {
+            return 1;
+        } else if (a.HogwartsYear === 'seventh year' && a.HogwartsYear !== b.HogwartsYear) {
+            return -1;
+        } else if (b.HogwartsYear === 'seventh year' && a.HogwartsYear !== b.HogwartsYear) {
+            return 1;
+        } else if (a.HogwartsYear === 'sixth year' && a.HogwartsYear !== b.HogwartsYear) {
+            return -1;
+        } else if (b.HogwartsYear === 'sixth year' && a.HogwartsYear !== b.HogwartsYear) {
+            return 1;
+        } else if (a.HogwartsYear === 'fifth year' && a.HogwartsYear !== b.HogwartsYear) {
+            return -1;
+        } else if (b.HogwartsYear === 'fitfh year' && a.HogwartsYear !== b.HogwartsYear) {
+            return 1;
+        } else if (a.Character < b.Character) {
+            return -1;
+        } else if (b.Character < a.Character) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    students.forEach((character, i) => {
+        //first character
+        if (i === 0) {
+            html += formatClaimGrid('3');
+            if(character.LeadershipPosition === 'head boy/girl') {
+                html += formatClaimHeader('h3', `Student Heads`, `fullWidth`);
+            } else {
+                html += formatClaimHeader('h3', character.HogwartsYear, `fullWidth`);
+            }
+            html += formatClaimBox(character.GroupID,
+                character.AccountID,
+                character.Character,
+                []);
+        }
+        //different group
+        else if (character.HogwartsYear !== students[i - 1].HogwartsYear) {
+            html += formatClaimHeader('h3', character.HogwartsYear, `fullWidth`);
+            html += formatClaimBox(character.GroupID,
+                character.AccountID,
+                character.Character,
+                []);
+        }
+        //same group
+        else if (character.HogwartsYear === students[i - 1].HogwartsYear) {
+            if(students[0].LeadershipPosition === 'head boy/girl' && character.LeadershipPosition !== students[0].LeadershipPosition && character.LeadershipPosition !== students[i - 1].LeadershipPosition) {
+                html += formatClaimHeader('h3', character.HogwartsYear, `fullWidth`);
+            }
+            html += formatClaimBox(character.GroupID,
+                character.AccountID,
+                character.Character,
+                []);
+        }
+        //close after last character
+        if(i === students.length - 1) {
+            html += formatClaimGrid('3', true);
+        }
+    });
+
+    document.querySelector('#clip-leadership').innerHTML = html;
 }
