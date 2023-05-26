@@ -47,3 +47,13 @@ if(pageID === 'Members') {
     initFilterPopout();
     initFilterDropdowns();
 }
+
+//user's posts
+if(pageID === 'Search') {
+    let names = document.querySelectorAll('#Search.code-show main > .tableborder:not(:last-of-type) > table tbody tr:nth-child(1) td:nth-child(1) .normalname a');
+    if(names.length > 0) {
+        names.forEach(el => {
+            el.innerHTML = capitalize(el.innerHTML);
+        });
+    }
+}

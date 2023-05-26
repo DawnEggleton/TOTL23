@@ -31,6 +31,9 @@ body {
     background: var(--bg-content);
     z-index: 100; }
 
+div:empty {
+  display: none; }
+
 a {
   text-decoration: none;
   color: var(--accent); }

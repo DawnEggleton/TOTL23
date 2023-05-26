@@ -36,6 +36,9 @@ body {
         z-index: 100;
     }
 }
+div:empty {
+    display: none;
+}
 a {
     text-decoration: none;
     color: var(--accent);
