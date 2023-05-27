@@ -253,7 +253,7 @@ body {
     background: var(--bg-content);
     z-index: 100; }
 
-div:empty {
+div:empty:not(.background) {
   display: none; }
 
 a {
@@ -2182,7 +2182,10 @@ header {
   main header {
     min-height: calc(100vh - (var(--menuSize) * 2)); }
   body#Profile > header,
-  body#Pages > header {
+  body#Pages > header,
+  body#Login > header,
+  body#Reg > header,
+  body#Search > header {
     display: none; }
   header h1 {
     font-family: var(--font-head);
@@ -4524,6 +4527,9 @@ body:not(#ST) .tableborder > .titlemedium {
 /**********************************
     Topic/Post Searchs
 ***********************************/
+#Search main > br:nth-child(2) {
+  display: none; }
+
 #Search.code-show main > #search-topics .tablebasic,
 #Search.code-getactive .tablebasic {
   display: block;
@@ -4659,8 +4665,12 @@ body:not(#ST) .tableborder > .titlemedium {
       display: none; }
 
 #Search.code-show main > div:not(.wrapmini):not(.tableborder):not(#search-topics) {
+  position: -webkit-sticky;
+  position: sticky;
+  top: var(--menuSize);
   background: var(--bg-alt);
-  padding: 10px; }
+  padding: 10px;
+  z-index: 1; }
   #Search.code-show main > div:not(.wrapmini):not(.tableborder):not(#search-topics) .pagination {
     display: -webkit-box;
     display: -webkit-flex;

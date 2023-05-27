@@ -36,7 +36,7 @@ body {
         z-index: 100;
     }
 }
-div:empty {
+div:empty:not(.background) {
     display: none;
 }
 a {

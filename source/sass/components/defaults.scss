@@ -160,6 +160,13 @@ body:not(#ST) {
 /**********************************
     Topic/Post Searchs
 ***********************************/
+#Search {
+    main {
+        & > br:nth-child(2) {
+            display: none;
+        }
+    }
+}
 #Search.code-show main > #search-topics,
 #Search.code-getactive {
     .tablebasic {
@@ -302,8 +309,11 @@ body:not(#ST) {
 #Search.code-show {
     main {
         & > div:not(.wrapmini):not(.tableborder):not(#search-topics) {
+            position: sticky;
+            top: var(--menuSize);
             background: var(--bg-alt);
             padding: 10px;
+            z-index: 1;
 
             .pagination {
                 display: flex;
@@ -329,10 +339,6 @@ body:not(#ST) {
                 }
             }
         }
-    }
-}
-#Search.code-show {
-    main {
         & > .tableborder:not(:last-of-type) {
             margin: 15px 15px 45px 15px;
         

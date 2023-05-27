@@ -28,7 +28,10 @@ header {
     }
 
     body#Profile > &,
-    body#Pages > & {
+    body#Pages > &,
+    body#Login > &,
+    body#Reg > &,
+    body#Search > & {
         display: none;
     }
 

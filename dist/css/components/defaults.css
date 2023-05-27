@@ -129,6 +129,9 @@ body:not(#ST) .tableborder > .titlemedium {
 /**********************************
     Topic/Post Searchs
 ***********************************/
+#Search main > br:nth-child(2) {
+  display: none; }
+
 #Search.code-show main > #search-topics .tablebasic,
 #Search.code-getactive .tablebasic {
   display: block;
@@ -238,8 +241,11 @@ body:not(#ST) .tableborder > .titlemedium {
       display: none; }
 
 #Search.code-show main > div:not(.wrapmini):not(.tableborder):not(#search-topics) {
+  position: sticky;
+  top: var(--menuSize);
   background: var(--bg-alt);
-  padding: 10px; }
+  padding: 10px;
+  z-index: 1; }
   #Search.code-show main > div:not(.wrapmini):not(.tableborder):not(#search-topics) .pagination {
     display: flex;
     align-items: center;
