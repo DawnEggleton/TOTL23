@@ -58,7 +58,7 @@ body:not(#ST) .tableborder > .maintitle {
   grid-column: 1 / -1 !important;
   font-family: var(--font-head);
   font-size: 30px;
-  margin: 0;
+  margin: 50px 0;
   padding-bottom: 25px; }
   body:not(#ST) .tableborder > .maintitle::after {
     content: '';
@@ -328,7 +328,8 @@ body:not(#ST) .tableborder > .titlemedium {
     Login/Register
 ***********************************/
 #Login .content .tableborder > .maintitle {
-  text-align: left; }
+  text-align: left;
+  margin: 0; }
   #Login .content .tableborder > .maintitle::after {
     display: none; }
 
@@ -455,3 +456,206 @@ body:not(#ST) .tableborder > .titlemedium {
               text-align: left; }
               #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child .desc .input-wrap .fancy-input {
                 margin-right: 10px; }
+
+/**********************************
+    Posts/Replies
+***********************************/
+#Post main > form ~ br {
+  display: none; }
+
+#Post #posting-form {
+  display: block;
+  width: calc(100% - 30px);
+  margin: 15px 15px 45px 15px; }
+  @media only screen and (min-width: 600px) {
+    #Post #posting-form {
+      width: calc(100% - 60px);
+      margin: 30px 30px 90px 30px; } }
+  @media only screen and (min-width: 1440px) {
+    #Post #posting-form {
+      margin: 45px auto 90px;
+      max-width: 1300px;
+      width: 100%; } }
+  #Post #posting-form .maintitle {
+    display: block;
+    text-align: center;
+    grid-column: 1 / -1 !important;
+    font-family: var(--font-head);
+    font-size: 30px;
+    margin: 50px auto;
+    padding-bottom: 25px; }
+    #Post #posting-form .maintitle::after {
+      content: '';
+      height: 1px;
+      width: 50px;
+      background: var(--text-body);
+      position: absolute;
+      bottom: 0;
+      left: calc(50% - 25px); }
+  #Post #posting-form input,
+  #Post #posting-form textarea,
+  #Post #posting-form select {
+    background: var(--bg-alt); }
+  #Post #posting-form > tbody {
+    display: block;
+    width: 100%; }
+    #Post #posting-form > tbody > tr:first-child {
+      display: block;
+      margin-bottom: 30px;
+      width: 100%; }
+    #Post #posting-form > tbody > tr:not(:first-child) {
+      background: var(--bg-content);
+      color: var(--text-content); }
+    #Post #posting-form > tbody > tr#topic-settings-header, #Post #posting-form > tbody > tr#code-buttons-header, #Post #posting-form > tbody > tr#enter-your-post-header, #Post #posting-form > tbody > tr#post-icon-options, #Post #posting-form > tbody > tr#post-as-header,
+    #Post #posting-form > tbody > tr#post-as + tr:not(:last-child),
+    #Post #posting-form > tbody > tr#post-as .pformleft,
+    #Post #posting-form > tbody > tr#post-options .pformleft,
+    #Post #posting-form > tbody > tr#enter-your-post .pformleft,
+    #Post #posting-form > tbody > tr#code-buttons .pformleft,
+    #Post #posting-form > tbody > tr#topic-title .pformleft,
+    #Post #posting-form > tbody > tr#topic-desc .pformleft,
+    #Post #posting-form > tbody > tr#post-as + tr + tr:not(:last-child) .pformleft {
+      display: none; }
+    #Post #posting-form > tbody > tr#topic-title, #Post #posting-form > tbody > tr#topic-desc {
+      display: block;
+      padding: 15px 15px 0; }
+      #Post #posting-form > tbody > tr#topic-title .pformright, #Post #posting-form > tbody > tr#topic-desc .pformright {
+        display: block; }
+        #Post #posting-form > tbody > tr#topic-title .pformright input, #Post #posting-form > tbody > tr#topic-desc .pformright input {
+          width: 100%;
+          box-sizing: border-box;
+          margin: 0;
+          text-transform: none; }
+    #Post #posting-form > tbody > tr#topic-title .pformright input {
+      font-family: var(--font-head);
+      font-size: 24px;
+      padding: 15px; }
+    #Post #posting-form > tbody > tr#topic-desc .pformright input {
+      font-size: var(--lBody);
+      padding: 10px 15px; }
+    #Post #posting-form > tbody > tr#code-buttons {
+      display: block;
+      padding: 15px; }
+      #Post #posting-form > tbody > tr#code-buttons .pformright {
+        font-size: 0;
+        line-height: 0; }
+        #Post #posting-form > tbody > tr#code-buttons .pformright > input,
+        #Post #posting-form > tbody > tr#code-buttons .pformright > br {
+          display: none; }
+        #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 5px; }
+          #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons input,
+          #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons select {
+            margin: 0;
+            background: var(--ltaccent-40); }
+          #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons > a,
+          #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons > br {
+            display: none; }
+    #Post #posting-form > tbody > tr#enter-your-post {
+      display: block;
+      padding: 0 15px 15px; }
+      #Post #posting-form > tbody > tr#enter-your-post > td {
+        display: block; }
+        #Post #posting-form > tbody > tr#enter-your-post > td textarea {
+          width: 100%;
+          height: 400px;
+          box-sizing: border-box; }
+    #Post #posting-form > tbody > tr#post-options {
+      display: block;
+      padding: 0 15px 15px; }
+      #Post #posting-form > tbody > tr#post-options .pformright {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap; }
+        #Post #posting-form > tbody > tr#post-options .pformright > br {
+          display: none; }
+        #Post #posting-form > tbody > tr#post-options .pformright .input-wrap {
+          gap: 5px; }
+          #Post #posting-form > tbody > tr#post-options .pformright .input-wrap .fancy-input {
+            margin-right: 5px; }
+          #Post #posting-form > tbody > tr#post-options .pformright .input-wrap + br + .input-wrap:not(:last-child) {
+            display: none; }
+    #Post #posting-form > tbody > tr#post-as + tr + tr:not(:last-child), #Post #posting-form > tbody > tr#post-as {
+      display: block;
+      padding: 0 15px 15px; }
+      #Post #posting-form > tbody > tr#post-as + tr + tr:not(:last-child) td, #Post #posting-form > tbody > tr#post-as td {
+        display: block;
+        text-align: center; }
+        #Post #posting-form > tbody > tr#post-as + tr + tr:not(:last-child) td select, #Post #posting-form > tbody > tr#post-as td select {
+          width: 100%;
+          max-width: 250px; }
+    #Post #posting-form > tbody > tr:last-child {
+      display: block;
+      padding: 0 15px 15px; }
+      #Post #posting-form > tbody > tr:last-child .pformstrip:only-child {
+        display: flex;
+        justify-content: center; }
+        #Post #posting-form > tbody > tr:last-child .pformstrip:only-child input {
+          background: var(--ltaccent-40); }
+
+#Post #topic-summary > .tableborder {
+  margin: 15px 15px 45px 15px; }
+  @media only screen and (min-width: 600px) {
+    #Post #topic-summary > .tableborder {
+      margin: 30px 30px 90px 30px; } }
+  @media only screen and (min-width: 1440px) {
+    #Post #topic-summary > .tableborder {
+      margin: 45px auto 90px;
+      max-width: 1300px; } }
+  #Post #topic-summary > .tableborder .pformstrip a {
+    color: var(--text-body); }
+  #Post #topic-summary > .tableborder > table {
+    display: block;
+    margin-top: 15px; }
+    @media only screen and (min-width: 600px) {
+      #Post #topic-summary > .tableborder > table {
+        margin-top: 30px; } }
+    #Post #topic-summary > .tableborder > table tbody {
+      display: flex;
+      flex-direction: column; }
+      #Post #topic-summary > .tableborder > table tbody tr {
+        background: var(--bg-content);
+        color: var(--text-content); }
+        #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) {
+          display: flex;
+          flex-direction: column;
+          padding: 15px;
+          background: var(--bg-alt);
+          font-size: var(--xsBody);
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          font-weight: 600; }
+          @media only screen and (min-width: 600px) {
+            #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) {
+              padding: 30px; } }
+          #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) a {
+            color: var(--text-content); }
+          #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) strong {
+            font-weight: 600; }
+          #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td {
+            padding: 0;
+            width: 100%; }
+            #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td:nth-child(1) {
+              text-transform: capitalize;
+              font-size: 24px;
+              font-family: var(--font-head); }
+        #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) {
+          display: block;
+          padding: 15px;
+          margin-bottom: 15px; }
+          @media only screen and (min-width: 600px) {
+            #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) {
+              padding: 30px;
+              margin-bottom: 30px; } }
+          #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) td {
+            display: block;
+            width: 100%;
+            padding: 0;
+            text-align: justify;
+            font-size: var(--lBody);
+            line-height: 200%; }
+            #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) td:first-child {
+              display: none; }

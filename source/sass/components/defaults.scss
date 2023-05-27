@@ -66,7 +66,7 @@ body:not(#ST) {
             grid-column: 1 / -1 !important;
             font-family: var(--font-head);
             font-size: 30px;
-            margin: 0;
+            margin: 50px 0;
             padding-bottom: 25px;
     
             &::after {
@@ -440,6 +440,7 @@ body:not(#ST) {
     .content {
         .tableborder > .maintitle {
             text-align: left;
+            margin: 0;
 
             &::after {
                 display: none;
@@ -638,6 +639,329 @@ body:not(#ST) {
                                             }
                                         }
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**********************************
+    Posts/Replies
+***********************************/
+#Post {
+    main {
+        & > form ~ br {
+            display: none;
+        }
+    }
+    #posting-form {
+        display: block;
+        width: calc(100% - 30px);
+        margin: 15px 15px 45px 15px;
+    
+        @media only screen and (min-width: $sm) {
+            width: calc(100% - 60px);
+            margin: 30px 30px 90px 30px;
+        }
+    
+        @media only screen and (min-width: $xxl) {
+            margin: 45px auto 90px;
+            max-width: 1300px;
+            width: 100%;
+        }
+
+        .maintitle {
+            display: block;
+            text-align: center;
+            grid-column: 1 / -1 !important;
+            font-family: var(--font-head);
+            font-size: 30px;
+            margin: 50px auto;
+            padding-bottom: 25px;
+    
+            &::after {
+                content: '';
+                height: 1px;
+                width: 50px;
+                background: var(--text-body);
+                position: absolute;
+                bottom: 0;
+                left: calc(50% - 25px);
+            }
+        }
+
+        input,
+        textarea,
+        select {
+            background: var(--bg-alt);
+        }
+
+        & > tbody {
+            display: block;
+            width: 100%;
+
+            & > tr {
+                &:first-child {
+                    display: block;
+                    margin-bottom: 30px;
+                    width: 100%;
+                }
+                &:not(:first-child) {
+                    background: var(--bg-content);
+                    color: var(--text-content);
+                }
+                &#topic-settings-header,
+                &#code-buttons-header,
+                &#enter-your-post-header,
+                &#post-icon-options,
+                &#post-as-header,
+                &#post-as + tr:not(:last-child),
+                &#post-as .pformleft,
+                &#post-options .pformleft,
+                &#enter-your-post .pformleft,
+                &#code-buttons .pformleft,
+                &#topic-title .pformleft,
+                &#topic-desc .pformleft,
+                &#post-as + tr + tr:not(:last-child) .pformleft {
+                    display: none;
+                }
+
+                &#topic-title,
+                &#topic-desc {
+                    display: block;
+                    padding: 15px 15px 0;
+
+                    .pformright {
+                        display: block;
+                        
+                        input {
+                            width: 100%;
+                            box-sizing: border-box;
+                            margin: 0;
+                            text-transform: none;
+                        }
+                    }
+                }
+
+                &#topic-title {
+                    .pformright {
+                        input {
+                            font-family: var(--font-head);
+                            font-size: 24px;
+                            padding: 15px;
+                        }
+                    }
+                }
+
+                &#topic-desc {
+                    .pformright {
+                        input {
+                            font-size: var(--lBody);
+                            padding: 10px 15px;
+                        }
+                    }
+                }
+
+                &#code-buttons {
+                    display: block;
+                    padding: 15px;
+
+                    .pformright {
+                        font-size: 0;
+                        line-height: 0;
+
+                        & > input,
+                        & > br {
+                            display: none;
+                        }
+
+                        #bbcode-buttons {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 5px;
+
+                            input,
+                            select {
+                                margin: 0;
+                                background: var(--ltaccent-40);
+                            }
+
+                            & > a,
+                            & > br {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                &#enter-your-post {
+                    display: block;
+                    padding: 0 15px 15px;
+
+                    & > td {
+                        display: block;
+
+                        textarea {
+                            width: 100%;
+                            height: 400px;
+                            box-sizing: border-box;
+                        }
+                    }
+                }
+
+                &#post-options {
+                    display: block;
+                    padding: 0 15px 15px;
+
+                    .pformright {
+                        display: flex;
+                        justify-content: center;
+                        gap: 15px;
+                        flex-wrap: wrap;
+
+                        & > br {
+                            display: none;
+                        }
+
+                        .input-wrap {
+                            gap: 5px;
+
+                            .fancy-input {
+                                margin-right: 5px;
+                            }
+
+                            & + br + .input-wrap:not(:last-child) {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                &#post-as + tr + tr:not(:last-child),
+                &#post-as {
+                    display: block;
+                    padding: 0 15px 15px;
+
+                    td {
+                        display: block;
+                        text-align: center;
+
+                        select {
+                            width: 100%;
+                            max-width: 250px;
+                        }
+                    }
+                }
+
+                &:last-child {
+                    display: block;
+                    padding: 0 15px 15px;
+
+                    .pformstrip:only-child {
+                        display: flex;
+                        justify-content: center;
+
+                        input {
+                            background: var(--ltaccent-40);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #topic-summary {
+        & > .tableborder {
+            margin: 15px 15px 45px 15px;
+        
+            @media only screen and (min-width: $sm) {
+                margin: 30px 30px 90px 30px;
+            }
+        
+            @media only screen and (min-width: $xxl) {
+                margin: 45px auto 90px;
+                max-width: 1300px;
+            }
+
+            .pformstrip {
+                a {
+                    color: var(--text-body);
+                }
+            }
+
+            & > table {
+                display: block;
+                margin-top: 15px;
+        
+                @media only screen and (min-width: $sm) {
+                    margin-top: 30px;
+                }
+
+                tbody {
+                    display: flex;
+                    flex-direction: column;
+
+                    tr {
+                        background: var(--bg-content);
+                        color: var(--text-content);
+
+                        &:nth-child(2n + 1) {
+                            display: flex;
+                            flex-direction: column;
+                            padding: 15px;
+                            background: var(--bg-alt);
+                            font-size: var(--xsBody);
+                            letter-spacing: 0.1em;
+                            text-transform: uppercase;
+                            font-weight: 600;
+        
+                            @media only screen and (min-width: $sm) {
+                                padding: 30px;
+                            }
+
+                            a {
+                                color: var(--text-content);
+                            }
+
+                            strong {
+                                font-weight: 600;
+                            }
+
+                            td {
+                                padding: 0;
+                                width: 100%;
+
+                                &:nth-child(1) {
+                                    text-transform: capitalize;
+                                    font-size: 24px;
+                                    font-family: var(--font-head);
+                                }
+                            }
+                        }
+
+                        &:nth-child(2n) {
+                            display: block;
+                            padding: 15px;
+                            margin-bottom: 15px;
+                    
+                            @media only screen and (min-width: $sm) {
+                                padding: 30px;
+                                margin-bottom: 30px;
+                            }
+
+                            td {
+                                display: block;
+                                width: 100%;
+                                padding: 0;
+                                text-align: justify;
+                                font-size: var(--lBody);
+                                line-height: 200%;
+
+                                &:first-child {
+                                    display: none;
                                 }
                             }
                         }

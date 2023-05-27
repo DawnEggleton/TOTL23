@@ -73,7 +73,6 @@ if(pageID === 'Login') {
 
 //registration
 if(pageID === 'Reg') {
-    $(`label[for="agree_cbox"] input[name="read_tos"]`).next().andSelf().wrapAll(`<label class="input-wrap"></label>`);
     let textNodes = getAllTextNodes(document.querySelector('.tablepad > table > tbody > tr:first-child > td:last-child fieldset:first-child'));
     if(textNodes) {
         textNodes.forEach(node => {
@@ -82,13 +81,28 @@ if(pageID === 'Reg') {
             paragraph.appendChild(node);
         });
     }
-    $(`fieldset input[name="allow_admin_mail"]`).next().andSelf().wrapAll(`<label class="input-wrap"></label>`);
-    $(`fieldset input[name="allow_member_mail"]`).next().andSelf().wrapAll(`<label class="input-wrap"></label>`);
-    document.querySelectorAll('.input-wrap').forEach(label => {
-        label.querySelector('input').insertAdjacentHTML('afterend', `<div class="fancy-input checkbox"><i class="fa-regular fa-check"></i></div>`);
-    });
+    inputWrap(`label[for="agree_cbox"] input[name="read_tos"]`);
+    inputWrap(`fieldset input[name="allow_admin_mail"]`);
+    inputWrap(`fieldset input[name="allow_member_mail"]`);
+    fancyBoxes();
     if(document.querySelector('input[name="agree"][type="checkbox"]')) {
         $('input[name="agree"][type="checkbox"]').wrap('<label class="input-wrap"></label>');
         $('.input-wrap').append('<div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div> I agree to the terms of this registration, <b>I am at least 18 years of age,</b> and wish to proceed.');
     }
+}
+
+//posting
+if(pageID === 'Post') {
+    let textNodes = getAllTextNodes(document.querySelector('#post-options .pformright'));
+    if(textNodes) {
+        textNodes.forEach(node => {
+            const paragraph = document.createElement('p');
+            node.after(paragraph);
+            paragraph.appendChild(node);
+        });
+    }
+    inputWrap(`input[name="enableemo"]`, 'br');
+    inputWrap(`input[name="enablesig"]`, 'br');
+    inputWrap(`input[name="enabletrack"]`, 'br');
+    fancyBoxes();
 }

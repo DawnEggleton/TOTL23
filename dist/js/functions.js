@@ -443,6 +443,24 @@ function getAllTextNodes(element) {
         return Array.from(element.childNodes).filter(node => node.nodeType === 3 && node.textContent.trim().length > 1);
     }
 }
+function inputWrap(el, next = null) {
+    if(next) {
+        $(el).nextUntil(next).andSelf().wrapAll(`<label class="input-wrap"></label>`);
+    } else {
+        $(el).next().andSelf().wrapAll(`<label class="input-wrap"></label>`);
+    }
+}
+function fancyBoxes(type = 'checkbox') {
+    if(type === 'checkbox') {
+        document.querySelectorAll('.input-wrap').forEach(label => {
+            label.querySelector('input').insertAdjacentHTML('afterend', `<div class="fancy-input checkbox"><i class="fa-regular fa-check"></i></div>`);
+        });
+    } else if (type === 'radio') {
+        document.querySelectorAll('.input-wrap').forEach(label => {
+            label.querySelector('input').insertAdjacentHTML('afterend', `<div class="fancy-input radio"><i class="fa-regular fa-check"></i></div>`);
+        });
+    }
+}
 
 //Filters
 function filterValue(e) {
