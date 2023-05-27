@@ -104,6 +104,28 @@ body:not(#ST) .tableborder > .titlemedium {
     .pagelinks .pagination a {
       color: var(--text-content); }
 
+.content {
+  background: var(--bg-content);
+  color: var(--text-content);
+  margin: 15px 15px 45px 15px;
+  padding: 15px; }
+  @media only screen and (min-width: 600px) {
+    .content {
+      margin: 30px 30px 90px 30px;
+      padding: 30px; } }
+  @media only screen and (min-width: 1440px) {
+    .content {
+      margin: 45px auto 90px;
+      max-width: 1300px; } }
+  .content p + br {
+    display: none; }
+
+.pformstrip {
+  font-family: var(--font-head);
+  font-size: var(--lBody);
+  line-height: 200%;
+  font-weight: 600; }
+
 /**********************************
     Topic/Post Searchs
 ***********************************/
@@ -295,3 +317,135 @@ body:not(#ST) .tableborder > .titlemedium {
           line-height: 200%; }
           #Search.code-show main > .tableborder:not(:last-of-type) > table tbody tr:nth-child(2) td:first-child {
             display: none; }
+
+/**********************************
+    Login/Register
+***********************************/
+#Login .content .tableborder > .maintitle {
+  text-align: left; }
+  #Login .content .tableborder > .maintitle::after {
+    display: none; }
+
+#Login .content form .tablebasic {
+  margin-bottom: 30px; }
+  #Login .content form .tablebasic:first-of-type {
+    width: 100%; }
+    #Login .content form .tablebasic:first-of-type tbody {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap; }
+      #Login .content form .tablebasic:first-of-type tbody .pformleftw {
+        display: none; }
+      #Login .content form .tablebasic:first-of-type tbody tr {
+        width: 100%;
+        max-width: 200px; }
+      #Login .content form .tablebasic:first-of-type tbody td,
+      #Login .content form .tablebasic:first-of-type tbody input {
+        width: 100%;
+        display: block; }
+    #Login .content form .tablebasic:first-of-type + .pformstrip {
+      display: none; }
+  #Login .content form .tablebasic:last-of-type {
+    display: none; }
+
+#Reg main > .tableborder:first-child,
+#Reg main > form > .tableborder {
+  background: var(--bg-content);
+  color: var(--text-content);
+  margin: 15px 15px 45px 15px;
+  padding: 15px;
+  font-size: var(--mBody); }
+  @media only screen and (min-width: 600px) {
+    #Reg main > .tableborder:first-child,
+    #Reg main > form > .tableborder {
+      margin: 30px 30px 90px 30px;
+      padding: 30px; } }
+  @media only screen and (min-width: 1440px) {
+    #Reg main > .tableborder:first-child,
+    #Reg main > form > .tableborder {
+      margin: 45px auto 90px;
+      max-width: 1300px; } }
+  #Reg main > .tableborder:first-child .tablepad b + br + br,
+  #Reg main > .tableborder:first-child .tablepad b + br + br + br,
+  #Reg main > form > .tableborder .tablepad b + br + br,
+  #Reg main > form > .tableborder .tablepad b + br + br + br {
+    display: none; }
+
+#Reg main > form {
+  font-size: 0; }
+  #Reg main > form .maintitle + .pformstrip {
+    display: none; }
+  #Reg main > form .tablepad > table {
+    display: block; }
+    #Reg main > form .tablepad > table > tbody {
+      display: block; }
+      #Reg main > form .tablepad > table > tbody > tr:first-child {
+        display: flex;
+        flex-direction: column; }
+        #Reg main > form .tablepad > table > tbody > tr:first-child td {
+          width: 100%; }
+          #Reg main > form .tablepad > table > tbody > tr:first-child td > div > b {
+            display: none; }
+          #Reg main > form .tablepad > table > tbody > tr:first-child td fieldset {
+            margin: 10px 0 20px;
+            padding: 10px 0; }
+            #Reg main > form .tablepad > table > tbody > tr:first-child td fieldset:last-of-type {
+              margin-bottom: 0; }
+            #Reg main > form .tablepad > table > tbody > tr:first-child td fieldset legend {
+              top: 0;
+              color: var(--text-content);
+              text-transform: capitalize;
+              font-family: var(--font-head);
+              font-size: var(--xlBody);
+              letter-spacing: 0; }
+              #Reg main > form .tablepad > table > tbody > tr:first-child td fieldset legend b {
+                font-weight: 600;
+                letter-spacing: 0.1em; }
+            #Reg main > form .tablepad > table > tbody > tr:first-child td fieldset + br,
+            #Reg main > form .tablepad > table > tbody > tr:first-child td fieldset > br {
+              display: none; }
+            #Reg main > form .tablepad > table > tbody > tr:first-child td fieldset input,
+            #Reg main > form .tablepad > table > tbody > tr:first-child td fieldset select,
+            #Reg main > form .tablepad > table > tbody > tr:first-child td fieldset textarea {
+              font-size: var(--lBody);
+              padding: 10px 20px;
+              text-transform: none;
+              width: 100%; }
+            #Reg main > form .tablepad > table > tbody > tr:first-child td fieldset > table {
+              display: block; }
+              #Reg main > form .tablepad > table > tbody > tr:first-child td fieldset > table > tbody {
+                display: block; }
+                #Reg main > form .tablepad > table > tbody > tr:first-child td fieldset > table > tbody > tr {
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 15px; }
+                  #Reg main > form .tablepad > table > tbody > tr:first-child td fieldset > table > tbody > tr > td {
+                    width: 100%;
+                    flex: 0 0 calc(50% - 7.5px); }
+                    #Reg main > form .tablepad > table > tbody > tr:first-child td fieldset > table > tbody > tr > td:only-child {
+                      flex: 0 0 100%; }
+          #Reg main > form .tablepad > table > tbody > tr:first-child td table,
+          #Reg main > form .tablepad > table > tbody > tr:first-child td tbody,
+          #Reg main > form .tablepad > table > tbody > tr:first-child td tr,
+          #Reg main > form .tablepad > table > tbody > tr:first-child td td {
+            display: block; }
+      #Reg main > form .tablepad > table > tbody > tr:last-child {
+        display: block; }
+        #Reg main > form .tablepad > table > tbody > tr:last-child > td:first-child {
+          display: none; }
+        #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child {
+          display: block; }
+          #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child fieldset {
+            display: none; }
+          #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child .desc {
+            font-size: 0;
+            max-width: max-content;
+            margin: 15px auto 0; }
+            #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child .desc + br {
+              display: none; }
+            #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child .desc .input-wrap {
+              font-size: var(--mBody);
+              display: block;
+              text-align: left; }
+              #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child .desc .input-wrap .fancy-input {
+                margin-right: 10px; }

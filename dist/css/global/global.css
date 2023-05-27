@@ -1223,6 +1223,11 @@ button {
   button:focus {
     outline: none;
     border-color: var(--ltaccent); }
+  select::placeholder,
+  input::placeholder,
+  textarea::placeholder,
+  button::placeholder {
+    font-weight: 600; }
 
 select,
 input,
@@ -1252,6 +1257,31 @@ button {
 
 textarea {
   padding: 10px; }
+
+.input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer; }
+  .input-wrap p {
+    margin: 0; }
+  .input-wrap input {
+    display: none; }
+  .input-wrap .fancy-input {
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    background: var(--ltaccent-55);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    color: transparent; }
+    .input-wrap .fancy-input.checkbox {
+      border-radius: 2px; }
+  .input-wrap input:checked + .fancy-input {
+    background: var(--ltaccent);
+    color: var(--text-content); }
 
 img {
   max-width: 100%;

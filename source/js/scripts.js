@@ -57,3 +57,38 @@ if(pageID === 'Search') {
         });
     }
 }
+
+//Login
+if(pageID === 'Login') {
+    let textNodes = getAllTextNodes(document.querySelector('main'));
+    textNodes.forEach(node => {
+        const paragraph = document.createElement('p');
+        node.after(paragraph);
+        paragraph.appendChild(node);
+    });
+    $("main > p").nextUntil("div.tableborder").andSelf().wrapAll("<div class='content size--narrow'></div>");
+    $(`input[name="UserName"]`).attr('placeholder','Username');
+    $(`input[name="PassWord"]`).attr('placeholder','Password');
+}
+
+//registration
+if(pageID === 'Reg') {
+    $(`label[for="agree_cbox"] input[name="read_tos"]`).next().andSelf().wrapAll(`<label class="input-wrap"></label>`);
+    let textNodes = getAllTextNodes(document.querySelector('.tablepad > table > tbody > tr:first-child > td:last-child fieldset:first-child'));
+    if(textNodes) {
+        textNodes.forEach(node => {
+            const paragraph = document.createElement('p');
+            node.after(paragraph);
+            paragraph.appendChild(node);
+        });
+    }
+    $(`fieldset input[name="allow_admin_mail"]`).next().andSelf().wrapAll(`<label class="input-wrap"></label>`);
+    $(`fieldset input[name="allow_member_mail"]`).next().andSelf().wrapAll(`<label class="input-wrap"></label>`);
+    document.querySelectorAll('.input-wrap').forEach(label => {
+        label.querySelector('input').insertAdjacentHTML('afterend', `<div class="fancy-input checkbox"><i class="fa-regular fa-check"></i></div>`);
+    });
+    if(document.querySelector('input[name="agree"][type="checkbox"]')) {
+        $('input[name="agree"][type="checkbox"]').wrap('<label class="input-wrap"></label>');
+        $('.input-wrap').append('<div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div> I agree to the terms of this registration, <b>I am at least 18 years of age,</b> and wish to proceed.');
+    }
+}

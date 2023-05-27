@@ -156,3 +156,16 @@ luxblock {
         margin-bottom: 30px;
     }
 }
+
+.size {
+    &--narrow {
+        @media only screen and (min-width: $md) {
+            margin: 30px auto 90px !important;
+            max-width: 600px !important;
+        }
+
+        @media only screen and (min-width: $xxl) {
+            margin: 45px auto 90px !important;
+        }
+    }
+}

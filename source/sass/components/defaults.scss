@@ -128,6 +128,34 @@ body:not(#ST) {
         }
     }
 }
+.content {
+    background: var(--bg-content);
+    color: var(--text-content);
+    margin: 15px 15px 45px 15px;
+    padding: 15px;
+
+    @media only screen and (min-width: $sm) {
+        margin: 30px 30px 90px 30px;
+        padding: 30px;
+    }
+
+    @media only screen and (min-width: $xxl) {
+        margin: 45px auto 90px;
+        max-width: 1300px;
+    }
+
+    p {
+        & + br {
+            display: none;
+        }
+    }
+}
+.pformstrip {
+    font-family: var(--font-head);
+    font-size: var(--lBody);
+    line-height: 200%;
+    font-weight: 600;
+}
 
 /**********************************
     Topic/Post Searchs
@@ -389,6 +417,221 @@ body:not(#ST) {
 
                                 &:first-child {
                                     display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**********************************
+    Login/Register
+***********************************/
+#Login {
+    .content {
+        .tableborder > .maintitle {
+            text-align: left;
+
+            &::after {
+                display: none;
+            }
+        }
+        form {
+            .tablebasic {
+                margin-bottom: 30px;
+
+                &:first-of-type {
+                    width: 100%;
+
+                    tbody {
+                        width: 100%;
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        .pformleftw {
+                            display: none;
+                        }
+                        tr {
+                            width: 100%;
+                            max-width: 200px;
+                        }
+                        td,
+                        input {
+                            width: 100%;
+                            display: block;
+                        }
+                    }
+
+                    & + .pformstrip {
+                        display: none;
+                    }
+                }
+
+                &:last-of-type {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+#Reg {
+    main {
+        & > .tableborder:first-child,
+        & > form > .tableborder {
+            background: var(--bg-content);
+            color: var(--text-content);
+            margin: 15px 15px 45px 15px;
+            padding: 15px;
+            font-size: var(--mBody);
+        
+            @media only screen and (min-width: $sm) {
+                margin: 30px 30px 90px 30px;
+                padding: 30px;
+            }
+        
+            @media only screen and (min-width: $xxl) {
+                margin: 45px auto 90px;
+                max-width: 1300px;
+            }
+
+            .tablepad b + br {
+                & + br,
+                & + br + br {
+                    display: none;
+                }
+            }
+        }
+        & > form {
+            font-size: 0;
+
+            .maintitle + .pformstrip {
+                display: none;
+            }
+
+            .tablepad {
+                & > table {
+                    display: block;
+
+                    & > tbody {
+                        display: block;
+
+                        & > tr {
+                            &:first-child {
+                                display: flex;
+                                flex-direction: column;
+
+                                td {
+                                    width: 100%;
+
+                                    & > div > b {
+                                        display: none;
+                                    }
+
+                                    fieldset {
+                                        margin: 10px 0 20px;
+                                        padding: 10px 0;
+
+                                        &:last-of-type {
+                                            margin-bottom: 0;
+                                        }
+
+                                        legend {
+                                            top: 0;
+                                            color: var(--text-content);
+                                            text-transform: capitalize;
+                                            font-family: var(--font-head);
+                                            font-size: var(--xlBody);
+                                            letter-spacing: 0;
+
+                                            b {
+                                                font-weight: 600;
+                                                letter-spacing: 0.1em;
+                                            }
+                                        }
+
+                                        & + br,
+                                        & > br {
+                                            display: none;
+                                        }
+
+                                        input,
+                                        select,
+                                        textarea {
+                                            font-size: var(--lBody);
+                                            padding: 10px 20px;
+                                            text-transform: none;
+                                            width: 100%;
+                                        }
+
+                                        & > table {
+                                            display: block;
+
+                                            & > tbody {
+                                                display: block;
+
+                                                & > tr {
+                                                    display: flex;
+                                                    flex-wrap: wrap;
+                                                    gap: 15px;
+
+                                                    & > td {
+                                                        width: 100%;
+                                                        flex: 0 0 calc(50% - 7.5px);
+
+                                                        &:only-child {
+                                                            flex: 0 0 100%;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    table,
+                                    tbody,
+                                    tr,
+                                    td {
+                                        display: block;
+                                    }
+                                }
+                            }
+                            &:last-child {
+                                display: block;
+
+                                & > td {
+                                    &:first-child {
+                                        display: none;
+                                    }
+
+                                    &:last-child {
+                                        display: block;
+
+                                        fieldset {
+                                            display: none;
+                                        }
+                                        .desc {
+                                            font-size: 0;
+                                            max-width: max-content;
+                                            margin: 15px auto 0;
+
+                                            & + br {
+                                                display: none;
+                                            }
+
+                                            .input-wrap {
+                                                font-size: var(--mBody);
+                                                display: block;
+                                                text-align: left;
+
+                                                .fancy-input {
+                                                    margin-right: 10px;
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }

@@ -114,3 +114,12 @@ luxblock {
   @media only screen and (min-width: 480px) {
     .pb {
       margin-bottom: 30px; } }
+
+@media only screen and (min-width: 768px) {
+  .size--narrow {
+    margin: 30px auto 90px !important;
+    max-width: 600px !important; } }
+
+@media only screen and (min-width: 1440px) {
+  .size--narrow {
+    margin: 45px auto 90px !important; } }

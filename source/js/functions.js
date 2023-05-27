@@ -400,7 +400,7 @@ function initFirstTab() {
     });
 }
 
-//Global
+//Utilities
 function highlightCode() {
     let clipcodeQuick = new Clipboard('.copyQuick', {
         target: function(trigger) {
@@ -437,6 +437,11 @@ function capitalizeMultiple(selector) {
     document.querySelectorAll(selector).forEach(character => {
         character.innerText = capitalize(character.innerText);
     });
+}
+function getAllTextNodes(element) {
+    if(element) {
+        return Array.from(element.childNodes).filter(node => node.nodeType === 3 && node.textContent.trim().length > 1);
+    }
 }
 
 //Filters

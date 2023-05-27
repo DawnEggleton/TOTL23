@@ -310,6 +310,9 @@ button {
         outline: none;
         border-color: var(--ltaccent);
     }
+    &::placeholder {
+        font-weight: 600;
+    }
 }
 select,
 input,
@@ -339,6 +342,43 @@ button {
 }
 textarea {
     padding: 10px;
+}
+.input-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+
+    p {
+        margin: 0;
+    }
+
+    input {
+        display: none;
+    }
+
+    .fancy-input {
+        width: 16px;
+        height: 16px;
+        display: inline-flex;
+        background: var(--ltaccent-55);
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+        color: transparent;
+
+        &.checkbox {
+            border-radius: 2px;
+        }
+    }
+
+    input:checked {
+        & + .fancy-input {
+            background: var(--ltaccent);
+            color: var(--text-content);
+        }
+    }
 }
 img {
     max-width: 100%;
