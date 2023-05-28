@@ -1,0 +1,373 @@
+/*******************************
+    Variables
+********************************/
+:root {
+  --font-head: 'Averia Serif Libre', serif;
+  --font-body: 'Montserrat', sans-serif;
+  --xsBody: 8px;
+  --sBody: 10px;
+  --mBody: 12px;
+  --lBody: 14px;
+  --xlBody: 16px;
+  --menuSize: 32px;
+  --sizeBoost: 0px;
+  --black: rgba(12, 12, 12, 1);
+  --black-30: rgba(12, 12, 12, 0.3);
+  --offBlack: rgba(18, 18, 18, 1);
+  --dkGrey: rgba(26, 26, 26, 1);
+  --mdGrey: rgba(40, 40, 40, 1);
+  --lmGrey: rgba(150, 150, 150, 1);
+  --ltGrey: rgba(134, 134, 134, 1);
+  --xltGrey: rgba(170, 170, 170, 1);
+  --offWhite: rgba(215, 215, 215, 1);
+  --white: rgba(235, 235, 235, 1);
+  --white-10: rgba(235, 235, 235, 0.1);
+  --white-45: rgba(235, 235, 235, 0.45);
+  --accent: rgba(87, 188, 210, 1);
+  --ltaccent: rgba(87, 188, 210, 1);
+  --ltaccent-40: rgba(87, 188, 210, 0.40);
+  --ltaccent-55: rgba(87, 188, 210, 0.55);
+  --bg-image: url(../images/bg-default.jpg);
+  --opacity-colorover: 0.6; }
+  :root .g-1,
+  :root .g-2, :root.g-1, :root.g-2 {
+    --accent: rgba(196, 177, 125, 1);
+    --ltaccent: rgba(225, 210, 166, 1);
+    --ltaccent-40: rgba(225, 210, 166, 0.4);
+    --ltaccent-55: rgba(225, 210, 166, 0.55);
+    --opacity-colorover: 0.35; }
+  :root .g-3, :root.g-3 {
+    --accent: rgba(189, 133, 92, 1);
+    --ltaccent: rgba(215, 159, 118, 1);
+    --ltaccent-40: rgba(215, 159, 118, 0.4);
+    --ltaccent-55: rgba(215, 159, 118, 0.55);
+    --opacity-colorover: 0.35; }
+  :root .g-4, :root.g-4 {
+    --accent: rgba(110, 130, 155, 1);
+    --ltaccent: rgba(142, 161, 185, 1);
+    --ltaccent-40: rgba(142, 161, 185, 0.4);
+    --ltaccent-55: rgba(142, 161, 185, 0.55); }
+  :root .g-5,
+  :root .g-10,
+  :root .g-19, :root.g-5, :root.g-10, :root.g-19 {
+    --accent: rgba(196, 196, 196, 1);
+    --ltaccent: rgba(155, 155, 155, 1);
+    --ltaccent-40: rgba(155, 155, 155, 0.4);
+    --ltaccent-55: rgba(155, 155, 155, 0.55); }
+  :root adults,
+  :root .adults,
+  :root .g-6, :root.g-6 {
+    --accent: rgba(179, 73, 85, 1);
+    --ltaccent: rgba(200, 107, 118, 1);
+    --ltaccent-40: rgba(200, 107, 118, 0.4);
+    --ltaccent-55: rgba(200, 107, 118, 0.55);
+    --opacity-colorover: 0.35; }
+  :root gryffindor,
+  :root .gryffindor,
+  :root .g-7, :root.g-7 {
+    --accent: rgba(147, 42, 47, 1);
+    --ltaccent: rgba(176, 58, 63, 1);
+    --ltaccent-40: rgba(176, 58, 63, 0.4);
+    --ltaccent-55: rgba(176, 58, 63, 0.55);
+    --opacity-colorover: 0.3; }
+  :root hogwarts,
+  :root .hogwarts,
+  :root .g-8, :root.g-8 {
+    --accent: rgba(97, 86, 153, 1);
+    --ltaccent: rgba(123, 113, 170, 1);
+    --ltaccent-40: rgba(123, 113, 170, 0.4);
+    --ltaccent-55: rgba(123, 113, 170, 0.55); }
+  :root hufflepuff,
+  :root .hufflepuff,
+  :root .g-9, :root.g-9 {
+    --accent: rgba(183, 148, 117, 1);
+    --ltaccent: rgba(213, 177, 146, 1);
+    --ltaccent-40: rgba(213, 177, 146, 0.4);
+    --ltaccent-55: rgba(213, 177, 146, 0.55);
+    --opacity-colorover: 0.5; }
+  :root press,
+  :root .press,
+  :root .g-11, :root.g-11 {
+    --accent: rgba(176, 134, 84, 1);
+    --ltaccent: rgba(200, 160, 112, 1);
+    --ltaccent-40: rgba(200, 160, 112, 0.4);
+    --ltaccent-55: rgba(200, 160, 112, 0.55);
+    --opacity-colorover: 0.35; }
+  :root ministry,
+  :root .ministry,
+  :root .g-12, :root.g-12 {
+    --accent: rgba(78, 134, 126, 1);
+    --ltaccent: rgba(101, 157, 149, 1);
+    --ltaccent-40: rgba(101, 157, 149, 0.4);
+    --ltaccent-55: rgba(101, 157, 149, 0.55);
+    --opacity-colorover: 0.5; }
+  :root quidditch,
+  :root .quidditch,
+  :root .g-13, :root.g-13 {
+    --accent: rgba(146, 130, 157, 1);
+    --ltaccent: rgba(166, 148, 179, 1);
+    --ltaccen-40: rgba(166, 148, 179, 0.4);
+    --ltaccen-55: rgba(166, 148, 179, 0.55); }
+  :root ravenclaw,
+  :root .ravenclaw,
+  :root .g-14, :root.g-14 {
+    --accent: rgba(65, 91, 142, 1);
+    --ltaccent: rgba(86, 113, 166, 1);
+    --ltaccent-40: rgba(86, 113, 166, 0.4);
+    --ltaccent-55: rgba(86, 113, 166, 0.55);
+    --opacity-colorover: 0.5; }
+  :root healers,
+  :root .healers,
+  :root .g-15, :root.g-15 {
+    --accent: rgba(88, 123, 83, 1);
+    --ltaccent: rgba(102, 142, 96, 1);
+    --ltaccent-40: rgba(102, 142, 96, 0.4);
+    --ltaccent-55: rgba(102, 142, 96, 0.55);
+    --opacity-colorover: 0.4; }
+  :root slytherin,
+  :root .slytherin,
+  :root .g-16, :root.g-16 {
+    --accent: rgba(45, 91, 61, 1);
+    --ltaccent: rgba(60, 113, 78, 1);
+    --ltaccent-40: rgba(60, 113, 78, 0.4);
+    --ltaccent-55: rgba(60, 113, 78, 0.55);
+    --bg-image: url(../images/bg-slytherin.jpg);
+    --opacity-colorover: 0.5; }
+  :root returners,
+  :root .returners,
+  :root .g-17, :root.g-17 {
+    --accent: rgba(90, 137, 151, 1);
+    --ltaccent: rgba(105, 154, 168, 1);
+    --ltaccent-40: rgba(105, 154, 168, 0.4);
+    --ltaccent-55: rgba(105, 154, 168, 0.55); }
+  :root entertainment,
+  :root .entertainment,
+  :root .g-18, :root.g-18 {
+    --accent: rgba(82, 154, 162, 1);
+    --ltaccent: rgba(108, 181, 189, 1);
+    --ltaccent-40: rgba(108, 181, 189, 0.4);
+    --ltaccent-55: rgba(108, 181, 189, 0.55); }
+  :root .g-20, :root.g-20 {
+    --accent: rgba(97, 177, 202, 1);
+    --ltaccent: rgba(130, 201, 223, 1);
+    --ltaccent-40: rgba(130, 201, 223, 0.4);
+    --ltaccent-55: rgba(130, 201, 223, 0.55); }
+
+.smFont {
+  --xsBody: 8px;
+  --sBody: 10px;
+  --mBody: 12px;
+  --lBody: 14px;
+  --xlBody: 16px;
+  --sizeBoost: 0px; }
+
+.lgFont {
+  --xsBody: 10px;
+  --sBody: 12px;
+  --mBody: 14px;
+  --lBody: 16px;
+  --xlBody: 18px;
+  --sizeBoost: 2px; }
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-content: var(--white);
+    --bg-body: var(--black);
+    --bg-alt: var(--offWhite);
+    --bg-contrast: var(--black);
+    --bg-body-alt: var(--mdGrey);
+    --bg-transparent: var(--white-10);
+    --text-content: var(--black);
+    --text-content-hover: var(--ltGrey);
+    --text-body: var(--white);
+    --border-main: var(--xltGrey); } }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-content: var(--offBlack);
+    --bg-body: var(--black);
+    --bg-alt: var(--dkGrey);
+    --bg-contrast: var(--white);
+    --bg-body-alt: var(--mdGrey);
+    --bg-transparent: var(--black-30);
+    --text-content: var(--xltGrey);
+    --text-content-hover: var(--white);
+    --text-body: var(--offWhite);
+    --border-main: var(--mdGrey); } }
+
+.light {
+  --bg-content: var(--white);
+  --bg-body: var(--black);
+  --bg-alt: var(--offWhite);
+  --bg-contrast: var(--black);
+  --bg-body-alt: var(--mdGrey);
+  --bg-transparent: var(--white-10);
+  --text-content: var(--black);
+  --text-content-hover: var(--ltGrey);
+  --text-body: var(--white);
+  --border-main: var(--xltGrey); }
+
+.dark {
+  --bg-content: var(--offBlack);
+  --bg-body: var(--black);
+  --bg-alt: var(--dkGrey);
+  --bg-contrast: var(--white);
+  --bg-body-alt: var(--mdGrey);
+  --bg-transparent: var(--black-30);
+  --text-content: var(--xltGrey);
+  --text-content-hover: var(--white);
+  --text-body: var(--offWhite);
+  --border-main: var(--mdGrey); }
+
+.hide,
+.hideEl {
+  display: none !important; }
+
+.noise::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(https://files.jcink.net/uploads2/legends/lux/noisy_texture_300x300_o14_000000000000002_d10_c_212121_t1.png); }
+
+.btn--arrow {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-style: italic;
+  border-bottom: 1px solid var(--border-main);
+  padding: 0 5px 5px;
+  gap: 20px; }
+  .btn--arrow::after {
+    font-family: 'Font Awesome 6 Pro';
+    font-weight: 100;
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+                -ms-grid-row-align: center;
+            align-self: center;
+    font-style: normal;
+    text-align: right;
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
+    -webkit-transition-duration: 0.3s;
+         -o-transition-duration: 0.3s;
+            transition-duration: 0.3s; }
+  .btn--arrow:hover::after {
+    -webkit-transform: translateX(10px);
+        -ms-transform: translateX(10px);
+            transform: translateX(10px); }
+
+[data-type="grid"] {
+  display: -ms-grid;
+  display: grid;
+  gap: 15px;
+  -ms-grid-columns: (1fr)[1];
+  grid-template-columns: repeat(1, 1fr); }
+  @media only screen and (min-width: 480px) {
+    [data-type="grid"] {
+      gap: 30px; } }
+  [data-type="grid"] .fullWidth {
+    grid-column: 1 / -1; }
+    [data-type="grid"] .fullWidth + .fullWidth {
+      margin-top: -15px; }
+      @media only screen and (min-width: 480px) {
+        [data-type="grid"] .fullWidth + .fullWidth {
+          margin-top: -30px; } }
+
+[data-type="grid"][data-columns="2"] {
+  -ms-grid-columns: (1fr)[1];
+  grid-template-columns: repeat(1, 1fr); }
+  @media only screen and (min-width: 768px) {
+    [data-type="grid"][data-columns="2"] {
+      -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr); } }
+
+[data-type="grid"][data-columns="3"] {
+  -ms-grid-columns: (1fr)[1];
+  grid-template-columns: repeat(1, 1fr); }
+  @media only screen and (min-width: 768px) {
+    [data-type="grid"][data-columns="3"] {
+      -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr); } }
+  @media only screen and (min-width: 1024px) {
+    [data-type="grid"][data-columns="3"] {
+      -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr); } }
+
+[data-type="grid"][data-columns="4"] {
+  -ms-grid-columns: (1fr)[1];
+  grid-template-columns: repeat(1, 1fr); }
+  @media only screen and (min-width: 768px) {
+    [data-type="grid"][data-columns="4"] {
+      -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr); } }
+  @media only screen and (min-width: 1024px) {
+    [data-type="grid"][data-columns="4"] {
+      -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr); } }
+  @media only screen and (min-width: 1280px) {
+    [data-type="grid"][data-columns="4"] {
+      -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr); } }
+
+[data-type="grid"][data-columns="6"] {
+  -ms-grid-columns: (1fr)[1];
+  grid-template-columns: repeat(1, 1fr); }
+  @media only screen and (min-width: 768px) {
+    [data-type="grid"][data-columns="6"] {
+      -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr); } }
+  @media only screen and (min-width: 1024px) {
+    [data-type="grid"][data-columns="6"] {
+      -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr); }
+      [data-type="grid"][data-columns="6"] > * {
+        -ms-grid-column-span: 2;
+        grid-column: span 2; } }
+
+[data-align="left"] {
+  text-align: left; }
+
+[data-align="right"] {
+  text-align: right; }
+
+[data-align="center"] {
+  text-align: center; }
+
+[data-align="justify"] {
+  text-align: justify; }
+
+luxblock {
+  display: block;
+  max-width: 700px;
+  margin: 0; }
+  @media only screen and (min-width: 600px) {
+    luxblock {
+      margin: 0 30px; } }
+  @media only screen and (min-width: 768px) {
+    luxblock {
+      margin: 0 60px; } }
+  @media only screen and (min-width: 1024px) {
+    luxblock {
+      margin: 0 auto; } }
+
+.pb {
+  margin-bottom: 15px; }
+  @media only screen and (min-width: 480px) {
+    .pb {
+      margin-bottom: 30px; } }
+
+@media only screen and (min-width: 768px) {
+  .size--narrow {
+    margin: 30px auto 90px !important;
+    max-width: 600px !important; } }
+
+@media only screen and (min-width: 1440px) {
+  .size--narrow {
+    margin: 45px auto 90px !important; } }
