@@ -82,6 +82,10 @@ body:not(#ST) {
             a {
                 color: var(--text-body);
             }
+
+            img {
+                display: none;
+            }
         }
         & > .titlemedium {
             background: var(--bg-alt);
@@ -155,6 +159,100 @@ body:not(#ST) {
     font-size: var(--lBody);
     line-height: 200%;
     font-weight: 600;
+}
+#board-message {
+    .tablefill {
+        background: var(--bg-content);
+        color: var(--text-content);
+        margin: 15px;
+        padding: 15px;
+    
+        @media only screen and (min-width: $sm) {
+            margin: 30px;
+            padding: 30px;
+        }
+    
+        @media only screen and (min-width: $xxl) {
+            margin: 45px auto;
+            max-width: 1300px;
+        }
+
+        & + .tableborder {
+            background: var(--bg-alt);
+            color: var(--text-content);
+            padding: 20px;
+            margin-bottom: 15px;
+    
+            @media only screen and (min-width: $sm) {
+                margin-bottom: 30px;
+            }
+        
+            @media only screen and (min-width: $xxl) {
+                margin-bottom: 90px;
+            }
+
+            .pformstrip {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+                line-height: var(--xsBody);
+
+                a {
+                    font-family: var(--font-body);
+                    font-size: var(--xsBody);
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                    color: var(--text-content);
+                    line-height: var(--xsBody);
+                }
+            }
+        }
+    }
+}
+#redirect-screen {
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 100vh;
+    padding: 0;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-image: var(--bg-image);
+        filter: grayscale(1);
+        opacity: 0.2;
+        z-index: 1;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(https://files.jcink.net/uploads2/legends/lux/noisy_texture_300x300_o14_000000000000002_d10_c_212121_t1.png);
+        background-color: transparent;
+        z-index: 2;
+    }
+    .tablefill {
+        max-width: 325px;
+        background: var(--bg-content);
+        color: var(--text-content);
+        padding: 15px;
+        font-size: var(--xsBody);
+        text-transform: uppercase;
+        line-height: 200%;
+        letter-spacing: 0.1em;
+        z-index: 3;
+    }
 }
 
 /**********************************
@@ -961,6 +1059,105 @@ body:not(#ST) {
                                 line-height: 200%;
 
                                 &:first-child {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**********************************
+    Online List
+***********************************/
+#Online {
+    main {
+        & > .tableborder:nth-of-type(2) {
+            margin: 15px 15px 45px 15px;
+
+            @media only screen and (min-width: $sm) {
+                margin: 30px 30px 90px 30px;
+            }
+
+            @media only screen and (min-width: $xxl) {
+                margin: 45px auto 90px;
+                max-width: 1300px;
+            }
+
+            .maintitle {
+                & + table {
+                    display: block;
+                    width: 100%;
+
+                    & > tbody {
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        gap: 15px;
+                    
+                        @media only screen and (min-width: $sm) {
+                            gap: 30px;
+                        }
+            
+                        @media only screen and (min-width: $md) {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+                    
+                        @media only screen and (min-width: $lg) {
+                            grid-template-columns: repeat(3, 1fr);
+                        }
+                    
+                        @media only screen and (min-width: $xl) {
+                            grid-template-columns: repeat(4, 1fr);
+                        }
+
+                        & > tr {
+                            background: var(--bg-content);
+                            color: var(--text-content);
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            padding: 15px;
+
+                            &:first-child {
+                                display: none;
+                            }
+
+                            &:last-child {
+                                grid-column: 1 / -1;
+                            }
+
+                            & > td {
+                                display: block;
+                                width: 100%;
+                                padding: 0;
+                                font-size: var(--xsBody);
+                                text-transform: uppercase;
+                                letter-spacing: 0.1em;
+                                text-align: center;
+                                
+                                a {
+                                    font-weight: 600;
+                                    color: var(--text-content);
+                                }
+                                
+                                &:first-child {
+                                    text-align: center;
+
+                                    span.g-2,
+                                    a {
+                                        &:first-child {
+                                            display: block;
+                                            font-family: var(--font-head);
+                                            font-size: 24px;
+                                            text-transform: capitalize;
+                                            color: var(--accent);
+                                        }
+                                    }
+                                }
+                                &:last-child:not(:only-child) {
                                     display: none;
                                 }
                             }
