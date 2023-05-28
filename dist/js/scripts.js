@@ -106,3 +106,13 @@ if(pageID === 'Post') {
     inputWrap(`input[name="enabletrack"]`, 'br');
     fancyBoxes();
 }
+
+//online list
+if(pageID === 'Online') {
+    let names = document.querySelectorAll('#Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td:first-child a:first-child');
+    if(names.length > 0) {
+        names.forEach(el => {
+            el.innerHTML = capitalize(el.innerHTML);
+        });
+    }
+}
