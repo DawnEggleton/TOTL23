@@ -5,6 +5,10 @@
         header {
             height: calc(100vh - (var(--menuSize) * 2));
         }
+
+        & > br {
+            display: none;
+        }
     }
 }
 

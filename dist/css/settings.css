@@ -5,17 +5,21 @@
 .postcolor ul li::marker {
   content: '\f178'; }
 
-.f-1 {
+.f-7,
+.f-14 {
   grid-column: 1 / -1 !important; }
-  .f-1 .forum--border {
+  .f-7 .forum--border,
+  .f-14 .forum--border {
     display: -ms-grid;
     display: grid; }
     @media only screen and (min-width: 768px) {
-      .f-1 .forum--border {
+      .f-7 .forum--border,
+      .f-14 .forum--border {
         -ms-grid-columns: min(50%, 400px) auto;
         grid-template-columns: min(50%, 400px) auto; } }
   @media only screen and (min-width: 768px) {
-    .f-1 .forum--links {
+    .f-7 .forum--links,
+    .f-14 .forum--links {
       -ms-grid-column: 2;
       -ms-grid-column-span: 1;
       grid-column: 2 / 3;
@@ -29,7 +33,13 @@
       height: 100%; } }
 
 @media only screen and (min-width: 1024px) {
+  .f-1,
   .f-2,
-  .f-3 {
+  .f-182,
+  .f-257,
+  .f-17,
+  .f-15,
+  .f-20,
+  .f-18 {
     -ms-grid-column-span: 3 !important;
     grid-column: span 3 !important; } }

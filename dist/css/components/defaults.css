@@ -26,7 +26,8 @@ main > .tableborder > .row4 {
 .pagination_pagetxt,
 #submenu,
 #userlinks,
-#logostrip {
+#logostrip,
+.newstext {
   display: none; }
 
 fieldset {
@@ -575,6 +576,8 @@ body:not(#ST) .tableborder > .titlemedium {
   #Post #posting-form textarea,
   #Post #posting-form select {
     background: var(--bg-alt); }
+  #Post #posting-form select {
+    padding: 7px 8px; }
   #Post #posting-form > tbody {
     display: block;
     width: 100%; }

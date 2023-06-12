@@ -26,7 +26,8 @@ main > .tableborder > .row4 {
 .pagination_pagetxt,
 #submenu,
 #userlinks,
-#logostrip {
+#logostrip,
+.newstext {
     display: none;
 }
 fieldset {
@@ -796,6 +797,10 @@ body:not(#ST) {
         textarea,
         select {
             background: var(--bg-alt);
+        }
+
+        select {
+            padding: 7px 8px;
         }
 
         & > tbody {

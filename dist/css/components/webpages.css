@@ -1,6 +1,9 @@
 #Pages main header {
   height: calc(100vh - (var(--menuSize) * 2)); }
 
+#Pages main > br {
+  display: none; }
+
 .webpage ~ div {
   display: none; }
 

@@ -9,7 +9,8 @@
 }
 
 //Full width forums
-.f-1 {
+.f-7,
+.f-14 {
     grid-column: 1 / -1 !important;
 
     .forum--border {
@@ -33,8 +34,14 @@
     }
 }
 //Two-wide on desktop forums
+.f-1,
 .f-2,
-.f-3 {
+.f-182,
+.f-257,
+.f-17,
+.f-15,
+.f-20,
+.f-18 {
     @media only screen and (min-width: $lg) {
         grid-column: span 3 !important;
     }

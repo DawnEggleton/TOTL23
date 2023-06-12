@@ -16,7 +16,7 @@
     #Profile main header .profile--links a {
       color: var(--text-body); }
 
-#Profile main .profile [href=""] {
+#Profile main .profile ~ br {
   display: none; }
 
 #Profile main .profile::before {
