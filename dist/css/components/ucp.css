@@ -1,0 +1,69 @@
+#UserCP main > table {
+  display: block; }
+  #UserCP main > table > tbody {
+    display: block; }
+    #UserCP main > table > tbody > tr {
+      display: flex;
+      flex-direction: column; }
+      #UserCP main > table > tbody > tr > td:nth-child(2) {
+        display: none; }
+
+.ucp--main-menu, .ucp--labels {
+  background: var(--bg-alt);
+  display: flex;
+  height: 44px; }
+  .ucp--main-menu button, .ucp--labels button {
+    border: none;
+    background: var(--bg-alt);
+    flex: 0 0 45px;
+    width: 45px;
+    padding: 0;
+    margin: 0;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-content); }
+    .ucp--main-menu button.scroll--left, .ucp--labels button.scroll--left {
+      border-right: 1px solid var(--border-main); }
+    .ucp--main-menu button.scroll--right, .ucp--labels button.scroll--right {
+      border-left: 1px solid var(--border-main); }
+    .ucp--main-menu button:hover, .ucp--labels button:hover {
+      color: var(--text-content-hover); }
+  .ucp--main-menu tag-labels, .ucp--labels tag-labels {
+    flex: 0 0 calc(100% - 90px);
+    display: flex;
+    overflow: hidden;
+    overflow: auto;
+    scrollbar-width: none; }
+    .ucp--main-menu tag-labels::-webkit-scrollbar, .ucp--labels tag-labels::-webkit-scrollbar {
+      display: none; }
+  .ucp--main-menu tag-label, .ucp--labels tag-label {
+    display: flex;
+    align-items: center;
+    border: none;
+    background: transparent;
+    padding: 0 20px;
+    font-size: var(--xsBody);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-content);
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap; }
+    .ucp--main-menu tag-label:hover, .ucp--labels tag-label:hover {
+      background: var(--ltaccent-40); }
+    .ucp--main-menu tag-label.is-active, .ucp--labels tag-label.is-active {
+      background: var(--ltaccent-55); }
+
+.ucp--tabs {
+  flex-grow: 1;
+  display: flex;
+  overflow: hidden; }
+  .ucp--tabs tag-tab {
+    width: 100%;
+    flex: 0 0 100%;
+    height: 100%;
+    left: 0;
+    transition-duration: 0.5s; }

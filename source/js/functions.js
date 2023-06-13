@@ -399,6 +399,161 @@ function initFirstTab() {
         menu.querySelectorAll('tag-label')[0].classList.add('is-active');
     });
 }
+function initUCPMenu(pageType) {
+    let ucpMain = `<div class="ucp--main-menu">
+        <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+        <tag-labels>
+            <tag-label tabindex="0" data-tab="account">Account</tag-label>
+            <tag-label tabindex="0" data-tab="messages">Messages</tag-label>
+            <tag-label tabindex="0" data-tab="tracking">Tracking</tag-label>
+            <tag-label tabindex="0" data-tab="settings">Settings</tag-label>
+        </tag-labels>
+        <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+    </div>`;
+    let ucpSecondary = `<tag-tabs class="ucp--secondary-menu">
+        <tag-tab data-tab="account">
+            <div class="ucp--tabs auto-height">
+                <div class="ucp--labels">
+                    <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                    <tag-labels>
+                        <a href="user-edit.html" data-category="account" data-inner-tab="edit-profile" data-code="code-01">Edit Profile</a>
+                        <a href="user-avatar.html" data-category="account" data-inner-tab="update-avatar" data-code="code-24">Update Avatar</a>
+                        <a href="user-accounts.html" data-category="account" data-inner-tab="subaccounts" data-code="code-54">Sub-Accounts</a>
+                        <a href="user-name.html" data-category="account" data-inner-tab="edit-username" data-code="code-52">Edit Username</a>
+                        <a href="user-pass.html" data-category="account" data-inner-tab="change-password" data-code="code-28">Change Password</a>
+                        <a href="user-email.html" data-category="account" data-inner-tab="update-email" data-code="code-08">Update Email</a>
+                    </tag-labels>
+                    <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                </div>
+            </div>
+        </tag-tab>
+        <tag-tab data-tab="messages">
+            <div class="ucp--tabs auto-height">
+                <div class="ucp--labels">
+                    <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                    <tag-labels>
+                        <a href="user-inbox.html" data-category="messages" data-inner-tab="inbox" data-code="code-01">Inbox</a>
+                        <a href="user-message.html" data-category="messages" data-inner-tab="send-message" data-code="code-04">Send Message</a>
+                    </tag-labels>
+                    <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                </div>
+            </div>
+        </tag-tab>
+        <tag-tab data-tab="tracking">
+            <div class="ucp--tabs auto-height">
+                <div class="ucp--labels">
+                    <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                    <tag-labels>
+                        <a href="user-alerts.html" data-category="tracking" data-inner-tab="alerts" data-code="code-alerts">Alerts</a>
+                        <a href="user-forums.html" data-category="tracking" data-inner-tab="forums" data-code="code-50">Forums</a>
+                        <a href="user-topics.html" data-category="tracking" data-inner-tab="topics" data-code="code-26">Topics</a>
+                    </tag-labels>
+                    <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                </div>
+            </div>
+        </tag-tab>
+        <tag-tab data-tab="settings">
+            <div class="ucp--tabs auto-height">
+                <div class="ucp--labels">
+                    <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                    <tag-labels>
+                        <a href="user-boardset.html" data-category="settings" data-inner-tab="board-settings" data-code="code-04">Board Settings</a>
+                        <a href="user-alertset.html" data-category="settings" data-inner-tab="alert-settings" data-code="code-alerts_settings">Alert Settings</a>
+                        <a href="user-emailset.html" data-category="settings" data-inner-tab="email-settings" data-code="code-02">Email Settings</a>
+                    </tag-labels>
+                    <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                </div>
+            </div>
+        </tag-tab>
+    </tag-tabs>`;
+    
+    document.querySelector('#ucpmenu').innerHTML = ucpMain;
+    document.querySelector('#ucpcontent').innerHTML = `${ucpSecondary}<div class="ucp--wrapper">
+        ${document.querySelector('#ucpcontent').innerHTML}
+    </div>`;
+
+
+    initUCPTabs(pageType);
+}
+function initUCPTabs(pageType) {
+    //select appropriate labels (main and secondary)
+    let classes = document.querySelector('body').classList;
+    let mainLabel, subLabel;
+    if(pageType === 'UserCP') {
+        if(classes.contains('code-01')) {
+            mainLabel = document.querySelector(`tag-label[data-tab="account"]`);
+            subLabel = document.querySelector(`a[data-category="account"][data-code="code-01"]`)
+        } else if(classes.contains('code-24')) {
+            mainLabel = document.querySelector(`tag-label[data-tab="account"]`);
+            subLabel = document.querySelector(`a[data-category="account"][data-code="code-24"]`)
+        } else if(classes.contains('code-54')) {
+            mainLabel = document.querySelector(`tag-label[data-tab="account"]`);
+            subLabel = document.querySelector(`a[data-category="account"][data-code="code-54"]`)
+        } else if(classes.contains('code-52')) {
+            mainLabel = document.querySelector(`tag-label[data-tab="account"]`);
+            subLabel = document.querySelector(`a[data-category="account"][data-code="code-52"]`)
+        } else if(classes.contains('code-28')) {
+            mainLabel = document.querySelector(`tag-label[data-tab="account"]`);
+            subLabel = document.querySelector(`a[data-category="account"][data-code="code-28"]`)
+        } else if(classes.contains('code-08')) {
+            mainLabel = document.querySelector(`tag-label[data-tab="account"]`);
+            subLabel = document.querySelector(`a[data-category="account"][data-code="code-08"]`)
+        } else if(classes.contains('code-alerts')) {
+            mainLabel = document.querySelector(`tag-label[data-tab="tracking"]`);
+            subLabel = document.querySelector(`a[data-category="tracking"][data-code="code-alerts"]`)
+        } else if(classes.contains('code-50')) {
+            mainLabel = document.querySelector(`tag-label[data-tab="tracking"]`);
+            subLabel = document.querySelector(`a[data-category="tracking"][data-code="code-50"]`)
+        } else if(classes.contains('code-26')) {
+            mainLabel = document.querySelector(`tag-label[data-tab="tracking"]`);
+            subLabel = document.querySelector(`a[data-category="tracking"][data-code="code-26"]`)
+        } else if(classes.contains('code-alerts_settings')) {
+            mainLabel = document.querySelector(`tag-label[data-tab="settings"]`);
+            subLabel = document.querySelector(`a[data-category="settings"][data-code="code-alerts_settings"]`)
+        } else if(classes.contains('code-04')) {
+            mainLabel = document.querySelector(`tag-label[data-tab="settings"]`);
+            subLabel = document.querySelector(`a[data-category="settings"][data-code="code-04"]`)
+        } else if(classes.contains('code-02')) {
+            mainLabel = document.querySelector(`tag-label[data-tab="settings"]`);
+            subLabel = document.querySelector(`a[data-category="settings"][data-code="code-02"]`)
+        }
+    } else {
+        mainLabel = document.querySelector(`tag-label[data-tab="messages"]`);
+        if(classes.contains('code-04')) {
+            subLabel = document.querySelector(`a[data-category="messages"][data-code="code-04"]`)
+        } else if(classes.contains('code-01')) {
+            subLabel = document.querySelector(`a[data-category="messages"][data-code="code-01"]`)
+        }
+    }
+
+    //set consistent
+    let mainLabels = document.querySelectorAll('#ucpmenu tag-label');
+    let subLabels = document.querySelectorAll('tag-tab tag-label');
+    let tabs = document.querySelectorAll('tag-tabs > tag-tab');
+    let labelsArray = Array.prototype.slice.call(mainLabels);
+    let index = labelsArray.indexOf(mainLabel);
+
+    mainLabel.classList.add('is-active');
+    subLabel.classList.add('is-active');
+    tabs.forEach(tab => {
+        tab.classList.remove('is-active');
+        tab.style.left = `${-100 * index}%`;
+    });
+
+    //click events
+    mainLabels.forEach((label, i) => {
+        label.addEventListener('click', e => {
+            mainLabels.forEach(sibling => sibling.classList.remove('is-active'));
+            subLabels.forEach(sublabel => sublabel.classList.remove('is-active'));
+            tabs.forEach(tab => {
+                tab.classList.remove('is-active');
+                tab.style.left = `${-100 * i}%`;
+            });
+            label.classList.add('is-active');
+            tabs[i].classList.add('is-active');
+        });
+    });
+}
 
 //Utilities
 function highlightCode() {

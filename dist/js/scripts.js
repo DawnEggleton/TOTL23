@@ -116,3 +116,13 @@ if(pageID === 'Online') {
         });
     }
 }
+
+//ucp
+if(pageID === 'UserCP') {
+    initUCPMenu('UserCP');
+}
+
+//messages
+if(pageID === 'Msg') {
+    initUCPMenu('Msg');
+}

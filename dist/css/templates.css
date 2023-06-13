@@ -244,9 +244,6 @@
   background-image: url(https://files.jcink.net/uploads2/legends/lux/noisy_texture_300x300_o14_000000000000002_d10_c_212121_t1.png); }
 
 .btn--arrow {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -257,28 +254,17 @@
   .btn--arrow::after {
     font-family: 'Font Awesome 6 Pro';
     font-weight: 100;
-    -webkit-align-self: center;
-        -ms-flex-item-align: center;
-                -ms-grid-row-align: center;
-            align-self: center;
+    align-self: center;
     font-style: normal;
     text-align: right;
-    -webkit-transform: translateX(0);
-        -ms-transform: translateX(0);
-            transform: translateX(0);
-    -webkit-transition-duration: 0.3s;
-         -o-transition-duration: 0.3s;
-            transition-duration: 0.3s; }
+    transform: translateX(0);
+    transition-duration: 0.3s; }
   .btn--arrow:hover::after {
-    -webkit-transform: translateX(10px);
-        -ms-transform: translateX(10px);
-            transform: translateX(10px); }
+    transform: translateX(10px); }
 
 [data-type="grid"] {
-  display: -ms-grid;
   display: grid;
   gap: 15px;
-  -ms-grid-columns: (1fr)[1];
   grid-template-columns: repeat(1, 1fr); }
   @media only screen and (min-width: 480px) {
     [data-type="grid"] {
@@ -292,54 +278,41 @@
           margin-top: -30px; } }
 
 [data-type="grid"][data-columns="2"] {
-  -ms-grid-columns: (1fr)[1];
   grid-template-columns: repeat(1, 1fr); }
   @media only screen and (min-width: 768px) {
     [data-type="grid"][data-columns="2"] {
-      -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr); } }
 
 [data-type="grid"][data-columns="3"] {
-  -ms-grid-columns: (1fr)[1];
   grid-template-columns: repeat(1, 1fr); }
   @media only screen and (min-width: 768px) {
     [data-type="grid"][data-columns="3"] {
-      -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr); } }
   @media only screen and (min-width: 1024px) {
     [data-type="grid"][data-columns="3"] {
-      -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr); } }
 
 [data-type="grid"][data-columns="4"] {
-  -ms-grid-columns: (1fr)[1];
   grid-template-columns: repeat(1, 1fr); }
   @media only screen and (min-width: 768px) {
     [data-type="grid"][data-columns="4"] {
-      -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr); } }
   @media only screen and (min-width: 1024px) {
     [data-type="grid"][data-columns="4"] {
-      -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr); } }
   @media only screen and (min-width: 1280px) {
     [data-type="grid"][data-columns="4"] {
-      -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr); } }
 
 [data-type="grid"][data-columns="6"] {
-  -ms-grid-columns: (1fr)[1];
   grid-template-columns: repeat(1, 1fr); }
   @media only screen and (min-width: 768px) {
     [data-type="grid"][data-columns="6"] {
-      -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr); } }
   @media only screen and (min-width: 1024px) {
     [data-type="grid"][data-columns="6"] {
-      -ms-grid-columns: (1fr)[6];
       grid-template-columns: repeat(6, 1fr); }
       [data-type="grid"][data-columns="6"] > * {
-        -ms-grid-column-span: 2;
         grid-column: span 2; } }
 
 [data-align="left"] {
