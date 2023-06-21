@@ -103,6 +103,9 @@
 
         h3 {
             margin: 0;
+            display: flex;
+            align-items: start;
+            gap: 10px;
 
             a {
                 text-transform: capitalize;
@@ -112,6 +115,10 @@
                 color: var(--text-content);
                 line-height: 140%;
                 margin-bottom: 5px;
+            }
+
+            .input-wrap {
+                margin-top: 5px;
             }
         }
 

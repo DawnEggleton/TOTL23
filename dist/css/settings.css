@@ -10,15 +10,21 @@
   grid-column: 1 / -1 !important; }
   .f-7 .forum--border,
   .f-14 .forum--border {
+    display: -ms-grid;
     display: grid; }
     @media only screen and (min-width: 768px) {
       .f-7 .forum--border,
       .f-14 .forum--border {
+        -ms-grid-columns: min(50%, 400px) auto;
         grid-template-columns: min(50%, 400px) auto; } }
   @media only screen and (min-width: 768px) {
     .f-7 .forum--links,
     .f-14 .forum--links {
+      -ms-grid-column: 2;
+      -ms-grid-column-span: 1;
       grid-column: 2 / 3;
+      -ms-grid-row: 1;
+      -ms-grid-row-span: 3;
       grid-row: 1 / 4;
       border-top: none;
       margin: 0 0 0 10px;
@@ -35,4 +41,5 @@
   .f-15,
   .f-20,
   .f-18 {
+    -ms-grid-column-span: 3 !important;
     grid-column: span 3 !important; } }

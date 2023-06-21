@@ -1,5 +1,29 @@
 //set variables
 let pageID = document.querySelector('body').id;
+let pageClasses = document.querySelector('body').classList;
+
+//small scripts
+//easy to select account swap
+document.querySelectorAll('select[name="sub_id"] option').forEach(account => {
+    account.innerHTML = account.innerHTML.replace(/&nbsp;&nbsp;»/g,'');
+});
+document.querySelectorAll('#post_as_menu option').forEach(account => {
+    account.innerHTML = account.innerHTML.replace(/&nbsp;&nbsp;»/g,'');
+});
+//remove empty tooltips
+$('*[title=""]').removeAttr('title');
+$('*[tooltip=""]').removeAttr('tooltip');
+if (typeof tippy === 'function') {
+    tippy(document.querySelectorAll('[title]'), {
+    content: (reference) => {
+        const title = reference.getAttribute('title');
+        reference.removeAttribute('title');
+        return title;
+    },
+    theme: 'totl23',
+    arrow: false
+    });
+}
 
 //init global
 setTheme();
@@ -40,15 +64,16 @@ if(pageID === 'ST') {
     initMiniTabs();
     initAvatarPopout();
     document.querySelectorAll('.post.g-4 .charOnly, .post.g-6 .charOnly, .post.g-3.acc-Member .charOnly').forEach(el => el.remove());
+    initCopyLink();
 }
 
-//init post
+//init members
 if(pageID === 'Members') {
     initFilterPopout();
     initFilterDropdowns();
 }
 
-//user's posts
+//user's search
 if(pageID === 'Search') {
     let names = document.querySelectorAll('#Search.code-show main > .tableborder:not(:last-of-type) > table tbody tr:nth-child(1) td:nth-child(1) .normalname a');
     if(names.length > 0) {
@@ -120,9 +145,54 @@ if(pageID === 'Online') {
 //ucp
 if(pageID === 'UserCP') {
     initUCPMenu('UserCP');
+
+    if(pageClasses.contains('code-01')) {
+        initUCPEdit();
+    } else if (pageClasses.contains('code-54')) {
+        document.querySelectorAll(`.tableborder:first-child input[type="checkbox"]`).forEach(input => inputWrap(input));
+        fancyBoxes();
+    } else if (pageClasses.contains('code-alerts')) {
+        document.querySelectorAll(`form > .tableborder input[type="checkbox"]`).forEach(input => inputWrap(input));
+        fancyBoxes();
+    } else if (pageClasses.contains('code-50') || pageClasses.contains('code-26')) {
+        document.querySelectorAll('.tableborder > table > tbody > tr').forEach(row => {
+            if(row.querySelectorAll('th, td').length === 1) {
+                row.classList.add('ucp--header', 'pformstrip');
+            }
+        });
+
+        if(pageClasses.contains('code-26')) {
+            document.querySelectorAll(`.tableborder input[type="checkbox"]`).forEach(input => inputWrap(input));
+            fancyBoxes();
+        }
+    } else if (pageClasses.contains('code-04')) {
+        inputWrap(document.querySelector(`input[name="DST"]`));
+        fancyBoxes();
+    } else if (pageClasses.contains('code-alerts_settings') || pageClasses.contains('code-02')) {
+        document.querySelectorAll(`input[type="checkbox"]`).forEach(input => inputWrap(input));
+        fancyBoxes();
+    }
 }
 
 //messages
 if(pageID === 'Msg') {
     initUCPMenu('Msg');
+
+    if (pageClasses.contains('code-01')) {
+        document.querySelectorAll(`input[type="checkbox"]`).forEach(input => inputWrap(input));
+        fancyBoxes();
+    } else if (pageClasses.contains('code-04')) {
+        document.querySelectorAll(`input[type="checkbox"]`).forEach(input => inputWrap(input, 'br'));
+        fancyBoxes();
+    }
+}
+
+//store
+if(pageID === 'store') {
+    initStoreMenu();
+
+    if (pageClasses.contains('store-do_staff_inventory')) {
+        document.querySelectorAll(`input[type="checkbox"]`).forEach(input => inputWrap(input));
+        fancyBoxes();
+    }
 }

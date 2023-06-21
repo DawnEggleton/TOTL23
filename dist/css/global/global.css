@@ -1391,16 +1391,22 @@ img {
     filter: grayscale(1);
     opacity: 0.2; }
 
-tag-code {
+tag-code,
+.codeblock {
   display: flex;
   flex-direction: column;
   gap: 5px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--border-main);
   margin-bottom: 10px; }
-  tag-code pre {
+  tag-code pre,
+  .codeblock pre {
     margin: 0; }
-    tag-code pre textarea {
+    tag-code pre textarea,
+    tag-code pre code,
+    .codeblock pre textarea,
+    .codeblock pre code {
+      display: block;
       width: 100%;
       background: var(--bg-content);
       border: 1px solid var(--border-main);
@@ -1411,9 +1417,19 @@ tag-code {
       line-height: 200%;
       margin: 0;
       height: calc(var(--sBody) * 7);
-      color: var(--text-content); }
+      color: var(--text-content);
+      white-space: break-spaces; }
 
-.copyQuick {
+#CODE-WRAP {
+  display: block;
+  max-width: 300px; }
+  #CODE-WRAP .codeblock {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0; }
+
+.copyQuick,
+.codeclick {
   background: var(--mdGrey);
   border: none;
   color: var(--text-body);
@@ -1422,7 +1438,43 @@ tag-code {
   letter-spacing: 0.1em;
   font-weight: 600;
   padding: 5px 10px;
-  border-radius: 1px; }
+  border-radius: 1px;
+  margin: 0;
+  cursor: pointer; }
+
+input + .fancy-input i {
+  color: transparent; }
+
+input:checked + .fancy-input i {
+  color: var(--text-content); }
+
+.post-link .note {
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  left: 80%;
+  background: var(--bg-content);
+  border: 1px solid var(--border-main);
+  padding: 0 10px;
+  z-index: 1;
+  transition-duration: 0.3s; }
+
+.tippy-box[data-theme~='totl23'] {
+  background-color: var(--bg-content);
+  color: var(--text-content);
+  border: 1px solid var(--border-main);
+  text-transform: uppercase;
+  font-size: var(--xsBody);
+  letter-spacing: 1px;
+  text-align: justify;
+  line-height: 160%;
+  padding: 5px 10px;
+  border-radius: 1px;
+  font-weight: 600; }
+
+.tippy-box[data-theme~='totl23'] .tippy-content {
+  padding: 0;
+  margin: 0; }
 
 .fa-solid,
 .fa-regular,

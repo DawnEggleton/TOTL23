@@ -24,7 +24,10 @@
 		<script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
 		<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
 		<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
-        <script src="../dist/js/clipboard.js"></script>
+        <script src="https://files.jcink.net/uploads2/legends/clipboard.js"></script>
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+        <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" />
 
         <!--Settings-->
         <script type='text/javascript' src='../dist/js/settings.js'></script>
@@ -200,11 +203,15 @@
                     </div>
                     <div class="post--actions">
                         <span>September 16 2022, 2:31 PM</span>
-                        <a href="">Copy Link</a>
-                        <a href="">Edit</a>
-                        <a href="">Quote</a>
-                        <a href="">Delete</a>
-                        <a href="">Report</a>
+                        <a href="javascript:void(0)" class="post-link" data-clipboard-text="link goes here"><span>Copy Link</span><span class="note">Copied!</span></a>
+                        <a href="/">Edit</a>
+                        <a href="/">Quote</a>
+                        <a href="/">Delete</a>
+                        <a href="/">Report</a>
+                        <label class="staffOnly input-wrap">
+                            <input type="checkbox">
+                            <div class="fancy-input checkbox"><i class="fa-regular fa-check"></i></div>
+                        </label>
                     </div>
                 </section>
                 
@@ -311,11 +318,15 @@
                     </div>
                     <div class="post--actions">
                         <span>September 16 2022, 2:31 PM</span>
-                        <a href="">Copy Link</a>
-                        <a href="">Edit</a>
-                        <a href="">Quote</a>
-                        <a href="">Delete</a>
-                        <a href="">Report</a>
+                        <a href="javascript:void(0)" class="post-link" data-clipboard-text="second link"><span>Copy Link</span><span class="note">Copied!</span></a>
+                        <a href="/">Edit</a>
+                        <a href="/">Quote</a>
+                        <a href="/">Delete</a>
+                        <a href="/">Report</a>
+                        <label class="staffOnly input-wrap">
+                            <input type="checkbox">
+                            <div class="fancy-input checkbox"><i class="fa-regular fa-check"></i></div>
+                        </label>
                     </div>
                 </section>
 
@@ -351,7 +362,7 @@
             </table>
             
             <br>
-            <div id="qr_open" style="display:none;position:relative;" align="left">
+            <div id="qr_open" style="position:relative;" align="left">
                 <form name="REPLIER" action="?" method="post">
                     <input type="hidden" name="act" value="Post">
                     <input type="hidden" name="CODE" value="03">
@@ -383,7 +394,7 @@
                 </form>
             </div>
                 
-            <div id="topic_open" style="display:none;z-index:2;">
+            <div id="topic_open" style="z-index:2;">
                 <div class="tableborder">
                     <div class="maintitle">&nbsp;
                         <a href="javascript:$('#topic_open').toggle();void(0);">Close Topic Options</a>

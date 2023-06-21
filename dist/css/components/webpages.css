@@ -102,11 +102,107 @@
     max-height: calc(100vh - (var(--menuSize) * 2) - 44px); }
   .webpage--tab-inner > .auto-height {
     height: calc(100vh - (var(--menuSize) * 2) - 104px); }
+  .webpage--tab-inner form h2 {
+    margin-top: 30px !important; }
+  .webpage--tab-inner form .form-item,
+  .webpage--tab-inner form label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; }
+    .webpage--tab-inner form .form-item strong,
+    .webpage--tab-inner form label strong {
+      font-family: var(--font-head);
+      font-size: var(--xlBody);
+      font-weight: 600;
+      text-transform: capitalize; }
+    .webpage--tab-inner form .form-item input,
+    .webpage--tab-inner form .form-item select,
+    .webpage--tab-inner form label input,
+    .webpage--tab-inner form label select {
+      margin: 0;
+      text-transform: none;
+      font-size: var(--mBody);
+      letter-spacing: 0;
+      line-height: 100%;
+      padding: 8px; }
+    .webpage--tab-inner form .form-item textarea,
+    .webpage--tab-inner form label textarea {
+      font-family: var(--font-body);
+      font-size: var(--mBody);
+      line-height: 200%; }
+    .webpage--tab-inner form .form-item button,
+    .webpage--tab-inner form label button {
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: var(--xlBody); }
+      .webpage--tab-inner form .form-item button .fa-circle-xmark,
+      .webpage--tab-inner form label button .fa-circle-xmark {
+        display: none; }
+      .webpage--tab-inner form .form-item button.show .fa-circle-xmark,
+      .webpage--tab-inner form label button.show .fa-circle-xmark {
+        display: initial; }
+      .webpage--tab-inner form .form-item button.show .fa-circle-question,
+      .webpage--tab-inner form label button.show .fa-circle-question {
+        display: none; }
+    .webpage--tab-inner form .form-item .help,
+    .webpage--tab-inner form label .help {
+      display: none; }
+      .webpage--tab-inner form .form-item .help.show,
+      .webpage--tab-inner form label .help.show {
+        display: initial; }
+  .webpage--tab-inner form label.required strong::after {
+    content: '*';
+    color: #a73c3c;
+    font-family: var(--font-body);
+    font-size: 1.2em;
+    padding-left: 5px; }
+  .webpage--tab-inner form .form--jobs-clip,
+  .webpage--tab-inner form .form--reqclass-clip,
+  .webpage--tab-inner form .form--elecclass-clip {
+    margin-top: 0 !important; }
+  .webpage--tab-inner form .form-buttons {
+    text-align: center; }
+    .webpage--tab-inner form .form-buttons button {
+      background: var(--ltaccent-40); }
+  .webpage--tab-inner form .form-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 15px; }
+    .webpage--tab-inner form .form-flex label input {
+      display: none; }
+      .webpage--tab-inner form .form-flex label input:checked + strong {
+        background: var(--ltaccent-55); }
+    .webpage--tab-inner form .form-flex label strong {
+      border: 1px solid var(--border-main);
+      padding: 5px 10px;
+      border-radius: 1px;
+      font-size: var(--mBody);
+      cursor: pointer;
+      font-size: var(--xsBody);
+      font-family: var(--font-body);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      line-height: 160%; }
+    .webpage--tab-inner form .form-flex label:hover strong {
+      background: var(--ltaccent-40); }
+  .webpage--tab-inner form u.editJobs {
+    text-transform: capitalize; }
+  .webpage--tab-inner form span.editJobs {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: var(--xsBody);
+    letter-spacing: 0.1em; }
+  .webpage--tab-inner form .form--jobsremove-clip label {
+    flex-direction: row;
+    gap: 10px; }
 
 .webpage--inner-tabs tag-tabs {
   height: calc(100% - 44px); }
   .webpage--inner-tabs tag-tabs .webpage--tab-inner {
     margin: 0;
+    width: 100%;
     max-height: calc(100vh - (var(--menuSize) * 2) - 148px); }
     .webpage--inner-tabs tag-tabs .webpage--tab-inner > .scroll {
       max-height: calc(100vh - (var(--menuSize) * 2) - 208px); }

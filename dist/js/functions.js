@@ -416,12 +416,12 @@ function initUCPMenu(pageType) {
                 <div class="ucp--labels">
                     <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
                     <tag-labels>
-                        <a href="user-edit.html" data-category="account" data-inner-tab="edit-profile" data-code="code-01">Edit Profile</a>
-                        <a href="user-avatar.html" data-category="account" data-inner-tab="update-avatar" data-code="code-24">Update Avatar</a>
-                        <a href="user-accounts.html" data-category="account" data-inner-tab="subaccounts" data-code="code-54">Sub-Accounts</a>
-                        <a href="user-name.html" data-category="account" data-inner-tab="edit-username" data-code="code-52">Edit Username</a>
-                        <a href="user-pass.html" data-category="account" data-inner-tab="change-password" data-code="code-28">Change Password</a>
-                        <a href="user-email.html" data-category="account" data-inner-tab="update-email" data-code="code-08">Update Email</a>
+                        <a href="?act=UserCP&CODE=01" data-category="account" data-inner-tab="edit-profile" data-code="code-01">Edit Profile</a>
+                        <a href="?act=UserCP&CODE=24" data-category="account" data-inner-tab="update-avatar" data-code="code-24">Update Avatar</a>
+                        <a href="?act=UserCP&CODE=54" data-category="account" data-inner-tab="subaccounts" data-code="code-54">Sub-Accounts</a>
+                        <a href="?act=UserCP&CODE=52" data-category="account" data-inner-tab="edit-username" data-code="code-52">Edit Username</a>
+                        <a href="?act=UserCP&CODE=28" data-category="account" data-inner-tab="change-password" data-code="code-28">Change Password</a>
+                        <a href="?act=UserCP&CODE=08" data-category="account" data-inner-tab="update-email" data-code="code-08">Update Email</a>
                     </tag-labels>
                     <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
                 </div>
@@ -432,8 +432,8 @@ function initUCPMenu(pageType) {
                 <div class="ucp--labels">
                     <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
                     <tag-labels>
-                        <a href="user-inbox.html" data-category="messages" data-inner-tab="inbox" data-code="code-01">Inbox</a>
-                        <a href="user-message.html" data-category="messages" data-inner-tab="send-message" data-code="code-04">Send Message</a>
+                        <a href="?act=Msg&CODE=01" data-category="messages" data-inner-tab="inbox" data-code="code-01">Inbox</a>
+                        <a href="?act=Msg&CODE=04" data-category="messages" data-inner-tab="send-message" data-code="code-04">Send Message</a>
                     </tag-labels>
                     <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
                 </div>
@@ -444,9 +444,9 @@ function initUCPMenu(pageType) {
                 <div class="ucp--labels">
                     <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
                     <tag-labels>
-                        <a href="user-alerts.html" data-category="tracking" data-inner-tab="alerts" data-code="code-alerts">Alerts</a>
-                        <a href="user-forums.html" data-category="tracking" data-inner-tab="forums" data-code="code-50">Forums</a>
-                        <a href="user-topics.html" data-category="tracking" data-inner-tab="topics" data-code="code-26">Topics</a>
+                        <a href="?act=UserCP&CODE=alerts" data-category="tracking" data-inner-tab="alerts" data-code="code-alerts">Alerts</a>
+                        <a href="?act=UserCP&CODE=50" data-category="tracking" data-inner-tab="forums" data-code="code-50">Forums</a>
+                        <a href="?act=UserCP&CODE=26" data-category="tracking" data-inner-tab="topics" data-code="code-26">Topics</a>
                     </tag-labels>
                     <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
                 </div>
@@ -457,9 +457,9 @@ function initUCPMenu(pageType) {
                 <div class="ucp--labels">
                     <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
                     <tag-labels>
-                        <a href="user-boardset.html" data-category="settings" data-inner-tab="board-settings" data-code="code-04">Board Settings</a>
-                        <a href="user-alertset.html" data-category="settings" data-inner-tab="alert-settings" data-code="code-alerts_settings">Alert Settings</a>
-                        <a href="user-emailset.html" data-category="settings" data-inner-tab="email-settings" data-code="code-02">Email Settings</a>
+                        <a href="?act=UserCP&CODE=04" data-category="settings" data-inner-tab="board-settings" data-code="code-04">Board Settings</a>
+                        <a href="?act=UserCP&CODE=alerts_settings" data-category="settings" data-inner-tab="alert-settings" data-code="code-alerts_settings">Alert Settings</a>
+                        <a href="?act=UserCP&CODE=02" data-category="settings" data-inner-tab="email-settings" data-code="code-02">Email Settings</a>
                     </tag-labels>
                     <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
                 </div>
@@ -468,7 +468,7 @@ function initUCPMenu(pageType) {
     </tag-tabs>`;
     
     document.querySelector('#ucpmenu').innerHTML = ucpMain;
-    document.querySelector('#ucpcontent').innerHTML = `${ucpSecondary}<div class="ucp--wrapper">
+    document.querySelector('#ucpcontent').innerHTML = `${ucpSecondary}<div class="ucp--wrapper scroll">
         ${document.querySelector('#ucpcontent').innerHTML}
     </div>`;
 
@@ -554,6 +554,244 @@ function initUCPTabs(pageType) {
         });
     });
 }
+function initUCPEdit() {
+    const toggleFields = [document.querySelector('#field_74_input'), document.querySelector('#field_75_input')];
+	$('#field-birthday').insertAfter('#field_34');
+      
+    cpShift();
+        
+    toggleFields.forEach(toggle => {
+        toggle.addEventListener('change', () => {
+            cpShift();
+        });
+    });
+
+    document.querySelectorAll('#ucpcontent form[name="theForm"] input[type="text"]').forEach(input => {
+        let label = input.getAttribute('id');
+        if(document.querySelector('label[for="' + label + '"]')) {
+                input.setAttribute('placeholder', document.querySelector('label[for="' + label + '"]').innerText.toLowerCase());
+        }
+    });
+
+    document.querySelectorAll('#ucpcontent form[name="theForm"] textarea').forEach(input => {
+        let label = input.getAttribute('id');
+        if(document.querySelector('label[for="' + label + '"]')) {
+                input.setAttribute('placeholder', document.querySelector('label[for="' + label + '"]').innerText.toLowerCase());
+        }
+    });
+}
+function initStoreMenu() {
+    let ucpMain = `<div class="ucp--main-menu">
+        <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+        <tag-labels>
+            <tag-label tabindex="0" data-tab="personal">Personal</tag-label>
+            <tag-label tabindex="0" data-tab="shop">Shop</tag-label>
+            <tag-label tabindex="0" data-tab="manage">Management</tag-label>
+        </tag-labels>
+        <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+    </div>`;
+    let ucpSecondary = `<tag-tabs class="ucp--secondary-menu">
+        <tag-tab data-tab="personal">
+            <div class="ucp--tabs auto-height">
+                <div class="ucp--labels">
+                    <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                    <tag-labels>
+                        <a href="?act=store&CODE=inventory" data-category="personal" data-path="inventory">Inventory</a>
+                        <a href="?act=store&code=donate_money" data-category="personal" data-path="donate_money">Send Galleons</a>
+                        <a href="?act=store&code=donate_item" data-category="personal" data-path="donate_item">Gift Awards</a>
+                    </tag-labels>
+                    <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                </div>
+            </div>
+        </tag-tab>
+        <tag-tab data-tab="shop">
+            <div class="ucp--tabs auto-height">
+                <div class="ucp--labels">
+                    <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                    <tag-labels>
+                        <a href="?act=store" data-category="shop" data-path="store">Categories</a>
+                        <a href="?act=store&code=shop&category=5" data-category="shop" data-path="category5">Appreciation</a>
+                        <a href="?act=store&code=shop&category=2" data-category="shop" data-path="category2">Education</a>
+                        <a href="?act=store&code=shop&category=6" data-category="shop" data-path="category6">Events</a>
+                        <a href="?act=store&code=shop&category=1" data-category="shop" data-path="category1">Features & Occupations</a>
+                        <a href="?act=store&code=shop&category=7" data-category="shop" data-path="category7">Longevity</a>
+                        <a href="?act=store&code=shop&category=9" data-category="shop" data-path="category9">Posting</a>
+                        <a href="?act=store&code=shop&category=8" data-category="shop" data-path="category8">Productivity</a>
+                        <a href="?act=store&code=shop&category=3" data-category="shop" data-path="category3">Relationship Status</a>
+                        <a href="?act=store&code=shop&category=4" data-category="shop" data-path="category4">Traits & Other</a>
+                    </tag-labels>
+                    <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                </div>
+            </div>
+        </tag-tab>
+        <tag-tab data-tab="manage">
+            <div class="ucp--tabs auto-height">
+                <div class="ucp--labels">
+                    <button class="scroll--left" onClick="moveLeft(this)"><i class="fa-light fa-long-arrow-left"></i></button>
+                    <tag-labels>
+                        <a href="store-fine.html" data-category="manage" data-path="fine">Fine</a>
+                        <a href="store-editpoints.html" data-category="manage" data-path="edit_points">Edit Galleons</a>
+                        <a href="store-edititems.html" data-category="manage" data-path="edit_inventory">Edit Inventory</a>
+                    </tag-labels>
+                    <button class="scroll--right" onClick="moveRight(this)"><i class="fa-light fa-long-arrow-right"></i></button>
+                </div>
+            </div>
+        </tag-tab>
+    </tag-tabs>`;
+    
+    document.querySelector('#ucpmenu').innerHTML = ucpMain;
+    document.querySelector('#ucpcontent').innerHTML = `${ucpSecondary}<div class="ucp--wrapper scroll">
+        ${document.querySelector('#ucpcontent').innerHTML}
+    </div>`;
+
+
+    initStoreTabs();
+}
+function initStoreTabs() {
+    //select appropriate labels (main and secondary)
+    let path = window.location.pathname;
+    let mainLabel, subLabel;
+    if(path.includes('inventory')) {
+        mainLabel = document.querySelector(`tag-label[data-tab="personal"]`);
+        subLabel = document.querySelector(`a[data-category="personal"][data-path="inventory"]`);
+    } else if(path.includes('sendmoney')) {
+        mainLabel = document.querySelector(`tag-label[data-tab="personal"]`);
+        subLabel = document.querySelector(`a[data-category="personal"][data-path="donate_money"]`);
+    } else if(path.includes('senditem')) {
+        mainLabel = document.querySelector(`tag-label[data-tab="personal"]`);
+        subLabel = document.querySelector(`a[data-category="personal"][data-path="donate_item"]`);
+    } else if(path.includes('category=1')) {
+        mainLabel = document.querySelector(`tag-label[data-tab="shop"]`);
+        subLabel = document.querySelector(`a[data-category="shop"][data-path="category1"]`);
+    } else if(path.includes('category=2')) {
+        mainLabel = document.querySelector(`tag-label[data-tab="shop"]`);
+        subLabel = document.querySelector(`a[data-category="shop"][data-path="category2"]`);
+    } else if(path.includes('category=3')) {
+        mainLabel = document.querySelector(`tag-label[data-tab="shop"]`);
+        subLabel = document.querySelector(`a[data-category="shop"][data-path="category3"]`);
+    } else if(path.includes('category=4')) {
+        mainLabel = document.querySelector(`tag-label[data-tab="shop"]`);
+        subLabel = document.querySelector(`a[data-category="shop"][data-path="category4"]`);
+    } else if(path.includes('category=5')) {
+        mainLabel = document.querySelector(`tag-label[data-tab="shop"]`);
+        subLabel = document.querySelector(`a[data-category="shop"][data-path="category5"]`);
+    } else if(path.includes('category=6')) {
+        mainLabel = document.querySelector(`tag-label[data-tab="shop"]`);
+        subLabel = document.querySelector(`a[data-category="shop"][data-path="category6"]`);
+    } else if(path.includes('category=7')) {
+        mainLabel = document.querySelector(`tag-label[data-tab="shop"]`);
+        subLabel = document.querySelector(`a[data-category="shop"][data-path="category7"]`);
+    } else if(path.includes('category=8')) {
+        mainLabel = document.querySelector(`tag-label[data-tab="shop"]`);
+        subLabel = document.querySelector(`a[data-category="shop"][data-path="category8"]`);
+    } else if(path.includes('category=9')) {
+        mainLabel = document.querySelector(`tag-label[data-tab="shop"]`);
+        subLabel = document.querySelector(`a[data-category="shop"][data-path="category9"]`);
+    } else if(path.includes('fine')) {
+        mainLabel = document.querySelector(`tag-label[data-tab="manage"]`);
+        subLabel = document.querySelector(`a[data-category="manage"][data-path="fine"]`)
+    } else if(path.includes('editpoints')) {
+        mainLabel = document.querySelector(`tag-label[data-tab="manage"]`);
+        subLabel = document.querySelector(`a[data-category="manage"][data-path="edit_points"]`)
+    } else if(path.includes('edititems')) {
+        mainLabel = document.querySelector(`tag-label[data-tab="manage"]`);
+        subLabel = document.querySelector(`a[data-category="manage"][data-path="edit_inventory"]`)
+    } else {
+        mainLabel = document.querySelector(`tag-label[data-tab="shop"]`);
+        subLabel = document.querySelector(`a[data-category="shop"][data-path="store"]`);
+    }
+
+    //set consistent
+    let mainLabels = document.querySelectorAll('#ucpmenu tag-label');
+    let subLabels = document.querySelectorAll('tag-tab tag-label');
+    let tabs = document.querySelectorAll('tag-tabs > tag-tab');
+    let labelsArray = Array.prototype.slice.call(mainLabels);
+    let index = labelsArray.indexOf(mainLabel);
+
+    mainLabel.classList.add('is-active');
+    subLabel.classList.add('is-active');
+    tabs.forEach(tab => {
+        tab.classList.remove('is-active');
+        tab.style.left = `${-100 * index}%`;
+    });
+
+    //click events
+    mainLabels.forEach((label, i) => {
+        label.addEventListener('click', e => {
+            mainLabels.forEach(sibling => sibling.classList.remove('is-active'));
+            subLabels.forEach(sublabel => sublabel.classList.remove('is-active'));
+            tabs.forEach(tab => {
+                tab.classList.remove('is-active');
+                tab.style.left = `${-100 * i}%`;
+            });
+            label.classList.add('is-active');
+            tabs[i].classList.add('is-active');
+        });
+    });
+}
+function initCopyLink() {
+    let clippedURL = new Clipboard('.post-link');
+    document.querySelectorAll('.post-link').forEach(link => {
+        link.addEventListener('click', e => {
+            e.currentTarget.querySelector('.note').style.opacity = 1;
+            setTimeout(() => {
+                document.querySelectorAll('.note').forEach(note => note.style.opacity = 0);
+            }, 3000);
+        });
+    });
+}
+function cpShift() {
+	let appType = document.querySelector('#field_75_input').value,
+	    account = document.querySelector('#field_74_input').value,
+	    showFields = [],
+	    hideFields = [],
+	    showHeaders = allHeaders;
+
+	if(account == 'char') {
+
+		if(appType == 'trad') {
+			showFields = charAll.concat(charTrad).concat(hasFreeform);
+			hideFields = charBasic;
+			showHeaders = showHeaders.concat(tradHeaders);
+		}
+		else if(appType == 'sim') {
+			showFields = charAll.concat(charBasic).concat(hasFreeform);
+			hideFields = charTrad;
+			showHeaders = showHeaders.concat(simHeaders);
+		}
+		else if(appType == 'bas') {
+			showFields = charAll.concat(charBasic);
+			hideFields = charTrad.concat(hasFreeform);
+			showHeaders = showHeaders.concat(basicHeaders);
+		}
+		else {
+			showFields = [];
+			hideFields = charAll.concat(charTrad).concat(charBasic).concat(hasFreeform);
+		}
+
+		showHeaders = showHeaders.concat(charHeaders);
+		adjustCP(showFields, hideFields, showHeaders);
+
+	} else {
+		showFields = [];
+		hideFields = charAll.concat(charTrad).concat(charBasic).concat(hasFreeform);
+		adjustCP(showFields, hideFields, showHeaders);
+	}
+}
+function adjustCP(show, hide, headers) {
+	show.forEach(field => {
+		showAccField(field);
+	});
+	hide.forEach(field => {
+		hideAccField(field);
+	});
+	document.querySelectorAll('.ucp--header').forEach(header => {
+		header.remove();
+	});
+	headers.forEach(header => {
+		insertCPHeader(header['title'], header['insertBefore']);
+	});
+}
 
 //Utilities
 function highlightCode() {
@@ -615,6 +853,19 @@ function fancyBoxes(type = 'checkbox') {
             label.querySelector('input').insertAdjacentHTML('afterend', `<div class="fancy-input radio"><i class="fa-regular fa-check"></i></div>`);
         });
     }
+}
+function hideAccField(field) {
+	if(document.querySelector(field)) {
+		document.querySelector(field).classList.add('hide');
+	}
+}
+function showAccField(field) {
+	if(document.querySelector(field)) {
+		document.querySelector(field).classList.remove('hide');
+	}
+}
+function insertCPHeader (title, field, identifier) {
+	$(field).before(`<tr class="pformstrip ucp--header"><td>${title}</td></tr>`);
 }
 
 //Filters

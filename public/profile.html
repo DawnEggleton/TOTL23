@@ -24,7 +24,10 @@
 		<script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
 		<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
 		<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
-        <script src="../dist/js/clipboard.js"></script>
+        <script src="https://files.jcink.net/uploads2/legends/clipboard.js"></script>
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+        <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" />
 
         <!--Settings-->
         <script type='text/javascript' src='../dist/js/settings.js'></script>
@@ -47,7 +50,7 @@
             <!--Profile-->
             <section class="profile g-8 acc-Member app-Traditional gay">
                 <header>
-                    <h1>Duncan O'Donnelly-Taggart</h1>
+                    <h1>macey mctaggart testy</h1>
                     <div class="profile--links">
                         <a href="profile-member.html">Directory</a>
                         <a href="post.html">Development</a>
@@ -708,10 +711,22 @@
             <script src="../dist/js/tracker.js"></script>
             <script>
                 //Functions
-                function capitalizeProfile(str, separators) {
+                function fixMcProf(str) {
+                    return (""+str).replace(/Mc(.)/g, function(m, m1) {
+                        return 'Mc' + m1.toUpperCase();
+                    });
+                }
+                function fixMacProf(str) {
+                    return (""+str).replace(/Mac(.)/g, function(m, m1) {
+                        return 'Mac' + m1.toUpperCase();
+                    });
+                }
+                function capitalizeProfile(str, separators = [` `, `'`, `-`]) {
                     separators = separators || [ ' ' ];
                     var regex = new RegExp('(^|[' + separators.join('') + '])(\\w)', 'g');
-                    return str.replace(regex, function(x) { return x.toUpperCase(); });
+                    let first = str.split(' ')[0].replace(regex, function(x) { return x.toUpperCase(); });
+                    let last = fixMacProf(fixMcProf(str.split(' ').slice(1).join(' ').replace(regex, function(x) { return x.toUpperCase(); })));
+                    return `${first} ${last}`;
                 }
                 function setProfileTab(accType = 'Character', appType = 'Traditional') {
                     if (accType === 'Member') {
@@ -762,6 +777,8 @@
                 
                 //Global
                 setProfileTab('', '');
+                let profileTitle = document.querySelector('.profile h1');
+                profileTitle.innerText = capitalizeProfile(profileTitle.innerText);
 
                 //Member Specific
                 if('<!-- |g_id| -->' == '4' || '<!-- |g_id| -->' == '20' || 'Character'.toLowerCase() == 'member') {

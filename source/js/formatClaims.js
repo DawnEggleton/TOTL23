@@ -358,8 +358,8 @@ function formatJobs(data) {
                 Location: job.section,
                 LocationID: locationID,
                 Employer: job.subsection !== '' ? job.subsection : 'self-employed',
-                Line1: job.line2,
-                Line2: job.line1 !== '' ? job.line1 : null
+                Line1: job.line1 !== '' ? job.line1 : null,
+                Line2: job.line2 !== '' ? job.line2 : null
             });
         });
     });
@@ -396,16 +396,21 @@ function formatJobs(data) {
             firstTab = `jobs-${character.Location.replaceAll(' ', '-')}`;
             tabContent += formatClaimGrid('3');
             tabContent += formatClaimHeader('h3', character.Employer, `fullWidth`);
-            if(character.Line2) {
+            if(character.Line1 && character.Line2) {
                 tabContent += formatClaimBox(character.GroupID,
                     character.AccountID,
                     character.Character,
                     [character.Line1, character.Line2]);
-            } else {
+            } else if (character.Line1) {
                 tabContent += formatClaimBox(character.GroupID,
                     character.AccountID,
                     character.Character,
                     [character.Line1]);
+            } else {
+                tabContent += formatClaimBox(character.GroupID,
+                    character.AccountID,
+                    character.Character,
+                    [character.Line2]);
             }
         }
         //different location
@@ -416,45 +421,60 @@ function formatJobs(data) {
             tabContent = ``;
             tabContent += formatClaimGrid('3');
             tabContent += formatClaimHeader('h3', character.Employer, `fullWidth`);
-            if(character.Line2) {
+            if(character.Line1 && character.Line2) {
                 tabContent += formatClaimBox(character.GroupID,
                     character.AccountID,
                     character.Character,
                     [character.Line1, character.Line2]);
-            } else {
+            } else if (character.Line1) {
                 tabContent += formatClaimBox(character.GroupID,
                     character.AccountID,
                     character.Character,
                     [character.Line1]);
+            } else {
+                tabContent += formatClaimBox(character.GroupID,
+                    character.AccountID,
+                    character.Character,
+                    [character.Line2]);
             }
         }
         //same location, different employer
         else if (i !== characters.length - 1 && character.Location === characters[i - 1].Location && character.Employer !== characters[i - 1].Employer) {
             tabContent += formatClaimHeader('h3', character.Employer, `fullWidth`);
-            if(character.Line2) {
+            if(character.Line1 && character.Line2) {
                 tabContent += formatClaimBox(character.GroupID,
                     character.AccountID,
                     character.Character,
                     [character.Line1, character.Line2]);
-            } else {
+            } else if (character.Line1) {
                 tabContent += formatClaimBox(character.GroupID,
                     character.AccountID,
                     character.Character,
                     [character.Line1]);
+            } else {
+                tabContent += formatClaimBox(character.GroupID,
+                    character.AccountID,
+                    character.Character,
+                    [character.Line2]);
             }
         }
         //same location, employer
         else if (i !== characters.length - 1 && character.Ability === characters[i - 1].Ability) {
-            if(character.Line2) {
+            if(character.Line2 && character.Line1) {
                 tabContent += formatClaimBox(character.GroupID,
                     character.AccountID,
                     character.Character,
                     [character.Line1, character.Line2]);
-            } else {
+            } else if (character.Line1) {
                 tabContent += formatClaimBox(character.GroupID,
                     character.AccountID,
                     character.Character,
                     [character.Line1]);
+            } else {
+                tabContent += formatClaimBox(character.GroupID,
+                    character.AccountID,
+                    character.Character,
+                    [character.Line2]);
             }
         }
         //close after last character

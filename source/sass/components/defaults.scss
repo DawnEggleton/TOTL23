@@ -829,7 +829,9 @@ body:not(#ST) {
                 &#code-buttons .pformleft,
                 &#topic-title .pformleft,
                 &#topic-desc .pformleft,
-                &#post-as + tr + tr:not(:last-child) .pformleft {
+                &#post-as + tr + tr:not(:last-child) .pformleft,
+                &#upload-files-header,
+                &#upload-files {
                     display: none;
                 }
 

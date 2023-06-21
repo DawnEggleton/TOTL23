@@ -596,7 +596,7 @@ body:not(#ST) .tableborder > .titlemedium {
     #Post #posting-form > tbody > tr#code-buttons .pformleft,
     #Post #posting-form > tbody > tr#topic-title .pformleft,
     #Post #posting-form > tbody > tr#topic-desc .pformleft,
-    #Post #posting-form > tbody > tr#post-as + tr + tr:not(:last-child) .pformleft {
+    #Post #posting-form > tbody > tr#post-as + tr + tr:not(:last-child) .pformleft, #Post #posting-form > tbody > tr#upload-files-header, #Post #posting-form > tbody > tr#upload-files {
       display: none; }
     #Post #posting-form > tbody > tr#topic-title, #Post #posting-form > tbody > tr#topic-desc {
       display: block;

@@ -15,7 +15,9 @@
   --black-30: rgba(12, 12, 12, 0.3);
   --offBlack: rgba(18, 18, 18, 1);
   --dkGrey: rgba(26, 26, 26, 1);
+  --dmGrey: rgba(34, 34, 34, 1);
   --mdGrey: rgba(40, 40, 40, 1);
+  --mlGrey: rgba(68, 68, 68, 1);
   --lmGrey: rgba(150, 150, 150, 1);
   --ltGrey: rgba(134, 134, 134, 1);
   --xltGrey: rgba(170, 170, 170, 1);
@@ -221,11 +223,11 @@
 .dark {
   --bg-content: var(--offBlack);
   --bg-body: var(--black);
-  --bg-alt: var(--dkGrey);
+  --bg-alt: var(--dmGrey);
   --bg-contrast: var(--white);
   --bg-body-alt: var(--mdGrey);
   --bg-transparent: var(--black-30);
   --text-content: var(--xltGrey);
   --text-content-hover: var(--white);
   --text-body: var(--offWhite);
-  --border-main: var(--mdGrey); }
+  --border-main: var(--mlGrey); }

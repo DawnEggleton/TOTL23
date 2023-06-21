@@ -1,12 +1,43 @@
-#UserCP main > table {
+#UserCP main > table:first-of-type,
+#Msg main > table:first-of-type,
+#store main > table:first-of-type {
   display: block; }
-  #UserCP main > table > tbody {
+  #UserCP main > table:first-of-type ~ *,
+  #Msg main > table:first-of-type ~ *,
+  #store main > table:first-of-type ~ * {
+    display: none; }
+  #UserCP main > table:first-of-type > tbody,
+  #Msg main > table:first-of-type > tbody,
+  #store main > table:first-of-type > tbody {
     display: block; }
-    #UserCP main > table > tbody > tr {
+    #UserCP main > table:first-of-type > tbody > tr,
+    #Msg main > table:first-of-type > tbody > tr,
+    #store main > table:first-of-type > tbody > tr {
       display: flex;
       flex-direction: column; }
-      #UserCP main > table > tbody > tr > td:nth-child(2) {
+      #UserCP main > table:first-of-type > tbody > tr > td:nth-child(2),
+      #Msg main > table:first-of-type > tbody > tr > td:nth-child(2),
+      #store main > table:first-of-type > tbody > tr > td:nth-child(2) {
         display: none; }
+      #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent,
+      #Msg main > table:first-of-type > tbody > tr > td#ucpcontent,
+      #store main > table:first-of-type > tbody > tr > td#ucpcontent {
+        background: var(--bg-content);
+        color: var(--text-content);
+        margin: 15px;
+        max-height: calc(100vh - (var(--menuSize) * 2) - 28px); }
+        @media only screen and (min-width: 480px) {
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent,
+          #store main > table:first-of-type > tbody > tr > td#ucpcontent {
+            margin: 30px;
+            max-height: calc(100vh - (var(--menuSize) * 2) - 88px); } }
+        @media only screen and (min-width: 1440px) {
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent,
+          #store main > table:first-of-type > tbody > tr > td#ucpcontent {
+            margin: 30px auto;
+            max-width: 1300px; } }
 
 .ucp--main-menu, .ucp--labels {
   background: var(--bg-alt);
@@ -39,7 +70,9 @@
     scrollbar-width: none; }
     .ucp--main-menu tag-labels::-webkit-scrollbar, .ucp--labels tag-labels::-webkit-scrollbar {
       display: none; }
-  .ucp--main-menu tag-label, .ucp--labels tag-label {
+  .ucp--main-menu tag-labels > a,
+  .ucp--main-menu tag-label, .ucp--labels tag-labels > a,
+  .ucp--labels tag-label {
     display: flex;
     align-items: center;
     border: none;
@@ -52,18 +85,1148 @@
     font-weight: 600;
     cursor: pointer;
     white-space: nowrap; }
-    .ucp--main-menu tag-label:hover, .ucp--labels tag-label:hover {
+    .ucp--main-menu tag-labels > a:hover,
+    .ucp--main-menu tag-label:hover, .ucp--labels tag-labels > a:hover,
+    .ucp--labels tag-label:hover {
       background: var(--ltaccent-40); }
-    .ucp--main-menu tag-label.is-active, .ucp--labels tag-label.is-active {
+    .ucp--main-menu tag-labels > a.is-active,
+    .ucp--main-menu tag-label.is-active, .ucp--labels tag-labels > a.is-active,
+    .ucp--labels tag-label.is-active {
       background: var(--ltaccent-55); }
 
-.ucp--tabs {
+.ucp--secondary-menu {
   flex-grow: 1;
   display: flex;
   overflow: hidden; }
-  .ucp--tabs tag-tab {
+  .ucp--secondary-menu tag-tab {
     width: 100%;
     flex: 0 0 100%;
     height: 100%;
     left: 0;
     transition-duration: 0.5s; }
+
+.ucp--wrapper {
+  padding: 15px;
+  overflow: auto;
+  max-height: calc(100vh - (var(--menuSize) * 2) - 58px); }
+  @media only screen and (min-width: 480px) {
+    .ucp--wrapper {
+      padding: 30px;
+      max-height: calc(100vh - (var(--menuSize) * 2) - 148px); } }
+  .ucp--wrapper .maintitle {
+    display: none; }
+  .ucp--wrapper .pformstrip {
+    text-align: center;
+    font-size: calc(var(--xlBody) + 4px);
+    margin-bottom: 24px;
+    padding: 0 0 12px;
+    text-transform: capitalize; }
+    .ucp--wrapper .pformstrip:not(:only-child):not(:last-child)::after {
+      content: '';
+      height: 1px;
+      width: 50px;
+      background: var(--border-main);
+      position: absolute;
+      bottom: 0;
+      left: calc(50% - 25px); }
+  .ucp--wrapper form > table {
+    display: block; }
+    .ucp--wrapper form > table > tbody {
+      display: block; }
+      .ucp--wrapper form > table > tbody > tr {
+        display: grid;
+        gap: 7px;
+        margin-bottom: 15px; }
+        @media only screen and (min-width: 480px) {
+          .ucp--wrapper form > table > tbody > tr {
+            margin-bottom: 30px; } }
+        @media only screen and (min-width: 768px) {
+          .ucp--wrapper form > table > tbody > tr {
+            grid-template-columns: 250px calc(100% - 265px);
+            gap: 15px; } }
+        @media only screen and (min-width: 768px) {
+          .ucp--wrapper form > table > tbody > tr .pformleft {
+            padding: 15px 15px 15px 0;
+            border-right: 1px solid var(--border-main); } }
+        .ucp--wrapper form > table > tbody > tr .pformleft b,
+        .ucp--wrapper form > table > tbody > tr .pformleft strong,
+        .ucp--wrapper form > table > tbody > tr .pformleft label {
+          display: block;
+          font-family: var(--font-head);
+          font-size: var(--lBody);
+          font-weight: 600 !important;
+          border-bottom: 1px solid var(--border-main);
+          margin-bottom: 5px; }
+          .ucp--wrapper form > table > tbody > tr .pformleft b ~ br,
+          .ucp--wrapper form > table > tbody > tr .pformleft strong ~ br,
+          .ucp--wrapper form > table > tbody > tr .pformleft label ~ br {
+            display: none; }
+        .ucp--wrapper form > table > tbody > tr .pformright {
+          display: flex;
+          gap: 5px;
+          height: max-content; }
+          @media only screen and (min-width: 768px) {
+            .ucp--wrapper form > table > tbody > tr .pformright {
+              padding: 15px 0 15px 15px; } }
+          .ucp--wrapper form > table > tbody > tr .pformright select {
+            margin: 0;
+            line-height: 200%;
+            padding: 5px 10px;
+            background: var(--bg-alt);
+            font-weight: 600; }
+          .ucp--wrapper form > table > tbody > tr .pformright input,
+          .ucp--wrapper form > table > tbody > tr .pformright textarea {
+            margin: 0;
+            width: 100%;
+            font-size: var(--mBody);
+            line-height: 200%;
+            padding: 5px 10px;
+            letter-spacing: 0;
+            background: var(--bg-alt); }
+          .ucp--wrapper form > table > tbody > tr .pformright input {
+            text-transform: none; }
+          .ucp--wrapper form > table > tbody > tr .pformright textarea {
+            font-family: var(--font-body); }
+        .ucp--wrapper form > table > tbody > tr > :only-child {
+          grid-column: 1 / -1; }
+        .ucp--wrapper form > table > tbody > tr:last-child .pformstrip:only-child {
+          margin-bottom: 0;
+          padding: 0; }
+          .ucp--wrapper form > table > tbody > tr:last-child .pformstrip:only-child input {
+            background: var(--ltaccent-40); }
+
+.ucp--header {
+  margin-top: 15px;
+  padding-top: 20px !important;
+  border-top: 1px solid var(--border-main); }
+
+#UserCP.code-01 .ucp--wrapper form > .pformstrip {
+  display: none; }
+
+#UserCP.code-01 .ucp--wrapper form #field-website,
+#UserCP.code-01 .ucp--wrapper form #field-location,
+#UserCP.code-01 .ucp--wrapper form #field-interests {
+  display: none; }
+
+#UserCP.code-01 .ucp--wrapper form #field-interests + .ucp--header {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 0; }
+
+#UserCP.code-24 p {
+  text-align: center;
+  margin-bottom: 15px; }
+  @media only screen and (min-width: 480px) {
+    #UserCP.code-24 p {
+      margin-bottom: 30px; } }
+
+#UserCP.code-24 #gallery_form {
+  display: none; }
+
+#UserCP.code-24 .tablepad {
+  font-size: 0; }
+
+#UserCP.code-24 .tablebasic + .tablebasic .pformleft {
+  display: none; }
+
+#UserCP.code-24 .tablebasic + .tablebasic .pformright {
+  grid-column: 1 / -1;
+  display: block;
+  padding: 0; }
+  #UserCP.code-24 .tablebasic + .tablebasic .pformright b,
+  #UserCP.code-24 .tablebasic + .tablebasic .pformright strong,
+  #UserCP.code-24 .tablebasic + .tablebasic .pformright label {
+    display: block;
+    font-family: var(--font-head);
+    font-size: var(--lBody);
+    font-weight: 600 !important;
+    border-bottom: 1px solid var(--border-main);
+    margin-bottom: 5px; }
+    #UserCP.code-24 .tablebasic + .tablebasic .pformright b ~ br,
+    #UserCP.code-24 .tablebasic + .tablebasic .pformright strong ~ br,
+    #UserCP.code-24 .tablebasic + .tablebasic .pformright label ~ br {
+      display: none; }
+
+#UserCP.code-24 .tablebasic + .tablebasic + .pformstrip:last-child {
+  margin-bottom: 0;
+  padding: 0; }
+  #UserCP.code-24 .tablebasic + .tablebasic + .pformstrip:last-child input {
+    background: var(--ltaccent-40); }
+
+#UserCP.code-54 .tableborder:first-child tbody {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; }
+  #UserCP.code-54 .tableborder:first-child tbody > tr {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0; }
+    #UserCP.code-54 .tableborder:first-child tbody > tr:first-child {
+      display: none; }
+    #UserCP.code-54 .tableborder:first-child tbody > tr:last-child {
+      flex: 0 0 100%; }
+      #UserCP.code-54 .tableborder:first-child tbody > tr:last-child input {
+        background: var(--ltaccent-40); }
+    #UserCP.code-54 .tableborder:first-child tbody > tr:not(:first-child):not(:last-child) {
+      flex: 0 0 100%;
+      border: 1px solid var(--border-main);
+      padding: 5px; }
+      @media only screen and (min-width: 480px) {
+        #UserCP.code-54 .tableborder:first-child tbody > tr:not(:first-child):not(:last-child) {
+          padding: 10px; } }
+      @media only screen and (min-width: 768px) {
+        #UserCP.code-54 .tableborder:first-child tbody > tr:not(:first-child):not(:last-child) {
+          flex: 0 0 calc(50% - 7.5px); } }
+      @media only screen and (min-width: 1024px) {
+        #UserCP.code-54 .tableborder:first-child tbody > tr:not(:first-child):not(:last-child) {
+          flex: 0 0 calc((100% / 3) - 10px); } }
+      #UserCP.code-54 .tableborder:first-child tbody > tr:not(:first-child):not(:last-child) > td {
+        margin: 0;
+        padding: 0 0 0 21px; }
+        @media only screen and (min-width: 480px) {
+          #UserCP.code-54 .tableborder:first-child tbody > tr:not(:first-child):not(:last-child) > td {
+            padding: 0 0 0 26px; } }
+        #UserCP.code-54 .tableborder:first-child tbody > tr:not(:first-child):not(:last-child) > td:first-child a {
+          color: var(--text-content);
+          font-family: var(--font-head);
+          font-size: var(--lBody);
+          font-weight: 600; }
+        #UserCP.code-54 .tableborder:first-child tbody > tr:not(:first-child):not(:last-child) > td:nth-child(2) {
+          font-size: var(--xsBody);
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          font-weight: 600; }
+        #UserCP.code-54 .tableborder:first-child tbody > tr:not(:first-child):not(:last-child) > td:last-child {
+          position: absolute; }
+
+#UserCP.code-54 .tableborder:not(:first-child) .pformleft {
+  font-family: var(--font-head);
+  font-size: var(--lBody);
+  font-weight: 600;
+  text-transform: capitalize; }
+
+#UserCP.code-52 .row2 + table .pformleft {
+  font-family: var(--font-head);
+  font-size: var(--lBody);
+  font-weight: 600;
+  text-transform: capitalize; }
+
+#UserCP.code-28 form[name="form1"] > table > tbody > tr > td:first-child,
+#UserCP.code-08 form[name="form1"] > table > tbody > tr > td:first-child {
+  width: 100%; }
+  @media only screen and (min-width: 768px) {
+    #UserCP.code-28 form[name="form1"] > table > tbody > tr > td:first-child,
+    #UserCP.code-08 form[name="form1"] > table > tbody > tr > td:first-child {
+      padding: 15px 15px 15px 0;
+      border-right: 1px solid var(--border-main); } }
+  #UserCP.code-28 form[name="form1"] > table > tbody > tr > td:first-child b,
+  #UserCP.code-08 form[name="form1"] > table > tbody > tr > td:first-child b {
+    display: block;
+    font-family: var(--font-head);
+    font-size: var(--lBody);
+    font-weight: 600 !important; }
+    #UserCP.code-28 form[name="form1"] > table > tbody > tr > td:first-child b ~ br,
+    #UserCP.code-08 form[name="form1"] > table > tbody > tr > td:first-child b ~ br {
+      display: none; }
+
+#UserCP.code-28 form[name="form1"] > table > tbody > tr > td:last-child,
+#UserCP.code-08 form[name="form1"] > table > tbody > tr > td:last-child {
+  display: flex;
+  gap: 5px;
+  height: max-content; }
+  @media only screen and (min-width: 768px) {
+    #UserCP.code-28 form[name="form1"] > table > tbody > tr > td:last-child,
+    #UserCP.code-08 form[name="form1"] > table > tbody > tr > td:last-child {
+      padding: 15px 0 15px 15px; } }
+  #UserCP.code-28 form[name="form1"] > table > tbody > tr > td:last-child input,
+  #UserCP.code-08 form[name="form1"] > table > tbody > tr > td:last-child input {
+    margin: 0;
+    width: 100%;
+    font-size: var(--mBody);
+    line-height: 200%;
+    padding: 5px 10px;
+    letter-spacing: 0;
+    background: var(--bg-alt);
+    text-transform: none; }
+
+#UserCP.code-28 form[name="form1"] > table + .pformstrip,
+#UserCP.code-08 form[name="form1"] > table + .pformstrip {
+  margin-bottom: 0;
+  padding: 0; }
+  #UserCP.code-28 form[name="form1"] > table + .pformstrip input,
+  #UserCP.code-08 form[name="form1"] > table + .pformstrip input {
+    background: var(--ltaccent-40); }
+
+#UserCP.code-alerts .ucp--wrapper .pagination {
+  display: flex;
+  align-items: center;
+  color: var(--text-content);
+  font-size: var(--xsBody);
+  gap: 5px; }
+  #UserCP.code-alerts .ucp--wrapper .pagination::before {
+    content: 'Pages: ';
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-left: 15px; }
+  #UserCP.code-alerts .ucp--wrapper .pagination .pagination_current {
+    font-weight: 600; }
+  #UserCP.code-alerts .ucp--wrapper .pagination a {
+    color: var(--text-content); }
+
+#UserCP.code-alerts .ucp--wrapper > table {
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1em; }
+  #UserCP.code-alerts .ucp--wrapper > table img {
+    display: none; }
+
+#UserCP.code-alerts .ucp--wrapper > form > .tableborder > table {
+  display: block; }
+  #UserCP.code-alerts .ucp--wrapper > form > .tableborder > table > tbody {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; }
+    #UserCP.code-alerts .ucp--wrapper > form > .tableborder > table > tbody > tr {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 0; }
+      #UserCP.code-alerts .ucp--wrapper > form > .tableborder > table > tbody > tr:first-child {
+        display: none; }
+      #UserCP.code-alerts .ucp--wrapper > form > .tableborder > table > tbody > tr:last-child {
+        flex: 0 0 100%;
+        font-size: var(--xsBody);
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.1em; }
+        #UserCP.code-alerts .ucp--wrapper > form > .tableborder > table > tbody > tr:last-child input {
+          background: var(--ltaccent-40); }
+      #UserCP.code-alerts .ucp--wrapper > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) {
+        flex: 0 0 100%;
+        border: 1px solid var(--border-main);
+        padding: 5px; }
+        @media only screen and (min-width: 480px) {
+          #UserCP.code-alerts .ucp--wrapper > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) {
+            padding: 10px; } }
+        @media only screen and (min-width: 768px) {
+          #UserCP.code-alerts .ucp--wrapper > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) {
+            flex: 0 0 calc(50% - 7.5px); } }
+        @media only screen and (min-width: 1024px) {
+          #UserCP.code-alerts .ucp--wrapper > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) {
+            flex: 0 0 calc((100% / 3) - 10px); } }
+        #UserCP.code-alerts .ucp--wrapper > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child).alert-unread {
+          border-color: var(--ltaccent);
+          border-width: 2px; }
+        #UserCP.code-alerts .ucp--wrapper > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td {
+          margin: 0;
+          font-size: var(--xsBody);
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          font-weight: 600;
+          padding: 0 0 0 21px;
+          text-align: left; }
+          @media only screen and (min-width: 480px) {
+            #UserCP.code-alerts .ucp--wrapper > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td {
+              padding: 0 0 0 26px; } }
+          #UserCP.code-alerts .ucp--wrapper > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:first-child {
+            display: none; }
+          #UserCP.code-alerts .ucp--wrapper > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td.alert-text {
+            text-transform: none;
+            font-size: var(--mBody);
+            font-family: var(--font-head);
+            letter-spacing: 0;
+            font-weight: 600;
+            margin-top: -5px; }
+            #UserCP.code-alerts .ucp--wrapper > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td.alert-text a {
+              color: var(--text-content); }
+              #UserCP.code-alerts .ucp--wrapper > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td.alert-text a:first-of-type, #UserCP.code-alerts .ucp--wrapper > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td.alert-text a:last-of-type {
+                text-transform: capitalize; }
+            #UserCP.code-alerts .ucp--wrapper > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td.alert-text img {
+              display: none; }
+          #UserCP.code-alerts .ucp--wrapper > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:last-child {
+            position: absolute;
+            padding: 0; }
+
+#UserCP.code-50 .tableborder > table,
+#UserCP.code-26 .tableborder > table {
+  display: block; }
+  #UserCP.code-50 .tableborder > table > tbody,
+  #UserCP.code-26 .tableborder > table > tbody {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; }
+    #UserCP.code-50 .tableborder > table > tbody > tr,
+    #UserCP.code-26 .tableborder > table > tbody > tr {
+      display: flex;
+      flex-wrap: wrap; }
+      #UserCP.code-50 .tableborder > table > tbody > tr:not(.pformstrip),
+      #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) {
+        border: 1px solid var(--border-main);
+        padding: 5px;
+        flex: 0 0 100%; }
+        @media only screen and (min-width: 480px) {
+          #UserCP.code-50 .tableborder > table > tbody > tr:not(.pformstrip),
+          #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) {
+            padding: 10px; } }
+        @media only screen and (min-width: 768px) {
+          #UserCP.code-50 .tableborder > table > tbody > tr:not(.pformstrip),
+          #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) {
+            flex: 0 0 calc(50% - 7.5px); } }
+        @media only screen and (min-width: 1024px) {
+          #UserCP.code-50 .tableborder > table > tbody > tr:not(.pformstrip),
+          #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) {
+            flex: 0 0 calc((100% / 3) - 10px); } }
+        #UserCP.code-50 .tableborder > table > tbody > tr:not(.pformstrip) > td,
+        #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td {
+          font-size: var(--xsBody);
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          line-height: 160%; }
+          #UserCP.code-50 .tableborder > table > tbody > tr:not(.pformstrip) > td:first-child,
+          #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:first-child {
+            display: none; }
+          #UserCP.code-50 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2), #UserCP.code-50 .tableborder > table > tbody > tr:not(.pformstrip) > td:last-child,
+          #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2),
+          #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:last-child {
+            flex: 0 0 100%; }
+          #UserCP.code-50 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2),
+          #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            line-height: 200%; }
+            #UserCP.code-50 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2) br,
+            #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2) br {
+              display: none; }
+            #UserCP.code-50 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2) b:first-child,
+            #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2) b:first-child {
+              font-size: var(--lBody);
+              text-transform: capitalize;
+              font-family: var(--font-head);
+              letter-spacing: 0; }
+            #UserCP.code-50 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2) a,
+            #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2) a {
+              color: var(--text-content); }
+          #UserCP.code-50 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(3), #UserCP.code-50 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(4),
+          #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(3),
+          #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(4) {
+            font-weight: 600; }
+          #UserCP.code-50 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(3)::after,
+          #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(3)::after {
+            content: ' topics'; }
+          #UserCP.code-50 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(4)::after,
+          #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(4)::after {
+            content: ' replies'; }
+      #UserCP.code-50 .tableborder > table > tbody > tr:first-child,
+      #UserCP.code-26 .tableborder > table > tbody > tr:first-child {
+        display: none; }
+      #UserCP.code-50 .tableborder > table > tbody > tr.pformstrip,
+      #UserCP.code-26 .tableborder > table > tbody > tr.pformstrip {
+        flex: 0 0 100%;
+        font-size: var(--xlBody); }
+        #UserCP.code-50 .tableborder > table > tbody > tr.pformstrip:nth-child(2),
+        #UserCP.code-26 .tableborder > table > tbody > tr.pformstrip:nth-child(2) {
+          border-top: none;
+          margin-top: 0;
+          padding-top: 0 !important; }
+        #UserCP.code-50 .tableborder > table > tbody > tr.pformstrip td,
+        #UserCP.code-26 .tableborder > table > tbody > tr.pformstrip td {
+          display: block;
+          width: 100%;
+          text-align: center; }
+
+#UserCP.code-26 .ucp--wrapper > .pformstrip span {
+  display: none; }
+
+#UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2) {
+  display: block; }
+  #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2) br {
+    display: initial; }
+  #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2) a:first-child {
+    display: block;
+    font-size: var(--lBody);
+    text-transform: capitalize;
+    font-family: var(--font-head);
+    letter-spacing: 0; }
+  #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2) a {
+    color: var(--text-content); }
+
+#UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(5) {
+  flex: 0 0 100%; }
+
+#UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:not(:last-child) {
+  padding-left: 21px; }
+  @media only screen and (min-width: 480px) {
+    #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:not(:last-child) {
+      padding-left: 26px; } }
+
+#UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:last-child {
+  position: absolute; }
+
+#UserCP.code-04 .ucp--wrapper > form > table > tbody > tr > td:first-child {
+  width: 100%; }
+  @media only screen and (min-width: 768px) {
+    #UserCP.code-04 .ucp--wrapper > form > table > tbody > tr > td:first-child {
+      padding: 15px 15px 15px 0;
+      border-right: 1px solid var(--border-main); } }
+  #UserCP.code-04 .ucp--wrapper > form > table > tbody > tr > td:first-child b {
+    display: block;
+    font-family: var(--font-head);
+    font-size: var(--lBody);
+    font-weight: 600 !important; }
+    #UserCP.code-04 .ucp--wrapper > form > table > tbody > tr > td:first-child b ~ br {
+      display: none; }
+
+#UserCP.code-04 .ucp--wrapper > form > table > tbody > tr > td:last-child {
+  display: flex;
+  gap: 5px;
+  height: max-content; }
+  @media only screen and (min-width: 768px) {
+    #UserCP.code-04 .ucp--wrapper > form > table > tbody > tr > td:last-child {
+      padding: 15px 0 15px 15px; } }
+  #UserCP.code-04 .ucp--wrapper > form > table > tbody > tr > td:last-child input {
+    margin: 0;
+    width: 100%;
+    font-size: var(--mBody);
+    line-height: 200%;
+    padding: 5px 10px;
+    letter-spacing: 0;
+    background: var(--bg-alt);
+    text-transform: none; }
+
+#UserCP.code-04 .ucp--wrapper .input-wrap + br {
+  display: none; }
+
+#UserCP.code-04 .ucp--wrapper select {
+  margin: 0;
+  line-height: 200%;
+  padding: 5px 10px;
+  background: var(--bg-alt);
+  font-weight: 600; }
+
+#UserCP.code-04 .ucp--wrapper p select {
+  padding: 7px 8px 2px; }
+
+#UserCP.code-04 .ucp--wrapper .pformstrip:last-child {
+  margin-bottom: 0;
+  padding: 0; }
+  #UserCP.code-04 .ucp--wrapper .pformstrip:last-child input {
+    background: var(--ltaccent-40); }
+
+#UserCP.code-alerts_settings .pformstrip {
+  text-align: left;
+  padding: 0; }
+  #UserCP.code-alerts_settings .pformstrip::after {
+    display: none; }
+
+#UserCP.code-alerts_settings table + .pformstrip {
+  text-align: center;
+  margin-bottom: 0;
+  padding: 0; }
+  #UserCP.code-alerts_settings table + .pformstrip input {
+    background: var(--ltaccent-40); }
+
+#UserCP.code-alerts_settings tr:not(:nth-last-child(4)):not(:first-child) td {
+  padding: 0 0 15px; }
+
+#UserCP.code-alerts_settings tr:nth-last-child(4) .pformstrip {
+  padding-top: 15px; }
+
+#UserCP.code-02 .ucp--wrapper form > table > tbody > tr {
+  grid-template-columns: max-content auto; }
+  #UserCP.code-02 .ucp--wrapper form > table > tbody > tr > td:last-child {
+    margin-top: -5px; }
+
+#UserCP.code-02 .ucp--wrapper .pformstrip:last-child {
+  margin-bottom: 0;
+  padding: 0; }
+  #UserCP.code-02 .ucp--wrapper .pformstrip:last-child input {
+    background: var(--ltaccent-40); }
+
+#Msg.code-01 .ucp--wrapper > table > tbody > tr {
+  font-size: var(--xsBody);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600; }
+  #Msg.code-01 .ucp--wrapper > table > tbody > tr > td:first-child {
+    display: none; }
+  #Msg.code-01 .ucp--wrapper > table > tbody > tr > td > br,
+  #Msg.code-01 .ucp--wrapper > table > tbody > tr > td > form {
+    display: none; }
+
+#Msg.code-01 .ucp--wrapper > form > .tableborder > table > tbody > tr th {
+  text-align: left;
+  font-family: var(--font-head);
+  font-size: var(--xlBody); }
+  #Msg.code-01 .ucp--wrapper > form > .tableborder > table > tbody > tr th a {
+    color: var(--text-content); }
+    #Msg.code-01 .ucp--wrapper > form > .tableborder > table > tbody > tr th a b {
+      font-weight: 600; }
+
+#Msg.code-01 .ucp--wrapper > form > .tableborder > table > tbody > tr td {
+  font-size: var(--xsBody);
+  text-transform: uppercase;
+  letter-spacing: 0.1em; }
+  #Msg.code-01 .ucp--wrapper > form > .tableborder > table > tbody > tr td a {
+    color: var(--text-content);
+    font-weight: 600; }
+  #Msg.code-01 .ucp--wrapper > form > .tableborder > table > tbody > tr td:first-child:not(:only-child) {
+    font-size: var(--xlBody); }
+  #Msg.code-01 .ucp--wrapper > form > .tableborder > table > tbody > tr td:only-child {
+    padding-top: 15px; }
+
+#Msg.code-04 form > table > tbody > tr {
+  margin-bottom: 15px; }
+  #Msg.code-04 form > table > tbody > tr .pformstrip {
+    text-align: left;
+    font-size: var(--xlBody); }
+  #Msg.code-04 form > table > tbody > tr:first-child {
+    margin-bottom: 0; }
+    #Msg.code-04 form > table > tbody > tr:first-child .pformstrip {
+      margin-bottom: 0;
+      padding-bottom: 0; }
+  #Msg.code-04 form > table > tbody > tr:nth-child(2), #Msg.code-04 form > table > tbody > tr:nth-child(4), #Msg.code-04 form > table > tbody > tr:nth-child(5), #Msg.code-04 form > table > tbody > tr:nth-child(6), #Msg.code-04 form > table > tbody > tr:nth-last-child(3), #Msg.code-04 form > table > tbody > tr#code-buttons-header, #Msg.code-04 form > table > tbody > tr#enter-your-post-header {
+    display: none; }
+  #Msg.code-04 form > table > tbody > tr:nth-child(3) .pformleft {
+    display: none; }
+  #Msg.code-04 form > table > tbody > tr:nth-child(3) .pformright {
+    grid-column: 1 / -1;
+    padding: 0; }
+  #Msg.code-04 form > table > tbody > tr:nth-child(7) {
+    grid-template-columns: 100%;
+    gap: 0; }
+    #Msg.code-04 form > table > tbody > tr:nth-child(7) .pformleft {
+      border: none;
+      padding: 0; }
+      #Msg.code-04 form > table > tbody > tr:nth-child(7) .pformleft b {
+        border: 0;
+        font-size: var(--xlBody); }
+    #Msg.code-04 form > table > tbody > tr:nth-child(7) .pformright {
+      padding: 0; }
+  #Msg.code-04 form > table > tbody > tr:nth-last-child(2) .pformleft {
+    display: none; }
+  #Msg.code-04 form > table > tbody > tr:nth-last-child(2) .pformright {
+    grid-column: 1 / -1;
+    padding: 0;
+    justify-content: center; }
+    #Msg.code-04 form > table > tbody > tr:nth-last-child(2) .pformright br {
+      display: none; }
+  #Msg.code-04 form > table > tbody > tr#code-buttons {
+    display: block; }
+    #Msg.code-04 form > table > tbody > tr#code-buttons .pformleft {
+      display: none; }
+    #Msg.code-04 form > table > tbody > tr#code-buttons .pformright {
+      font-size: 0;
+      line-height: 0;
+      padding: 0; }
+      #Msg.code-04 form > table > tbody > tr#code-buttons .pformright > input,
+      #Msg.code-04 form > table > tbody > tr#code-buttons .pformright > br {
+        display: none; }
+      #Msg.code-04 form > table > tbody > tr#code-buttons .pformright #bbcode-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px; }
+        #Msg.code-04 form > table > tbody > tr#code-buttons .pformright #bbcode-buttons input,
+        #Msg.code-04 form > table > tbody > tr#code-buttons .pformright #bbcode-buttons select {
+          margin: 0;
+          background: var(--ltaccent-40);
+          width: auto;
+          text-transform: uppercase;
+          font-size: var(--xsBody);
+          line-height: 100%;
+          letter-spacing: 0.1em;
+          cursor: pointer; }
+        #Msg.code-04 form > table > tbody > tr#code-buttons .pformright #bbcode-buttons > a,
+        #Msg.code-04 form > table > tbody > tr#code-buttons .pformright #bbcode-buttons > br {
+          display: none; }
+  #Msg.code-04 form > table > tbody > tr#enter-your-post-header + tr {
+    display: block; }
+    #Msg.code-04 form > table > tbody > tr#enter-your-post-header + tr > td {
+      display: block; }
+      #Msg.code-04 form > table > tbody > tr#enter-your-post-header + tr > td.pformleft {
+        display: none; }
+      #Msg.code-04 form > table > tbody > tr#enter-your-post-header + tr > td.pformright {
+        padding: 0; }
+      #Msg.code-04 form > table > tbody > tr#enter-your-post-header + tr > td textarea {
+        width: 100%;
+        height: 400px;
+        box-sizing: border-box; }
+  #Msg.code-04 form > table > tbody > tr:last-child .pformstrip {
+    text-align: center; }
+
+#store.store-home .ucp--wrapper > table > tbody > tr {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 0 5px; }
+  #store.store-home .ucp--wrapper > table > tbody > tr:not(:last-child) {
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-main);
+    margin-bottom: 15px; }
+  #store.store-home .ucp--wrapper > table > tbody > tr a {
+    font-size: var(--xlBody);
+    color: var(--text-content);
+    font-family: var(--font-head);
+    text-transform: capitalize; }
+  #store.store-home .ucp--wrapper > table > tbody > tr td {
+    text-align: left;
+    padding: 0; }
+  #store.store-home .ucp--wrapper > table > tbody > tr:nth-child(1), #store.store-home .ucp--wrapper > table > tbody > tr:nth-child(2), #store.store-home .ucp--wrapper > table > tbody > tr:nth-child(3) {
+    display: none; }
+
+#store.store-shop .ucp--wrapper > table {
+  display: block; }
+  #store.store-shop .ucp--wrapper > table > tbody {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px; }
+    @media only screen and (min-width: 480px) {
+      #store.store-shop .ucp--wrapper > table > tbody {
+        gap: 15px; } }
+    #store.store-shop .ucp--wrapper > table > tbody > tr {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 10px;
+      border: 1px solid var(--border-main);
+      height: max-content;
+      flex: 0 0 100%; }
+      @media only screen and (min-width: 768px) {
+        #store.store-shop .ucp--wrapper > table > tbody > tr {
+          flex: 0 0 calc(50% - 7.5px); } }
+      @media only screen and (min-width: 1024px) {
+        #store.store-shop .ucp--wrapper > table > tbody > tr {
+          flex: 0 0 calc((100% / 3) - 10px); } }
+      #store.store-shop .ucp--wrapper > table > tbody > tr img {
+        width: 16px;
+        height: 16px; }
+      #store.store-shop .ucp--wrapper > table > tbody > tr > td {
+        padding: 0;
+        height: max-content;
+        text-align: left; }
+        #store.store-shop .ucp--wrapper > table > tbody > tr > td:first-child {
+          flex: 0 0 46px;
+          padding: 10px 0 0 10px; }
+          @media only screen and (min-width: 480px) {
+            #store.store-shop .ucp--wrapper > table > tbody > tr > td:first-child {
+              padding: 15px 0 0 15px; } }
+        #store.store-shop .ucp--wrapper > table > tbody > tr > td:nth-child(2) {
+          flex: 0 0 calc(100% - 56px);
+          padding: 10px 10px 0 0;
+          font-family: var(--font-head);
+          font-size: var(--xlBody);
+          font-weight: 600; }
+          @media only screen and (min-width: 480px) {
+            #store.store-shop .ucp--wrapper > table > tbody > tr > td:nth-child(2) {
+              padding: 15px 15px 0 0; } }
+        #store.store-shop .ucp--wrapper > table > tbody > tr > td:nth-child(3) {
+          flex: 0 0 calc(100% - 10px);
+          margin: 5px;
+          padding: 5px;
+          text-align: justify;
+          border-top: 1px solid var(--border-main);
+          border-bottom: 1px solid var(--border-main); }
+          @media only screen and (min-width: 480px) {
+            #store.store-shop .ucp--wrapper > table > tbody > tr > td:nth-child(3) {
+              flex: 0 0 calc(100% - 15px);
+              margin: 5px 7.5px; } }
+        #store.store-shop .ucp--wrapper > table > tbody > tr > td:nth-child(4), #store.store-shop .ucp--wrapper > table > tbody > tr > td:nth-child(5) {
+          flex: 0 0 calc(50% - 5px);
+          text-align: center;
+          text-transform: uppercase;
+          font-size: var(--xsBody);
+          letter-spacing: 0.1em;
+          font-weight: 600; }
+          #store.store-shop .ucp--wrapper > table > tbody > tr > td:nth-child(4)::after, #store.store-shop .ucp--wrapper > table > tbody > tr > td:nth-child(5)::after {
+            display: block;
+            font-weight: normal;
+            line-height: 100%; }
+        #store.store-shop .ucp--wrapper > table > tbody > tr > td:nth-child(4)::after {
+          content: 'Owned'; }
+        #store.store-shop .ucp--wrapper > table > tbody > tr > td:nth-child(5)::after {
+          content: 'In Stock'; }
+        #store.store-shop .ucp--wrapper > table > tbody > tr > td:nth-child(6) {
+          flex: 0 0 100%;
+          margin-top: 15px; }
+          #store.store-shop .ucp--wrapper > table > tbody > tr > td:nth-child(6) a {
+            display: block;
+            background: var(--ltaccent-40);
+            border-top: 1px solid var(--border-main);
+            text-align: center;
+            color: var(--text-content);
+            text-transform: uppercase;
+            font-size: var(--xsBody);
+            letter-spacing: 0.1em;
+            font-weight: 600; }
+        #store.store-shop .ucp--wrapper > table > tbody > tr > td:last-child {
+          display: none; }
+      #store.store-shop .ucp--wrapper > table > tbody > tr:first-child {
+        display: none; }
+      #store.store-shop .ucp--wrapper > table > tbody > tr:last-child {
+        flex: 0 0 calc(100% + 30px);
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        border: none;
+        background: var(--bg-alt);
+        margin: 0 -15px -15px;
+        padding: 10px; }
+        @media only screen and (min-width: 480px) {
+          #store.store-shop .ucp--wrapper > table > tbody > tr:last-child {
+            flex: 0 0 calc(100% + 60px);
+            margin: 15px -30px -30px;
+            padding: 15px; } }
+        #store.store-shop .ucp--wrapper > table > tbody > tr:last-child > td {
+          display: block;
+          flex: auto;
+          padding: 0; }
+          #store.store-shop .ucp--wrapper > table > tbody > tr:last-child > td.pformstrip {
+            font-family: var(--font-body);
+            font-size: var(--xsBody);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin: 0;
+            border: none; }
+            #store.store-shop .ucp--wrapper > table > tbody > tr:last-child > td.pformstrip::after {
+              display: none; }
+          #store.store-shop .ucp--wrapper > table > tbody > tr:last-child > td a {
+            color: var(--text-content);
+            font-weight: 600; }
+          #store.store-shop .ucp--wrapper > table > tbody > tr:last-child > td:nth-child(2) {
+            text-align: center; }
+          #store.store-shop .ucp--wrapper > table > tbody > tr:last-child > td:last-child {
+            text-align: right; }
+
+#store.store-inventory .ucp--wrapper > table {
+  display: block; }
+  #store.store-inventory .ucp--wrapper > table > tbody {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px; }
+    @media only screen and (min-width: 480px) {
+      #store.store-inventory .ucp--wrapper > table > tbody {
+        gap: 15px; } }
+    #store.store-inventory .ucp--wrapper > table > tbody > tr {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 10px;
+      border: 1px solid var(--border-main);
+      height: max-content;
+      flex: 0 0 100%; }
+      @media only screen and (min-width: 768px) {
+        #store.store-inventory .ucp--wrapper > table > tbody > tr {
+          flex: 0 0 calc(50% - 7.5px); } }
+      @media only screen and (min-width: 1024px) {
+        #store.store-inventory .ucp--wrapper > table > tbody > tr {
+          flex: 0 0 calc((100% / 3) - 10px); } }
+      #store.store-inventory .ucp--wrapper > table > tbody > tr img {
+        width: 16px;
+        height: 16px; }
+      #store.store-inventory .ucp--wrapper > table > tbody > tr > td {
+        padding: 0;
+        height: max-content;
+        text-align: left; }
+        #store.store-inventory .ucp--wrapper > table > tbody > tr > td:first-child {
+          flex: 0 0 46px;
+          padding: 10px 0 0 10px; }
+          @media only screen and (min-width: 480px) {
+            #store.store-inventory .ucp--wrapper > table > tbody > tr > td:first-child {
+              padding: 15px 0 0 15px; } }
+        #store.store-inventory .ucp--wrapper > table > tbody > tr > td:nth-child(2) {
+          flex: 0 0 calc(100% - 56px);
+          padding: 10px 10px 0 0;
+          font-family: var(--font-head);
+          font-size: var(--xlBody);
+          font-weight: 600; }
+          @media only screen and (min-width: 480px) {
+            #store.store-inventory .ucp--wrapper > table > tbody > tr > td:nth-child(2) {
+              padding: 15px 15px 0 0; } }
+        #store.store-inventory .ucp--wrapper > table > tbody > tr > td:nth-child(3) {
+          flex: 0 0 calc(100% - 10px);
+          margin: 5px;
+          padding: 5px;
+          text-align: justify;
+          border-top: 1px solid var(--border-main);
+          border-bottom: 1px solid var(--border-main); }
+          @media only screen and (min-width: 480px) {
+            #store.store-inventory .ucp--wrapper > table > tbody > tr > td:nth-child(3) {
+              flex: 0 0 calc(100% - 15px);
+              margin: 5px 7.5px; } }
+          #store.store-inventory .ucp--wrapper > table > tbody > tr > td:nth-child(3):empty {
+            display: none; }
+        #store.store-inventory .ucp--wrapper > table > tbody > tr > td:nth-child(4) {
+          flex: 0 0 100%;
+          text-align: center;
+          text-transform: uppercase;
+          font-size: var(--xsBody);
+          letter-spacing: 0.1em;
+          font-weight: 600; }
+          #store.store-inventory .ucp--wrapper > table > tbody > tr > td:nth-child(4)::after {
+            font-weight: normal;
+            line-height: 100%; }
+        #store.store-inventory .ucp--wrapper > table > tbody > tr > td:nth-child(4)::after {
+          content: ' Owned'; }
+        #store.store-inventory .ucp--wrapper > table > tbody > tr > td:nth-child(5) {
+          flex: 0 0 100%;
+          margin-top: 5px; }
+          #store.store-inventory .ucp--wrapper > table > tbody > tr > td:nth-child(5) a {
+            display: block;
+            background: var(--ltaccent-40);
+            border-top: 1px solid var(--border-main);
+            text-align: center;
+            color: var(--text-content);
+            text-transform: uppercase;
+            font-size: var(--xsBody);
+            letter-spacing: 0.1em;
+            font-weight: 600; }
+          #store.store-inventory .ucp--wrapper > table > tbody > tr > td:nth-child(5) br {
+            display: none; }
+      #store.store-inventory .ucp--wrapper > table > tbody > tr:first-child, #store.store-inventory .ucp--wrapper > table > tbody > tr:nth-child(2) {
+        display: grid;
+        grid-template-columns: max-content auto;
+        gap: 5px;
+        border: 0;
+        flex: 0 0 100%; }
+        #store.store-inventory .ucp--wrapper > table > tbody > tr:first-child > td, #store.store-inventory .ucp--wrapper > table > tbody > tr:nth-child(2) > td {
+          width: 100%;
+          padding: 0; }
+      #store.store-inventory .ucp--wrapper > table > tbody > tr:nth-child(3) {
+        display: none; }
+
+#store.store-donate_money .ucp--wrapper > table > tbody > tr:not(:last-child),
+#store.store-donate_item .ucp--wrapper > table > tbody > tr:not(:last-child),
+#store.store-fine .ucp--wrapper > table > tbody > tr:not(:last-child),
+#store.store-edit_points .ucp--wrapper > table > tbody > tr:not(:last-child),
+#store.store-do_edit_points .ucp--wrapper > table > tbody > tr:not(:last-child),
+#store.store-edit_inventory .ucp--wrapper > table > tbody > tr:not(:last-child) {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 15px; }
+  @media only screen and (min-width: 480px) {
+    #store.store-donate_money .ucp--wrapper > table > tbody > tr:not(:last-child),
+    #store.store-donate_item .ucp--wrapper > table > tbody > tr:not(:last-child),
+    #store.store-fine .ucp--wrapper > table > tbody > tr:not(:last-child),
+    #store.store-edit_points .ucp--wrapper > table > tbody > tr:not(:last-child),
+    #store.store-do_edit_points .ucp--wrapper > table > tbody > tr:not(:last-child),
+    #store.store-edit_inventory .ucp--wrapper > table > tbody > tr:not(:last-child) {
+      margin-bottom: 30px; } }
+  @media only screen and (min-width: 768px) {
+    #store.store-donate_money .ucp--wrapper > table > tbody > tr:not(:last-child),
+    #store.store-donate_item .ucp--wrapper > table > tbody > tr:not(:last-child),
+    #store.store-fine .ucp--wrapper > table > tbody > tr:not(:last-child),
+    #store.store-edit_points .ucp--wrapper > table > tbody > tr:not(:last-child),
+    #store.store-do_edit_points .ucp--wrapper > table > tbody > tr:not(:last-child),
+    #store.store-edit_inventory .ucp--wrapper > table > tbody > tr:not(:last-child) {
+      grid-template-columns: 250px calc(100% - 265px);
+      gap: 15px; } }
+  #store.store-donate_money .ucp--wrapper > table > tbody > tr:not(:last-child) > td,
+  #store.store-donate_item .ucp--wrapper > table > tbody > tr:not(:last-child) > td,
+  #store.store-fine .ucp--wrapper > table > tbody > tr:not(:last-child) > td,
+  #store.store-edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) > td,
+  #store.store-do_edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) > td,
+  #store.store-edit_inventory .ucp--wrapper > table > tbody > tr:not(:last-child) > td {
+    width: 100%; }
+  @media only screen and (min-width: 768px) {
+    #store.store-donate_money .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child,
+    #store.store-donate_item .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child,
+    #store.store-fine .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child,
+    #store.store-edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child,
+    #store.store-do_edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child,
+    #store.store-edit_inventory .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child {
+      padding: 15px 15px 15px 0;
+      border-right: 1px solid var(--border-main); } }
+  #store.store-donate_money .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child b,
+  #store.store-donate_money .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child strong,
+  #store.store-donate_money .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child label,
+  #store.store-donate_item .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child b,
+  #store.store-donate_item .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child strong,
+  #store.store-donate_item .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child label,
+  #store.store-fine .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child b,
+  #store.store-fine .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child strong,
+  #store.store-fine .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child label,
+  #store.store-edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child b,
+  #store.store-edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child strong,
+  #store.store-edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child label,
+  #store.store-do_edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child b,
+  #store.store-do_edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child strong,
+  #store.store-do_edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child label,
+  #store.store-edit_inventory .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child b,
+  #store.store-edit_inventory .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child strong,
+  #store.store-edit_inventory .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child label {
+    display: block;
+    font-family: var(--font-head);
+    font-size: var(--lBody);
+    font-weight: 600 !important;
+    border-bottom: 1px solid var(--border-main);
+    margin-bottom: 5px; }
+    #store.store-donate_money .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child b ~ br,
+    #store.store-donate_money .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child strong ~ br,
+    #store.store-donate_money .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child label ~ br,
+    #store.store-donate_item .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child b ~ br,
+    #store.store-donate_item .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child strong ~ br,
+    #store.store-donate_item .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child label ~ br,
+    #store.store-fine .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child b ~ br,
+    #store.store-fine .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child strong ~ br,
+    #store.store-fine .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child label ~ br,
+    #store.store-edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child b ~ br,
+    #store.store-edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child strong ~ br,
+    #store.store-edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child label ~ br,
+    #store.store-do_edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child b ~ br,
+    #store.store-do_edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child strong ~ br,
+    #store.store-do_edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child label ~ br,
+    #store.store-edit_inventory .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child b ~ br,
+    #store.store-edit_inventory .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child strong ~ br,
+    #store.store-edit_inventory .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft:first-child label ~ br {
+      display: none; }
+  #store.store-donate_money .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft,
+  #store.store-donate_item .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft,
+  #store.store-fine .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft,
+  #store.store-edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft,
+  #store.store-do_edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft,
+  #store.store-edit_inventory .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft {
+    display: flex;
+    gap: 5px;
+    height: max-content; }
+    @media only screen and (min-width: 768px) {
+      #store.store-donate_money .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft,
+      #store.store-donate_item .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft,
+      #store.store-fine .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft,
+      #store.store-edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft,
+      #store.store-do_edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft,
+      #store.store-edit_inventory .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft {
+        padding: 15px 0 15px 15px; } }
+    #store.store-donate_money .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft select,
+    #store.store-donate_item .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft select,
+    #store.store-fine .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft select,
+    #store.store-edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft select,
+    #store.store-do_edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft select,
+    #store.store-edit_inventory .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft select {
+      margin: 0;
+      line-height: 200%;
+      padding: 5px 10px;
+      background: var(--bg-alt);
+      font-weight: 600; }
+    #store.store-donate_money .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft input,
+    #store.store-donate_money .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft textarea,
+    #store.store-donate_item .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft input,
+    #store.store-donate_item .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft textarea,
+    #store.store-fine .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft input,
+    #store.store-fine .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft textarea,
+    #store.store-edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft input,
+    #store.store-edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft textarea,
+    #store.store-do_edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft input,
+    #store.store-do_edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft textarea,
+    #store.store-edit_inventory .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft input,
+    #store.store-edit_inventory .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft textarea {
+      margin: 0;
+      width: 100%;
+      font-size: var(--mBody);
+      line-height: 200%;
+      padding: 5px 10px;
+      letter-spacing: 0;
+      background: var(--bg-alt); }
+    #store.store-donate_money .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft input,
+    #store.store-donate_item .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft input,
+    #store.store-fine .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft input,
+    #store.store-edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft input,
+    #store.store-do_edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft input,
+    #store.store-edit_inventory .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft input {
+      text-transform: none; }
+    #store.store-donate_money .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft textarea,
+    #store.store-donate_item .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft textarea,
+    #store.store-fine .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft textarea,
+    #store.store-edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft textarea,
+    #store.store-do_edit_points .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft textarea,
+    #store.store-edit_inventory .ucp--wrapper > table > tbody > tr:not(:last-child) .pformleft + .pformleft textarea {
+      font-family: var(--font-body); }
+
+#store.store-donate_money .ucp--wrapper > table > tbody > tr:last-child input,
+#store.store-donate_item .ucp--wrapper > table > tbody > tr:last-child input,
+#store.store-fine .ucp--wrapper > table > tbody > tr:last-child input,
+#store.store-edit_points .ucp--wrapper > table > tbody > tr:last-child input,
+#store.store-do_edit_points .ucp--wrapper > table > tbody > tr:last-child input,
+#store.store-edit_inventory .ucp--wrapper > table > tbody > tr:last-child input {
+  background: var(--ltaccent-40); }
+
+#store.store-do_staff_inventory .ucp--wrapper > table {
+  display: block; }
+  #store.store-do_staff_inventory .ucp--wrapper > table > tbody {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px; }
+    @media only screen and (min-width: 480px) {
+      #store.store-do_staff_inventory .ucp--wrapper > table > tbody {
+        gap: 15px; } }
+    #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 10px;
+      border: 1px solid var(--border-main);
+      height: max-content;
+      flex: 0 0 100%; }
+      @media only screen and (min-width: 768px) {
+        #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr {
+          flex: 0 0 calc(50% - 7.5px); } }
+      @media only screen and (min-width: 1024px) {
+        #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr {
+          flex: 0 0 calc((100% / 3) - 10px); } }
+      #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr img {
+        width: 16px;
+        height: 16px; }
+      #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr > td {
+        padding: 0;
+        height: max-content;
+        text-align: left; }
+        #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr > td:first-child {
+          flex: 0 0 46px;
+          padding: 10px 0 0 10px; }
+          @media only screen and (min-width: 480px) {
+            #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr > td:first-child {
+              padding: 15px 0 0 15px; } }
+        #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr > td:nth-child(2) {
+          flex: 0 0 calc(100% - 56px);
+          padding: 10px 10px 0 0;
+          font-family: var(--font-head);
+          font-size: var(--xlBody);
+          font-weight: 600; }
+          @media only screen and (min-width: 480px) {
+            #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr > td:nth-child(2) {
+              padding: 15px 15px 0 0; } }
+        #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr > td:nth-child(3) {
+          flex: 0 0 calc(100% - 10px);
+          margin: 5px;
+          padding: 5px;
+          text-align: justify;
+          border-top: 1px solid var(--border-main);
+          border-bottom: 1px solid var(--border-main); }
+          @media only screen and (min-width: 480px) {
+            #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr > td:nth-child(3) {
+              flex: 0 0 calc(100% - 15px);
+              margin: 5px 7.5px; } }
+          #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr > td:nth-child(3):empty {
+            display: none; }
+        #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr > td:nth-child(4) {
+          display: none; }
+        #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr > td:nth-child(5) {
+          background: var(--bg-alt);
+          flex: 0 0 100%;
+          margin-top: 5px; }
+          #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr > td:nth-child(5) .input-wrap {
+            padding: 5px; }
+            #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr > td:nth-child(5) .input-wrap::after {
+              content: 'Delete';
+              text-transform: uppercase;
+              letter-spacing: 0.1em;
+              font-weight: 600;
+              color: var(--text-content);
+              font-size: var(--xsBody); }
+      #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr:first-child, #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr:nth-last-child(2) {
+        display: none; }
+      #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr:last-child {
+        flex: 0 0 100%;
+        border: none; }
+        #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr:last-child td {
+          flex: 0 0 100%; }
+          #store.store-do_staff_inventory .ucp--wrapper > table > tbody > tr:last-child td input {
+            background: var(--ltaccent-40); }

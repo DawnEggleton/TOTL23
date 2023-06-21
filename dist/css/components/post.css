@@ -427,3 +427,27 @@
       font-size: 30px; }
     .post--warning:empty {
       display: none; }
+
+.quick-edit {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0 30px; }
+  .quick-edit .editor {
+    flex: 0 0 100%;
+    margin: 0; }
+    .quick-edit .editor textarea {
+      margin: 0; }
+  .quick-edit .buttons,
+  .quick-edit .right-buttons {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 5px; }
+    .quick-edit .buttons a,
+    .quick-edit .right-buttons a {
+      font-family: var(--font-body);
+      font-size: var(--xsBody);
+      color: var(--text-content);
+      margin-left: 5px; }
+  .quick-edit input {
+    margin: 0; }

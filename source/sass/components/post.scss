@@ -601,3 +601,37 @@
         }
     }
 }
+
+.quick-edit {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0 30px;
+
+    .editor {
+        flex: 0 0 100%;
+        margin: 0;
+        
+        textarea {
+            margin: 0;
+        }
+    }
+
+    .buttons,
+    .right-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 5px;
+
+        a {
+            font-family: var(--font-body);
+            font-size: var(--xsBody);
+            color: var(--text-content);
+            margin-left: 5px;
+        }
+    }
+
+    input {
+        margin: 0;
+    }
+}
