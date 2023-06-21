@@ -867,6 +867,26 @@ function showAccField(field) {
 function insertCPHeader (title, field, identifier) {
 	$(field).before(`<tr class="pformstrip ucp--header"><td>${title}</td></tr>`);
 }
+function read_alerts() {
+  $('#recent-alerts').fadeOut();
+  $.get( "index.php?recent_alerts=1&read=1", function( data ) {
+      $( "#recent_alerts_data" ).html( data );
+  });
+  document.querySelectorAll('a[title="Alerts"]').forEach(alert => alert.classList.remove('new'));
+}
+function close_alerts() {
+  $('#recent-alerts').fadeOut();
+}
+function load_alerts() {
+  if($('#recent-alerts').is(':visible')) {
+      $('#recent-alerts').fadeOut();
+  } else {
+      $.get( "?recent_alerts=1", function( data ) {
+          $( "#recent-alerts-data" ).html( data );
+      });
+      $("#recent-alerts").fadeIn();
+  }
+}
 
 //Filters
 function filterValue(e) {

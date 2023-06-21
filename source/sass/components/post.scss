@@ -158,9 +158,22 @@
         .bar {
             font-size: 0;
             padding: 15px 15px 0 !important;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
 
             @media only screen and (min-width: $sm) {
                 padding: 30px 30px 0 !important;
+                gap: 30px;
+            }
+
+            & > div {
+                float: none;
+
+                &:first-child {
+                    order: 2;
+                }
             }
 
             & > input,
@@ -170,6 +183,139 @@
 
             & > br + br {
                 display: none;
+            }
+        }
+
+        #qr_open {
+            margin: 15px 15px 0;
+        
+            @media only screen and (min-width: $sm) {
+                margin: 30px 30px 0;
+            }
+        
+            @media only screen and (min-width: $xxl) {
+                margin: 30px auto 0;
+                max-width: 1300px;
+            }
+            
+            .maintitle {
+                font-family: var(--font-head);
+                text-align: center;
+                line-height: 200%;
+                font-size: calc(var(--xlBody) + 16px);
+                padding: 60px 0 15px 0;
+                margin-bottom: 15px;
+
+                @media only screen and (min-width: $xs) {
+                    padding: 30px 0 15px 0;
+                    margin-bottom: 30px;
+                }
+        
+                &::after {
+                    content: '';
+                    height: 1px;
+                    width: 50px;
+                    background: var(--text-body);
+                    position: absolute;
+                    bottom: 0;
+                    left: calc(50% - 25px);
+                }
+            }
+            
+            .tablepad {
+                font-size: 0;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+
+                @media only screen and (min-width: $xs) {
+                    gap: 30px;
+                }
+
+                #post_as_selector,
+                textarea,
+                .qr_buttons {
+                    grid-column: 1 / -1;
+                    max-width: 800px;
+                    margin: 0 auto;
+                    line-height: 200%;
+                }
+
+                a,
+                br {
+                    display: none;
+                }
+                .input-wrap {
+                    &:first-of-type {
+                        justify-self: end;
+                    }
+                    p {
+                        font-size: var(--xsBody);
+                        text-transform: uppercase;
+                        color: var(--text-body);
+                        letter-spacing: 0.1em;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+
+        #topic_open {
+            margin: 0 15px;
+        
+            @media only screen and (min-width: $sm) {
+                margin: 0 30px;
+            }
+        
+            @media only screen and (min-width: $xxl) {
+                margin: 0 auto;
+                max-width: 1300px;
+            }
+            
+            .maintitle {
+                font-family: var(--font-head);
+                text-align: center;
+                line-height: 200%;
+                font-size: calc(var(--xlBody) + 16px);
+                padding: 60px 0 15px 0;
+                margin-bottom: 15px;
+
+                @media only screen and (min-width: $xs) {
+                    padding: 30px 0 15px 0;
+                    margin-bottom: 30px;
+                }
+
+                a {
+                    color: var(--text-body);
+                }
+        
+                &::after {
+                    content: '';
+                    height: 1px;
+                    width: 50px;
+                    background: var(--text-body);
+                    position: absolute;
+                    bottom: 0;
+                    left: calc(50% - 25px);
+                }
+            }
+
+            .tablepad {
+                background: var(--bg-content);
+                color: var(--text-content);
+                max-width: max-content;
+                padding: 15px;
+                margin: 0 auto;
+
+                @media only screen and (min-width: $sm) {
+                    padding: 30px;
+                }
+
+                a {
+                    font-family: var(--font-head);
+                    font-size: var(--xlBody);
+                    text-transform: capitalize;
+                    color: var(--text-content);
+                }
             }
         }
     }
@@ -186,6 +332,12 @@
     @media only screen and (min-width: $xxl) {
         margin: 45px auto;
         max-width: 1300px;
+    }
+
+    &:first-of-type {
+        .staffOnly {
+            display: none !important;
+        }
     }
 
     &--topper {

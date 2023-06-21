@@ -65,6 +65,19 @@ if(pageID === 'ST') {
     initAvatarPopout();
     document.querySelectorAll('.post.g-4 .charOnly, .post.g-6 .charOnly, .post.g-3.acc-Member .charOnly').forEach(el => el.remove());
     initCopyLink();
+    document.querySelector('#qr_open .tablepad').innerHTML = document.querySelector('#qr_open .tablepad').innerHTML.replace('|', '');
+    let textNodes = getAllTextNodes(document.querySelector('#qr_open .tablepad'));
+    textNodes.forEach(node => {
+        const paragraph = document.createElement('p');
+        node.after(paragraph);
+        paragraph.appendChild(node);
+        paragraph.innerText = paragraph.innerText.replace(`|`, ``).trim();
+    });
+    document.querySelectorAll(`#qr_open input[type="checkbox"]`).forEach(input => inputWrap(input));
+    document.querySelectorAll('#qr_open .input-wrap').forEach(label => {
+        label.querySelector('input').insertAdjacentHTML('afterend', `<div class="fancy-input checkbox"><i class="fa-regular fa-check"></i></div>`);
+    });
+    $('#qr_open .tablepad > input').wrapAll('<div class="qr_buttons"></div>');
 }
 
 //init members

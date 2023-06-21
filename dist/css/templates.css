@@ -29,6 +29,26 @@
   --ltaccent: rgba(87, 188, 210, 1);
   --ltaccent-40: rgba(87, 188, 210, 0.40);
   --ltaccent-55: rgba(87, 188, 210, 0.55);
+  --prideGradient: linear-gradient(
+		to bottom right,
+		rgba(230, 30, 40, 1),
+		rgba(230, 30, 40, 1) 10%,
+
+		rgba(247,141,31, 1) 20%,
+		rgba(247,141,31, 1) 25%,
+
+		rgba(249,239,19, 1) 35%,
+		rgba(249,239,19, 1) 40%,
+
+		rgba(13,128,63, 1) 50%,
+		rgba(13,128,63, 1) 65%,
+
+		rgba(62,95,172, 1) 75%,
+		rgba(62,95,172, 1) 80%,
+
+		rgba(115,42,132, 1) 90%,
+		rgba(115,42,132, 1)
+	);
   --bg-image: url(https://files.jcink.net/uploads/totl/TOTL23/bg_default_min.jpg);
   --opacity-colorover: 0.6; }
   :root .g-1,
@@ -231,6 +251,246 @@
   --text-content-hover: var(--white);
   --text-body: var(--offWhite);
   --border-main: var(--mlGrey); }
+
+/* aro */
+.pride-aromantic {
+  --prideGradient: linear-gradient(
+		to bottom right,
+		rgba(61,166,73, 1),
+		rgba(61,166,73, 1) 15%,
+
+		rgba(166,210,121, 1) 25%,
+		rgba(166,210,121, 1) 35%,
+
+		rgba(255,255,255, 1) 45%,
+		rgba(255,255,255, 1) 55%,
+
+		rgba(170,170,170, 1) 65%,
+		rgba(170,170,170, 1) 75%,
+
+		rgba(4,8,7, 1) 85%,
+		rgba(4,8,7, 1)
+	); }
+  .pride-aromantic .pride--inner span::before {
+    content: 'aro pride'; }
+
+/* ace */
+.pride-asexual {
+  --prideGradient: linear-gradient(
+		to bottom right,
+		rgba(101,34,103, 1),
+		rgba(101,34,103, 1) 20%,
+
+		rgba(255,255,255, 1) 30%,
+		rgba(255,255,255, 1) 45%,
+
+		rgba(125,129,128, 1) 55%,
+		rgba(125,129,128, 1) 70%,
+
+		rgba(5,9,8, 1) 80%,
+		rgba(5,9,8, 1)
+	); }
+  .pride-asexual .pride--inner span::before {
+    content: 'ace pride'; }
+
+/* bi */
+.pride-bisexual {
+  --prideGradient: linear-gradient(
+		to bottom right,
+		rgba(214,24,114, 1),
+		rgba(214,24,114, 1) 35%,
+
+		rgba(156,79,151, 1)45%,
+		rgba(156,79,151, 1) 55%,
+
+		rgba(29,66,154, 1) 65%,
+		rgba(29,66,154, 1)
+	); }
+  .pride-bisexual .pride--inner span::before {
+    content: 'bi pride'; }
+
+/* demi */
+.pride-demisexual {
+  --prideGradient: linear-gradient(
+		to bottom right,
+		rgba(255,255,255, 1),
+		rgba(255,255,255, 1) 28%,
+
+		rgba(118,7,137, 1) 38%,
+		rgba(118,7,137, 1) 61%,
+
+		rgba(178,178,178, 1) 71%,
+		rgba(178,178,178, 1)
+	); }
+  .pride-demisexual .pride--inner span::before {
+    content: 'demi pride'; }
+
+/* mlm */
+.pride-gay {
+  --prideGradient: linear-gradient(
+		to bottom right,
+		rgba(2,144,112, 1),
+		rgba(2,144,112, 1) 11%,
+
+		rgba(1,201,188, 1) 17%,
+		rgba(1,201,188, 1) 25%,
+
+		rgba(135,238,238, 1) 31%,
+		rgba(135,238,238, 1) 39%,
+
+		rgba(255,255,255, 1) 45%,
+		rgba(255,255,255, 1) 55%,
+
+		rgba(125,202,249, 1) 61%,
+		rgba(125,202,249, 1) 69%,
+
+		rgba(3,156,241, 1) 75%,
+		rgba(3,156,241, 1) 83%,
+
+		rgba(1,42,138, 1) 89%,
+		rgba(1,42,138, 1)
+	); }
+  .pride-gay .pride--inner span::before {
+    content: 'mlm pride'; }
+
+/* genderfluid */
+.pride-genderfluid {
+  --prideGradient: linear-gradient(
+		to bottom right,
+		rgba(242,114,162, 1),
+		rgba(242,114,162, 1) 15%,
+
+		rgba(255,255,255, 1) 25%,
+		rgba(255,255,255, 1) 35%,
+
+		rgba(157,72,157, 1) 45%,
+		rgba(157,72,157, 1) 55%,
+
+		rgba(4,8,7, 1) 65%,
+		rgba(4,8,7, 1) 75%,
+
+		rgba(65,77,161, 1) 85%,
+		rgba(65,77,161, 1)
+	); }
+  .pride-genderfluid .pride--inner span::before {
+    content: 'fluid pride'; }
+
+/* genderqueer */
+.pride-genderqueer {
+  --prideGradient: linear-gradient(
+		to bottom right,
+		rgba(167,128,183, 1),
+		rgba(167,128,183, 1) 28%,
+
+		rgba(255,255,255, 1) 38%,
+		rgba(255,255,255, 1) 61%,
+
+		rgba(74,131,60, 1) 71%,
+		rgba(74,131,60, 1)
+	); }
+  .pride-genderqueer .pride--inner span::before {
+    content: 'gq pride'; }
+
+/* intersex */
+.pride-intersex {
+  --prideGradient: linear-gradient(
+		to bottom right,
+		rgba(252,216,0, 1),
+		rgba(252,216,0, 1) 50%,
+
+		rgba(115,54,149, 1) 70%,
+		rgba(115,54,149, 1) 70%,
+
+		rgba(252,216,0, 1) 90%,
+		rgba(252,216,0, 1)
+	); }
+  .pride-intersex .pride--inner span::before {
+    content: 'intersex pride'; }
+
+/* wlw */
+.pride-lesbian {
+  --prideGradient: linear-gradient(
+		to bottom right,
+		rgba(163,33,103, 1),
+		rgba(163,33,103, 1) 11%,
+
+		rgba(184,85,149, 1) 17%,
+		rgba(184,85,149, 1) 25%,
+
+		rgba(209,101,163, 1) 31%,
+		rgba(209,101,163, 1) 39%,
+
+		rgba(239,239,239, 1) 45%,
+		rgba(239,239,239, 1) 55%,
+
+		rgba(229,172,205, 1) 61%,
+		rgba(229,172,205, 1) 69%,
+
+		rgba(199,78,83, 1) 75%,
+		rgba(199,78,83, 1) 83%,
+
+		rgba(141,33,31, 1) 89%,
+		rgba(141,33,31, 1)
+	); }
+  .pride-lesbian .pride--inner span::before {
+    content: 'wlw pride'; }
+
+/* nb */
+.pride-nonbinary {
+  --prideGradient: linear-gradient(
+		to bottom right,
+		rgba(245,237,68, 1),
+		rgba(245,237,68, 1) 20%,
+
+		rgba(255,255,255, 1) 30%,
+		rgba(255,255,255, 1) 45%,
+
+		rgba(137,96,166, 1) 55%,
+		rgba(137,96,166, 1) 70%,
+
+		rgba(44,44,44, 1) 80%,
+		rgba(44,44,44, 1)
+	); }
+  .pride-nonbinary .pride--inner span::before {
+    content: 'nb pride'; }
+
+/* pan */
+.pride-pansexual {
+  --prideGradient: linear-gradient(
+		to bottom right,
+		rgba(235,29,140, 1),
+		rgba(235,29,140, 1) 28%,
+
+		rgba(246,218,10, 1) 38%,
+		rgba(246,218,10, 1) 61%,
+
+		rgba(68,170,219, 1) 71%,
+		rgba(68,170,219, 1)
+	); }
+  .pride-pansexual .pride--inner span::before {
+    content: 'pan pride'; }
+
+/* trans */
+.pride-transgender {
+  --prideGradient: linear-gradient(
+		to bottom right,
+		rgba(95,204,245, 1),
+		rgba(95,204,245, 1) 15%,
+
+		rgba(246,169,185, 1) 25%,
+		rgba(246,169,185, 1) 35%,
+
+		rgba(255,255,255, 1) 45%,
+		rgba(255,255,255, 1) 55%,
+
+		rgba(246,169,185, 1) 65%,
+		rgba(246,169,185, 1) 75%,
+
+		rgba(95,204,245, 1) 85%,
+		rgba(95,204,245, 1)
+	); }
+  .pride-transgender .pride--inner span::before {
+    content: 'trans pride'; }
 
 .hide,
 .hideEl {
